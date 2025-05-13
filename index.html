@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>StatMint</title>
   <style>
     body {
@@ -16,18 +15,37 @@
     header {
       background-color: #0057d9;
       color: white;
-      padding: 2rem;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    header img {
+      height: 40px;
+    }
+    nav a {
+      margin: 0 1rem;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .search-bar {
+      margin: 2rem auto;
       text-align: center;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    .search-bar input {
+      width: 80%;
+      max-width: 500px;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
     }
-    header p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-    }
-    main {
+    .stat-container {
       padding: 2rem;
       max-width: 800px;
       margin: auto;
@@ -37,71 +55,65 @@
       padding: 1.5rem;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      text-align: center;
       margin-bottom: 2rem;
     }
     .stat-box h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
     }
     .source {
       font-size: 0.9rem;
       color: #555;
     }
-    button {
-      background-color: #0057d9;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      cursor: pointer;
+    .source a {
+      color: #0057d9;
+      text-decoration: none;
     }
-    button:hover {
-      background-color: #0047b3;
+    .source a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>StatMint</h1>
-    <p>Evolving how people discover and share statistics.</p>
+    <img src="logo.png" alt="StatMint Logo">
+    <nav>
+      <a href="#health">Healthcare</a>
+      <a href="#money">Money</a>
+      <a href="#education">Education</a>
+      <a href="#tech">Technology</a>
+      <a href="#funny">Funny</a>
+      <a href="#odds">Odds</a>
+    </nav>
   </header>
 
-  <main>
-    <div class="stat-box" id="statBox">
-      <h2 id="statText">"More people die to vending machines than sharks each year."</h2>
-      <p class="source" id="sourceText">Source: National Safety Council</p>
+  <div class="search-bar">
+    <input type="text" id="searchInput" onkeyup="searchStats()" placeholder="Search for a statistic...">
+  </div>
+
+  <div class="stat-container" id="statContainer">
+    <div class="stat-box" data-category="health">
+      <h2>"1 in 8 women will be diagnosed with breast cancer in their lifetime."</h2>
+      <p class="source">Source: <a href="https://www.breastcancer.org" target="_blank">BreastCancer.org</a></p>
     </div>
-    <div style="text-align: center;">
-      <button onclick="loadRandomStat()">Show Me Another Stat</button>
+    <div class="stat-box" data-category="funny">
+      <h2>"You’re more likely to be killed by a vending machine than a shark."</h2>
+      <p class="source">Source: <a href="https://www.nsc.org" target="_blank">National Safety Council</a></p>
     </div>
-  </main>
+    <div class="stat-box" data-category="money">
+      <h2>"The average American has over $90,000 in debt."</h2>
+      <p class="source">Source: <a href="https://www.experian.com/blogs/news/2021/08/average-american-debt-by-type/" target="_blank">Experian</a></p>
+    </div>
+  </div>
 
   <script>
-    const stats = [
-      {
-        text: "More people die to vending machines than sharks each year.",
-        source: "National Safety Council"
-      },
-      {
-        text: "You’re more likely to be killed by a champagne cork than a spider.",
-        source: "British Medical Journal"
-      },
-      {
-        text: "The odds of winning the Powerball are 1 in 292 million.",
-        source: "Powerball.com"
-      },
-      {
-        text: "There are more plastic flamingos in the U.S. than real ones.",
-        source: "Audubon Society"
-      }
-    ];
-
-    function loadRandomStat() {
-      const random = stats[Math.floor(Math.random() * stats.length)];
-      document.getElementById('statText').innerText = '"' + random.text + '"';
-      document.getElementById('sourceText').innerText = 'Source: ' + random.source;
+    function searchStats() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const stats = document.querySelectorAll('.stat-box');
+      stats.forEach(stat => {
+        const text = stat.innerText.toLowerCase();
+        stat.style.display = text.includes(input) ? 'block' : 'none';
+      });
     }
   </script>
 </body>
