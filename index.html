@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StatMint</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f9fc;
+      margin: 0;
+      padding: 0;
+      color: #1a1a1a;
+    }
+    header {
+      background-color: #0057d9;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+    main {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    .stat-box {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .stat-box h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .source {
+      font-size: 0.9rem;
+      color: #555;
+    }
+    button {
+      background-color: #0057d9;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0047b3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>StatMint</h1>
+    <p>Evolving how people discover and share statistics.</p>
+  </header>
+
+  <main>
+    <div class="stat-box" id="statBox">
+      <h2 id="statText">"More people die to vending machines than sharks each year."</h2>
+      <p class="source" id="sourceText">Source: National Safety Council</p>
+    </div>
+    <div style="text-align: center;">
+      <button onclick="loadRandomStat()">Show Me Another Stat</button>
+    </div>
+  </main>
+
+  <script>
+    const stats = [
+      {
+        text: "More people die to vending machines than sharks each year.",
+        source: "National Safety Council"
+      },
+      {
+        text: "You’re more likely to be killed by a champagne cork than a spider.",
+        source: "British Medical Journal"
+      },
+      {
+        text: "The odds of winning the Powerball are 1 in 292 million.",
+        source: "Powerball.com"
+      },
+      {
+        text: "There are more plastic flamingos in the U.S. than real ones.",
+        source: "Audubon Society"
+      }
+    ];
+
+    function loadRandomStat() {
+      const random = stats[Math.floor(Math.random() * stats.length)];
+      document.getElementById('statText').innerText = '"' + random.text + '"';
+      document.getElementById('sourceText').innerText = 'Source: ' + random.source;
+    }
+  </script>
+</body>
+</html>
