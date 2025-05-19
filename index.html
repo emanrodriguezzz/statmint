@@ -10,8 +10,8 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
-      --accent-color: #4b0082;
-      --highlight-color: #29abe2;
+      --accent-color: #003366;
+      --highlight-color: #1877F2;$1
       background: url('./statmintbackground.png') no-repeat center center fixed;
       background-size: cover;
       background-color: #f4f6f9;
@@ -134,8 +134,7 @@
       </a>
           <nav>
   <a href="#" onclick="filterCategory('home')">Home</a>
-  <a href="#" onclick="filterCategory('top')">Top Stats Now</a>
-  <a href="#" onclick="filterCategory('finance')">Finance</a>
+    <a href="#" onclick="filterCategory('finance')">Finance</a>
   <a href="#" onclick="filterCategory('tech')">Technology</a>
   <a href="#" onclick="filterCategory('health')">Healthcare</a>
   <a href="#" onclick="filterCategory('odds')">Odds</a>
@@ -148,28 +147,28 @@
     <p>StatMint is your go-to source for trustworthy, timely, and thought-provoking statistics. We turn complex data into digestible insights, using stories and visuals to make information meaningful and actionable. Explore by category or scroll through the top trends shaping the world today.</p>
   </section>
 
+  <section class="stat-cards" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; padding: 3rem 2rem;" data-category="home">
+    <div style="background: white; border-radius: 12px; padding: 1.5rem 2rem; width: 280px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); animation: fadeIn 1s ease-out forwards; opacity: 0; transform: translateY(20px);">
+      <h3 style="color: var(--accent-color); font-size: 1.5rem; margin-bottom: 0.5rem;">1 in 3 adults</h3>
+      <p style="color: #333; font-size: 1rem;">suffers from high blood pressure globally.</p>
+    </div>
+    <div style="background: white; border-radius: 12px; padding: 1.5rem 2rem; width: 280px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); animation: fadeIn 1.5s ease-out forwards; opacity: 0; transform: translateY(20px);">
+      <h3 style="color: var(--accent-color); font-size: 1.5rem; margin-bottom: 0.5rem;">$94,000+</h3>
+      <p style="color: #333; font-size: 1rem;">Average U.S. household debt in 2023.</p>
+    </div>
+    <div style="background: white; border-radius: 12px; padding: 1.5rem 2rem; width: 280px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); animation: fadeIn 2s ease-out forwards; opacity: 0; transform: translateY(20px);">
+      <h3 style="color: var(--accent-color); font-size: 1.5rem; margin-bottom: 0.5rem;">45%</h3>
+      <p style="color: #333; font-size: 1rem;">of global internet users are under age 25.</p>
+    </div>
+  </section>
+
   <div class="search-bar">
     <input type="text" id="searchInput" onkeyup="searchStats()" placeholder="Search a stat or topic (e.g. 'life expectancy')...">
   </div>
 
   
 
-  <div class="stat-container" data-category="top">
-    <h2 class="section-title" style="color: white;">Top Stats Now</h2>
-    <div class="article" style="color: white;">
-      <h3 style="color: white;">Global Birth Rates Are Falling — And the World Isn’t Ready</h3>
-      <img src="/images/global_birth_rate_detailed.png" alt="Global Birth Rate Chart">
-      <p>Over the past 60 years, the global birth rate has declined by nearly 50%, dropping from 36.4 births per 1,000 people in 1960 to just 18.5 in 2020. This significant decrease is changing the face of societies worldwide — from the composition of workforces to the design of social welfare systems.</p>
-      <p>According to the <a href="https://data.worldbank.org/indicator/SP.DYN.CBRT.IN" target="_blank">World Bank</a>, much of this drop stems from industrialization, urbanization, and increasing education among women. Developed nations are seeing birth rates well below the replacement level of 2.1 children per woman. In 2023, <strong>South Korea</strong> recorded a fertility rate of just <strong>0.72</strong> — the lowest in the world (<a href="https://kostat.go.kr" target="_blank">Statistics Korea</a>).</p>
-      <p>Other nations are following similar paths. <strong>Japan’s</strong> fertility rate stood at 1.3 in 2023, and the <strong>U.S.</strong> birth rate was 11.0 per 1,000 people in 2022, down from 14.4 in 2000 (<a href="https://www.cdc.gov/nchs/data/nvsr/nvsr72/nvsr72-02.pdf" target="_blank">CDC, 2023</a>).</p>
-      <p>The implications are vast: fewer working-age individuals must support a growing elderly population. This puts pressure on pensions, healthcare, and GDP growth. The <a href="https://population.un.org/wpp/" target="_blank">UN Population Division</a> projects that by 2050, one in six people globally will be over 65 — compared to one in eleven in 2019.</p>
-      <p>As the world grapples with this quiet demographic shift, policymakers, economists, and businesses will need to rethink everything from immigration strategies to housing and job markets. The data is clear — fewer births today mean a dramatically different tomorrow.</p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/World_map_fertility_rate_2020.svg/1024px-World_map_fertility_rate_2020.svg.png" alt="World Fertility Map">
-      <p class="source">Sources: <a href="https://data.worldbank.org/indicator/SP.DYN.CBRT.IN" target="_blank">World Bank</a>, <a href="https://www.cdc.gov/nchs/data/nvsr/nvsr72/nvsr72-02.pdf" target="_blank">CDC</a>, <a href="https://population.un.org/wpp/" target="_blank">United Nations</a>, <a href="https://kostat.go.kr" target="_blank">Statistics Korea</a></p>
-    </div>
-  </div>
-
-  <section class="newsletter">
+  
     <h2>Get Stats Delivered to Your Inbox</h2>
     <p>Join our free newsletter to receive weekly insights on data that matters.</p>
     <form onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
@@ -190,6 +189,10 @@
 </footer>
 
   <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      filterCategory('home');
+    });
+
     function searchStats() {
       const input = document.getElementById('searchInput').value.toLowerCase();
       const stats = document.querySelectorAll('.stat-box, .article, .hero, .newsletter');
