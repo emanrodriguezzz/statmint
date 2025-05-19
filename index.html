@@ -183,9 +183,22 @@
         }]
       },
       options: {
+        plugins: {
+          legend: {
+            labels: {
+              color: 'white'
+            }
+          }
+        },
         scales: {
+          x: {
+            ticks: { color: 'white' },
+            grid: { color: 'rgba(255,255,255,0.1)' }
+          },
           y: {
-            beginAtZero: false
+            beginAtZero: false,
+            ticks: { color: 'white' },
+            grid: { color: 'rgba(255,255,255,0.1)' }
           }
         }
       }
@@ -210,9 +223,22 @@
         }]
       },
       options: {
+        plugins: {
+          legend: {
+            labels: {
+              color: 'white'
+            }
+          }
+        },
         scales: {
+          x: {
+            ticks: { color: 'white' },
+            grid: { color: 'rgba(255,255,255,0.1)' }
+          },
           y: {
-            beginAtZero: true
+            beginAtZero: true,
+            ticks: { color: 'white' },
+            grid: { color: 'rgba(255,255,255,0.1)' }
           }
         }
       }
