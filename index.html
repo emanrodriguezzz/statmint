@@ -5,31 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>StatMint</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f7f9fc;
+      background-color: #f4f6f9;
       margin: 0;
-      color: #1a1a1a;
+      color: #1c1c1c;
     }
     header {
-      background-color: #0057d9;
+      background-color: #003366;
       color: white;
       padding: 1rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
     header img {
       height: 50px;
     }
     nav a {
-      margin: 0 1rem;
+      margin: 0 0.75rem;
       color: white;
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
+      font-size: 1rem;
     }
     nav a:hover {
       text-decoration: underline;
@@ -39,59 +42,87 @@
       text-align: center;
     }
     .search-bar input {
-      width: 80%;
-      max-width: 600px;
-      padding: 0.75rem;
+      width: 90%;
+      max-width: 700px;
+      padding: 0.75rem 1rem;
       font-size: 1rem;
       border: 1px solid #ccc;
-      border-radius: 5px;
+      border-radius: 8px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #003366;
+      margin: 3rem 0 1.5rem;
+      text-align: center;
     }
     .stat-container {
       padding: 2rem;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
     }
     .stat-box {
       background-color: white;
-      padding: 1.5rem;
+      padding: 2rem;
       border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
       margin-bottom: 2rem;
     }
     .stat-box h2 {
       font-size: 1.25rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
     }
     .source {
       font-size: 0.9rem;
       color: #555;
     }
     .source a {
-      color: #0057d9;
+      color: #003366;
       text-decoration: none;
     }
     .source a:hover {
       text-decoration: underline;
     }
-    .section-title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin: 3rem 0 1rem;
-      border-bottom: 2px solid #0057d9;
-      padding-bottom: 0.5rem;
-    }
     .article {
       background-color: #ffffff;
       border-radius: 10px;
-      padding: 2rem;
+      padding: 2.5rem;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
       margin-bottom: 3rem;
     }
-    .article img {
-      width: 100%;
-      max-width: 800px;
+    .article h3 {
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+      color: #1a1a1a;
+    }
+    .article img, .article canvas {
+      margin: 2rem auto;
       display: block;
-      margin: 1.5rem auto;
+      max-width: 100%;
+    }
+    .article p {
+      margin-bottom: 1.25rem;
+    }
+    .share-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .share-buttons a {
+      text-decoration: none;
+      color: white;
+      background-color: #0077b5;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    .share-buttons a.twitter {
+      background-color: #1DA1F2;
+    }
+    .share-buttons a.facebook {
+      background-color: #1877F2;
     }
   </style>
 </head>
@@ -100,80 +131,45 @@
     <img src="/assets/logo.png" alt="StatMint Logo">
     <nav>
       <a href="#" onclick="filterCategory('health')">Healthcare</a>
-      <a href="#" onclick="filterCategory('money')">Money</a>
+      <a href="#" onclick="filterCategory('finance')">Finance</a>
       <a href="#" onclick="filterCategory('education')">Education</a>
       <a href="#" onclick="filterCategory('tech')">Technology</a>
       <a href="#" onclick="filterCategory('funny')">Funny</a>
       <a href="#" onclick="filterCategory('odds')">Odds</a>
+      <a href="#" onclick="filterCategory('birth')">Birth & Demographics</a>
     </nav>
   </header>
 
   <div class="search-bar">
-    <input type="text" id="searchInput" onkeyup="searchStats()" placeholder="Ask a question or search a stat (e.g. 'heart disease deaths')...">
-  </div>
-
-  <div class="stat-container" id="statContainer">
-    <div class="stat-box" data-category="health">
-      <h2>1 in 8 women will be diagnosed with breast cancer in their lifetime.</h2>
-      <p class="source">Source: <a href="https://www.breastcancer.org" target="_blank">BreastCancer.org</a></p>
-    </div>
-    <div class="stat-box" data-category="funny">
-      <h2>You’re more likely to be killed by a vending machine than a shark.</h2>
-      <p class="source">Source: <a href="https://www.nsc.org" target="_blank">National Safety Council</a></p>
-    </div>
-    <div class="stat-box" data-category="money">
-      <h2>The average American has over $90,000 in debt.</h2>
-      <p class="source">Source: <a href="https://www.experian.com/blogs/news/2021/08/average-american-debt-by-type/" target="_blank">Experian</a></p>
-    </div>
+    <input type="text" id="searchInput" onkeyup="searchStats()" placeholder="Search a stat or topic (e.g. 'life expectancy')...">
   </div>
 
   <div class="stat-container">
-    <h2 class="section-title">Top Statistics: Spotlight Article</h2>
-    <div class="article">
+    <h2 class="section-title">Birth & Demographics</h2>
+    <div class="article" data-category="birth">
       <h3>Global Birth Rates Are Falling — And the World Isn’t Ready</h3>
-      <canvas id="birthChart" width="800" height="400"></canvas>
-      <script>
-        const ctx = document.getElementById('birthChart').getContext('2d');
-        new Chart(ctx, {
-          type: 'line',
-          data: {
-            labels: ['1960', '1970', '1980', '1990', '2000', '2010', '2020'],
-            datasets: [{
-              label: 'Births per 1,000 People',
-              data: [36.4, 32.2, 27.8, 25.2, 22.1, 20.4, 18.5],
-              borderColor: '#0057d9',
-              fill: false,
-              tension: 0.2
-            }]
-          },
-          options: {
-            responsive: true,
-            plugins: {
-              legend: {
-                display: true
-              },
-              title: {
-                display: true,
-                text: 'Global Birth Rate Decline (1960–2020)'
-              }
-            },
-            scales: {
-              y: {
-                beginAtZero: false
-              }
-            }
-          }
-        });
-      </script>
-      <p>Global birth rates have dropped by nearly 50% since 1960. Countries like Japan, South Korea, and the U.S. are seeing declines that could reshape their economies and demographics.</p>
-      <p>Urbanization, economic pressures, and access to contraception drive the decline. The consequences include aging populations, slower growth, and innovation slowdowns. Solutions include pro-family policies, immigration reform, and better work-life support.</p>
+      <img src="/images/global_birth_rate_detailed.png" alt="Global Birth Rate Chart">
+      <p>Over the past 60 years, the global birth rate has declined by nearly 50%, dropping from 36.4 births per 1,000 people in 1960 to just 18.5 in 2020. This significant decrease is changing the face of societies worldwide — from the composition of workforces to the design of social welfare systems.</p>
+      <p>According to the <a href="https://data.worldbank.org/indicator/SP.DYN.CBRT.IN" target="_blank">World Bank</a>, much of this drop stems from industrialization, urbanization, and increasing education among women. Developed nations are seeing birth rates well below the replacement level of 2.1 children per woman. In 2023, <strong>South Korea</strong> recorded a fertility rate of just <strong>0.72</strong> — the lowest in the world (<a href="https://kostat.go.kr" target="_blank">Statistics Korea</a>).</p>
+      <p>Other nations are following similar paths. <strong>Japan’s</strong> fertility rate stood at 1.3 in 2023, and the <strong>U.S.</strong> birth rate was 11.0 per 1,000 people in 2022, down from 14.4 in 2000 (<a href="https://www.cdc.gov/nchs/data/nvsr/nvsr72/nvsr72-02.pdf" target="_blank">CDC, 2023</a>).</p>
+      <p>The implications are vast: fewer working-age individuals must support a growing elderly population. This puts pressure on pensions, healthcare, and GDP growth. The <a href="https://population.un.org/wpp/" target="_blank">UN Population Division</a> projects that by 2050, one in six people globally will be over 65 — compared to one in eleven in 2019.</p>
+      <p>In response, countries like Sweden and France have introduced generous family policies, including paid parental leave and childcare support, to encourage childbearing. Still, reversing or even stabilizing the trend is proving challenging without major cultural and structural shifts.</p>
+      <p>As the world grapples with this quiet demographic shift, policymakers, economists, and businesses will need to rethink everything from immigration strategies to housing and job markets. The data is clear — fewer births today mean a dramatically different tomorrow.</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/World_map_fertility_rate_2020.svg/1024px-World_map_fertility_rate_2020.svg.png" alt="World Fertility Map" title="Source: United Nations Population Division">
+      <p class="source">Sources: <a href="https://data.worldbank.org/indicator/SP.DYN.CBRT.IN" target="_blank">World Bank</a>, <a href="https://www.cdc.gov/nchs/data/nvsr/nvsr72/nvsr72-02.pdf" target="_blank">CDC</a>, <a href="https://population.un.org/wpp/" target="_blank">United Nations</a>, <a href="https://kostat.go.kr" target="_blank">Statistics Korea</a></p>
+
+      <div class="share-buttons">
+        <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://yourdomain.com" target="_blank"><i class="fab fa-facebook-f"></i> Share</a>
+        <a class="twitter" href="https://twitter.com/intent/tweet?url=https://yourdomain.com&text=Check out this data on global birth rates from StatMint!" target="_blank"><i class="fab fa-twitter"></i> Tweet</a>
+        <a href="mailto:?subject=Interesting StatMint Article&body=Check out this article on global birth rates: https://yourdomain.com"><i class="fas fa-envelope"></i> Email</a>
+      </div>
     </div>
   </div>
 
   <script>
     function searchStats() {
       const input = document.getElementById('searchInput').value.toLowerCase();
-      const stats = document.querySelectorAll('.stat-box');
+      const stats = document.querySelectorAll('.stat-box, .article');
       stats.forEach(stat => {
         const text = stat.innerText.toLowerCase();
         stat.style.display = text.includes(input) ? 'block' : 'none';
@@ -181,7 +177,7 @@
     }
 
     function filterCategory(category) {
-      const stats = document.querySelectorAll('.stat-box');
+      const stats = document.querySelectorAll('.stat-box, .article');
       stats.forEach(stat => {
         stat.style.display = stat.dataset.category === category ? 'block' : 'none';
       });
