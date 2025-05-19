@@ -12,7 +12,7 @@
     body {
       --accent-color: #003366;
       --highlight-color: #1877F2;$1
-      background: url('./statmintbackground.png') no-repeat center center fixed;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('./StatMintBackground.png') no-repeat center center fixed;
       background-size: cover;
       background-color: #f4f6f9;
     }
@@ -142,12 +142,12 @@
       </div>
   </header>
 
-  <section class="hero" data-category="home">
+  <section class="hero" style="background: none;" data-category="home">
     <h1>Welcome to StatMint</h1>
     <p>StatMint is your go-to source for trustworthy, timely, and thought-provoking statistics. We turn complex data into digestible insights, using stories and visuals to make information meaningful and actionable. Explore by category or scroll through the top trends shaping the world today.</p>
   </section>
 
-  <section class="stat-cards" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; padding: 3rem 2rem;" data-category="home">
+  <section class="stat-cards" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; padding: 3rem 2rem; background-color: rgba(255,255,255,0.85); border-radius: 12px; margin: 2rem auto; max-width: 1000px;" data-category="home">
     <div style="background: white; border-radius: 12px; padding: 1.5rem 2rem; width: 280px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); animation: fadeIn 1s ease-out forwards; opacity: 0; transform: translateY(20px);">
       <h3 style="color: var(--accent-color); font-size: 1.5rem; margin-bottom: 0.5rem;">1 in 3 adults</h3>
       <p style="color: #333; font-size: 1rem;">suffers from high blood pressure globally.</p>
@@ -182,7 +182,7 @@
     <p>&copy; 2024 StatMint. All rights reserved.</p>
     <p>Have feedback or want to contribute? <a href="mailto:info@statmint.org">Email us</a></p>
     <p><a href="#" onclick="filterCategory('home')">Back to Top</a></p>
-  <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #4b0082; color: white; text-align: center; padding: 1rem; font-size: 0.95rem; z-index: 9999;">
+  <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #003366; color: white; text-align: center; padding: 1rem; font-size: 0.95rem; z-index: 9999;">
   This website uses cookies to analyze traffic and improve your experience. By continuing, you agree to our use of cookies.
   <button onclick="document.getElementById('cookie-banner').style.display='none'" style="margin-left: 1rem; background: white; color: #4b0082; border: none; padding: 0.5rem 1rem; border-radius: 4px; font-weight: 600; cursor: pointer;">Accept</button>
 </div>
