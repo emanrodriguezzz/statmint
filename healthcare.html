@@ -3,33 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🧠 Healthcare Statistics | StatMint</title>
+  <title>Healthcare | StatMint</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
       background: url('statmintbackground.png') no-repeat center center fixed;
       background-size: cover;
-      color: white;
       font-family: 'Inter', sans-serif;
+      color: white;
       margin: 0;
+    }
+    header {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    header img {
+      height: 120px;
+      width: auto;
+    }
+    nav a {
+      margin: 0 1rem;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
       padding: 2rem;
-    }
-    h1 {
       text-align: center;
-      margin-bottom: 2rem;
-    }
-    .stat {
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-radius: 8px;
     }
   </style>
 </head>
 <body>
-  <h1>🧠 Healthcare Statistics</h1>
-  <div class="stat"><strong>🧠</strong> Sample stat 1 goes here...</div>
-  <div class="stat"><strong>🧠</strong> Sample stat 2 goes here...</div>
-  <div class="stat"><strong>🧠</strong> Sample stat 3 goes here...</div>
+  <header>
+    <a href="index.html"><img src="StatMintLogo.png" alt="StatMint Logo"></a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="top-stats-landing.html">Top Stats Now</a>
+      <a href="finance.html">Finance</a>
+      <a href="technology.html">Technology</a>
+      <a href="healthcare.html">Healthcare</a>
+      <a href="odds.html">Odds</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Healthcare Statistics</h1>
+    <p>Dive into data about global health, medical trends, disease prevalence, healthcare access, and outcomes.</p>
+  </main>
 </body>
 </html>
