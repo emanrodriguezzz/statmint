@@ -25,9 +25,7 @@
     }
     header img {
       height: 120px;
-      width: 100%;
-      max-width: none;
-      object-fit: contain;
+      width: auto;
     }
     nav a {
       margin: 0 1rem;
@@ -40,31 +38,13 @@
     }
     main {
       padding: 2rem;
-    }
-    h1 {
-      font-size: 2.5rem;
       text-align: center;
-      margin-bottom: 1rem;
-    }
-    .intro {
-      max-width: 800px;
-      margin: auto;
-      text-align: center;
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      animation: fadeInUp 1s ease-out;
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
   <header>
-    <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
-      <img src="StatMintLogo.png" alt="StatMint Logo">
-    </a>
+    <a href="index.html"><img src="StatMintLogo.png" alt="StatMint Logo"></a>
     <nav>
       <a href="index.html">Home</a>
       <a href="top-stats-landing.html">Top Stats Now</a>
@@ -76,76 +56,121 @@
   </header>
 
   <main>
-    <h1>Welcome to StatMint </h1>
-    <div class="intro">
-      <p><strong>StatMint makes statistics easier to find, trust, and share.</strong></p>
-      <p>We collect sourced, high-signal data points and organize them into a streamlined platform built for exploration and comparison. Designed for creators, educators, and curious users, StatMint turns scattered statistics into a focused, usable resource.</p>
-    </div>
-
-    <!-- Stat of the Day -->
-    <section class="text-center mt-5">
-      <h2 class="mb-3">Stat of the Day</h2>
-      <div style="background-color: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; max-width: 600px; margin: auto;">
-        <p style="font-size: 1.2rem;">📊 <em>71% of teens say they use TikTok daily.</em></p>
-        <p style="font-size: 0.9rem; color: #ccc;">Source: Pew Research Center</p>
-      </div>
+    <section class="text-center mb-5">
+      <h1 style="font-size: 3rem; font-weight: 700; margin-top: 2rem;">Welcome to StatMint</h1>
+      <p class="lead" style="max-width: 800px; margin: auto; font-size: 1.25rem;">
+        Discover a data-driven world — StatMint turns numbers into insight through curated statistics, trend forecasts, and research-backed narratives.
+      </p>
     </section>
 
-    <!-- Search Bar -->
-    <div class="text-center mt-5">
-      <input type="text" placeholder="Search statistics..." style="padding: 0.5rem; border-radius: 5px; width: 300px; border: none;">
-      <button class="btn btn-light ms-2">Search</button>
-    </div>
-
-    <!-- Explore by Category -->
     <section class="container text-center mt-5">
-      <h2>Explore by Category</h2>
-      <div class="row mt-4 justify-content-center">
-        <div class="col-6 col-md-3 mb-3">
-          <a href="finance.html" class="text-decoration-none">
-            <div class="p-3 bg-light text-dark rounded">💰 Finance</div>
-          </a>
-        </div>
-        <div class="col-6 col-md-3 mb-3">
-          <a href="healthcare.html" class="text-decoration-none">
-            <div class="p-3 bg-light text-dark rounded">🧠 Health</div>
-          </a>
-        </div>
-        <div class="col-6 col-md-3 mb-3">
-          <a href="technology.html" class="text-decoration-none">
-            <div class="p-3 bg-light text-dark rounded">📱 Tech</div>
-          </a>
-        </div>
-        <div class="col-6 col-md-3 mb-3">
-          <a href="odds.html" class="text-decoration-none">
-            <div class="p-3 bg-light text-dark rounded">🎲 Odds</div>
-          </a>
-        </div>
+      <h2 class="text-light mb-4">Explore Categories</h2>
+      <div class="row justify-content-center">
+        <div class="col-6 col-md-2 mb-3"><a href="finance.html" class="btn btn-outline-light w-100">💰 Finance</a></div>
+        <div class="col-6 col-md-2 mb-3"><a href="technology.html" class="btn btn-outline-light w-100">📱 Technology</a></div>
+        <div class="col-6 col-md-2 mb-3"><a href="healthcare.html" class="btn btn-outline-light w-100">🧠 Healthcare</a></div>
+        <div class="col-6 col-md-2 mb-3"><a href="odds.html" class="btn btn-outline-light w-100">🎲 Odds</a></div>
+        <div class="col-6 col-md-2 mb-3"><a href="top-stats-landing.html" class="btn btn-primary w-100">📊 Top Stats Now</a></div>
       </div>
     </section>
 
-    <!-- What Is StatMint -->
     <section class="text-center mt-5">
-      <h2>What Is StatMint?</h2>
-      <p style="max-width: 700px; margin: auto;">StatMint turns scattered statistics into high-signal insight. Our mission is to make data more accessible, credible, and usable for creators, students, and professionals.</p>
+      <h2>What is StatMint?</h2>
+      <p style="max-width: 700px; margin: auto; font-size: 1.1rem;">
+        We collect sourced, high-signal data points and organize them into a streamlined platform built for exploration and comparison. Designed for creators, educators, and curious users.
+      </p>
     </section>
 
-    <!-- Newsletter Signup -->
-    <section class="newsletter text-center" style="margin-top: 4rem; padding: 2rem; background-color: rgba(0, 0, 0, 0.5); border-radius: 10px; max-width: 600px; margin-left: auto; margin-right: auto;">
-      <h2 style="color: white; font-size: 1.5rem;">Get Stats Delivered to Your Inbox</h2>
-      <p style="color: #ccc;">Join our free newsletter to receive weekly insights on data that matters.</p>
+    <section class="newsletter text-center my-5 p-4" style="background-color: rgba(255,255,255,0.05); border-radius: 12px; max-width: 600px; margin-left: auto; margin-right: auto;">
+      <h2 style="color: white; font-size: 1.5rem;">📬 Get Stats Delivered to Your Inbox</h2>
+      <p style="color: #ccc;">Join our free newsletter for weekly insights.</p>
       <form style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
         <input type="email" placeholder="Enter your email" style="padding: 0.5rem; border: none; border-radius: 5px; max-width: 250px;">
         <button type="submit" style="background-color: #1d72f3; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px;">Subscribe</button>
       </form>
     </section>
 
-    <!-- Footer -->
+    <section class="container mt-5 text-center">
+      <h2 class="text-light mb-4">Why StatMint?</h2>
+      <p style="max-width: 800px; margin: auto; font-size: 1.1rem;">
+        StatMint empowers decision makers, content creators, researchers, and students by curating high-signal data with transparent sourcing and rich context. Our goal is to bring clarity to the world’s most pressing trends — all in one place.
+      </p>
+      <div class="row mt-4">
+        <div class="col-md-4 mb-4">
+          <div class="p-4 bg-light text-dark rounded">
+            <h5>🔍 Credible Insights</h5>
+            <p style="font-size: 0.95rem;">Every stat is backed by a source — no noise, no fluff. Just clean, contextual data ready to inform.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="p-4 bg-light text-dark rounded">
+            <h5>📈 Powerful Visuals</h5>
+            <p style="font-size: 0.95rem;">From interactive graphs to global maps, we visualize the patterns shaping your world.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="p-4 bg-light text-dark rounded">
+            <h5>🧠 Curated by Experts</h5>
+            <p style="font-size: 0.95rem;">Our editorial team filters and refines every dataset to highlight what matters most — and why.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="text-center mt-5">
+      <h2 class="mb-3">💡 Sample Stat Highlight</h2>
+      <div style="background-color: rgba(255,255,255,0.08); padding: 1.5rem; border-radius: 12px; max-width: 700px; margin: auto;">
+        <p style="font-size: 1.2rem;">🌍 The global fertility rate fell from 5.0 in 1960 to 2.3 in 2023 — and continues to decline.</p>
+        <p style="font-size: 0.9rem; color: #ccc;">Source: World Bank</p>
+        <a href="birthrates.html" class="btn btn-outline-light mt-2">Read the Full Report</a>
+      </div>
+    </section>
+
+    <section class="text-center mt-5">
+      <h2>📊 Join Our Data Movement</h2>
+      <p style="max-width: 700px; margin: auto; font-size: 1.1rem;">
+        Whether you're building a presentation, writing a report, or launching your next startup, StatMint helps you back up your story with trusted numbers.
+      </p>
+      <a href="mailto:info@statmint.org" class="btn btn-primary mt-3">Partner With Us</a>
+    </section>
+
+    <section class="text-center mt-5">
+      <h2>🧰 Developer Tools & API</h2>
+      <p style="max-width: 700px; margin: auto; font-size: 1.1rem;">
+        We’re working on the StatMint API — your future gateway to access thousands of statistics across categories with a single query. Get early access and help shape our tools.
+      </p>
+      <a href="mailto:info@statmint.org" class="btn btn-outline-light mt-3">Request API Access</a>
+    </section>
+
+    <section class="text-center mt-5">
+      <h2>💬 Frequently Asked Questions</h2>
+      <div class="container text-start mt-4" style="max-width: 800px;">
+        <div class="mb-4">
+          <h5>Where does your data come from?</h5>
+          <p>We source data from trusted institutions like the World Bank, United Nations, CDC, IMF, and peer-reviewed studies.</p>
+        </div>
+        <div class="mb-4">
+          <h5>Can I submit a stat or correction?</h5>
+          <p>Absolutely. We encourage community input to keep StatMint accurate and useful. Use the contact form or email us directly.</p>
+        </div>
+        <div class="mb-4">
+          <h5>Is StatMint free to use?</h5>
+          <p>Yes. All publicly available statistics and visualizations are free to explore. Premium features coming soon.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="text-center mt-5 pb-5">
+      <h2>🎥 Watch Our Mission in 60 Seconds</h2>
+      <div style="max-width: 720px; margin: 2rem auto;">
+        <iframe width="100%" height="400" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="StatMint Intro Video" frameborder="0" allowfullscreen style="border-radius: 12px;"></iframe>
+      </div>
+    </section>
+
     <footer style="text-align: center; padding: 2rem; color: #ccc; font-size: 0.9rem;">
       <p>© 2024 StatMint. All rights reserved.</p>
-      <p>Have feedback or want to contribute? <a href="mailto:info@statmint.org" style="color: #87cefa; text-decoration: none;">Email us</a></p>
+      <p>Have feedback? <a href="mailto:info@statmint.org" style="color: #87cefa; text-decoration: none;">Email us</a></p>
     </footer>
   </main>
 </body>
 </html>
-
