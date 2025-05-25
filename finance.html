@@ -50,7 +50,8 @@
       padding: 2rem;
       box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.05);
     }
-    .highlight-row .col-md-3 {
+    .highlight-row .col-md-3,
+    .highlight-row .col-md-4 {
       margin-bottom: 1rem;
     }
     .img-caption {
@@ -74,6 +75,14 @@
       max-width: 100%;
       display: block;
       margin: 2rem auto;
+    }
+    a.source-link {
+      text-decoration: none;
+      color: #6c757d;
+    }
+    a.source-link:hover {
+      text-decoration: underline;
+      color: #495057;
     }
   </style>
 </head>
@@ -102,24 +111,36 @@
             <div class="highlight-card">
               <h3 class="text-primary">$105T</h3>
               <p class="mb-0">Global GDP (2023)</p>
+              <p class="text-muted small mt-2">
+                <a href="https://www.imf.org/en/Data" target="_blank" class="source-link">Source: IMF</a>
+              </p>
             </div>
           </div>
           <div class="col-md-3">
             <div class="highlight-card">
-              <h3 class="text-danger" id="inflation">3.4%</h3>
+              <h3 class="text-danger">3.4%</h3>
               <p class="mb-0">US Inflation Rate</p>
+              <p class="text-muted small mt-2">
+                <a href="https://fred.stlouisfed.org/series/CPIAUCSL" target="_blank" class="source-link">Source: FRED</a>
+              </p>
             </div>
           </div>
           <div class="col-md-3">
             <div class="highlight-card">
-              <h3 class="text-success" id="cryptoCap">$1.72T</h3>
+              <h3 class="text-success">$1.72T</h3>
               <p class="mb-0">Crypto Market Cap</p>
+              <p class="text-muted small mt-2">
+                <a href="https://www.coingecko.com/en/global_charts" target="_blank" class="source-link">Source: CoinGecko</a>
+              </p>
             </div>
           </div>
           <div class="col-md-3">
             <div class="highlight-card">
-              <h3 class="text-warning" id="rate">5.25%</h3>
+              <h3 class="text-warning">5.25%</h3>
               <p class="mb-0">US Interest Rate</p>
+              <p class="text-muted small mt-2">
+                <a href="https://fred.stlouisfed.org/series/FEDFUNDS" target="_blank" class="source-link">Source: FRED</a>
+              </p>
             </div>
           </div>
         </div>
@@ -133,13 +154,40 @@
       <p class="img-caption">Chart: StatMint using global IMF data (2019–2023)</p>
     </section>
 
+    <section class="content-section">
+      <h2>Top Banks by Total Assets (2024)</h2>
+      <p>The largest global banks by total assets play a key role in global financial stability and credit markets.</p>
+      <div class="row text-center mt-4 highlight-row">
+        <div class="col-md-4">
+          <div class="highlight-card">
+            <h4>ICBC</h4>
+            <p>Total Assets: $5.7T</p>
+            <p class="text-muted small mt-2"><a href="https://www.icbc.com.cn" target="_blank" class="source-link">Source: ICBC</a></p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="highlight-card">
+            <h4>JPMorgan Chase</h4>
+            <p>Total Assets: $4.1T</p>
+            <p class="text-muted small mt-2"><a href="https://www.jpmorganchase.com" target="_blank" class="source-link">Source: JPMorgan</a></p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="highlight-card">
+            <h4>Bank of America</h4>
+            <p>Total Assets: $3.2T</p>
+            <p class="text-muted small mt-2"><a href="https://www.bankofamerica.com" target="_blank" class="source-link">Source: BofA</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div class="back-link">
       <a href="top-stats-landing.html">← Back to Top Stats</a>
     </div>
   </main>
 
   <script>
-    // Chart.js inflation line
     new Chart(document.getElementById('inflationChart'), {
       type: 'line',
       data: {
@@ -155,13 +203,13 @@
       },
       options: {
         responsive: true,
-        plugins: { legend: { display: false } },
+        plugins: {
+          legend: { display: false }
+        },
         scales: {
           y: {
             beginAtZero: true,
-            ticks: {
-              stepSize: 2
-            }
+            ticks: { stepSize: 2 }
           }
         }
       }
