@@ -4,97 +4,187 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Global Birth Rates | StatMint</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     body {
-      background: url('statmintbackground.png') no-repeat center center fixed;
-      background-size: cover;
       font-family: 'Inter', sans-serif;
-      color: white;
+      background-color: #f8f9fa;
+      color: #212529;
       margin: 0;
     }
+
     header {
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: #111;
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
     }
+
     header img {
-      height: 120px;
-      width: auto;
+      height: 80px;
+      max-height: 80px;
+      object-fit: contain;
     }
+
     nav a {
-      margin: 0 1rem;
+      margin-left: 1.5rem;
       color: white;
+      font-weight: 500;
       text-decoration: none;
-      font-weight: 600;
     }
+
     nav a:hover {
+      color: #1d72f3;
+    }
+
+    h1, h2 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    main {
+      padding: 4rem 1rem;
+    }
+
+    .hero {
+      background-color: #eef3fb;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.25rem;
+    }
+
+    .content-section {
+      max-width: 900px;
+      margin: auto;
+      padding-top: 2rem;
+    }
+
+    .content-section img {
+      max-width: 100%;
+      height: auto;
+      margin: 2rem auto;
+      display: block;
+    }
+
+    .img-caption {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #6c757d;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .back-link a {
+      color: #1d72f3;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .back-link a:hover {
       text-decoration: underline;
     }
-    main {
-      padding: 2rem;
-      text-align: center;
+
+    a.inline-link {
+      color: #1d72f3;
+      text-decoration: none;
+    }
+
+    a.inline-link:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <a href="index.html"><img src="StatMintLogo.png" alt="StatMint Logo"></a>
+    <a href="index.html"><img src="StatMintLogo.png" alt="StatMint Logo" /></a>
     <nav>
       <a href="index.html">Home</a>
-      <a href="top-stats-landing.html">Top Stats Now</a>
+      <a href="top-stats-landing.html">Top Stats</a>
       <a href="finance.html">Finance</a>
       <a href="technology.html">Technology</a>
       <a href="healthcare.html">Healthcare</a>
       <a href="odds.html">Odds</a>
     </nav>
   </header>
+
   <main>
-    <h1>Global Birth Rates Are Falling — And the World Isn’t Ready</h1>
-    <p>Over the past 60 years, the global birth rate has declined by nearly 50%, dropping from 36.4 births per 1,000 people in 1960 to just 18.5 in 2020. This significant decrease is changing the face of societies worldwide — from the composition of workforces to the design of social welfare systems.</p>
-    <p>According to the <a href="https://data.worldbank.org" target="_blank" style="color: #87cefa;">World Bank</a>, much of this drop stems from industrialization, urbanization, and increasing education among women. Developed nations are seeing birth rates well below the replacement level of 2.1 children per woman. In 2023, South Korea recorded a fertility rate of just 0.72 — the lowest in the world.</p>
-    <p>Japan, Italy, and Germany also report ongoing declines, with populations aging rapidly. This trend is not limited to developed countries — emerging economies are beginning to experience similar patterns as they modernize. The U.S., for example, saw its birth rate fall from 14.4 in 2000 to 11.0 per 1,000 people in 2022.</p>
-    <p>The consequences are far-reaching. Fewer working-age people means fewer contributors to pension systems and healthcare funding. Schools may close while eldercare facilities expand. Entire industries will be forced to pivot.</p>
-    <p>The <a href="https://www.un.org/en/global-issues/population" target="_blank" style="color: #87cefa;">United Nations</a> projects that by 2050, one in six people globally will be over the age of 65, up from one in eleven in 2019. Countries are responding with varying strategies — from incentivizing childbirth (as seen in Hungary and Singapore) to revising immigration policies to offset labor shortages.</p>
-    <p>For many governments, the demographic shift is not just about managing decline, but seizing the opportunity to redesign societies. This includes investing in automation, rethinking retirement, and leveraging technology to maintain productivity with smaller workforces.</p>
-    <p>StatMint’s compilation of birth rate data reveals how urgent and interconnected this issue is. Below are key graphs showing historical trends and projections across continents.</p>
+    <section class="hero">
+      <div class="container">
+        <h1>Global Birth Rates Are Falling — And the World Isn’t Ready</h1>
+        <p class="lead">Fertility has declined nearly 50% since 1960 — reshaping economies and societies across the globe.</p>
+      </div>
+    </section>
 
-    <div class="container text-center mt-5">
-      <img src="UnitedNationsImage.webp" alt="UN Logo" class="img-fluid rounded" style="max-width: 250px; height: auto; margin: 1rem auto; display: block;">
-      <p style="font-size: 0.9rem; color: #ccc;">Source: United Nations Population Division</p>
+    <section class="content-section">
+      <p>
+        Over the past 60 years, the global birth rate has declined from 36.4 births per 1,000 people in 1960 to just 18.5 in 2020. This transformation is affecting labor markets, social systems, and national planning strategies.
+      </p>
+      <p>
+        According to the <a href="https://data.worldbank.org" target="_blank" class="inline-link">World Bank</a>, key drivers include industrialization, urbanization, and expanded education access for women. South Korea’s fertility rate fell to just 0.72 in 2023 — the lowest globally.
+      </p>
+      <p>
+        Japan, Italy, and Germany also face sustained decline, while the U.S. saw birth rates drop from 14.4 in 2000 to 11.0 in 2022. Emerging markets are now beginning to follow this pattern.
+      </p>
+      <p>
+        A shrinking youth population leads to reduced workforce participation, economic slowdowns, and shifting priorities for education, infrastructure, and immigration policy.
+      </p>
 
-      <img src="cdcimage.jpg" alt="CDC" class="img-fluid rounded" style="max-width: 250px; height: auto; margin: 1rem auto; display: block;">
-      <p style="font-size: 0.9rem; color: #ccc;">Source: U.S. Centers for Disease Control and Prevention</p>
+      <div>
+        <img src="UnitedNationsImage.webp" alt="UN Data" />
+        <p class="img-caption">Source: United Nations Population Division</p>
+
+        <img src="cdcimage.jpg" alt="CDC Data" />
+        <p class="img-caption">Source: U.S. Centers for Disease Control and Prevention</p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Long-Term Forecasts and Societal Implications</h2>
+      <p>
+        UN projections suggest Japan and South Korea could see population declines of over 50% by 2100. This poses major economic and social challenges.
+      </p>
+      <p>
+        Sub-Saharan Africa remains an exception, with high fertility fueling population growth. Nigeria is expected to become the world’s third most populous country by 2050.
+      </p>
+      <p>
+        Countries are exploring solutions: France offers childcare subsidies; Sweden invests in parental leave; Singapore supports matchmaking and fertility programs. But no country has yet reversed the trend at scale.
+      </p>
+
+      <img src="birthrate_trend_chart.png" alt="Global Birthrate Chart" />
+      <p class="img-caption">Visual generated by StatMint using UN and World Bank forecasts</p>
+    </section>
+
+    <section class="content-section">
+      <h2>Wall Street Journal Insight</h2>
+      <p>
+        The <strong>Wall Street Journal</strong> reported in 2024 that declining birthrates are directly linked to projected GDP slowdowns across G7 countries.
+      </p>
+      <img src="WSJimage.png" alt="WSJ Birthrate vs GDP Graphic" />
+      <p class="img-caption">Source: Wall Street Journal, 2024</p>
+    </section>
+
+    <section class="content-section">
+      <h2>Global Forecasted Birthrates by Country (2050)</h2>
+      <p>
+        StatMint presents a forecast map of expected fertility rates through 2050, combining UN, CDC, and World Bank data. Darker areas represent higher expected fertility.
+      </p>
+      <img src="A_choropleth_world_map_in_digital_2D_format_displa.png" alt="Birthrate Map Forecast" />
+      <p class="img-caption">Source: StatMint Forecast • United Nations • CDC • World Bank</p>
+    </section>
+
+    <div class="back-link">
+      <a href="top-stats-landing.html">← Back to Top Stats</a>
     </div>
-  <section class="container mt-5">
-      <h2 class="text-center">Long-Term Forecasts and Societal Implications</h2>
-      <p>According to recent projections from the United Nations, countries with declining birth rates may face existential economic questions. By 2100, populations of countries like Japan and South Korea may shrink by over 50% if current trends persist. This could trigger a domino effect on global labor markets, supply chains, real estate, and education systems.</p>
-      <p>In contrast, Sub-Saharan Africa is expected to experience population growth due to higher fertility rates. Nigeria, for example, is projected to become the world’s third most populous country by 2050. This geographic disparity may shift the global center of influence toward developing regions, necessitating robust infrastructure and education investments.</p>
-      <p>Meanwhile, countries with falling fertility rates are experimenting with solutions. France offers subsidized childcare and tax benefits. Sweden invests in parental leave policies. Singapore has launched dating and fertility programs to encourage population growth. However, no silver bullet has reversed the declining birthrate trend at scale.</p>
-      <p>StatMint continues to monitor birthrate and demographic shifts with a focus on data-backed analysis, global comparisons, and credible visualizations.</p>
-      <img src="birthrate_trend_chart.png" alt="Birthrate Trend Chart" class="img-fluid rounded" style="max-width: 600px; height: auto; margin: 2rem auto; display: block;">
-      <p style="font-size: 0.9rem; color: #ccc; text-align: center;">Visual generated using StatMint internal analysis and UN forecast data</p>
-    </section>
-
-    <section class="container mt-5">
-      <h2 class="text-center">Wall Street Journal Insight</h2>
-      <p>In a 2024 investigative series, the <strong>Wall Street Journal</strong> highlighted the connection between birth rate declines and long-term economic contraction. One featured graphic showed a projected decrease in GDP growth across G7 nations by 2060, with birth rates acting as a leading indicator.</p>
-      <img src="WSJimage.png" alt="WSJ Graph on Birthrates and GDP" class="img-fluid rounded" style="max-width: 600px; height: auto; margin: 2rem auto; display: block;">
-      <p style="font-size: 0.9rem; color: #ccc; text-align: center;">Source: Wall Street Journal, 2024</p>
-    </section>
-
-    
-  <section class="container mt-5">
-      <h2 class="text-center">Global Forecasted Birthrates by Country (2050)</h2>
-      <p>StatMint presents a global heatmap forecasting birthrate trends across 190+ countries. These estimates are based on World Bank fertility data, UN demographic projections, and observed social and economic indicators. Darker areas represent countries with higher expected fertility rates.</p>
-      <img src="A_choropleth_world_map_in_digital_2D_format_displa.png" alt="Forecasted Birth Rate Map" class="img-fluid rounded" style="max-width: 800px; margin: 2rem auto; display: block;">
-      <p style="font-size: 0.9rem; color: #ccc; text-align: center;">Source: StatMint Forecast • United Nations • CDC • World Bank</p>
-    </section>
   </main>
+
 </body>
 </html>
