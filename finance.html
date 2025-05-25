@@ -6,6 +6,7 @@
   <title>Finance | StatMint</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -39,26 +40,23 @@
     }
 
     main {
-      padding: 4rem 1rem;
+      padding: 0;
     }
 
     .hero {
       background-color: #eef3fb;
-      padding: 3rem 1rem;
+      padding: 4rem 1rem 2rem;
       text-align: center;
     }
 
     .content-section {
-      max-width: 900px;
+      max-width: 960px;
       margin: auto;
-      padding-top: 2rem;
+      padding: 4rem 1rem;
     }
 
-    .content-section img {
-      max-width: 100%;
-      height: auto;
-      margin: 2rem auto;
-      display: block;
+    .content-section.alt {
+      background-color: #f1f3f5;
     }
 
     .img-caption {
@@ -87,6 +85,24 @@
       margin-top: 3rem;
       margin-bottom: 1rem;
     }
+
+    .highlight-row .col-md-3 {
+      margin-bottom: 1rem;
+    }
+
+    .highlight-card {
+      background-color: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.05);
+    }
+
+    canvas {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 2rem auto;
+    }
   </style>
 </head>
 <body>
@@ -104,10 +120,40 @@
   </header>
 
   <main>
+
     <section class="hero">
       <div class="container">
         <h1>Finance Statistics</h1>
         <p class="lead">Explore key indicators shaping the financial landscape — from macroeconomics to markets, wealth trends, and consumer behavior.</p>
+      </div>
+
+      <div class="container mt-5">
+        <div class="row highlight-row text-center">
+          <div class="col-md-3">
+            <div class="highlight-card">
+              <h3 class="text-primary">$105T</h3>
+              <p class="mb-0">Global GDP (2023)</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="highlight-card">
+              <h3 class="text-danger">6.4%</h3>
+              <p class="mb-0">Global Inflation</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="highlight-card">
+              <h3 class="text-success">+15.3%</h3>
+              <p class="mb-0">S&P 500 Return</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="highlight-card">
+              <h3 class="text-warning">129%</h3>
+              <p class="mb-0">US Debt-to-GDP</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -115,29 +161,88 @@
       <h2>Global Economic Trends</h2>
       <p>The global economy continues to face uncertainty in the wake of inflation shocks, policy shifts, and geopolitical fragmentation. Below are key data points that define the current macroeconomic outlook:</p>
       <ul>
-        <li><strong>Global GDP (2023):</strong> $105 trillion — a 3.2% year-over-year increase <em>(World Bank)</em></li>
-        <li><strong>Average Global Inflation:</strong> 6.4% in 2023, down from 8.8% in 2022 <em>(IMF)</em></li>
-        <li><strong>U.S. Interest Rate:</strong> 5.25% federal funds rate <em>(Federal Reserve, 2024)</em></li>
-        <li><strong>China GDP Growth:</strong> 5.2% in 2023 <em>(National Bureau of Statistics)</em></li>
+        <li><strong>Global GDP (2023):</strong> $105 trillion — a 3.2% YoY increase</li>
+        <li><strong>Average Global Inflation:</strong> 6.4% in 2023, down from 8.8% in 2022</li>
+        <li><strong>U.S. Interest Rate:</strong> 5.25% federal funds rate</li>
+        <li><strong>China GDP Growth:</strong> 5.2% in 2023</li>
       </ul>
-      <img src="global_gdp_chart.png" alt="Global GDP Chart" />
-      <p class="img-caption">Source: World Bank, IMF, StatMint Analysis</p>
+      <canvas id="inflationChart" height="200"></canvas>
+      <p class="img-caption">Chart: StatMint using IMF data (2019–2023)</p>
     </section>
 
-    <section class="content-section">
+    <section class="content-section alt">
       <h2>Markets & Investment</h2>
       <p>Equities rebounded in 2023 after a volatile year driven by central bank tightening. Cryptocurrencies regained momentum, while bond yields stabilized.</p>
       <ul>
         <li><strong>S&P 500 Return (2023):</strong> +15.3%</li>
-        <li><strong>Crypto Market Cap:</strong> $1.7 trillion (Q1 2024) <em>(CoinMarketCap)</em></li>
+        <li><strong>Crypto Market Cap:</strong> $1.7 trillion (Q1 2024)</li>
         <li><strong>U.S. 10-Year Treasury Yield:</strong> 4.1%</li>
         <li><strong>Gold Price (May 2024):</strong> $2,190 per ounce</li>
       </ul>
-      <img src="markets_trend_chart.png" alt="Market Index Chart" />
-      <p class="img-caption">Source: Bloomberg, CoinDesk, StatMint Research</p>
     </section>
 
     <section class="content-section">
       <h2>Personal Finance & Households</h2>
       <p>Consumers are navigating high inflation, rising housing costs, and elevated interest rates. Household balance sheets are shifting as savings decline and debt levels climb.</p>
       <ul>
+        <li><strong>Average U.S. Credit Card APR:</strong> 24.3%</li>
+        <li><strong>Median Household Savings (U.S.):</strong> $5,300</li>
+        <li><strong>U.S. Mortgage Rate (30-Yr Fixed):</strong> 6.9%</li>
+        <li><strong>Rent Inflation YoY (2023):</strong> +7.1%</li>
+      </ul>
+    </section>
+
+    <section class="content-section alt">
+      <h2>Global Wealth Distribution</h2>
+      <p>Wealth inequality has intensified over the last decade. The gap between billionaires and the global median continues to grow, with major implications for fiscal policy and financial access.</p>
+      <ul>
+        <li><strong>Top 1% Wealth Share (Global):</strong> 45.8%</li>
+        <li><strong>Median Global Net Worth:</strong> $8,000</li>
+        <li><strong>Billionaires' Combined Net Worth:</strong> $14.1 trillion</li>
+        <li><strong>Wealth Gini Index (Global):</strong> 0.89</li>
+      </ul>
+    </section>
+
+    <section class="content-section">
+      <h2>Government Finance & Sovereign Risk</h2>
+      <p>Public debt levels remain historically elevated. Governments face rising interest burdens and pressure to rebalance fiscal policy while maintaining services.</p>
+      <ul>
+        <li><strong>U.S. Debt-to-GDP:</strong> 129% (2024)</li>
+        <li><strong>Japan’s Debt-to-GDP:</strong> 263%</li>
+        <li><strong>Global Interest Payments:</strong> $3.4 trillion forecast in 2024</li>
+        <li><strong>Tax Revenue (OECD Avg):</strong> 34.1% of GDP</li>
+      </ul>
+    </section>
+
+    <div class="back-link">
+      <a href="top-stats-landing.html">← Back to Top Stats</a>
+    </div>
+
+  </main>
+
+  <script>
+    new Chart(document.getElementById('inflationChart'), {
+      type: 'line',
+      data: {
+        labels: ['2019', '2020', '2021', '2022', '2023'],
+        datasets: [{
+          label: 'Global Inflation (%)',
+          data: [3.2, 3.5, 4.7, 8.8, 6.4],
+          borderColor: '#1d72f3',
+          backgroundColor: 'rgba(29,114,243,0.1)',
+          fill: true,
+          tension: 0.3
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: { beginAtZero: true, ticks: { stepSize: 2 } }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
