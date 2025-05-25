@@ -12,7 +12,6 @@
       font-family: 'Inter', sans-serif;
       background-color: #f8f9fa;
       color: #212529;
-      margin: 0;
     }
     header {
       background-color: #111;
@@ -23,7 +22,6 @@
     }
     header img {
       height: 80px;
-      object-fit: contain;
     }
     nav a {
       margin-left: 1.5rem;
@@ -48,10 +46,9 @@
       background-color: white;
       border-radius: 12px;
       padding: 2rem;
-      box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.05);
+      box-shadow: 0 0.25rem 1rem rgba(0,0,0,0.05);
     }
-    .highlight-row .col-md-3,
-    .highlight-row .col-md-4 {
+    .highlight-row .col-md-3, .highlight-row .col-md-4 {
       margin-bottom: 1rem;
     }
     .img-caption {
@@ -73,8 +70,8 @@
     }
     canvas {
       max-width: 100%;
-      display: block;
       margin: 2rem auto;
+      display: block;
     }
     a.source-link {
       text-decoration: none;
@@ -103,83 +100,121 @@
     <section class="hero">
       <div class="container">
         <h1>Finance Statistics</h1>
-        <p class="lead">Explore real-time indicators shaping the economy — from inflation and markets to monetary policy and crypto.</p>
+        <p class="lead">Explore key indicators driving the global economy — from inflation and interest rates to debt, real estate, and banking.</p>
       </div>
-      <div class="container mt-5">
-        <div class="row highlight-row text-center">
-          <div class="col-md-3">
-            <div class="highlight-card">
-              <h3 class="text-primary">$105T</h3>
-              <p class="mb-0">Global GDP (2023)</p>
-              <p class="text-muted small mt-2">
-                <a href="https://www.imf.org/en/Data" target="_blank" class="source-link">Source: IMF</a>
-              </p>
-            </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Key Economic Indicators</h2>
+      <div class="row text-center highlight-row">
+        <div class="col-md-3">
+          <div class="highlight-card">
+            <h3 class="text-primary">$105T</h3>
+            <p class="mb-0">Global GDP (2023)</p>
+            <p class="text-muted small mt-2"><a href="https://www.imf.org/en/Data" target="_blank" class="source-link">Source: IMF</a></p>
           </div>
-          <div class="col-md-3">
-            <div class="highlight-card">
-              <h3 class="text-danger">3.4%</h3>
-              <p class="mb-0">US Inflation Rate</p>
-              <p class="text-muted small mt-2">
-                <a href="https://fred.stlouisfed.org/series/CPIAUCSL" target="_blank" class="source-link">Source: FRED</a>
-              </p>
-            </div>
+        </div>
+        <div class="col-md-3">
+          <div class="highlight-card">
+            <h3 class="text-danger">3.4%</h3>
+            <p class="mb-0">US Inflation Rate</p>
+            <p class="text-muted small mt-2"><a href="https://fred.stlouisfed.org/series/CPIAUCSL" target="_blank" class="source-link">Source: FRED</a></p>
           </div>
-          <div class="col-md-3">
-            <div class="highlight-card">
-              <h3 class="text-success">$1.72T</h3>
-              <p class="mb-0">Crypto Market Cap</p>
-              <p class="text-muted small mt-2">
-                <a href="https://www.coingecko.com/en/global_charts" target="_blank" class="source-link">Source: CoinGecko</a>
-              </p>
-            </div>
+        </div>
+        <div class="col-md-3">
+          <div class="highlight-card">
+            <h3 class="text-success">$1.72T</h3>
+            <p class="mb-0">Crypto Market Cap</p>
+            <p class="text-muted small mt-2"><a href="https://www.coingecko.com/en/global_charts" target="_blank" class="source-link">Source: CoinGecko</a></p>
           </div>
-          <div class="col-md-3">
-            <div class="highlight-card">
-              <h3 class="text-warning">5.25%</h3>
-              <p class="mb-0">US Interest Rate</p>
-              <p class="text-muted small mt-2">
-                <a href="https://fred.stlouisfed.org/series/FEDFUNDS" target="_blank" class="source-link">Source: FRED</a>
-              </p>
-            </div>
+        </div>
+        <div class="col-md-3">
+          <div class="highlight-card">
+            <h3 class="text-warning">5.25%</h3>
+            <p class="mb-0">US Interest Rate</p>
+            <p class="text-muted small mt-2"><a href="https://fred.stlouisfed.org/series/FEDFUNDS" target="_blank" class="source-link">Source: FRED</a></p>
           </div>
         </div>
       </div>
     </section>
 
     <section class="content-section">
-      <h2>Global Inflation Trend</h2>
-      <p>Inflation rose sharply after 2020, driven by supply chain constraints and stimulus policy. Here's the recent trend:</p>
-      <canvas id="inflationChart" height="200"></canvas>
-      <p class="img-caption">Chart: StatMint using global IMF data (2019–2023)</p>
+      <h2>Market Indexes</h2>
+      <ul>
+        <li><strong>S&P 500:</strong> ~5,200 (↑11% YTD) — <a href="https://www.marketwatch.com/investing/index/spx" target="_blank">Source</a></li>
+        <li><strong>NASDAQ Composite:</strong> ~16,000 (↑14% YTD) — <a href="https://www.marketwatch.com/investing/index/comp" target="_blank">Source</a></li>
+        <li><strong>Dow Jones Industrial Avg:</strong> ~39,000 — <a href="https://www.marketwatch.com/investing/index/djia" target="_blank">Source</a></li>
+      </ul>
     </section>
 
     <section class="content-section">
-      <h2>Top Banks by Total Assets (2024)</h2>
-      <p>The largest global banks by total assets play a key role in global financial stability and credit markets.</p>
+      <h2>Currency & Forex</h2>
+      <ul>
+        <li><strong>USD/EUR:</strong> 0.93 — <a href="https://www.xe.com" target="_blank">Source</a></li>
+        <li><strong>USD/JPY:</strong> 156.2 — <a href="https://www.xe.com" target="_blank">Source</a></li>
+        <li><strong>GBP/USD:</strong> 1.27 — <a href="https://www.xe.com" target="_blank">Source</a></li>
+      </ul>
+    </section>
+
+    <section class="content-section">
+      <h2>Housing Market & Mortgages</h2>
+      <ul>
+        <li><strong>US 30-Year Mortgage Rate:</strong> 7.02% — <a href="https://fred.stlouisfed.org/series/MORTGAGE30US" target="_blank">Source: FRED</a></li>
+        <li><strong>Median US Home Price:</strong> $412,000 — <a href="https://fred.stlouisfed.org/series/MSPUS" target="_blank">Source: FRED</a></li>
+        <li><strong>Annual Rent Inflation:</strong> 5.3% — <a href="https://www.bls.gov/cpi/" target="_blank">Source: BLS</a></li>
+      </ul>
+    </section>
+
+    <section class="content-section">
+      <h2>Consumer Debt Overview</h2>
+      <ul>
+        <li><strong>Total US Credit Card Debt:</strong> $1.13T — <a href="https://www.newyorkfed.org" target="_blank">Source: NY Fed</a></li>
+        <li><strong>Average Credit Card APR:</strong> 24.7% — <a href="https://www.bankrate.com" target="_blank">Source: Bankrate</a></li>
+        <li><strong>Student Loan Debt:</strong> $1.77T — <a href="https://studentaid.gov/data-center/student/portfolio" target="_blank">Source: US Dept. of Education</a></li>
+      </ul>
+    </section>
+
+    <section class="content-section">
+      <h2>Top Banks by Assets (2024)</h2>
       <div class="row text-center mt-4 highlight-row">
         <div class="col-md-4">
           <div class="highlight-card">
             <h4>ICBC</h4>
             <p>Total Assets: $5.7T</p>
-            <p class="text-muted small mt-2"><a href="https://www.icbc.com.cn" target="_blank" class="source-link">Source: ICBC</a></p>
+            <p class="text-muted small mt-2"><a href="https://www.icbc.com.cn" target="_blank" class="source-link">Source</a></p>
           </div>
         </div>
         <div class="col-md-4">
           <div class="highlight-card">
             <h4>JPMorgan Chase</h4>
             <p>Total Assets: $4.1T</p>
-            <p class="text-muted small mt-2"><a href="https://www.jpmorganchase.com" target="_blank" class="source-link">Source: JPMorgan</a></p>
+            <p class="text-muted small mt-2"><a href="https://www.jpmorganchase.com" target="_blank" class="source-link">Source</a></p>
           </div>
         </div>
         <div class="col-md-4">
           <div class="highlight-card">
             <h4>Bank of America</h4>
             <p>Total Assets: $3.2T</p>
-            <p class="text-muted small mt-2"><a href="https://www.bankofamerica.com" target="_blank" class="source-link">Source: BofA</a></p>
+            <p class="text-muted small mt-2"><a href="https://www.bankofamerica.com" target="_blank" class="source-link">Source</a></p>
           </div>
         </div>
       </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Global Wealth & Fiscal Policy</h2>
+      <ul>
+        <li><strong>US Debt-to-GDP:</strong> 123% — <a href="https://www.cbo.gov" target="_blank">Source: CBO</a></li>
+        <li><strong>Top 1% Wealth Share (US):</strong> 33% — <a href="https://www.federalreserve.gov" target="_blank">Source: Federal Reserve</a></li>
+        <li><strong>Gini Index (World Avg):</strong> 0.63 — <a href="https://data.worldbank.org/indicator/SI.POV.GINI" target="_blank">Source: World Bank</a></li>
+      </ul>
+    </section>
+
+    <section class="content-section">
+      <h2>Global Inflation Trend</h2>
+      <p>Inflation rose sharply after 2020, driven by supply chain constraints and monetary easing. Here's the recent global trend:</p>
+      <canvas id="inflationChart" height="200"></canvas>
+      <p class="img-caption">Chart: StatMint using IMF data</p>
     </section>
 
     <div class="back-link">
@@ -203,9 +238,7 @@
       },
       options: {
         responsive: true,
-        plugins: {
-          legend: { display: false }
-        },
+        plugins: { legend: { display: false } },
         scales: {
           y: {
             beginAtZero: true,
