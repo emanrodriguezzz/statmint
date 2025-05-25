@@ -106,19 +106,19 @@
           </div>
           <div class="col-md-3">
             <div class="highlight-card">
-              <h3 class="text-danger" id="inflation">–</h3>
+              <h3 class="text-danger" id="inflation">3.4%</h3>
               <p class="mb-0">US Inflation Rate</p>
             </div>
           </div>
           <div class="col-md-3">
             <div class="highlight-card">
-              <h3 class="text-success" id="cryptoCap">–</h3>
+              <h3 class="text-success" id="cryptoCap">$1.72T</h3>
               <p class="mb-0">Crypto Market Cap</p>
             </div>
           </div>
           <div class="col-md-3">
             <div class="highlight-card">
-              <h3 class="text-warning" id="rate">–</h3>
+              <h3 class="text-warning" id="rate">5.25%</h3>
               <p class="mb-0">US Interest Rate</p>
             </div>
           </div>
@@ -130,7 +130,7 @@
       <h2>Global Inflation Trend</h2>
       <p>Inflation rose sharply after 2020, driven by supply chain constraints and stimulus policy. Here's the recent trend:</p>
       <canvas id="inflationChart" height="200"></canvas>
-      <p class="img-caption">Chart: StatMint using FRED & IMF data</p>
+      <p class="img-caption">Chart: StatMint using global IMF data (2019–2023)</p>
     </section>
 
     <div class="back-link">
@@ -139,46 +139,7 @@
   </main>
 
   <script>
-    // ✅ Replace this with your actual FRED API key
-    const FRED_API_KEY = '28d9ae693994afbed946fb0911074f68';
-
-    // 🔹 CoinGecko – Crypto Market Cap (No API key needed)
-    fetch("https://api.coingecko.com/api/v3/global")
-      .then(res => res.json())
-      .then(data => {
-        const cap = data.data.total_market_cap.usd;
-        document.getElementById('cryptoCap').textContent = `$${(cap / 1e12).toFixed(2)}T`;
-      })
-      .catch(err => {
-        document.getElementById('cryptoCap').textContent = 'Error';
-        console.error('Crypto error:', err);
-      });
-
-    // 🔹 FRED – US Fed Funds Rate
-    fetch(`https://api.stlouisfed.org/fred/series/observations?series_id=FEDFUNDS&api_key=${FRED_API_KEY}&file_type=json`)
-      .then(res => res.json())
-      .then(data => {
-        const latest = data.observations.filter(d => d.value !== '.').pop();
-        document.getElementById('rate').textContent = `${latest.value}%`;
-      })
-      .catch(err => {
-        document.getElementById('rate').textContent = 'Error';
-        console.error('Interest rate error:', err);
-      });
-
-    // 🔹 FRED – US Inflation (CPI)
-    fetch(`https://api.stlouisfed.org/fred/series/observations?series_id=CPIAUCSL&api_key=${FRED_API_KEY}&file_type=json`)
-      .then(res => res.json())
-      .then(data => {
-        const latest = data.observations.filter(d => d.value !== '.').pop();
-        document.getElementById('inflation').textContent = `${parseFloat(latest.value).toFixed(1)}%`;
-      })
-      .catch(err => {
-        document.getElementById('inflation').textContent = 'Error';
-        console.error('Inflation error:', err);
-      });
-
-    // 📈 Chart.js static inflation chart
+    // Chart.js inflation line
     new Chart(document.getElementById('inflationChart'), {
       type: 'line',
       data: {
@@ -196,7 +157,12 @@
         responsive: true,
         plugins: { legend: { display: false } },
         scales: {
-          y: { beginAtZero: true, ticks: { stepSize: 2 } }
+          y: {
+            beginAtZero: true,
+            ticks: {
+              stepSize: 2
+            }
+          }
         }
       }
     });
