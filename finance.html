@@ -152,7 +152,7 @@
       });
 
     // 💸 US Fed Funds Rate & CPI - FRED (API key required)
-    const FRED_API_KEY = 'YOUR_FRED_API_KEY'; // 👈 Replace this
+    const FRED_API_KEY = '28d9ae693994afbed946fb0911074f68'; // 👈 Replace this
 
     fetch(`https://api.stlouisfed.org/fred/series/observations?series_id=FEDFUNDS&api_key=${FRED_API_KEY}&file_type=json`)
       .then(res => res.json())
