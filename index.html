@@ -4,36 +4,40 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StatMint | Trusted Data Insights</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --primary: #1d72f3;
+      --dark: #111;
+      --light-bg: #f8f9fa;
       --accent-bg: #eef3fb;
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f8f9fa;
+      background-color: var(--light-bg);
       color: #212529;
-      margin: 0;
     }
 
     header {
-      background-color: #fff;
-      padding: 1.25rem 2rem;
-      border-bottom: 1px solid #dee2e6;
+      background-color: var(--dark);
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
+    header img {
+      max-height: 44px;
+    }
+
     nav a {
+      color: white;
       margin-left: 1.5rem;
-      color: #212529;
       font-weight: 500;
       text-decoration: none;
-      transition: color 0.3s;
+      transition: color 0.3s ease;
     }
 
     nav a:hover {
@@ -41,10 +45,10 @@
     }
 
     .hero {
-      position: relative;
-      background: linear-gradient(to right, rgba(29,114,243,0.9), rgba(29,114,243,0.85)), url('statmintbackground.png') center center / cover no-repeat;
-      color: white;
+      background: linear-gradient(to right, rgba(17,17,17,0.9), rgba(17,17,17,0.85)),
+        url('statmintbackground.png') center center / cover no-repeat;
       padding: 6rem 2rem;
+      color: white;
       text-align: center;
     }
 
@@ -56,11 +60,17 @@
     .hero p {
       font-size: 1.25rem;
       max-width: 700px;
-      margin: 1rem auto 2rem;
+      margin: 1.5rem auto 2.5rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
     }
 
     section {
-      padding: 4.5rem 0;
+      padding: 4rem 0;
     }
 
     .section-alt {
@@ -83,10 +93,10 @@
     }
 
     .highlight-box {
-      background-color: #ffffff;
-      padding: 2rem;
+      background-color: white;
       border: 1px solid #dee2e6;
       border-radius: 10px;
+      padding: 2rem;
       transition: transform 0.2s ease;
     }
 
@@ -95,7 +105,7 @@
     }
 
     footer {
-      background-color: #212529;
+      background-color: #111;
       color: #adb5bd;
       padding: 2rem 0;
       text-align: center;
@@ -114,18 +124,14 @@
       color: #6c757d;
       margin-bottom: 0.5rem;
     }
-
-    .section-title {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
   </style>
 </head>
 <body>
 
   <header>
-    <a href="index.html"><img src="StatMintLogo.png" alt="StatMint Logo" height="48"></a>
+    <a href="index.html">
+      <img src="StatMintLogo.png" alt="StatMint Logo" />
+    </a>
     <nav>
       <a href="index.html">Home</a>
       <a href="top-stats-landing.html">Top Stats</a>
@@ -140,15 +146,15 @@
     <div class="hero">
       <div class="container">
         <h1>StatMint: Trusted Data, Clear Insights</h1>
-        <p>Discover structured statistics and research-grade trends — built for analysts, creators, and teams that demand clarity.</p>
+        <p>Explore well-sourced statistics and emerging trends — built for analysts, educators, and decision-makers who care about accuracy.</p>
         <a href="top-stats-landing.html" class="btn btn-light btn-lg">Explore Stats</a>
       </div>
     </div>
 
     <section class="section-alt text-center">
       <div class="container">
-        <div class="label-heading">Explore</div>
-        <h2 class="section-title">Browse by Category</h2>
+        <div class="label-heading">Categories</div>
+        <h2 class="section-title">Explore by Topic</h2>
         <div class="row justify-content-center mt-4">
           <div class="col-6 col-md-2 mb-3"><a href="finance.html" class="btn btn-outline-primary w-100">Finance</a></div>
           <div class="col-6 col-md-2 mb-3"><a href="technology.html" class="btn btn-outline-primary w-100">Technology</a></div>
@@ -160,35 +166,35 @@
 
     <section class="text-center">
       <div class="container">
-        <div class="label-heading">Mission</div>
+        <div class="label-heading">Our Mission</div>
         <h2 class="section-title">What is StatMint?</h2>
         <p class="mx-auto" style="max-width: 700px;">
-          StatMint delivers research-backed, well-sourced data for people who work with facts. Our platform empowers analysts, educators, and developers to make decisions with confidence.
+          StatMint curates data from global sources to make statistics easy to explore and reliable to share. Designed for clarity, speed, and insight.
         </p>
       </div>
     </section>
 
     <section class="section-alt">
-      <div class="container">
-        <div class="label-heading text-center">Benefits</div>
-        <h2 class="section-title text-center">Why StatMint</h2>
-        <div class="row text-center mt-4">
+      <div class="container text-center">
+        <div class="label-heading">Why Us</div>
+        <h2 class="section-title">Why StatMint?</h2>
+        <div class="row mt-4">
           <div class="col-md-4 mb-4">
             <div class="highlight-box h-100">
-              <h5>Verified Sources</h5>
-              <p>We link every stat to its origin — no ambiguity, just accountability.</p>
+              <h5>Credible Data</h5>
+              <p>Every dataset is sourced, cited, and updated regularly to ensure accuracy.</p>
             </div>
           </div>
           <div class="col-md-4 mb-4">
             <div class="highlight-box h-100">
-              <h5>Visual Clarity</h5>
-              <p>Data should be understandable. We simplify discovery with clean layouts and charts.</p>
+              <h5>Clean Design</h5>
+              <p>We make data beautiful and accessible through interactive visuals and clear language.</p>
             </div>
           </div>
           <div class="col-md-4 mb-4">
             <div class="highlight-box h-100">
-              <h5>Structured APIs</h5>
-              <p>Power your app or dashboard with developer-first endpoints (coming soon).</p>
+              <h5>Built for Builders</h5>
+              <p>StatMint is built with developers and teams in mind — including API access (coming soon).</p>
             </div>
           </div>
         </div>
@@ -197,21 +203,21 @@
 
     <section class="text-center">
       <div class="container">
-        <div class="label-heading">Spotlight</div>
-        <h2 class="section-title">Featured Insight</h2>
+        <div class="label-heading">Featured</div>
+        <h2 class="section-title">Sample Stat Highlight</h2>
         <div class="highlight-box mx-auto mt-4" style="max-width: 700px;">
-          <p class="fs-5">Global fertility has dropped from 5.0 in 1960 to 2.3 in 2023 — and continues downward.</p>
-          <p class="text-muted mb-2">Source: World Bank</p>
-          <a href="birthrates.html" class="btn btn-outline-primary">View Full Report</a>
+          <p class="fs-5">Global fertility declined from 5.0 in 1960 to 2.3 in 2023.</p>
+          <p class="text-muted">Source: World Bank</p>
+          <a href="birthrates.html" class="btn btn-outline-primary mt-2">Read the Full Report</a>
         </div>
       </div>
     </section>
 
     <section class="section-alt text-center">
       <div class="container">
-        <div class="label-heading">Subscribe</div>
-        <h2 class="section-title">Get Weekly Data Briefings</h2>
-        <p>Join 10,000+ professionals receiving curated statistics every week.</p>
+        <div class="label-heading">Newsletter</div>
+        <h2 class="section-title">Weekly Insight Reports</h2>
+        <p>Get curated statistics in your inbox. No spam — just facts.</p>
         <form class="d-flex justify-content-center flex-wrap gap-2 mt-3">
           <input type="email" placeholder="Enter your email" class="form-control" style="max-width: 250px;">
           <button type="submit" class="btn btn-primary">Subscribe</button>
@@ -222,30 +228,30 @@
     <section class="text-center">
       <div class="container">
         <div class="label-heading">Developers</div>
-        <h2 class="section-title">StatMint API</h2>
+        <h2 class="section-title">StatMint API Access</h2>
         <p class="mx-auto" style="max-width: 700px;">
-          Use our upcoming API to integrate structured, categorized data into your own tools, reports, or apps. Beta testers welcome.
+          Our API will enable real-time access to categorized, structured statistics. Join the beta to help shape the future.
         </p>
-        <a href="mailto:info@statmint.org" class="btn btn-outline-primary mt-3">Request API Access</a>
+        <a href="mailto:info@statmint.org" class="btn btn-outline-primary mt-3">Request Access</a>
       </div>
     </section>
 
     <section class="section-alt">
       <div class="container">
-        <div class="label-heading text-center">Support</div>
+        <div class="label-heading text-center">FAQs</div>
         <h2 class="section-title text-center">Frequently Asked Questions</h2>
-        <div class="text-start mx-auto mt-4" style="max-width: 800px;">
+        <div class="mx-auto text-start mt-4" style="max-width: 800px;">
           <div class="mb-3">
             <h5>Where does your data come from?</h5>
-            <p>We collect data from international institutions like World Bank, IMF, UN, CDC, and peer-reviewed sources.</p>
+            <p>We collect and organize data from trusted institutions like the World Bank, IMF, UN, CDC, and peer-reviewed research sources.</p>
           </div>
           <div class="mb-3">
-            <h5>Is StatMint free?</h5>
-            <p>Yes, all public datasets are freely accessible. Premium features are on the roadmap.</p>
+            <h5>Can I suggest or correct a stat?</h5>
+            <p>Yes — feedback is welcome and encouraged. Reach out via our contact form or email.</p>
           </div>
           <div class="mb-3">
-            <h5>Can I contribute or correct a stat?</h5>
-            <p>Absolutely — we encourage feedback. Contact us via email with context and sourcing.</p>
+            <h5>Is it free to use?</h5>
+            <p>Yes. All publicly available statistics and charts are free. Premium tools are coming soon.</p>
           </div>
         </div>
       </div>
