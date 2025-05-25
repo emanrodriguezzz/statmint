@@ -44,9 +44,6 @@
       margin: auto;
       padding: 4rem 1rem;
     }
-    .content-section.alt {
-      background-color: #f1f3f5;
-    }
     .highlight-card {
       background-color: white;
       border-radius: 12px;
@@ -141,34 +138,47 @@
     </div>
   </main>
 
-  <!-- 📊 JS to fetch live data -->
   <script>
-    // 🪙 Global Crypto Market Cap - CoinGecko (Free, no API key)
+    // ✅ Replace this with your actual FRED API key
+    const FRED_API_KEY = '28d9ae693994afbed946fb0911074f68';
+
+    // 🔹 CoinGecko – Crypto Market Cap (No API key needed)
     fetch("https://api.coingecko.com/api/v3/global")
       .then(res => res.json())
       .then(data => {
         const cap = data.data.total_market_cap.usd;
         document.getElementById('cryptoCap').textContent = `$${(cap / 1e12).toFixed(2)}T`;
+      })
+      .catch(err => {
+        document.getElementById('cryptoCap').textContent = 'Error';
+        console.error('Crypto error:', err);
       });
 
-    // 💸 US Fed Funds Rate & CPI - FRED (API key required)
-    const FRED_API_KEY = '28d9ae693994afbed946fb0911074f68'; // 👈 Replace this
-
+    // 🔹 FRED – US Fed Funds Rate
     fetch(`https://api.stlouisfed.org/fred/series/observations?series_id=FEDFUNDS&api_key=${FRED_API_KEY}&file_type=json`)
       .then(res => res.json())
       .then(data => {
-        const latest = data.observations.slice(-1)[0].value;
-        document.getElementById('rate').textContent = `${latest}%`;
+        const latest = data.observations.filter(d => d.value !== '.').pop();
+        document.getElementById('rate').textContent = `${latest.value}%`;
+      })
+      .catch(err => {
+        document.getElementById('rate').textContent = 'Error';
+        console.error('Interest rate error:', err);
       });
 
+    // 🔹 FRED – US Inflation (CPI)
     fetch(`https://api.stlouisfed.org/fred/series/observations?series_id=CPIAUCSL&api_key=${FRED_API_KEY}&file_type=json`)
       .then(res => res.json())
       .then(data => {
-        const latest = data.observations.slice(-1)[0].value;
-        document.getElementById('inflation').textContent = `${parseFloat(latest).toFixed(1)}%`;
+        const latest = data.observations.filter(d => d.value !== '.').pop();
+        document.getElementById('inflation').textContent = `${parseFloat(latest.value).toFixed(1)}%`;
+      })
+      .catch(err => {
+        document.getElementById('inflation').textContent = 'Error';
+        console.error('Inflation error:', err);
       });
 
-    // 📈 Inflation Chart (static data)
+    // 📈 Chart.js static inflation chart
     new Chart(document.getElementById('inflationChart'), {
       type: 'line',
       data: {
