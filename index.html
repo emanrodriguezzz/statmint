@@ -3,186 +3,188 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>StatMint | Stats That Shape the Future</title>
+  <title>StatMint | Evolving How the World Discovers and Shares Statistics</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     body {
       font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #111;
       margin: 0;
-      background-color: #f9fbfd;
-      color: #212529;
     }
-
     header {
-      background-color: #111;
+      background-color: #000;
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
-
     header img {
-      height: 70px;
+      height: 60px;
+      object-fit: contain;
     }
-
     nav a {
       margin-left: 1.5rem;
-      color: white;
+      color: #fff;
       font-weight: 500;
       text-decoration: none;
     }
-
     nav a:hover {
-      color: #1d72f3;
+      color: #3f8efc;
     }
-
     .hero {
-      background: linear-gradient(to bottom right, #1d72f3, #003366);
-      color: white;
+      background-color: #ffffff;
+      padding: 5rem 1rem 3rem;
       text-align: center;
-      padding: 5rem 1rem 4rem;
     }
-
     .hero h1 {
-      font-size: 2.8rem;
+      font-size: 2.5rem;
       font-weight: 700;
     }
-
-    .hero p {
+    .hero p.lead {
       max-width: 750px;
       margin: 1.5rem auto 0;
-      font-size: 1.2rem;
-      color: #e2e8f0;
-    }
-
-    .btn-hero {
-      margin-top: 2rem;
       font-size: 1.1rem;
-      padding: 0.75rem 1.5rem;
-      background-color: white;
-      color: #1d72f3;
+      color: #333;
+    }
+    .btn-primary {
+      background-color: #3f8efc;
       border: none;
-      font-weight: 600;
     }
-
-    .section {
-      padding: 4rem 1rem;
-      max-width: 1100px;
+    .btn-primary:hover {
+      background-color: #2c7be5;
+    }
+    .content-section {
+      max-width: 1000px;
       margin: auto;
+      padding: 4rem 1rem;
     }
-
-    .section h2 {
-      text-align: center;
-      margin-bottom: 2rem;
-      font-weight: 600;
-    }
-
     .card-deck {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: 2rem;
+      justify-content: center;
     }
-
     .category-card {
       background: white;
-      border-radius: 12px;
-      box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.06);
-      width: 250px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.03);
       padding: 2rem;
-      text-align: center;
-      transition: transform 0.2s ease;
+      text-align: left;
+      width: 260px;
+      transition: all 0.2s ease;
     }
-
     .category-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
+      border-color: #3f8efc;
     }
-
-    .category-card h4 {
-      margin-top: 1rem;
-      font-size: 1.2rem;
+    .category-card h3 {
+      font-size: 1.15rem;
       font-weight: 600;
+      margin-bottom: 0.5rem;
     }
-
     .category-card p {
       font-size: 0.95rem;
-      color: #6c757d;
+      color: #555;
     }
-
     footer {
-      background: #f1f3f5;
       text-align: center;
       padding: 2rem 1rem;
       font-size: 0.9rem;
       color: #6c757d;
+      background-color: #f8f9fa;
+    }
+    footer a {
+      color: #6c757d;
+      text-decoration: none;
+    }
+    footer a:hover {
+      color: #3f8efc;
+    }
+    @media (max-width: 768px) {
+      .card-deck {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav {
+        width: 100%;
+        margin-top: 1rem;
+        text-align: center;
+      }
+      nav a {
+        display: inline-block;
+        margin: 0.5rem 0.75rem;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <a href="index.html"><img src="StatMintLogo.png" alt="StatMint Logo"></a>
+    <a href="index.html"><img src="StatMintLogo.png" alt="StatMint Logo" /></a>
     <nav>
       <a href="index.html">Home</a>
       <a href="explore.html">Explore</a>
       <a href="finance.html">Finance</a>
       <a href="technology.html">Technology</a>
       <a href="healthcare.html">Healthcare</a>
-      <a href="since-2000.html">Since 2000</a>
+      <a href="about.html">About</a>
     </nav>
   </header>
 
   <main>
     <section class="hero">
       <div class="container">
-        <h1>Stats That Shape the Future</h1>
-        <p>StatMint tracks the numbers reshaping the global economy, technology, population, and climate — visualized and explained in clear language.</p>
-        <a href="explore.html" class="btn btn-hero">Explore Key Trends</a>
+        <h1>Evolving How the World Discovers and Shares Statistics</h1>
+        <p class="lead">
+          StatMint tracks the world’s most urgent, society-shaping statistics — from demographics to debt, climate to AI.
+          Every number is sourced, visualized, and explained in plain language.
+        </p>
+        <a href="explore.html" class="btn btn-primary btn-lg mt-4">Explore Key Stats</a>
       </div>
     </section>
 
-    <section class="section text-center">
-      <h2>Featured Trend Categories</h2>
+    <section class="content-section text-center">
+      <h2 class="mb-4">Featured Themes</h2>
       <div class="card-deck">
         <div class="category-card">
-          <div style="font-size: 2rem;">🌍</div>
-          <h4>Climate & Energy</h4>
-          <p>CO₂ emissions, renewable growth, fossil use, climate impacts</p>
+          <h3>Climate & Energy</h3>
+          <p>CO₂ emissions, renewables growth, global temperature trends</p>
         </div>
         <div class="category-card">
-          <div style="font-size: 2rem;">📉</div>
-          <h4>Economy & Debt</h4>
-          <p>Inflation, interest rates, GDP, global borrowing trends</p>
+          <h3>Global Economy</h3>
+          <p>Debt-to-GDP, inflation, unemployment, central bank moves</p>
         </div>
         <div class="category-card">
-          <div style="font-size: 2rem;">👥</div>
-          <h4>Population & Demographics</h4>
-          <p>Fertility, aging, urbanization, migration flows</p>
+          <h3>Demographics</h3>
+          <p>Birth rates, aging populations, migration flows</p>
         </div>
         <div class="category-card">
-          <div style="font-size: 2rem;">🧠</div>
-          <h4>Technology & AI</h4>
-          <p>AI adoption, automation, tech workforce, internet growth</p>
+          <h3>AI & Tech Shift</h3>
+          <p>AI adoption, automation trends, tech sector disruptions</p>
         </div>
       </div>
     </section>
 
-    <section class="section text-center">
-      <h2>Built for Clarity, Backed by Data</h2>
-      <p style="max-width: 800px; margin: auto;">
-        StatMint curates long-term, high-signal trends to help users understand global shifts.
-        No fluff, no ads — just the stats that matter, fully sourced and easy to share.
+    <section class="content-section text-center">
+      <h2 class="mb-4">Our Approach</h2>
+      <p style="max-width: 750px; margin: auto;">
+        StatMint curates the most consequential public statistics and turns them into human-readable insights.
+        Every chart is sourced. Every trend has context. No jargon, no paywall — just data that matters.
       </p>
     </section>
 
     <div class="text-center mb-5">
-      <a href="explore.html" class="btn btn-primary btn-lg">Start Exploring →</a>
+      <a href="explore.html" class="btn btn-primary btn-lg">View All Stats</a>
     </div>
   </main>
 
   <footer>
-    <p>© 2025 StatMint — Built for clarity. Backed by trusted data.</p>
+    <p>© 2025 StatMint · Evolving how the world discovers and shares statistics.</p>
+    <p><a href="mailto:contact@statmint.io">contact@statmint.io</a> · <a href="https://www.linkedin.com/company/statmint/" target="_blank">LinkedIn</a></p>
   </footer>
 
 </body>
