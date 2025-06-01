@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>StatMint | Economic Intelligence, Made Clear</title>
+  <title>StatMint | Stats That Matter</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
@@ -44,7 +44,7 @@
       font-weight: 700;
     }
     .hero p.lead {
-      max-width: 700px;
+      max-width: 750px;
       margin: 1.5rem auto 0;
       font-size: 1.2rem;
     }
@@ -53,20 +53,31 @@
       border: none;
     }
     .content-section {
-      max-width: 960px;
+      max-width: 1000px;
       margin: auto;
       padding: 4rem 1rem;
     }
-    .content-section h2 {
+    .card-deck {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .category-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+      padding: 2rem;
       text-align: center;
-      margin-bottom: 2rem;
+      width: 250px;
     }
-    .content-section ul {
-      list-style: none;
-      padding-left: 0;
+    .category-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
     }
-    .content-section li {
-      padding: 0.5rem 0;
+    .category-card p {
+      font-size: 0.95rem;
+      color: #555;
     }
     footer {
       text-align: center;
@@ -82,65 +93,64 @@
     <a href="index.html"><img src="StatMintLogo.png" alt="StatMint Logo" /></a>
     <nav>
       <a href="index.html">Home</a>
-      <a href="top-stats-landing.html">Top Stats</a>
+      <a href="explore.html">Explore</a>
       <a href="finance.html">Finance</a>
       <a href="technology.html">Technology</a>
       <a href="healthcare.html">Healthcare</a>
-      <a href="odds.html">Odds</a>
+      <a href="about.html">About</a>
     </nav>
   </header>
 
   <main>
     <section class="hero">
       <div class="container">
-        <h1>Economic Intelligence, Made Clear</h1>
-        <p class="lead">StatMint delivers the world’s most important financial and economic signals — in one clean, readable dashboard. From inflation and debt to crypto and housing, every stat is sourced, explained, and shareable.</p>
-        <a href="top-stats-landing.html" class="btn btn-primary btn-lg mt-4">Explore Live Data →</a>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <h2>Why StatMint?</h2>
-      <div class="row text-start">
-        <div class="col-md-6">
-          <ul>
-            <li><strong>✅ Clean, visual stats</strong><br>Built for clarity — no ads, no fluff. Just data that makes sense.</li>
-            <li><strong>✅ Trusted sources</strong><br>Every number links to a credible source like the IMF, World Bank, or FRED.</li>
-          </ul>
-        </div>
-        <div class="col-md-6">
-          <ul>
-            <li><strong>✅ Shareable & simple</strong><br>Every chart and insight is built to embed, link, or reuse.</li>
-            <li><strong>✅ 100% free</strong><br>No paywalls. No logins. StatMint is a public platform built for public understanding.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <h2>Who Uses StatMint?</h2>
-      <div class="row text-center">
-        <div class="col-md-3"><p>📊 Analysts & researchers</p></div>
-        <div class="col-md-3"><p>✍️ Creators & journalists</p></div>
-        <div class="col-md-3"><p>💼 Founders & investors</p></div>
-        <div class="col-md-3"><p>🎓 Students & educators</p></div>
+        <h1>Stats That Shape the Future</h1>
+        <p class="lead">
+          StatMint tracks the world’s most urgent, society-shifting statistics — from demographics to debt, climate to AI.
+          Every number is sourced, visualized, and explained in plain language.
+        </p>
+        <a href="explore.html" class="btn btn-primary btn-lg mt-4">Explore Key Stats →</a>
       </div>
     </section>
 
     <section class="content-section text-center">
-      <h2>Backed by Public Data, Delivered Professionally</h2>
-      <p style="max-width: 700px; margin: 0 auto;">
-        StatMint curates high-signal data from institutions like the IMF, World Bank, OECD, and central banks — formatted into insights, charts, and context you can actually use.
+      <h2 class="mb-4">Featured Themes</h2>
+      <div class="card-deck">
+        <div class="category-card">
+          <h3>🌍 Climate & Energy</h3>
+          <p>CO₂ emissions, renewables growth, global temperature trends</p>
+        </div>
+        <div class="category-card">
+          <h3>🏛️ Global Economy</h3>
+          <p>Debt-to-GDP, inflation, unemployment, central bank moves</p>
+        </div>
+        <div class="category-card">
+          <h3>👥 Demographics</h3>
+          <p>Birth rates, aging populations, migration flows</p>
+        </div>
+        <div class="category-card">
+          <h3>🧠 AI & Tech Shift</h3>
+          <p>AI adoption, automation trends, tech sector disruptions</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section text-center">
+      <h2 class="mb-4">Our Approach</h2>
+      <p style="max-width: 750px; margin: auto;">
+        StatMint curates the most consequential public statistics and turns them into human-readable insights.
+        Every chart is sourced. Every trend has context. No jargon, no paywall — just data that matters.
       </p>
     </section>
 
     <div class="text-center mb-5">
-      <a href="top-stats-landing.html" class="btn btn-primary btn-lg">Start Exploring →</a>
+      <a href="explore.html" class="btn btn-primary btn-lg">View All Stats →</a>
     </div>
   </main>
 
   <footer>
-    <p>© 2025 StatMint. Built for clarity. Backed by data.</p>
+    <p>© 2025 StatMint · Built independently to track the data shaping tomorrow.</p>
   </footer>
+
 </body>
 </html>
