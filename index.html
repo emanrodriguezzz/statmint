@@ -10,7 +10,7 @@
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
-      background-color: #f8f9fa;
+      background-color: #fff;
       color: #212529;
     }
 
@@ -49,7 +49,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.65);
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
     }
 
     .hero-content {
@@ -66,7 +66,7 @@
 
     .hero p {
       font-size: 1.2rem;
-      color: #ccc;
+      color: #ddd;
     }
 
     .hero .btn {
@@ -98,7 +98,10 @@
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.1);
+      transition: all 0.2s ease;
       height: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
     .category-card img {
@@ -109,13 +112,14 @@
 
     .category-card-body {
       padding: 1.25rem;
+      flex-grow: 1;
       display: flex;
       flex-direction: column;
-      height: 100%;
     }
 
     .category-card h5 {
       font-weight: 600;
+      margin-bottom: 0.5rem;
     }
 
     .category-card p {
@@ -126,6 +130,7 @@
 
     .category-card a {
       margin-top: 1rem;
+      align-self: flex-start;
     }
 
     footer {
@@ -201,7 +206,7 @@
             <img src="https://images.unsplash.com/photo-1611971261506-0b5f4b1c4e93?auto=format&fit=crop&w=800&q=80" alt="Healthcare">
             <div class="category-card-body">
               <h5>Healthcare</h5>
-              <p>Explore health spending, biotech funding, outcomes, and demographic health forecasts.</p>
+              <p>Explore health spending, biotech funding, public health outcomes, and longevity trends.</p>
               <a href="healthcare.html" class="btn btn-outline-primary btn-sm">Explore Healthcare</a>
             </div>
           </div>
@@ -212,7 +217,7 @@
             <img src="https://images.unsplash.com/photo-1531497865144-0464ef8fb9f8?auto=format&fit=crop&w=800&q=80" alt="Demographics">
             <div class="category-card-body">
               <h5>Demographics</h5>
-              <p>Understand population growth, aging, fertility shifts, and migration flows across the world.</p>
+              <p>Understand global population shifts, migration, fertility trends, and long-term societal forecasts.</p>
               <a href="odds.html" class="btn btn-outline-primary btn-sm">Explore Demographics</a>
             </div>
           </div>
@@ -223,7 +228,7 @@
 
   <footer>
     <p>&copy; 2025 StatMint. All rights reserved.</p>
-    <p>Have feedback? <a href="mailto:info@statmint.org">Email us</a></p>
+    <p><a href="mailto:info@statmint.org">Contact us</a></p>
   </footer>
 
 </body>
