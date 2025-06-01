@@ -10,9 +10,10 @@
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
-      background-color: #fff;
+      background-color: #f8f9fa;
       color: #212529;
     }
+
     header {
       background-color: #0f1113;
       padding: 1rem 2rem;
@@ -20,94 +21,113 @@
       justify-content: space-between;
       align-items: center;
     }
+
     header img {
       height: 50px;
     }
+
     nav a {
       margin-left: 1.5rem;
       color: white;
       text-decoration: none;
       font-weight: 500;
     }
+
     nav a:hover {
       color: #1d72f3;
     }
+
     .hero {
-      background: url('https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&w=1600&q=80') center center/cover no-repeat;
-      color: white;
-      text-align: center;
-      padding: 7rem 2rem;
       position: relative;
+      background: url('https://images.unsplash.com/photo-1581091012184-7a596b7085b0?auto=format&fit=crop&w=1600&q=80') center center/cover no-repeat;
+      color: white;
+      padding: 7rem 2rem;
+      text-align: center;
     }
+
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      background-color: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.65);
     }
+
     .hero-content {
       position: relative;
-      z-index: 2;
+      z-index: 1;
       max-width: 800px;
-      margin: auto;
+      margin: 0 auto;
     }
+
     .hero h1 {
       font-size: 3rem;
       font-weight: 700;
     }
+
     .hero p {
       font-size: 1.2rem;
       color: #ccc;
     }
+
     .hero .btn {
       margin-top: 2rem;
       font-size: 1rem;
       padding: 0.75rem 1.5rem;
     }
+
     .section {
       padding: 4rem 1rem;
     }
+
     .section h2 {
       font-size: 2rem;
       font-weight: 700;
       text-align: center;
       margin-bottom: 2rem;
     }
+
     .section p.lead {
       text-align: center;
       color: #555;
       max-width: 750px;
       margin: 0 auto 3rem;
     }
+
     .category-card {
-      background-color: #fff;
+      background-color: white;
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.1);
       height: 100%;
     }
+
     .category-card img {
       height: 160px;
       width: 100%;
       object-fit: cover;
     }
+
     .category-card-body {
       padding: 1.25rem;
       display: flex;
       flex-direction: column;
       height: 100%;
     }
+
     .category-card h5 {
       font-weight: 600;
     }
+
     .category-card p {
       flex-grow: 1;
       color: #555;
       font-size: 0.95rem;
     }
+
     .category-card a {
       margin-top: 1rem;
     }
+
     footer {
       background-color: #0f1113;
       color: #ccc;
@@ -116,10 +136,12 @@
       font-size: 0.9rem;
       margin-top: 4rem;
     }
+
     footer a {
       color: #87cefa;
       text-decoration: none;
     }
+
     footer a:hover {
       text-decoration: underline;
     }
@@ -141,20 +163,20 @@
 
   <section class="hero">
     <div class="hero-content">
-      <h1>Global Trends. <span style="color:#00bfff">Clear Signals.</span></h1>
-      <p>StatMint simplifies complex global data so you can make informed decisions with confidence — from finance to public health.</p>
+      <h1>Data That Defines the Future</h1>
+      <p>StatMint tracks global shifts across finance, health, technology, and demographics — helping users make sense of the world through curated, contextualized statistics.</p>
       <a href="#categories" class="btn btn-primary">Explore Data Categories</a>
     </div>
   </section>
 
   <section class="section" id="categories">
-    <h2>Explore Categories</h2>
-    <p class="lead">Dive deep into comprehensive data across multiple sectors — and discover insights that matter.</p>
+    <h2>Explore Key Domains</h2>
+    <p class="lead">Dive deep into curated datasets and insights from across sectors — finance, technology, healthcare, and society.</p>
     <div class="container">
       <div class="row g-4">
         <div class="col-md-6 col-lg-3">
           <div class="category-card">
-            <img src="https://images.unsplash.com/photo-1581092334600-5912d003d9d5?auto=format&fit=crop&w=800&q=80" alt="Finance">
+            <img src="https://images.unsplash.com/photo-1556740772-1a741367b93e?auto=format&fit=crop&w=800&q=80" alt="Finance">
             <div class="category-card-body">
               <h5>Finance</h5>
               <p>Track inflation, interest rates, debt, and global markets with historical and real-time insights.</p>
@@ -162,6 +184,7 @@
             </div>
           </div>
         </div>
+
         <div class="col-md-6 col-lg-3">
           <div class="category-card">
             <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981d?auto=format&fit=crop&w=800&q=80" alt="Technology">
@@ -172,22 +195,24 @@
             </div>
           </div>
         </div>
+
         <div class="col-md-6 col-lg-3">
           <div class="category-card">
             <img src="https://images.unsplash.com/photo-1611971261506-0b5f4b1c4e93?auto=format&fit=crop&w=800&q=80" alt="Healthcare">
             <div class="category-card-body">
               <h5>Healthcare</h5>
-              <p>Gain insights into health spending, outcomes, insurance coverage, and biotech innovation.</p>
+              <p>Explore health spending, biotech funding, outcomes, and demographic health forecasts.</p>
               <a href="healthcare.html" class="btn btn-outline-primary btn-sm">Explore Healthcare</a>
             </div>
           </div>
         </div>
+
         <div class="col-md-6 col-lg-3">
           <div class="category-card">
             <img src="https://images.unsplash.com/photo-1531497865144-0464ef8fb9f8?auto=format&fit=crop&w=800&q=80" alt="Demographics">
             <div class="category-card-body">
-              <h5>Demographics & Odds</h5>
-              <p>Understand population changes, employment statistics, and global societal trends shaping the future.</p>
+              <h5>Demographics</h5>
+              <p>Understand population growth, aging, fertility shifts, and migration flows across the world.</p>
               <a href="odds.html" class="btn btn-outline-primary btn-sm">Explore Demographics</a>
             </div>
           </div>
