@@ -39,7 +39,7 @@
 
     .hero {
       position: relative;
-      background: url('https://images.unsplash.com/photo-1603354350317-6b3663f3157b?auto=format&fit=crop&w=1600&q=80') center center/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1612832021024-53d5fe4c740b?auto=format&fit=crop&w=1600&q=80') center center/cover no-repeat;
       color: white;
       padding: 6rem 2rem;
       text-align: center;
@@ -60,7 +60,7 @@
     }
 
     .hero h1 {
-      font-size: 2.8rem;
+      font-size: 3rem;
       font-weight: 700;
     }
 
@@ -102,6 +102,11 @@
       height: 100%;
       display: flex;
       flex-direction: column;
+      transition: box-shadow 0.2s;
+    }
+
+    .category-card:hover {
+      box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.15);
     }
 
     .category-card img {
@@ -181,55 +186,4 @@
       <div class="row g-4">
         <div class="col-md-6 col-lg-3">
           <div class="category-card">
-            <img src="https://images.unsplash.com/photo-1581092334600-5912d003d9d5?auto=format&fit=crop&w=800&q=80" alt="Finance">
-            <div class="category-card-body">
-              <h5>Finance</h5>
-              <p>Track inflation, interest rates, debt, and global markets with historical and real-time insights.</p>
-              <a href="finance.html" class="btn btn-outline-primary btn-sm">Explore Finance</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="category-card">
-            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981d?auto=format&fit=crop&w=800&q=80" alt="Technology">
-            <div class="category-card-body">
-              <h5>Technology</h5>
-              <p>Stay ahead with data on tech investment, AI adoption, and digital transformation trends.</p>
-              <a href="technology.html" class="btn btn-outline-primary btn-sm">Explore Technology</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="category-card">
-            <img src="https://images.unsplash.com/photo-1611971261506-0b5f4b1c4e93?auto=format&fit=crop&w=800&q=80" alt="Healthcare">
-            <div class="category-card-body">
-              <h5>Healthcare</h5>
-              <p>Explore health spending, biotech funding, outcomes, and demographic health forecasts.</p>
-              <a href="healthcare.html" class="btn btn-outline-primary btn-sm">Explore Healthcare</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="category-card">
-            <img src="https://images.unsplash.com/photo-1531497865144-0464ef8fb9f8?auto=format&fit=crop&w=800&q=80" alt="Demographics">
-            <div class="category-card-body">
-              <h5>Demographics</h5>
-              <p>Understand population growth, migration, fertility, and age trends shaping tomorrow’s world.</p>
-              <a href="odds.html" class="btn btn-outline-primary btn-sm">Explore Demographics</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 StatMint. All rights reserved.</p>
-    <p><a href="mailto:info@statmint.org">Contact us</a></p>
-  </footer>
-
-</body>
-</html>
+            <img src="https://images.unsplash.com/photo-1621416940373-6f5a396ca86d?auto=format&fit=crop&w=800&q=80" alt="F
