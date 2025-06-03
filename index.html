@@ -9,9 +9,9 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      margin: 0;
       background-color: #fff;
       color: #212529;
+      margin: 0;
     }
 
     header {
@@ -39,7 +39,7 @@
 
     .hero {
       position: relative;
-      background: url('images/iceberg.jpg') center center/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1612832021024-53d5fe4c740b?auto=format&fit=crop&w=1600&q=80') center center/cover no-repeat;
       color: white;
       padding: 6rem 2rem;
       text-align: center;
@@ -49,7 +49,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.55);
     }
 
     .hero-content {
@@ -65,8 +65,8 @@
     }
 
     .hero p {
-      font-size: 1.15rem;
-      color: #e0e0e0;
+      font-size: 1.25rem;
+      color: #ddd;
       margin-top: 1rem;
     }
 
@@ -102,11 +102,6 @@
       height: 100%;
       display: flex;
       flex-direction: column;
-      transition: box-shadow 0.2s;
-    }
-
-    .category-card:hover {
-      box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.15);
     }
 
     .category-card img {
@@ -138,21 +133,25 @@
       align-self: flex-start;
     }
 
-    footer {
+    .feature-block {
+      background-color: #f8f9fa;
+      padding: 4rem 1rem;
+    }
+
+    .footer {
       background-color: #0f1113;
       color: #ccc;
       text-align: center;
       padding: 2rem 1rem;
       font-size: 0.9rem;
-      margin-top: 4rem;
     }
 
-    footer a {
+    .footer a {
       color: #87cefa;
       text-decoration: none;
     }
 
-    footer a:hover {
+    .footer a:hover {
       text-decoration: underline;
     }
   </style>
@@ -163,7 +162,7 @@
     <a href="index.html"><img src="StatMintLogo.png" alt="StatMint Logo" /></a>
     <nav>
       <a href="index.html">Home</a>
-      <a href="top-stats-landing.html">Top Stats Now</a>
+      <a href="top-stats-landing.html">Top Stats</a>
       <a href="finance.html">Finance</a>
       <a href="technology.html">Technology</a>
       <a href="healthcare.html">Healthcare</a>
@@ -174,22 +173,22 @@
   <section class="hero">
     <div class="hero-content">
       <h1>Data That Defines the Future</h1>
-      <p>StatMint tracks global shifts across finance, health, technology, and demographics — helping users make sense of the world through curated, contextualized statistics.</p>
+      <p>StatMint delivers insight-rich dashboards powered by global data. We help decision-makers stay ahead of tomorrow’s trends today.</p>
       <a href="#categories" class="btn btn-primary">Explore Data Categories</a>
     </div>
   </section>
 
   <section class="section" id="categories">
     <h2>Explore Key Domains</h2>
-    <p class="lead">Dive deep into curated datasets and insights from across sectors — finance, technology, healthcare, and society.</p>
+    <p class="lead">Navigate global shifts in finance, technology, health, and society — all in one place.</p>
     <div class="container">
       <div class="row g-4">
         <div class="col-md-6 col-lg-3">
           <div class="category-card">
-            <img src="/images/finance.jpg" alt="Finance">
+            <img src="https://images.unsplash.com/photo-1621416940373-6f5a396ca86d?auto=format&fit=crop&w=800&q=80" alt="Finance">
             <div class="category-card-body">
               <h5>Finance</h5>
-              <p>Track inflation, interest rates, debt, and global markets with historical and real-time insights.</p>
+              <p>Track interest rates, inflation, global debt and market shifts in real time.</p>
               <a href="finance.html" class="btn btn-outline-primary btn-sm">Explore Finance</a>
             </div>
           </div>
@@ -197,10 +196,10 @@
 
         <div class="col-md-6 col-lg-3">
           <div class="category-card">
-            <img src="/images/technology.jpg" alt="Technology">
+            <img src="https://images.unsplash.com/photo-1537432376769-00a96e6e8d1e?auto=format&fit=crop&w=800&q=80" alt="Technology">
             <div class="category-card-body">
               <h5>Technology</h5>
-              <p>Stay ahead with data on tech investment, AI adoption, and digital transformation trends.</p>
+              <p>Understand investment patterns, AI, semiconductors, and digital transformation.</p>
               <a href="technology.html" class="btn btn-outline-primary btn-sm">Explore Technology</a>
             </div>
           </div>
@@ -211,7 +210,7 @@
             <img src="https://images.unsplash.com/photo-1614728894748-37b1a1d1ee09?auto=format&fit=crop&w=800&q=80" alt="Healthcare">
             <div class="category-card-body">
               <h5>Healthcare</h5>
-              <p>Explore health spending, biotech funding, outcomes, and demographic health forecasts.</p>
+              <p>From spending to biotech breakthroughs — get clarity on health-driven economics.</p>
               <a href="healthcare.html" class="btn btn-outline-primary btn-sm">Explore Healthcare</a>
             </div>
           </div>
@@ -222,7 +221,7 @@
             <img src="https://images.unsplash.com/photo-1573164574395-dfdb69e5b542?auto=format&fit=crop&w=800&q=80" alt="Demographics">
             <div class="category-card-body">
               <h5>Demographics</h5>
-              <p>Understand population growth, migration, fertility, and age trends shaping tomorrow’s world.</p>
+              <p>Fertility, migration, aging: population stats that shape infrastructure and policy.</p>
               <a href="odds.html" class="btn btn-outline-primary btn-sm">Explore Demographics</a>
             </div>
           </div>
@@ -231,7 +230,28 @@
     </div>
   </section>
 
-  <footer>
+  <section class="feature-block">
+    <div class="container">
+      <h2 class="text-center mb-4">Why StatMint?</h2>
+      <p class="lead text-center mb-5">We connect the dots between raw statistics and strategic insight — trusted by students, analysts, and researchers.</p>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <h5>📊 Curated Data</h5>
+          <p>Only the most impactful stats make it onto our pages — backed by reputable sources like IMF, WHO, and World Bank.</p>
+        </div>
+        <div class="col-md-4">
+          <h5>🌐 Global Perspective</h5>
+          <p>Understand trends across regions with dynamic comparisons and long-range context from the year 2000 onward.</p>
+        </div>
+        <div class="col-md-4">
+          <h5>📈 Always Updating</h5>
+          <p>Charts, dashboards, and figures evolve as new data is published — no outdated insights here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
     <p>&copy; 2025 StatMint. All rights reserved.</p>
     <p><a href="mailto:info@statmint.org">Contact us</a></p>
   </footer>
