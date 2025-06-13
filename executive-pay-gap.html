@@ -30,15 +30,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #222;
     }
 
-    header a.logo {
+    .logo {
       font-weight: 700;
       font-size: 1.25rem;
       color: white;
       text-decoration: none;
-      letter-spacing: 0.5px;
     }
 
     nav a {
@@ -46,51 +44,44 @@
       color: #ddd;
       font-weight: 500;
       text-decoration: none;
-      transition: color 0.3s;
     }
 
     nav a:hover {
       color: var(--primary);
     }
 
-    main {
-      padding: 4rem 2rem;
+    h1, h2 {
+      font-weight: 700;
     }
 
     h1 {
       font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      color: #111;
     }
 
     h2 {
-      font-size: 1.5rem;
-      font-weight: 600;
+      font-size: 1.6rem;
       margin-top: 2.5rem;
     }
 
-    p, li {
+    .content p {
       max-width: 800px;
+      margin-bottom: 1.2rem;
       font-size: 1.05rem;
     }
 
-    ul {
-      padding-left: 1.2rem;
+    .chart-container {
+      background-color: var(--card-bg);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      margin-top: 2rem;
+      margin-bottom: 2rem;
     }
 
     .source {
       font-size: 0.85rem;
       color: var(--subtext);
       margin-top: 1.5rem;
-    }
-
-    canvas {
-      background-color: var(--card-bg);
-      border-radius: 10px;
-      padding: 1rem;
-      margin-top: 2rem;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
     }
 
     footer {
@@ -136,48 +127,55 @@
     </nav>
   </header>
 
-  <main class="container">
-    <h1>The Executive Pay Gap</h1>
+  <main class="container-xl py-5">
+    <div class="content">
+      <h1 class="mb-4">The Executive Pay Gap</h1>
 
-    <p>
-      The executive pay gap represents the growing compensation disparity between top financial executives and their workers. 
-      Once a modest difference, it has become one of the starkest symbols of global income inequality.
-    </p>
+      <p>
+        The executive pay gap represents the growing difference in earnings between financial leaders — such as CEOs and CFOs — and their employees.
+        Once measured in double digits, this ratio has now surged into the hundreds, raising global attention and scrutiny.
+      </p>
 
-    <p>
-      In 1965, CEOs earned about 20 times what their average employee made. Today, that multiple exceeds 300× in major U.S. firms. 
-      This imbalance is fueled by stock incentives, weak wage growth, and a corporate culture increasingly focused on shareholder return over worker equity.
-    </p>
+      <p>
+        In the 1960s, the average CEO earned about 20 times more than the average worker. By the early 2000s, that number had ballooned beyond 300×.
+        While the 2008 crisis led to temporary moderation, executive compensation rebounded and continues to grow rapidly.
+      </p>
 
-    <h2>CEO-to-Worker Pay Ratio Over Time</h2>
-    <canvas id="payGapChart" width="800" height="400"></canvas>
-    <p class="source">Source: Economic Policy Institute, 2023</p>
+      <h2>CEO-to-Worker Pay Ratio Over Time</h2>
+      <div class="chart-container">
+        <canvas id="payGapChart" height="300"></canvas>
+      </div>
+      <p class="source">Source: Economic Policy Institute, 2023</p>
 
-    <h2>Contributing Factors</h2>
-    <ul>
-      <li><strong>Stock-based bonuses</strong> link executive income to share price growth.</li>
-      <li><strong>Globalization</strong> and automation have suppressed low-wage bargaining power.</li>
-      <li><strong>Compensation benchmarking</strong> escalates pay as firms aim to stay "competitive."</li>
-    </ul>
+      <h2>Key Drivers</h2>
+      <p>
+        Several structural and market dynamics continue to drive the widening compensation gap:
+      </p>
+      <ul>
+        <li><strong>Equity-Based Pay:</strong> Large portions of executive pay come from stock options and bonuses tied to shareholder return.</li>
+        <li><strong>Stagnant Worker Wages:</strong> Average wages have not kept pace with inflation or productivity since the 1980s.</li>
+        <li><strong>Compensation Benchmarking:</strong> Boards often set executive salaries by comparing them to peers — pushing averages up.</li>
+      </ul>
 
-    <h2>Impact on Economy and Morale</h2>
-    <p>
-      Research shows extreme pay disparities can lower workforce motivation and increase turnover. 
-      They may also drive broader discontent and damage brand trust in an era where public scrutiny is high.
-    </p>
+      <h2>Global Snapshot</h2>
+      <p>
+        While the U.S. shows the highest multiples, similar disparities exist in the UK, India, and increasingly in developing economies.
+        Nations with stronger labor protections, such as Germany or Japan, tend to maintain narrower gaps.
+      </p>
 
-    <h2>How Countries Compare</h2>
-    <p>
-      The U.S. leads in executive pay gaps, but similar patterns are emerging in the UK, India, and parts of Asia. 
-      Countries with tighter labor protections — like Germany or Sweden — tend to exhibit narrower gaps.
-    </p>
+      <h2>Why This Matters</h2>
+      <p>
+        A growing executive pay gap is more than a headline — it influences worker morale, social mobility, and national wealth distribution. 
+        As income inequality grows, organizations and policymakers are rethinking what “fair compensation” really means.
+      </p>
 
-    <p class="source">Additional data: OECD, World Inequality Report, Bloomberg ESG Monitor</p>
+      <p class="source">Additional Sources: OECD, Harvard Business Review, Bloomberg, BLS</p>
+    </div>
   </main>
 
   <footer>
     <p>© 2024 StatMint. All rights reserved.</p>
-    <p>Want to contribute data? <a href="mailto:info@statmint.org">Contact us</a></p>
+    <p>Have feedback? <a href="mailto:info@statmint.org">Contact us</a></p>
   </footer>
 
   <script>
@@ -189,7 +187,7 @@
         datasets: [{
           label: 'CEO-to-Worker Pay Ratio (U.S.)',
           data: [20, 42, 85, 376, 206, 351, 344],
-          backgroundColor: 'rgba(29, 114, 243, 0.1)',
+          backgroundColor: 'rgba(29, 114, 243, 0.07)',
           borderColor: '#1d72f3',
           borderWidth: 2,
           fill: true,
@@ -204,14 +202,14 @@
           legend: { display: false },
           tooltip: {
             callbacks: {
-              label: context => `Pay ratio: ${context.parsed.y}×`
+              label: context => `Ratio: ${context.parsed.y}×`
             }
           }
         },
         scales: {
           y: {
-            title: { display: true, text: 'Multiple of Avg Worker Pay' },
-            beginAtZero: true
+            beginAtZero: true,
+            title: { display: true, text: 'Pay Multiple' }
           },
           x: {
             title: { display: true, text: 'Year' }
