@@ -48,6 +48,25 @@
       color: var(--primary);
     }
 
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('topstats-cover.jpg') center/cover no-repeat;
+      padding: 10rem 2rem;
+      text-align: center;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 2.75rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
     section {
       padding: 4rem 0;
     }
@@ -143,10 +162,21 @@
   </header>
 
   <main>
+
+    <!-- Hero Image Cover Section -->
+    <section class="hero">
+      <div class="container">
+        <h1>Top Stats This Week</h1>
+        <p>
+          The most relevant data points you won’t see on the front page — visualized and sourced for analysts, educators, and the public.
+        </p>
+      </div>
+    </section>
+
     <section class="text-center">
       <div class="container">
         <div class="label-heading">Trending Now</div>
-        <h1 class="section-title">Top Stats This Week</h1>
+        <h2 class="section-title">Featured Insights</h2>
         <p class="mx-auto" style="max-width: 720px;">
           Curated by our team, these are the most timely and impactful stats across global trends. Click any to explore detailed reports and sources.
         </p>
@@ -160,35 +190,35 @@
             <div class="stat-card h-100">
               <a href="birthrates.html">Global Birth Rates Are Falling</a>
               <p>Fertility has dropped from 5.0 in 1960 to 2.3 in 2023 — and the decline continues.</p>
-              <div class="source">Source: World Bank</div>
+              <div class="source">Source: <a href="https://data.worldbank.org/indicator/SP.DYN.TFRT.IN" target="_blank">World Bank</a></div>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="stat-card h-100">
               <a href="inflation.html">Inflation Remains Elevated</a>
               <p>After peaking at 8.8% globally in 2022, inflation remains above pre-COVID levels.</p>
-              <div class="source">Source: IMF Global Outlook 2023</div>
+              <div class="source">Source: <a href="https://www.imf.org/en/Publications/WEO" target="_blank">IMF Global Outlook 2023</a></div>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="stat-card h-100">
               <a href="ai-growth.html">AI Adoption Doubled Since 2019</a>
               <p>Over 50% of global enterprises now use AI in some capacity, up from 20% in 2019.</p>
-              <div class="source">Source: McKinsey Global Survey on AI (2023)</div>
+              <div class="source">Source: <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-state-of-ai-in-2023" target="_blank">McKinsey 2023 AI Report</a></div>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="stat-card h-100">
               <a href="internet-access.html">5.3 Billion Online in 2023</a>
               <p>Global internet access crossed 66% of the population — up from 50% just five years ago.</p>
-              <div class="source">Source: ITU/UN Broadband Commission</div>
+              <div class="source">Source: <a href="https://www.itu.int/en/ITU-D/Statistics/Pages/facts/default.aspx" target="_blank">ITU Statistics</a></div>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="stat-card h-100">
               <a href="executive-pay-gap.html">The Executive Pay Gap</a>
               <p>Top financial executives now earn over 300× more than the average worker — a gap growing since the 1980s.</p>
-              <div class="source">Source: Economic Policy Institute (2023)</div>
+              <div class="source">Source: <a href="https://www.epi.org/publication/ceo-pay-in-2023/" target="_blank">Economic Policy Institute (2023)</a></div>
             </div>
           </div>
         </div>
