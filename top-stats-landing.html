@@ -104,6 +104,14 @@
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
     }
 
+    .stat-img img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      object-fit: cover;
+    }
+
     .stat-card a {
       text-decoration: none;
       color: var(--primary);
@@ -163,7 +171,6 @@
 
   <main>
 
-    <!-- Hero Image Cover Section -->
     <section class="hero">
       <div class="container">
         <h1>Top Stats This Week</h1>
@@ -186,41 +193,67 @@
     <section class="section-alt">
       <div class="container">
         <div class="row gy-4">
+
+          <!-- Birthrates -->
           <div class="col-md-6 col-lg-4">
             <div class="stat-card h-100">
+              <div class="stat-img">
+                <img src="birthrates.jpg" alt="Birth Rates Declining" class="img-fluid">
+              </div>
               <a href="birthrates.html">Global Birth Rates Are Falling</a>
               <p>Fertility has dropped from 5.0 in 1960 to 2.3 in 2023 — and the decline continues.</p>
               <div class="source">Source: <a href="https://data.worldbank.org/indicator/SP.DYN.TFRT.IN" target="_blank">World Bank</a></div>
             </div>
           </div>
+
+          <!-- Inflation -->
           <div class="col-md-6 col-lg-4">
             <div class="stat-card h-100">
+              <div class="stat-img">
+                <img src="inflation.jpg" alt="Inflation Chart" class="img-fluid">
+              </div>
               <a href="inflation.html">Inflation Remains Elevated</a>
               <p>After peaking at 8.8% globally in 2022, inflation remains above pre-COVID levels.</p>
               <div class="source">Source: <a href="https://www.imf.org/en/Publications/WEO" target="_blank">IMF Global Outlook 2023</a></div>
             </div>
           </div>
+
+          <!-- AI Growth -->
           <div class="col-md-6 col-lg-4">
             <div class="stat-card h-100">
+              <div class="stat-img">
+                <img src="ai-growth.jpg" alt="AI Adoption" class="img-fluid">
+              </div>
               <a href="ai-growth.html">AI Adoption Doubled Since 2019</a>
               <p>Over 50% of global enterprises now use AI in some capacity, up from 20% in 2019.</p>
               <div class="source">Source: <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-state-of-ai-in-2023" target="_blank">McKinsey 2023 AI Report</a></div>
             </div>
           </div>
+
+          <!-- Internet Access -->
           <div class="col-md-6 col-lg-4">
             <div class="stat-card h-100">
+              <div class="stat-img">
+                <img src="internet-access.jpg" alt="Global Internet Users" class="img-fluid">
+              </div>
               <a href="internet-access.html">5.3 Billion Online in 2023</a>
               <p>Global internet access crossed 66% of the population — up from 50% just five years ago.</p>
               <div class="source">Source: <a href="https://www.itu.int/en/ITU-D/Statistics/Pages/facts/default.aspx" target="_blank">ITU Statistics</a></div>
             </div>
           </div>
+
+          <!-- Executive Pay Gap -->
           <div class="col-md-6 col-lg-4">
             <div class="stat-card h-100">
+              <div class="stat-img">
+                <img src="executive-pay-gap.jpg" alt="Executive Compensation" class="img-fluid">
+              </div>
               <a href="executive-pay-gap.html">The Executive Pay Gap</a>
               <p>Top financial executives now earn over 300× more than the average worker — a gap growing since the 1980s.</p>
               <div class="source">Source: <a href="https://www.epi.org/publication/ceo-pay-in-2023/" target="_blank">Economic Policy Institute (2023)</a></div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
