@@ -103,12 +103,39 @@
       padding: 1rem;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
       margin-top: 2rem;
+      margin-bottom: 1rem;
     }
 
     .source {
       font-size: 0.85rem;
       color: var(--subtext);
-      margin-top: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .source a {
+      color: #1d72f3;
+      text-decoration: none;
+    }
+
+    .source a:hover {
+      text-decoration: underline;
+    }
+
+    table {
+      background: white;
+      border-radius: 10px;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    table th, table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+
+    table thead {
+      background-color: #e9f0fb;
     }
 
     footer {
@@ -127,110 +154,144 @@
     footer a:hover {
       text-decoration: underline;
     }
-
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-    }
   </style>
 </head>
 <body>
 
-  <header>
-    <a href="index.html" class="logo">StatMint</a>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="top-stats-landing.html">Top Stats</a>
-    </nav>
-  </header>
+<header>
+  <a href="index.html" class="logo">StatMint</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="top-stats-landing.html">Top Stats</a>
+  </nav>
+</header>
 
-  <section class="hero">
-    <h1>The Executive Pay Gap</h1>
-    <p>Tracking the growing compensation divide between financial leaders and the people they employ.</p>
-    <div class="badge-stat">↑ 1,460% since 1978</div>
-  </section>
+<section class="hero">
+  <h1>The Executive Pay Gap</h1>
+  <p>Tracking the growing divide between corporate leaders and the employees who power their companies.</p>
+  <div class="badge-stat">↑ 1,460% CEO pay growth since 1978</div>
+</section>
 
-  <main class="container-xl section">
-    <div class="content">
-      <p>
-        In 1965, CEOs earned about 20× more than the average employee. Today, that number exceeds 300×. The expansion of stock-based compensation, weak wage growth, and profit-first culture have driven this divide to historic levels.
-      </p>
+<main class="container-xl section">
+  <div class="content">
 
-      <p>
-        While shareholders and boards justify high compensation as performance-based, data suggests the multiplier effect has outpaced both inflation and productivity gains — especially for frontline workers.
-      </p>
+    <p>
+      The executive pay gap refers to the widening earnings disparity between top financial executives — particularly CEOs — and the average employee. In the U.S., this gap has grown dramatically over the past four decades.
+    </p>
 
-      <div class="quote-box">
-        “From 1978 to 2021, CEO compensation grew by 1,460% — compared to just 18% for the average U.S. worker.”
-      </div>
-
-      <h2>CEO-to-Worker Pay Ratio Over Time</h2>
-      <canvas id="payGapChart" height="300"></canvas>
-      <p class="source">Source: Economic Policy Institute, 2023</p>
-
-      <h2>Contributing Factors</h2>
-      <ul>
-        <li><strong>Equity-based compensation:</strong> Options and stock awards dominate modern CEO pay packages.</li>
-        <li><strong>Low wage bargaining:</strong> Worker pay has grown slowly even as productivity increased.</li>
-        <li><strong>Benchmarking:</strong> Executive pay is set competitively — leading to escalating averages industry-wide.</li>
-      </ul>
-
-      <h2>Why It Matters</h2>
-      <p>
-        A widening executive pay gap fuels inequality, erodes trust, and can damage long-term company performance. 
-        Policymakers and investors are increasingly demanding transparency and accountability from corporate boards.
-      </p>
-
-      <p class="source">Additional Sources: Harvard Business Review, OECD, World Inequality Report</p>
+    <div class="quote-box">
+      “From 1978 to 2021, CEO compensation grew by 1,460%, while typical worker pay grew just 18%.”
     </div>
-  </main>
+    <p class="source">Source: <a href="https://www.epi.org/publication/ceo-pay-in-2023/" target="_blank">Economic Policy Institute, 2023</a></p>
 
-  <footer>
-    <p>© 2024 StatMint. All rights reserved.</p>
-    <p>Have feedback? <a href="mailto:info@statmint.org">Contact us</a></p>
-  </footer>
+    <h2>CEO-to-Worker Pay Ratio Over Time</h2>
+    <canvas id="payGapChart"></canvas>
+    <p class="source">Source: <a href="https://www.epi.org/publication/ceo-pay-in-2023/" target="_blank">EPI analysis of CEO pay ratios</a></p>
 
-  <script>
-    const ctx = document.getElementById('payGapChart').getContext('2d');
-    new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: ['1965', '1980', '1990', '2000', '2010', '2020', '2023'],
-        datasets: [{
-          label: 'CEO-to-Worker Pay Ratio (U.S.)',
-          data: [20, 42, 85, 376, 206, 351, 344],
-          backgroundColor: 'rgba(29, 114, 243, 0.07)',
-          borderColor: '#1d72f3',
-          borderWidth: 2,
-          fill: true,
-          tension: 0.4,
-          pointRadius: 4,
-          pointBackgroundColor: '#1d72f3'
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            callbacks: {
-              label: context => `Ratio: ${context.parsed.y}×`
-            }
-          }
-        },
-        scales: {
-          y: {
-            beginAtZero: true,
-            title: { display: true, text: 'Pay Multiple' }
-          },
-          x: {
-            title: { display: true, text: 'Year' }
-          }
-        }
+    <h2>CEO vs Worker Pay Growth (Indexed to 1978)</h2>
+    <canvas id="growthChart"></canvas>
+    <p class="source">Source: <a href="https://www.epi.org/publication/ceo-pay-in-2023/" target="_blank">EPI Historical Pay Dataset</a></p>
+
+    <h2>International Comparison</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Country</th>
+          <th>CEO-to-Worker Pay Ratio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>United States</td><td>344×</td></tr>
+        <tr><td>United Kingdom</td><td>201×</td></tr>
+        <tr><td>Germany</td><td>136×</td></tr>
+        <tr><td>Japan</td><td>67×</td></tr>
+        <tr><td>Sweden</td><td>60×</td></tr>
+      </tbody>
+    </table>
+    <p class="source">Source: <a href="https://wid.world/" target="_blank">World Inequality Lab, 2023</a></p>
+
+    <h2>Why Does the Gap Exist?</h2>
+    <ul>
+      <li><strong>Stock-based compensation:</strong> Most CEO pay comes in the form of equity.</li>
+      <li><strong>Weak wage growth:</strong> Worker wages have not kept pace with inflation or productivity.</li>
+      <li><strong>Peer benchmarking:</strong> Compensation is often set by comparison, pushing averages upward.</li>
+    </ul>
+
+    <h2>Policy Options</h2>
+    <ul>
+      <li>Mandated pay ratio disclosures (already required by the SEC)</li>
+      <li>Progressive taxation on excessive executive bonuses</li>
+      <li>Expanded worker representation on boards</li>
+      <li>Incentives for equitable compensation practices</li>
+    </ul>
+    <p class="source">Sources: <a href="https://www.sec.gov/rules/final/2015/33-9877.pdf" target="_blank">SEC</a>, <a href="https://hbr.org/2020/06/its-time-to-rethink-executive-compensation" target="_blank">Harvard Business Review</a></p>
+
+  </div>
+</main>
+
+<footer>
+  <p>© 2024 StatMint. All rights reserved.</p>
+  <p>Have feedback? <a href="mailto:info@statmint.org">Contact us</a></p>
+</footer>
+
+<script>
+  // CEO-to-Worker Pay Ratio Chart
+  const ctx1 = document.getElementById('payGapChart').getContext('2d');
+  new Chart(ctx1, {
+    type: 'line',
+    data: {
+      labels: ['1965', '1980', '1990', '2000', '2010', '2020', '2023'],
+      datasets: [{
+        label: 'CEO-to-Worker Pay Ratio',
+        data: [20, 42, 85, 376, 206, 351, 344],
+        backgroundColor: 'rgba(29, 114, 243, 0.1)',
+        borderColor: '#1d72f3',
+        borderWidth: 2,
+        fill: true,
+        tension: 0.4
+      }]
+    },
+    options: {
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { beginAtZero: true, title: { display: true, text: 'Multiple of Worker Pay' } },
+        x: { title: { display: true, text: 'Year' } }
       }
-    });
-  </script>
+    }
+  });
+
+  // Pay Growth Chart
+  const ctx2 = document.getElementById('growthChart').getContext('2d');
+  new Chart(ctx2, {
+    type: 'line',
+    data: {
+      labels: ['1978', '1985', '1995', '2005', '2015', '2023'],
+      datasets: [
+        {
+          label: 'CEO Pay Growth',
+          data: [100, 220, 450, 900, 1200, 1460],
+          borderColor: '#1d72f3',
+          fill: false,
+          tension: 0.4
+        },
+        {
+          label: 'Worker Pay Growth',
+          data: [100, 105, 110, 112, 115, 118],
+          borderColor: '#999',
+          fill: false,
+          tension: 0.4
+        }
+      ]
+    },
+    options: {
+      plugins: { legend: { position: 'bottom' } },
+      scales: {
+        y: { beginAtZero: false, title: { display: true, text: 'Indexed Growth (1978 = 100)' } },
+        x: { title: { display: true, text: 'Year' } }
+      }
+    }
+  });
+</script>
 
 </body>
 </html>
