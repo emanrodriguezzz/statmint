@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="="en">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Top Stats Now | StatMint</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -164,14 +165,14 @@
 
   <main>
 
-    <section class="hero">
+    <section class="hero" data-aos="fade-zoom-in">
       <div class="container">
-        <h1>Top Stats This Week</h1>
-        <p>The most relevant data points you won’t see on the front page — visualized and sourced for analysts, educators, and the public.</p>
+        <h1 data-aos="fade-up" data-aos-delay="100">Top Stats This Week</h1>
+        <p data-aos="fade-up" data-aos-delay="200">The most relevant data points you won’t see on the front page — visualized and sourced for analysts, educators, and the public.</p>
       </div>
     </section>
 
-    <section class="text-center">
+    <section class="text-center" data-aos="fade-up">
       <div class="container">
         <div class="label-heading">Trending Now</div>
         <h2 class="section-title">Featured Statistics</h2>
@@ -185,7 +186,7 @@
       <div class="container">
         <div class="row gy-4">
 
-          <div class="col-md-6 col-lg-4">
+          <div class="col-md-6 col-lg-4" data-aos="fade-up">
             <div class="stat-card h-100">
               <div class="stat-img">
                 <img src="birthrates.jpg" alt="Global Birth Rates" class="img-fluid rounded">
@@ -196,7 +197,7 @@
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-4">
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="stat-card h-100">
               <div class="stat-img">
                 <img src="inflation.jpg" alt="Inflation" class="img-fluid rounded">
@@ -207,7 +208,7 @@
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-4">
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
             <div class="stat-card h-100">
               <div class="stat-img">
                 <img src="ai-growth.jpg" alt="AI Adoption" class="img-fluid rounded">
@@ -218,7 +219,7 @@
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-4">
+          <div class="col-md-6 col-lg-4" data-aos="fade-up">
             <div class="stat-card h-100">
               <div class="stat-img">
                 <img src="internet-access.jpg" alt="Internet Access" class="img-fluid rounded">
@@ -229,7 +230,7 @@
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-4">
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="stat-card h-100">
               <div class="stat-img">
                 <img src="executive-pay-gap.jpg" alt="Executive Pay Gap" class="img-fluid rounded">
@@ -252,6 +253,15 @@
       <p>Have feedback? <a href="mailto:info@statmint.org">Contact us</a></p>
     </div>
   </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'ease-in-out'
+    });
+  </script>
 
 </body>
 </html>
