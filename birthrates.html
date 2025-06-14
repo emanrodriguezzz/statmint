@@ -2,71 +2,100 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Global Birth Rates | StatMint</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="favicon.png" type="image/png" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
   <style>
+    :root {
+      --primary: #0d6efd;
+      --dark: #111;
+      --light-bg: #f7f7f7;
+      --accent: #377dff;
+      --neutral-text: #666;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f8f9fa;
-      color: #212529;
       margin: 0;
+      background: white;
+      color: #111;
     }
 
     header {
-      background-color: #111;
+      background: var(--dark);
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     header img {
       height: 80px;
-      max-height: 80px;
       object-fit: contain;
     }
 
     nav a {
       margin-left: 1.5rem;
       color: white;
-      font-weight: 500;
       text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
     }
 
     nav a:hover {
-      color: #1d72f3;
+      color: var(--primary);
     }
 
-    h1, h2 {
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                  url('birthrates-hero.jpg') center/cover no-repeat;
+      text-align: center;
+      color: white;
+      padding: 10rem 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
       font-weight: 700;
-      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 1rem auto 0;
+      font-size: 1.2rem;
     }
 
     main {
       padding: 4rem 1rem;
     }
 
-    .hero {
-      background-color: #eef3fb;
-      padding: 3rem 1rem;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 2.25rem;
-    }
-
     .content-section {
       max-width: 900px;
       margin: auto;
-      padding-top: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .content-section h2 {
+      font-weight: 700;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .content-section p {
+      margin-bottom: 1rem;
+      line-height: 1.7;
     }
 
     .content-section img {
       max-width: 100%;
-      height: auto;
+      border-radius: 8px;
       margin: 2rem auto;
       display: block;
     }
@@ -74,7 +103,43 @@
     .img-caption {
       text-align: center;
       font-size: 0.9rem;
-      color: #6c757d;
+      color: var(--neutral-text);
+      margin-top: -1rem;
+    }
+
+    .references {
+      background: var(--light-bg);
+      padding: 4rem 1rem;
+    }
+
+    .references h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: 700;
+    }
+
+    .reference-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .reference-item {
+      max-width: 200px;
+      text-align: center;
+    }
+
+    .reference-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+
+    .reference-item p {
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--neutral-text);
     }
 
     .back-link {
@@ -83,7 +148,7 @@
     }
 
     .back-link a {
-      color: #1d72f3;
+      color: var(--primary);
       text-decoration: none;
       font-weight: 500;
     }
@@ -92,20 +157,29 @@
       text-decoration: underline;
     }
 
-    a.inline-link {
-      color: #1d72f3;
+    footer {
+      background: var(--dark);
+      color: #bbb;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--accent);
       text-decoration: none;
     }
 
-    a.inline-link:hover {
+    footer a:hover {
       text-decoration: underline;
     }
   </style>
 </head>
+
 <body>
 
   <header>
-    <a href="index.html"><img src="StatMintLogo.png" alt="StatMint Logo" /></a>
+    <a href="index.html"><img src="StatMintLogo.png" alt="StatMint Logo"></a>
     <nav>
       <a href="index.html">Home</a>
       <a href="top-stats-landing.html">Top Stats</a>
@@ -116,75 +190,95 @@
     </nav>
   </header>
 
+  <section class="hero" data-aos="fade-zoom-in">
+    <h1 data-aos="fade-up" data-aos-delay="100">Global Birth Rates Are Falling</h1>
+    <p data-aos="fade-up" data-aos-delay="200">Fertility has declined nearly 50% since 1960 — reshaping economies and societies worldwide.</p>
+  </section>
+
   <main>
-    <section class="hero">
-      <div class="container">
-        <h1>Global Birth Rates Are Falling — And the World Isn’t Ready</h1>
-        <p class="lead">Fertility has declined nearly 50% since 1960 — reshaping economies and societies across the globe.</p>
-      </div>
+    <section class="content-section" data-aos="fade-up">
+      <p>Over the past 60 years, the global birth rate has dropped from 36.4 births per 1,000 people in 1960 to just 18.5 in 2020. This demographic shift is impacting labor markets, social systems, and national economic plans.</p>
+      <p>According to the <a href="https://data.worldbank.org" target="_blank">World Bank</a>, key factors include industrialization, urbanization, and improved education for women. South Korea now reports the world’s lowest fertility rate at just 0.72 (2023).</p>
+      <p>Japan, Italy, and Germany face similar long-term declines, while the United States dropped from 14.4 births per 1,000 in 2000 to 11.0 in 2022. Emerging markets are also beginning to mirror this pattern.</p>
+      <p>A shrinking youth population can strain the workforce, dampen economic growth, and shift public policy on education, immigration, and retirement.</p>
+
+      <img src="UnitedNationsImage.webp" alt="UN Data">
+      <p class="img-caption">Source: United Nations Population Division</p>
+
+      <img src="cdcimage.jpg" alt="CDC Data">
+      <p class="img-caption">Source: U.S. Centers for Disease Control and Prevention</p>
     </section>
 
-    <section class="content-section">
-      <p>
-        Over the past 60 years, the global birth rate has declined from 36.4 births per 1,000 people in 1960 to just 18.5 in 2020. This transformation is affecting labor markets, social systems, and national planning strategies.
-      </p>
-      <p>
-        According to the <a href="https://data.worldbank.org" target="_blank" class="inline-link">World Bank</a>, key drivers include industrialization, urbanization, and expanded education access for women. South Korea’s fertility rate fell to just 0.72 in 2023 — the lowest globally.
-      </p>
-      <p>
-        Japan, Italy, and Germany also face sustained decline, while the U.S. saw birth rates drop from 14.4 in 2000 to 11.0 in 2022. Emerging markets are now beginning to follow this pattern.
-      </p>
-      <p>
-        A shrinking youth population leads to reduced workforce participation, economic slowdowns, and shifting priorities for education, infrastructure, and immigration policy.
-      </p>
+    <section class="content-section" data-aos="fade-up">
+      <h2>Long-Term Forecasts</h2>
+      <p>United Nations projections suggest countries like Japan and South Korea could see population declines of more than 50% by 2100 — bringing significant economic and social challenges.</p>
+      <p>Sub-Saharan Africa remains an exception, driving much of the world’s population growth. Nigeria is expected to rank as the third largest country by 2050.</p>
+      <p>Countries are experimenting with solutions: France offers childcare benefits, Sweden boosts parental leave, and Singapore runs matchmaking initiatives. However, reversing the decline at scale remains elusive.</p>
 
-      <div>
-        <img src="UnitedNationsImage.webp" alt="UN Data" />
-        <p class="img-caption">Source: United Nations Population Division</p>
-
-        <img src="cdcimage.jpg" alt="CDC Data" />
-        <p class="img-caption">Source: U.S. Centers for Disease Control and Prevention</p>
-      </div>
+      <img src="birthrate_trend_chart.png" alt="Global Birthrate Chart">
+      <p class="img-caption">Chart by StatMint using UN and World Bank data</p>
     </section>
 
-    <section class="content-section">
-      <h2>Long-Term Forecasts and Societal Implications</h2>
-      <p>
-        UN projections suggest Japan and South Korea could see population declines of over 50% by 2100. This poses major economic and social challenges.
-      </p>
-      <p>
-        Sub-Saharan Africa remains an exception, with high fertility fueling population growth. Nigeria is expected to become the world’s third most populous country by 2050.
-      </p>
-      <p>
-        Countries are exploring solutions: France offers childcare subsidies; Sweden invests in parental leave; Singapore supports matchmaking and fertility programs. But no country has yet reversed the trend at scale.
-      </p>
-
-      <img src="birthrate_trend_chart.png" alt="Global Birthrate Chart" />
-      <p class="img-caption">Visual generated by StatMint using UN and World Bank forecasts</p>
-    </section>
-
-    <section class="content-section">
+    <section class="content-section" data-aos="fade-up">
       <h2>Wall Street Journal Insight</h2>
-      <p>
-        The <strong>Wall Street Journal</strong> reported in 2024 that declining birthrates are directly linked to projected GDP slowdowns across G7 countries.
-      </p>
-      <img src="WSJimage.png" alt="WSJ Birthrate vs GDP Graphic" />
+      <p>According to a 2024 report by the <strong>Wall Street Journal</strong>, falling birthrates are directly linked to GDP slowdowns across the G7 nations.</p>
+      <img src="WSJimage.png" alt="WSJ Birthrate vs GDP Graphic">
       <p class="img-caption">Source: Wall Street Journal, 2024</p>
     </section>
 
-    <section class="content-section">
-      <h2>Global Forecasted Birthrates by Country (2050)</h2>
-      <p>
-        StatMint presents a forecast map of expected fertility rates through 2050, combining UN, CDC, and World Bank data. Darker areas represent higher expected fertility.
-      </p>
-      <img src="A_choropleth_world_map_in_digital_2D_format_displa.png" alt="Birthrate Map Forecast" />
-      <p class="img-caption">Source: StatMint Forecast • United Nations • CDC • World Bank</p>
+    <section class="content-section" data-aos="fade-up">
+      <h2>Forecast Map to 2050</h2>
+      <p>StatMint’s forecast map visualizes projected fertility rates through 2050, combining UN, CDC, and World Bank data. Darker regions indicate higher expected fertility rates.</p>
+      <img src="A_choropleth_world_map_in_digital_2D_format_displa.png" alt="Birthrate Forecast Map">
+      <p class="img-caption">Source: StatMint, United Nations, CDC, World Bank</p>
+    </section>
+
+    <section class="references" data-aos="fade-up">
+      <h2>References & Source Thumbnails</h2>
+      <div class="reference-list">
+        <div class="reference-item">
+          <img src="UnitedNationsImage.webp" alt="UN Data">
+          <p>United Nations</p>
+        </div>
+        <div class="reference-item">
+          <img src="cdcimage.jpg" alt="CDC Data">
+          <p>CDC</p>
+        </div>
+        <div class="reference-item">
+          <img src="birthrate_trend_chart.png" alt="Trend Chart">
+          <p>StatMint Trend Chart</p>
+        </div>
+        <div class="reference-item">
+          <img src="WSJimage.png" alt="WSJ Graphic">
+          <p>Wall Street Journal</p>
+        </div>
+        <div class="reference-item">
+          <img src="A_choropleth_world_map_in_digital_2D_format_displa.png" alt="Forecast Map">
+          <p>StatMint Forecast Map</p>
+        </div>
+      </div>
     </section>
 
     <div class="back-link">
       <a href="top-stats-landing.html">← Back to Top Stats</a>
     </div>
   </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2024 StatMint. All rights reserved.</p>
+      <p>Questions? <a href="mailto:info@statmint.org">Contact us</a></p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'ease-in-out'
+    });
+  </script>
 
 </body>
 </html>
