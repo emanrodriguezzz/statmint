@@ -6,24 +6,25 @@
   <title>Global Birth Rates | StatMint</title>
   <link rel="icon" href="favicon.png" type="image/png" />
 
-  <!-- Bootstrap, AOS & Chart.js -->
+  <!-- Bootstrap, AOS, and Chart.js -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
-
   <style>
     :root {
       --primary: #0d6efd;
       --dark: #111;
       --accent: #377dff;
       --neutral: #666;
+      --light-bg: #f9f9fb;
     }
 
     body {
       font-family: 'Inter', sans-serif;
+      margin: 0;
       background: #fff;
       color: #111;
-      margin: 0;
+      line-height: 1.7;
     }
 
     header {
@@ -55,10 +56,10 @@
 
     .hero {
       background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                  url('birthrates-hero.jpg') center/cover no-repeat;
+        url('birthrates-hero.jpg') center/cover no-repeat;
       text-align: center;
       color: #fff;
-      padding: 10rem 2rem;
+      padding: 9rem 2rem 7rem;
     }
 
     .hero h1 {
@@ -73,23 +74,29 @@
     }
 
     main {
-      padding: 4rem 1rem;
       background: #fff;
+    }
+
+    .section {
+      padding: 4rem 1rem;
+    }
+
+    .section-alt {
+      background: var(--light-bg);
     }
 
     .content-section {
       max-width: 900px;
-      margin: 0 auto 4rem;
+      margin: 0 auto;
     }
 
     .content-section h2 {
       font-weight: 700;
-      margin-top: 3rem;
+      margin-top: 2rem;
       margin-bottom: 1rem;
     }
 
     .content-section p {
-      line-height: 1.7;
       margin-bottom: 1rem;
     }
 
@@ -99,15 +106,13 @@
     }
 
     .references {
-      padding: 4rem 1rem;
-      background: #fff;
       border-top: 1px solid #eee;
     }
 
     .references h2 {
       text-align: center;
-      margin-bottom: 2rem;
       font-weight: 700;
+      margin-bottom: 2rem;
     }
 
     .reference-list {
@@ -183,57 +188,59 @@
 
   <section class="hero" data-aos="fade-zoom-in">
     <h1 data-aos="fade-up" data-aos-delay="100">Global Birth Rates Are Falling</h1>
-    <p data-aos="fade-up" data-aos-delay="200">Fertility rates have dropped for decades, reshaping demographics and economies worldwide.</p>
+    <p data-aos="fade-up" data-aos-delay="200">Explore how falling fertility shapes economies, aging populations, and policy debates worldwide.</p>
   </section>
 
   <main>
-    <section class="content-section" data-aos="fade-up">
-      <h2>Decades of Decline</h2>
-      <p>In 1960, the global fertility rate was around 5 children per woman. Today, it is about 2.3, with dozens of countries far below the replacement level of 2.1. Japan, South Korea, and much of Europe now face aging populations and workforce shortages.</p>
-      <canvas id="birthRateTrend"></canvas>
-    </section>
-
-    <section class="content-section" data-aos="fade-up">
-      <h2>Regional Differences</h2>
-      <p>While developed economies see fertility decline, Africa maintains high rates. Nigeria's fertility rate is over 5 and its population is projected to double by 2050. Asia shows contrasts: China and Japan are shrinking while India stays near replacement.</p>
-      <canvas id="regionalRates"></canvas>
-    </section>
-
-    <section class="content-section" data-aos="fade-up">
-      <h2>Economic Impact</h2>
-      <p>Low birth rates reduce workforce size and tax revenue while increasing costs for pensions and healthcare. In 1950, there were seven workers per retiree in developed countries; by 2050, it will drop to about two. Policies like paid leave and subsidies help but rarely reverse the trend completely.</p>
-    </section>
-
-    <section class="content-section" data-aos="fade-up">
-      <h2>Looking Ahead</h2>
-      <p>Demographic change influences everything from housing to innovation. Understanding birth rates helps forecast labor markets and economic growth. StatMint tracks these shifts to inform policy and public discussion.</p>
-    </section>
-
-    <section class="references" data-aos="fade-up">
-      <h2>References & Visuals</h2>
-      <div class="reference-list">
-        <div class="reference-item">
-          <img src="UnitedNationsImage.webp" alt="UN Data">
-          <p>United Nations</p>
-        </div>
-        <div class="reference-item">
-          <img src="cdcimage.jpg" alt="CDC Data">
-          <p>CDC</p>
-        </div>
-        <div class="reference-item">
-          <img src="birthrate_trend_chart.png" alt="Trend Chart">
-          <p>StatMint Chart</p>
-        </div>
-        <div class="reference-item">
-          <img src="WSJimage.png" alt="WSJ Graphic">
-          <p>Wall Street Journal</p>
-        </div>
+    <section class="section" data-aos="fade-up">
+      <div class="content-section">
+        <h2>Decades of Decline</h2>
+        <p>In 1960, the global fertility rate was about 5 children per woman. By 2023, it is around 2.3. Countries like Japan and South Korea now face shrinking populations and workforce gaps. Many European nations also sit well below the replacement level of 2.1.</p>
+        <canvas id="birthRateTrend"></canvas>
       </div>
     </section>
 
-    <div class="back-link">
-      <a href="top-stats-landing.html">← Back to Top Stats</a>
-    </div>
+    <section class="section section-alt" data-aos="fade-up">
+      <div class="content-section">
+        <h2>Regional Patterns</h2>
+        <p>High-income regions continue to decline, but Sub-Saharan Africa remains an exception. Nigeria's fertility rate stays above 5. India, meanwhile, maintains near replacement levels while China has dipped below. These differences affect global labor markets and migration trends.</p>
+        <canvas id="regionalRates"></canvas>
+      </div>
+    </section>
+
+    <section class="section" data-aos="fade-up">
+      <div class="content-section">
+        <h2>Economic and Social Impact</h2>
+        <p>Fewer young people means slower economic growth and more pressure on social safety nets. In 1950, seven workers supported one retiree; by 2050, it will be closer to two. Governments invest in paid leave, childcare support, and family incentives, but few have reversed the decline.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt references" data-aos="fade-up">
+      <div class="content-section">
+        <h2>References & Visuals</h2>
+        <div class="reference-list">
+          <div class="reference-item">
+            <img src="UnitedNationsImage.webp" alt="UN Data">
+            <p>United Nations</p>
+          </div>
+          <div class="reference-item">
+            <img src="cdcimage.jpg" alt="CDC Data">
+            <p>CDC</p>
+          </div>
+          <div class="reference-item">
+            <img src="birthrate_trend_chart.png" alt="Trend Chart">
+            <p>StatMint Chart</p>
+          </div>
+          <div class="reference-item">
+            <img src="WSJimage.png" alt="WSJ Graphic">
+            <p>Wall Street Journal</p>
+          </div>
+        </div>
+        <div class="back-link">
+          <a href="top-stats-landing.html">← Back to Top Stats</a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -243,14 +250,13 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- JS Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
 
-    const ctx1 = document.getElementById('birthRateTrend').getContext('2d');
-    new Chart(ctx1, {
+    new Chart(document.getElementById('birthRateTrend'), {
       type: 'line',
       data: {
         labels: [1960, 1970, 1980, 1990, 2000, 2010, 2020, 2023],
@@ -266,8 +272,7 @@
       options: { responsive: true }
     });
 
-    const ctx2 = document.getElementById('regionalRates').getContext('2d');
-    new Chart(ctx2, {
+    new Chart(document.getElementById('regionalRates'), {
       type: 'bar',
       data: {
         labels: ['Africa', 'Asia', 'Europe', 'N. America', 'Latin America'],
@@ -280,5 +285,6 @@
       options: { responsive: true }
     });
   </script>
+
 </body>
 </html>
