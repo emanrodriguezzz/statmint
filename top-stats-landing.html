@@ -6,54 +6,55 @@
   <title>Top Stats Now | StatMint</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary: #1d72f3;
-      --bg: #f8f9fa;
-      --text: #212529;
-      --accent-bg: #eef3fb;
-      --card-bg: #ffffff;
-      --card-border: #dee2e6;
-      --source-color: #6c757d;
+      --primary: #0d6efd;
+      --dark-bg: #0a0a0a;
+      --light-bg: #f7f7f7;
+      --accent: #377dff;
+      --neutral-text: #666;
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
       margin: 0;
+      background-color: white;
+      color: #111;
     }
 
     header {
-      background-color: #111;
-      padding: 1rem 2rem;
+      background-color: var(--dark-bg);
+      padding: 0.1rem 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
 
     header img {
-      height: 48px;
+      height: 180px;
     }
 
     nav a {
-      margin-left: 1.5rem;
+      margin-left: 1.2rem;
       color: white;
-      font-weight: 500;
       text-decoration: none;
-      transition: color 0.3s;
+      font-weight: 500;
     }
 
     nav a:hover {
-      color: var(--primary);
+      color: var(--accent);
     }
 
     .hero {
-      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('topstats-cover.jpg') center/cover no-repeat;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                  url('topstats-cover.jpg') center/cover no-repeat;
       color: white;
       text-align: center;
-      padding: 10rem 2rem;
+      padding: 12rem 4rem;
     }
 
     .hero h1 {
@@ -62,9 +63,9 @@
     }
 
     .hero p {
-      max-width: 700px;
-      margin: 1rem auto 0;
-      font-size: 1.1rem;
+      max-width: 720px;
+      margin: 1rem auto 2rem;
+      font-size: 1.2rem;
     }
 
     section {
@@ -72,7 +73,7 @@
     }
 
     .section-alt {
-      background-color: var(--accent-bg);
+      background-color: var(--light-bg);
     }
 
     .section-title {
@@ -83,25 +84,26 @@
 
     .label-heading {
       text-transform: uppercase;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      color: #6c757d;
-      margin-bottom: 0.5rem;
+      color: var(--neutral-text);
       letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
     }
 
     .stat-card {
-      background-color: var(--card-bg);
+      background-color: white;
       padding: 2rem;
-      border: 1px solid var(--card-border);
+      border: 1px solid #dee2e6;
       border-radius: 12px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
       height: 100%;
     }
 
     .stat-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     }
 
     .stat-img img {
@@ -133,26 +135,26 @@
 
     .source {
       font-size: 0.8rem;
-      color: var(--source-color);
+      color: var(--neutral-text);
     }
 
     footer {
-      background-color: #111;
-      color: #adb5bd;
-      padding: 2rem 0;
+      background-color: #000;
+      color: #bbb;
       text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
     }
 
     footer a {
-      color: #87cefa;
-      text-decoration: none;
+      color: var(--accent);
     }
   </style>
 </head>
 <body>
 
   <header>
-    <a href="index.html"><img src="StatMintLogo.png" alt="StatMint Logo"></a>
+    <a href="index.html"><img src="statmint_logo.jpeg" alt="StatMint Logo"></a>
     <nav>
       <a href="index.html">Home</a>
       <a href="top-stats-landing.html">Top Stats</a>
@@ -163,94 +165,78 @@
     </nav>
   </header>
 
-  <main>
+  <section class="hero" data-aos="fade-zoom-in" data-aos-delay="100">
+    <h1>Top Stats Now</h1>
+    <p>Browse this week's most critical and underreported data points, brought together for clear, credible insight — all free to explore.</p>
+  </section>
 
-    <section class="hero" data-aos="fade-zoom-in">
-      <div class="container">
-        <h1 data-aos="fade-up" data-aos-delay="100">Top Stats This Week</h1>
-        <p data-aos="fade-up" data-aos-delay="200">The most relevant data points you won’t see on the front page — visualized and sourced for analysts, educators, and the public.</p>
-      </div>
-    </section>
+  <section class="section-alt">
+    <div class="container">
+      <div class="row gy-4">
 
-    <section class="text-center" data-aos="fade-up">
-      <div class="container">
-        <div class="label-heading">Trending Now</div>
-        <h2 class="section-title">Featured Statistics</h2>
-        <p class="mx-auto" style="max-width: 720px;">
-          Curated by our team, these are the most timely and impactful stats across global trends. Click any to explore detailed reports and sources.
-        </p>
-      </div>
-    </section>
-
-    <section class="section-alt">
-      <div class="container">
-        <div class="row gy-4">
-
-          <div class="col-md-6 col-lg-4" data-aos="fade-up">
-            <div class="stat-card h-100">
-              <div class="stat-img">
-                <img src="birthrates.jpg" alt="Global Birth Rates" class="img-fluid rounded">
-              </div>
-              <a href="birthrates.html">Global Birth Rates Are Falling</a>
-              <p>Fertility has dropped from 5.0 in 1960 to 2.3 in 2023 — and the decline continues.</p>
-              <div class="source">Source: World Bank</div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+          <div class="stat-card h-100">
+            <div class="stat-img">
+              <img src="birthrates.jpg" alt="Global Birth Rates" class="img-fluid rounded">
             </div>
+            <a href="birthrates.html">Global Birth Rates Are Falling</a>
+            <p>Fertility has dropped from 5.0 in 1960 to 2.3 in 2023 — and the decline continues.</p>
+            <div class="source">Source: World Bank</div>
           </div>
-
-          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="stat-card h-100">
-              <div class="stat-img">
-                <img src="inflation.jpg" alt="Inflation" class="img-fluid rounded">
-              </div>
-              <a href="inflation.html">Inflation Remains Elevated</a>
-              <p>After peaking at 8.8% globally in 2022, inflation remains above pre-COVID levels.</p>
-              <div class="source">Source: IMF Global Outlook 2023</div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="stat-card h-100">
-              <div class="stat-img">
-                <img src="ai-growth.jpg" alt="AI Adoption" class="img-fluid rounded">
-              </div>
-              <a href="ai-growth.html">AI Adoption Doubled Since 2019</a>
-              <p>Over 50% of global enterprises now use AI in some capacity, up from 20% in 2019.</p>
-              <div class="source">Source: McKinsey Global Survey on AI (2023)</div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4" data-aos="fade-up">
-            <div class="stat-card h-100">
-              <div class="stat-img">
-                <img src="internet-access.jpg" alt="Internet Access" class="img-fluid rounded">
-              </div>
-              <a href="internet-access.html">5.3 Billion Online in 2023</a>
-              <p>Global internet access crossed 66% of the population — up from 50% just five years ago.</p>
-              <div class="source">Source: ITU/UN Broadband Commission</div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="stat-card h-100">
-              <div class="stat-img">
-                <img src="executive-pay-gap.jpg" alt="Executive Pay Gap" class="img-fluid rounded">
-              </div>
-              <a href="executive-pay-gap.html">The Executive Pay Gap</a>
-              <p>Top financial executives now earn over 300× more than the average worker — a gap growing since the 1980s.</p>
-              <div class="source">Source: Economic Policy Institute (2023)</div>
-            </div>
-          </div>
-
         </div>
-      </div>
-    </section>
 
-  </main>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="stat-card h-100">
+            <div class="stat-img">
+              <img src="inflation.jpg" alt="Inflation" class="img-fluid rounded">
+            </div>
+            <a href="inflation.html">Inflation Remains Elevated</a>
+            <p>After peaking at 8.8% globally in 2022, inflation remains above pre-COVID levels.</p>
+            <div class="source">Source: IMF Global Outlook 2023</div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="stat-card h-100">
+            <div class="stat-img">
+              <img src="ai-growth.jpg" alt="AI Adoption" class="img-fluid rounded">
+            </div>
+            <a href="ai-growth.html">AI Adoption Doubled Since 2019</a>
+            <p>Over 50% of global enterprises now use AI in some capacity, up from 20% in 2019.</p>
+            <div class="source">Source: McKinsey Global Survey on AI (2023)</div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+          <div class="stat-card h-100">
+            <div class="stat-img">
+              <img src="internet-access.jpg" alt="Internet Access" class="img-fluid rounded">
+            </div>
+            <a href="internet-access.html">5.3 Billion Online in 2023</a>
+            <p>Global internet access crossed 66% of the population — up from 50% just five years ago.</p>
+            <div class="source">Source: ITU/UN Broadband Commission</div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="stat-card h-100">
+            <div class="stat-img">
+              <img src="executive-pay-gap.jpg" alt="Executive Pay Gap" class="img-fluid rounded">
+            </div>
+            <a href="executive-pay-gap.html">The Executive Pay Gap</a>
+            <p>Top financial executives now earn over 300× more than the average worker — a gap growing since the 1980s.</p>
+            <div class="source">Source: Economic Policy Institute (2023)</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <footer>
     <div class="container">
-      <p>© 2024 StatMint. All rights reserved.</p>
-      <p>Have feedback? <a href="mailto:info@statmint.org">Contact us</a></p>
+      <p class="mb-1">© 2024 StatMint. All content is freely available under public use terms.</p>
+      <p>Want to contribute? <a href="mailto:info@statmint.org">Get in touch</a></p>
     </div>
   </footer>
 
