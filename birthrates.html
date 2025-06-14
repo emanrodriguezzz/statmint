@@ -6,7 +6,7 @@
   <title>Global Birth Rates | StatMint</title>
   <link rel="icon" href="favicon.png" type="image/png" />
 
-  <!-- Bootstrap & AOS -->
+  <!-- Bootstrap & AOS & Chart.js -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
@@ -95,6 +95,11 @@
       line-height: 1.7;
     }
 
+    canvas {
+      max-width: 100%;
+      margin: 2rem 0;
+    }
+
     .references {
       background: var(--light-bg);
       padding: 4rem 1rem;
@@ -180,33 +185,26 @@
 
   <section class="hero" data-aos="fade-zoom-in">
     <h1 data-aos="fade-up" data-aos-delay="100">Global Birth Rates Are Falling</h1>
-    <p data-aos="fade-up" data-aos-delay="200">Fertility rates have plunged globally — reshaping economies, aging societies, and shifting the global balance of power.</p>
+    <p data-aos="fade-up" data-aos-delay="200">A historic shift: fertility rates have halved, reshaping labor, economies, and our future.</p>
   </section>
 
   <main>
     <section class="content-section" data-aos="fade-up">
-      <p>Over the last six decades, the average global birth rate has fallen by nearly half — from 36.4 births per 1,000 people in 1960 to just under 18 in 2020. This trend has far-reaching consequences, altering how nations plan for the future of work, economic growth, and social support systems.</p>
-      <p>According to the <a href="https://data.worldbank.org" target="_blank">World Bank</a>, drivers include rapid urbanization, improved access to education (especially for women and girls), and economic transitions from agriculture to services and technology. These factors, while signaling progress, have triggered a steep drop in fertility rates worldwide.</p>
-      <p>Countries like South Korea now report record-low fertility rates, dipping to just 0.72 children per woman in 2023 — the lowest in the world. Japan’s population has shrunk for over a decade, and Italy, Germany, and Spain are all bracing for decades of population decline without significant immigration.</p>
+      <h2>Historic Decline</h2>
+      <p>In 1960, families globally averaged about 5 children. Today, that figure is near 2.3 — a level close to or below replacement in many nations. This radical drop marks one of the largest demographic transitions in human history.</p>
+      <canvas id="birthRateTrend"></canvas>
     </section>
 
     <section class="content-section" data-aos="fade-up">
-      <h2>Economic Impact: A Shrinking Workforce</h2>
-      <p>Fewer births mean fewer workers — a challenge for economies that rely on a healthy balance of young employees to support aging populations. The United Nations projects that by 2050, one in six people globally will be over the age of 65, up from one in eleven in 2019.</p>
-      <p>The <a href="https://www.wsj.com" target="_blank">Wall Street Journal</a> reports that across the G7 nations, falling birth rates are already dampening GDP growth, driving up healthcare costs, and raising questions about the sustainability of pension systems.</p>
-      <p>To counteract these effects, some countries are experimenting with family-friendly policies: France provides generous childcare benefits; Sweden invests heavily in parental leave; and Singapore incentivizes family formation with cash bonuses and matchmaking programs. Yet, no country has successfully reversed a long-term fertility decline once it sets in.</p>
+      <h2>Regional Trends</h2>
+      <p>While European and East Asian countries see record lows, Africa maintains high fertility — fueling a young, growing population. This demographic divergence will shape migration, trade, and global economic shifts.</p>
+      <canvas id="regionalRates"></canvas>
     </section>
 
     <section class="content-section" data-aos="fade-up">
-      <h2>Uneven Global Patterns</h2>
-      <p>While high-income countries struggle with low fertility, parts of Africa and South Asia continue to see high birth rates. Nigeria, for example, is projected to become the world’s third most populous nation by 2050, trailing only India and China. This demographic growth fuels a young workforce, but also presents challenges for infrastructure, education, and employment.</p>
-      <p>Globally, the diverging trends in population growth are reshaping geopolitics: developed economies face aging workforces and rising dependency ratios, while developing countries grapple with the need to provide jobs and education for millions of young people.</p>
-    </section>
-
-    <section class="content-section" data-aos="fade-up">
-      <h2>Why It Matters</h2>
-      <p>Low birth rates are not just a statistic — they directly influence a country’s capacity for economic innovation, defense, and social cohesion. With fewer young people, there’s less entrepreneurial dynamism, less tax revenue, and increased pressure on younger generations to support retirees.</p>
-      <p>For policymakers and citizens alike, understanding these trends is critical for planning investments, shaping immigration policy, and maintaining social stability.</p>
+      <h2>Consequences & Risk</h2>
+      <p>Low birth rates increase the old-age dependency ratio: fewer workers must support more retirees. Economists warn that shrinking workforces slow GDP growth and pressure pension and healthcare systems.</p>
+      <p>Policymakers debate how to respond: pro-natalist subsidies, immigration reform, and workplace flexibility. Yet, no country has fully reversed sustained decline once entrenched.</p>
     </section>
 
     <section class="references" data-aos="fade-up">
@@ -214,23 +212,19 @@
       <div class="reference-list">
         <div class="reference-item">
           <img src="UnitedNationsImage.webp" alt="UN Data">
-          <p>United Nations Population Division</p>
+          <p>United Nations</p>
         </div>
         <div class="reference-item">
           <img src="cdcimage.jpg" alt="CDC Data">
-          <p>U.S. Centers for Disease Control and Prevention</p>
+          <p>CDC</p>
         </div>
         <div class="reference-item">
-          <img src="birthrate_trend_chart.png" alt="Birthrate Chart">
-          <p>StatMint Global Trend Chart</p>
+          <img src="birthrate_trend_chart.png" alt="StatMint Chart">
+          <p>StatMint Trend</p>
         </div>
         <div class="reference-item">
           <img src="WSJimage.png" alt="WSJ Graphic">
-          <p>Wall Street Journal Insight</p>
-        </div>
-        <div class="reference-item">
-          <img src="A_choropleth_world_map_in_digital_2D_format_displa.png" alt="Forecast Map">
-          <p>StatMint Global Forecast Map</p>
+          <p>Wall Street Journal</p>
         </div>
       </div>
     </section>
@@ -243,18 +237,46 @@
   <footer>
     <div class="container">
       <p>© 2024 StatMint. All rights reserved.</p>
-      <p>Contact us: <a href="mailto:info@statmint.org">info@statmint.org</a></p>
+      <p>Contact: <a href="mailto:info@statmint.org">info@statmint.org</a></p>
     </div>
   </footer>
 
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 1000,
-      once: true,
-      easing: 'ease-in-out'
+    AOS.init({ duration: 1000, once: true });
+
+    const ctx1 = document.getElementById('birthRateTrend').getContext('2d');
+    new Chart(ctx1, {
+      type: 'line',
+      data: {
+        labels: [1960, 1970, 1980, 1990, 2000, 2010, 2020],
+        datasets: [{
+          label: 'Global Birth Rate per 1,000',
+          data: [36.4, 33.5, 30.2, 27.1, 22.5, 20.2, 18.5],
+          borderColor: '#0d6efd',
+          backgroundColor: 'rgba(13, 110, 253, 0.2)',
+          tension: 0.3,
+          fill: true
+        }]
+      },
+      options: { responsive: true }
+    });
+
+    const ctx2 = document.getElementById('regionalRates').getContext('2d');
+    new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: ['Africa', 'Asia', 'Europe', 'N. America', 'Latin America'],
+        datasets: [{
+          label: 'Fertility Rate (2023)',
+          data: [4.3, 2.1, 1.5, 1.7, 2.0],
+          backgroundColor: '#377dff'
+        }]
+      },
+      options: { responsive: true }
     });
   </script>
-
 </body>
 </html>
