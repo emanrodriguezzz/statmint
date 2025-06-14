@@ -15,16 +15,15 @@
     :root {
       --primary: #0d6efd;
       --dark: #111;
-      --light-bg: #f7f7f7;
       --accent: #377dff;
-      --neutral-text: #666;
+      --neutral: #666;
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      margin: 0;
-      background: white;
+      background: #fff;
       color: #111;
+      margin: 0;
     }
 
     header {
@@ -40,12 +39,11 @@
 
     header img {
       height: 80px;
-      object-fit: contain;
     }
 
     nav a {
       margin-left: 1.5rem;
-      color: white;
+      color: #fff;
       text-decoration: none;
       font-weight: 500;
       transition: color 0.3s;
@@ -59,7 +57,7 @@
       background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
                   url('birthrates-hero.jpg') center/cover no-repeat;
       text-align: center;
-      color: white;
+      color: #fff;
       padding: 10rem 2rem;
     }
 
@@ -69,19 +67,19 @@
     }
 
     .hero p {
-      max-width: 720px;
+      max-width: 700px;
       margin: 1rem auto 0;
       font-size: 1.2rem;
     }
 
     main {
       padding: 4rem 1rem;
+      background: #fff;
     }
 
     .content-section {
       max-width: 900px;
-      margin: auto;
-      margin-bottom: 4rem;
+      margin: 0 auto 4rem;
     }
 
     .content-section h2 {
@@ -91,8 +89,8 @@
     }
 
     .content-section p {
+      line-height: 1.7;
       margin-bottom: 1rem;
-      line-height: 1.8;
     }
 
     canvas {
@@ -101,8 +99,9 @@
     }
 
     .references {
-      background: var(--light-bg);
       padding: 4rem 1rem;
+      background: #fff;
+      border-top: 1px solid #eee;
     }
 
     .references h2 {
@@ -119,20 +118,19 @@
     }
 
     .reference-item {
-      max-width: 200px;
+      max-width: 180px;
       text-align: center;
     }
 
     .reference-item img {
       width: 100%;
-      height: auto;
       border-radius: 6px;
     }
 
     .reference-item p {
       margin-top: 0.5rem;
       font-size: 0.8rem;
-      color: var(--neutral-text);
+      color: var(--neutral);
     }
 
     .back-link {
@@ -142,8 +140,8 @@
 
     .back-link a {
       color: var(--primary);
-      text-decoration: none;
       font-weight: 500;
+      text-decoration: none;
     }
 
     .back-link a:hover {
@@ -185,33 +183,30 @@
 
   <section class="hero" data-aos="fade-zoom-in">
     <h1 data-aos="fade-up" data-aos-delay="100">Global Birth Rates Are Falling</h1>
-    <p data-aos="fade-up" data-aos-delay="200">Fertility rates have dropped sharply, reshaping populations and economies worldwide.</p>
+    <p data-aos="fade-up" data-aos-delay="200">Fertility rates have dropped for decades, reshaping demographics and economies worldwide.</p>
   </section>
 
   <main>
     <section class="content-section" data-aos="fade-up">
       <h2>Decades of Decline</h2>
-      <p>In 1960, the global fertility rate was about 5 children per woman. By 2023, it is near 2.3. Many countries are well below the replacement rate of 2.1, which is needed to maintain stable population levels without immigration.</p>
-      <p>Japan’s population shrinks each year. South Korea reports the lowest fertility rate in the world at 0.72. Italy and Spain are also seeing steady declines despite government incentives to encourage larger families.</p>
+      <p>In 1960, the global fertility rate was around 5 children per woman. Today, it is about 2.3, with dozens of countries far below the replacement level of 2.1. Japan, South Korea, and much of Europe now face aging populations and workforce shortages.</p>
       <canvas id="birthRateTrend"></canvas>
     </section>
 
     <section class="content-section" data-aos="fade-up">
-      <h2>Regional Patterns</h2>
-      <p>Low fertility is a challenge for high-income economies but less so for parts of Africa and South Asia. Nigeria’s fertility rate remains above 5, fueling rapid growth. India remains near replacement, and has surpassed China as the most populous country.</p>
-      <p>Population trends affect migration, economic power, and global markets. High-fertility regions will contribute most of the world’s workforce growth in coming decades.</p>
+      <h2>Regional Differences</h2>
+      <p>While developed economies see fertility decline, Africa maintains high rates. Nigeria's fertility rate is over 5 and its population is projected to double by 2050. Asia shows contrasts: China and Japan are shrinking while India stays near replacement.</p>
       <canvas id="regionalRates"></canvas>
     </section>
 
     <section class="content-section" data-aos="fade-up">
       <h2>Economic Impact</h2>
-      <p>Countries with fewer young workers face slower economic growth and greater strain on social support systems. In 1950, there were seven workers for every retiree in developed nations. By 2050, it will be closer to two workers per retiree.</p>
-      <p>Governments use tax credits, paid leave, and childcare subsidies to try to raise birth rates. So far, no country has fully reversed a long-term decline.</p>
+      <p>Low birth rates reduce workforce size and tax revenue while increasing costs for pensions and healthcare. In 1950, there were seven workers per retiree in developed countries; by 2050, it will drop to about two. Policies like paid leave and subsidies help but rarely reverse the trend completely.</p>
     </section>
 
     <section class="content-section" data-aos="fade-up">
-      <h2>Outlook</h2>
-      <p>Low birth rates affect productivity, tax revenue, and innovation. Understanding these trends is key for planning investments, healthcare, and immigration policies. StatMint provides data and visual insights so that the public can better grasp these global shifts.</p>
+      <h2>Looking Ahead</h2>
+      <p>Demographic change influences everything from housing to innovation. Understanding birth rates helps forecast labor markets and economic growth. StatMint tracks these shifts to inform policy and public discussion.</p>
     </section>
 
     <section class="references" data-aos="fade-up">
@@ -219,15 +214,15 @@
       <div class="reference-list">
         <div class="reference-item">
           <img src="UnitedNationsImage.webp" alt="UN Data">
-          <p>United Nations Population Division</p>
+          <p>United Nations</p>
         </div>
         <div class="reference-item">
           <img src="cdcimage.jpg" alt="CDC Data">
-          <p>U.S. Centers for Disease Control and Prevention</p>
+          <p>CDC</p>
         </div>
         <div class="reference-item">
           <img src="birthrate_trend_chart.png" alt="Trend Chart">
-          <p>StatMint Trend Chart</p>
+          <p>StatMint Chart</p>
         </div>
         <div class="reference-item">
           <img src="WSJimage.png" alt="WSJ Graphic">
@@ -244,11 +239,11 @@
   <footer>
     <div class="container">
       <p>© 2024 StatMint. All rights reserved.</p>
-      <p>Email: <a href="mailto:info@statmint.org">info@statmint.org</a></p>
+      <p><a href="mailto:info@statmint.org">info@statmint.org</a></p>
     </div>
   </footer>
 
-  <!-- Libraries -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
@@ -263,7 +258,7 @@
           label: 'Global Fertility Rate',
           data: [5.0, 4.5, 3.8, 3.3, 2.8, 2.5, 2.4, 2.3],
           borderColor: '#0d6efd',
-          backgroundColor: 'rgba(13, 110, 253, 0.2)',
+          backgroundColor: 'rgba(13, 110, 253, 0.15)',
           tension: 0.4,
           fill: true
         }]
