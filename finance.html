@@ -28,7 +28,7 @@
 
     header {
       background: var(--dark);
-      padding: 1rem 2rem;
+      padding: 0.5rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -38,7 +38,8 @@
     }
 
     header img {
-      height: 80px;
+      height: 150px;
+      object-fit: contain;
     }
 
     nav a {
@@ -55,7 +56,7 @@
 
     .hero {
       background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        url('financeimage.jpeg') center/cover no-repeat;
+        url('finance-hero.jpg') center/cover no-repeat;
       text-align: center;
       color: #fff;
       padding: 10rem 2rem 8rem;
@@ -142,16 +143,6 @@
       display: block;
     }
 
-    a.source-link {
-      text-decoration: none;
-      color: var(--neutral);
-    }
-
-    a.source-link:hover {
-      color: #000;
-      text-decoration: underline;
-    }
-
     footer {
       background: var(--dark);
       color: #bbb;
@@ -168,12 +159,31 @@
     footer a:hover {
       text-decoration: underline;
     }
+
+    .sources {
+      max-width: 960px;
+      margin: 4rem auto 2rem;
+      font-size: 0.9rem;
+    }
+
+    .sources h3 {
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .sources ul {
+      padding-left: 1.2rem;
+    }
+
+    .sources ul li {
+      margin-bottom: 0.5rem;
+    }
   </style>
 </head>
 
 <body>
   <header>
-    <a href="index.html"><img src="StatMintLogo.png" alt="StatMint Logo"></a>
+    <a href="index.html"><img src="statmint_logo.jpeg" alt="StatMint Logo"></a>
     <nav>
       <a href="index.html">Home</a>
       <a href="top-stats-landing.html">Top Stats</a>
@@ -187,13 +197,11 @@
   <section class="hero" data-aos="fade-zoom-in">
     <h1 data-aos="fade-up">Finance Statistics</h1>
     <p data-aos="fade-up" data-aos-delay="100">
-      See key numbers shaping the global financial landscape — from GDP and debt to housing, markets, and inflation.
+      Explore global financial trends: GDP, debt, housing, rates, and wealth — clearly sourced for insight and context.
     </p>
   </section>
 
   <main>
-    <!-- Keep your existing sections: Economic Indicators, Markets, Forex, etc. -->
-    <!-- Example shown below with fade animations -->
     <section class="section" data-aos="fade-up">
       <div class="content-section">
         <h2>Key Economic Indicators</h2>
@@ -202,26 +210,111 @@
             <div class="highlight-card">
               <h3 class="text-primary">$105T</h3>
               <p>Global GDP (2023)</p>
-              <p class="text-muted small mt-2">
-                <a href="https://www.imf.org/en/Data" target="_blank" class="source-link">IMF</a>
-              </p>
             </div>
           </div>
-          <!-- Repeat for other highlights as before... -->
+          <div class="col-md-3">
+            <div class="highlight-card">
+              <h3 class="text-danger">3.4%</h3>
+              <p>US Inflation</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="highlight-card">
+              <h3 class="text-success">$1.72T</h3>
+              <p>Crypto Market Cap</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="highlight-card">
+              <h3 class="text-warning">5.25%</h3>
+              <p>US Interest Rate</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Keep rest of sections unchanged, just add data-aos="fade-up" as needed -->
+    <!-- Rest of financial sections -->
+    <section class="section section-alt" data-aos="fade-up">
+      <div class="content-section">
+        <h2>Market Indexes</h2>
+        <ul>
+          <li><strong>S&P 500:</strong> ~5,200 (↑11% YTD)</li>
+          <li><strong>NASDAQ:</strong> ~16,000 (↑14% YTD)</li>
+          <li><strong>Dow Jones:</strong> ~39,000</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" data-aos="fade-up">
+      <div class="content-section">
+        <h2>Currency & Forex</h2>
+        <ul>
+          <li>USD/EUR: 0.93</li>
+          <li>USD/JPY: 156.2</li>
+          <li>GBP/USD: 1.27</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section-alt" data-aos="fade-up">
+      <div class="content-section">
+        <h2>Housing & Mortgages</h2>
+        <ul>
+          <li>US 30-Year Mortgage Rate: 7.02%</li>
+          <li>Median US Home Price: $412,000</li>
+          <li>Annual Rent Inflation: 5.3%</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" data-aos="fade-up">
+      <div class="content-section">
+        <h2>Consumer Debt</h2>
+        <ul>
+          <li>Total US Credit Card Debt: $1.13T</li>
+          <li>Average Credit Card APR: 24.7%</li>
+          <li>Student Loan Debt: $1.77T</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section-alt" data-aos="fade-up">
+      <div class="content-section">
+        <h2>Top Global Banks</h2>
+        <ul>
+          <li>ICBC: $5.7T Assets</li>
+          <li>JPMorgan Chase: $4.1T Assets</li>
+          <li>Bank of America: $3.2T Assets</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" data-aos="fade-up">
+      <div class="content-section">
+        <h2>Wealth & Fiscal Policy</h2>
+        <ul>
+          <li>US Debt-to-GDP: 123%</li>
+          <li>Top 1% Wealth Share (US): 33%</li>
+          <li>World Gini Index: 0.63</li>
+        </ul>
+      </div>
+    </section>
 
     <section class="section section-alt" data-aos="fade-up">
       <div class="content-section">
         <h2>Global Inflation Trend</h2>
-        <p>Inflation spiked sharply after 2020, driven by pandemic disruptions and monetary easing. This chart illustrates the recent trend:</p>
         <canvas id="inflationChart"></canvas>
-        <p class="img-caption">Chart: StatMint using IMF data</p>
+        <p class="img-caption">Chart: StatMint, IMF Data</p>
       </div>
     </section>
+
+    <div class="sources">
+      <h3>Sources</h3>
+      <ul>
+        <li>IMF, FRED, BLS, NY Fed, CoinGecko, MarketWatch, XE, US Dept. of Education, ICBC, JPMorgan Chase, Bank of America, World Bank</li>
+      </ul>
+    </div>
 
     <div class="back-link">
       <a href="top-stats-landing.html">← Back to Top Stats</a>
