@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Global Birth Rates | StatMint</title>
-  <link rel="icon" href="favicon.png" type="image/png" />
+  <title>Finance | StatMint</title>
 
-  <!-- Bootstrap, AOS, and Chart.js -->
+  <!-- Bootstrap, AOS, Chart.js -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <style>
     :root {
       --primary: #0d6efd;
@@ -21,10 +22,8 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      margin: 0;
       background: #fff;
       color: #111;
-      line-height: 1.7;
     }
 
     header {
@@ -35,7 +34,7 @@
       align-items: center;
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 999;
     }
 
     header img {
@@ -55,11 +54,10 @@
     }
 
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        url('birthrates-hero.jpg') center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('finance-hero.jpg') center/cover no-repeat;
       text-align: center;
       color: #fff;
-      padding: 9rem 2rem 7rem;
+      padding: 8rem 2rem 6rem;
     }
 
     .hero h1 {
@@ -68,13 +66,9 @@
     }
 
     .hero p {
-      max-width: 700px;
+      max-width: 720px;
       margin: 1rem auto 0;
       font-size: 1.2rem;
-    }
-
-    main {
-      background: #fff;
     }
 
     .section {
@@ -86,61 +80,49 @@
     }
 
     .content-section {
-      max-width: 900px;
-      margin: 0 auto;
+      max-width: 960px;
+      margin: auto;
     }
 
     .content-section h2 {
       font-weight: 700;
-      margin-top: 2rem;
       margin-bottom: 1rem;
     }
 
-    .content-section p {
+    .highlight-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 0.25rem 1rem rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+
+    .highlight-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 1rem 2rem rgba(0,0,0,0.08);
+    }
+
+    .highlight-row .col-md-3, .highlight-row .col-md-4 {
       margin-bottom: 1rem;
     }
 
-    canvas {
-      max-width: 100%;
-      margin: 2rem 0;
+    ul {
+      padding-left: 1.2rem;
     }
 
-    .references {
-      border-top: 1px solid #eee;
+    ul li {
+      margin-bottom: 0.75rem;
     }
 
-    .references h2 {
+    .img-caption {
       text-align: center;
-      font-weight: 700;
-      margin-bottom: 2rem;
-    }
-
-    .reference-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-    }
-
-    .reference-item {
-      max-width: 180px;
-      text-align: center;
-    }
-
-    .reference-item img {
-      width: 100%;
-      border-radius: 6px;
-    }
-
-    .reference-item p {
-      margin-top: 0.5rem;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       color: var(--neutral);
     }
 
     .back-link {
       text-align: center;
-      margin-top: 3rem;
+      margin: 4rem 0 2rem;
     }
 
     .back-link a {
@@ -150,6 +132,22 @@
     }
 
     .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    canvas {
+      max-width: 100%;
+      margin: 2rem auto;
+      display: block;
+    }
+
+    a.source-link {
+      text-decoration: none;
+      color: var(--neutral);
+    }
+
+    a.source-link:hover {
+      color: #000;
       text-decoration: underline;
     }
 
@@ -173,7 +171,6 @@
 </head>
 
 <body>
-
   <header>
     <a href="index.html"><img src="StatMintLogo.png" alt="StatMint Logo"></a>
     <nav>
@@ -187,60 +184,103 @@
   </header>
 
   <section class="hero" data-aos="fade-zoom-in">
-    <h1 data-aos="fade-up" data-aos-delay="100">Global Birth Rates Are Falling</h1>
-    <p data-aos="fade-up" data-aos-delay="200">Explore how falling fertility shapes economies, aging populations, and policy debates worldwide.</p>
+    <h1 data-aos="fade-up">Finance Statistics</h1>
+    <p data-aos="fade-up" data-aos-delay="100">Explore key economic indicators shaping the global market: inflation, interest rates, debt, banking and more — clearly visualized and updated.</p>
   </section>
 
   <main>
     <section class="section" data-aos="fade-up">
       <div class="content-section">
-        <h2>Decades of Decline</h2>
-        <p>In 1960, the global fertility rate was about 5 children per woman. By 2023, it is around 2.3. Countries like Japan and South Korea now face shrinking populations and workforce gaps. Many European nations also sit well below the replacement level of 2.1.</p>
-        <canvas id="birthRateTrend"></canvas>
+        <h2>Key Economic Indicators</h2>
+        <div class="row text-center highlight-row">
+          <div class="col-md-3">
+            <div class="highlight-card">
+              <h3 class="text-primary">$105T</h3>
+              <p>Global GDP (2023)</p>
+              <p class="text-muted small mt-2"><a href="https://www.imf.org/en/Data" target="_blank" class="source-link">IMF</a></p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="highlight-card">
+              <h3 class="text-danger">3.4%</h3>
+              <p>US Inflation Rate</p>
+              <p class="text-muted small mt-2"><a href="https://fred.stlouisfed.org/series/CPIAUCSL" target="_blank" class="source-link">FRED</a></p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="highlight-card">
+              <h3 class="text-success">$1.72T</h3>
+              <p>Crypto Market Cap</p>
+              <p class="text-muted small mt-2"><a href="https://www.coingecko.com/en/global_charts" target="_blank" class="source-link">CoinGecko</a></p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="highlight-card">
+              <h3 class="text-warning">5.25%</h3>
+              <p>US Interest Rate</p>
+              <p class="text-muted small mt-2"><a href="https://fred.stlouisfed.org/series/FEDFUNDS" target="_blank" class="source-link">FRED</a></p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="section section-alt" data-aos="fade-up">
       <div class="content-section">
-        <h2>Regional Patterns</h2>
-        <p>High-income regions continue to decline, but Sub-Saharan Africa remains an exception. Nigeria's fertility rate stays above 5. India, meanwhile, maintains near replacement levels while China has dipped below. These differences affect global labor markets and migration trends.</p>
-        <canvas id="regionalRates"></canvas>
+        <h2>Market Indexes</h2>
+        <ul>
+          <li><strong>S&P 500:</strong> ~5,200 (↑11% YTD) — <a href="https://www.marketwatch.com/investing/index/spx" target="_blank">Source</a></li>
+          <li><strong>NASDAQ:</strong> ~16,000 (↑14% YTD) — <a href="https://www.marketwatch.com/investing/index/comp" target="_blank">Source</a></li>
+          <li><strong>Dow Jones:</strong> ~39,000 — <a href="https://www.marketwatch.com/investing/index/djia" target="_blank">Source</a></li>
+        </ul>
       </div>
     </section>
 
     <section class="section" data-aos="fade-up">
       <div class="content-section">
-        <h2>Economic and Social Impact</h2>
-        <p>Fewer young people means slower economic growth and more pressure on social safety nets. In 1950, seven workers supported one retiree; by 2050, it will be closer to two. Governments invest in paid leave, childcare support, and family incentives, but few have reversed the decline.</p>
+        <h2>Currency & Forex</h2>
+        <ul>
+          <li><strong>USD/EUR:</strong> 0.93 — <a href="https://www.xe.com" target="_blank">Source</a></li>
+          <li><strong>USD/JPY:</strong> 156.2 — <a href="https://www.xe.com" target="_blank">Source</a></li>
+          <li><strong>GBP/USD:</strong> 1.27 — <a href="https://www.xe.com" target="_blank">Source</a></li>
+        </ul>
       </div>
     </section>
 
-    <section class="section section-alt references" data-aos="fade-up">
+    <section class="section section-alt" data-aos="fade-up">
       <div class="content-section">
-        <h2>References & Visuals</h2>
-        <div class="reference-list">
-          <div class="reference-item">
-            <img src="UnitedNationsImage.webp" alt="UN Data">
-            <p>United Nations</p>
-          </div>
-          <div class="reference-item">
-            <img src="cdcimage.jpg" alt="CDC Data">
-            <p>CDC</p>
-          </div>
-          <div class="reference-item">
-            <img src="birthrate_trend_chart.png" alt="Trend Chart">
-            <p>StatMint Chart</p>
-          </div>
-          <div class="reference-item">
-            <img src="WSJimage.png" alt="WSJ Graphic">
-            <p>Wall Street Journal</p>
-          </div>
-        </div>
-        <div class="back-link">
-          <a href="top-stats-landing.html">← Back to Top Stats</a>
-        </div>
+        <h2>Housing Market & Mortgages</h2>
+        <ul>
+          <li><strong>US 30-Year Mortgage Rate:</strong> 7.02% — <a href="https://fred.stlouisfed.org/series/MORTGAGE30US" target="_blank">Source: FRED</a></li>
+          <li><strong>Median US Home Price:</strong> $412,000 — <a href="https://fred.stlouisfed.org/series/MSPUS" target="_blank">Source: FRED</a></li>
+          <li><strong>Annual Rent Inflation:</strong> 5.3% — <a href="https://www.bls.gov/cpi/" target="_blank">Source: BLS</a></li>
+        </ul>
       </div>
     </section>
+
+    <section class="section" data-aos="fade-up">
+      <div class="content-section">
+        <h2>Consumer Debt Overview</h2>
+        <ul>
+          <li><strong>Total US Credit Card Debt:</strong> $1.13T — <a href="https://www.newyorkfed.org" target="_blank">NY Fed</a></li>
+          <li><strong>Average Credit Card APR:</strong> 24.7% — <a href="https://www.bankrate.com" target="_blank">Bankrate</a></li>
+          <li><strong>Student Loan Debt:</strong> $1.77T — <a href="https://studentaid.gov/data-center/student/portfolio" target="_blank">US Dept. of Education</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section-alt" data-aos="fade-up">
+      <div class="content-section">
+        <h2>Global Inflation Trend</h2>
+        <p>Inflation surged post-2020 due to supply disruptions and monetary stimulus. This chart shows the recent global trend:</p>
+        <canvas id="inflationChart"></canvas>
+        <p class="img-caption">Chart: StatMint, IMF Data</p>
+      </div>
+    </section>
+
+    <div class="back-link">
+      <a href="top-stats-landing.html">← Back to Top Stats</a>
+    </div>
   </main>
 
   <footer>
@@ -250,41 +290,35 @@
     </div>
   </footer>
 
-  <!-- JS Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
 
-    new Chart(document.getElementById('birthRateTrend'), {
+    new Chart(document.getElementById('inflationChart'), {
       type: 'line',
       data: {
-        labels: [1960, 1970, 1980, 1990, 2000, 2010, 2020, 2023],
+        labels: ['2019', '2020', '2021', '2022', '2023'],
         datasets: [{
-          label: 'Global Fertility Rate',
-          data: [5.0, 4.5, 3.8, 3.3, 2.8, 2.5, 2.4, 2.3],
+          label: 'Global Inflation (%)',
+          data: [3.2, 3.5, 4.7, 8.8, 6.4],
           borderColor: '#0d6efd',
-          backgroundColor: 'rgba(13, 110, 253, 0.15)',
-          tension: 0.4,
-          fill: true
+          backgroundColor: 'rgba(13, 110, 253, 0.1)',
+          fill: true,
+          tension: 0.3
         }]
       },
-      options: { responsive: true }
-    });
-
-    new Chart(document.getElementById('regionalRates'), {
-      type: 'bar',
-      data: {
-        labels: ['Africa', 'Asia', 'Europe', 'N. America', 'Latin America'],
-        datasets: [{
-          label: 'Fertility Rate (2023)',
-          data: [4.3, 2.1, 1.5, 1.7, 2.0],
-          backgroundColor: '#377dff'
-        }]
-      },
-      options: { responsive: true }
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: { stepSize: 2 }
+          }
+        }
+      }
     });
   </script>
-
 </body>
 </html>
