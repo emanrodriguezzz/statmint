@@ -4,11 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>2025 FDA Approvals | Statmint</title>
-  <meta name="description" content="Statmint provides a clean, trusted summary of the latest 2025 FDA drug approvals, tailored for healthcare investors and professionals.">
+  <meta name="description" content="Statmint shows the latest FDA approvals for 2025 — with stats, charts, and clear summaries for healthcare investors and professionals.">
   <link rel="icon" href="statmint_logo.jpeg" type="image/jpeg" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     :root {
       --primary: #0d6efd;
@@ -61,7 +62,7 @@
     .hero h1 {
       font-size: 3rem;
       font-weight: 700;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
     }
 
     .hero p {
@@ -71,14 +72,38 @@
       color: #dee2e6;
     }
 
+    .stats {
+      background: #fff;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-top: -50px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+    }
+
+    .stats .stat {
+      text-align: center;
+    }
+
+    .stats .stat h3 {
+      margin: 0;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .stats .stat p {
+      margin: 0;
+      color: var(--muted);
+    }
+
     .section {
       padding: 4rem 2rem;
     }
 
-    .section p.lead {
-      max-width: 800px;
-      margin: 0 auto 2rem;
-      color: var(--muted);
+    .filters {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
     }
 
     table {
@@ -98,14 +123,17 @@
 
     th {
       background: #f1f3f5;
-      font-weight: 600;
       text-transform: uppercase;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       letter-spacing: 0.05em;
     }
 
     tbody tr:hover {
       background: #f8f9fa;
+    }
+
+    .badge {
+      font-size: 0.75rem;
     }
 
     footer {
@@ -119,11 +147,19 @@
     footer a {
       color: var(--accent);
     }
+
+    .subscribe {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      margin-top: 4rem;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
 
-  <!-- ✅ Professional Header -->
+  <!-- ✅ Header -->
   <header>
     <a href="index.html"><img src="statmint_logo.jpeg" alt="Statmint Logo"></a>
     <nav>
@@ -134,20 +170,38 @@
     </nav>
   </header>
 
-  <!-- ✅ Hero Section -->
+  <!-- ✅ Hero -->
   <section class="hero" data-aos="fade-zoom-in">
-    <h1 data-aos="fade-down" data-aos-delay="100">2025 FDA Drug Approvals</h1>
-    <p data-aos="fade-up" data-aos-delay="200">
-      A curated summary of the latest approved treatments, with context for investors and healthcare professionals.
-    </p>
+    <h1 data-aos="fade-down">2025 FDA Approvals</h1>
+    <p data-aos="fade-up">Authoritative updates on recent drug approvals, with context, trends, and official links for due diligence.</p>
   </section>
 
-  <!-- ✅ FDA Approvals Table -->
+  <!-- ✅ Stats and Chart -->
+  <section class="container stats" data-aos="fade-up">
+    <div class="row">
+      <div class="col-md-4 stat">
+        <h3>5</h3>
+        <p>Approvals YTD</p>
+      </div>
+      <div class="col-md-8">
+        <canvas id="approvalsChart" height="80"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Table and Filters -->
   <section class="section">
     <div class="container">
-      <p class="lead text-center" data-aos="fade-up">
-        Updated regularly — this table reflects the newest FDA approvals for 2025, covering impactful new therapies in rare diseases, oncology, and next-generation gene editing.
-      </p>
+      <div class="filters" data-aos="fade-up">
+        <select id="monthFilter" class="form-select" style="max-width:200px;">
+          <option value="">All Months</option>
+          <option value="January">January</option>
+          <option value="February">February</option>
+          <option value="April">April</option>
+          <option value="June">June</option>
+          <option value="August">August</option>
+        </select>
+      </div>
 
       <div class="table-responsive" data-aos="fade-up" data-aos-delay="100">
         <table class="table">
@@ -156,73 +210,95 @@
               <th>Drug</th>
               <th>Company</th>
               <th>Indication</th>
-              <th>Approval Date</th>
+              <th>Date</th>
               <th>Summary</th>
+              <th>Status</th>
               <th>Link</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>CTX001</td>
-              <td>CRISPR Therapeutics & Vertex</td>
-              <td>Sickle Cell Disease & Beta Thalassemia</td>
-              <td>January 10, 2025</td>
-              <td>First CRISPR gene-editing therapy approved for inherited blood disorders.</td>
-              <td><a href="https://www.fda.gov/drugs" target="_blank">FDA</a></td>
-            </tr>
-            <tr>
-              <td>VX-548</td>
-              <td>Vertex Pharmaceuticals</td>
-              <td>Acute & Neuropathic Pain</td>
-              <td>February 22, 2025</td>
-              <td>Non-opioid pain treatment approved for post-surgical and chronic nerve pain.</td>
-              <td><a href="https://www.fda.gov/drugs" target="_blank">FDA</a></td>
-            </tr>
-            <tr>
-              <td>SRP-9001</td>
-              <td>Sarepta Therapeutics</td>
-              <td>Duchenne Muscular Dystrophy</td>
-              <td>April 5, 2025</td>
-              <td>Gene therapy for DMD with confirmed efficacy and durability data.</td>
-              <td><a href="https://www.fda.gov/drugs" target="_blank">FDA</a></td>
-            </tr>
-            <tr>
-              <td>BEAM-101</td>
-              <td>Beam Therapeutics</td>
-              <td>Sickle Cell Disease</td>
-              <td>June 18, 2025</td>
-              <td>Base editing therapy offering next-gen correction for sickle cell.</td>
-              <td><a href="https://www.fda.gov/drugs" target="_blank">FDA</a></td>
-            </tr>
-            <tr>
-              <td>IMC-F106C</td>
-              <td>Immunocore Holdings</td>
-              <td>Advanced Melanoma</td>
-              <td>August 2, 2025</td>
-              <td>Novel TCR bispecific for patients failing checkpoint inhibitors.</td>
-              <td><a href="https://www.fda.gov/drugs" target="_blank">FDA</a></td>
-            </tr>
-            <!-- Add more if needed -->
+          <tbody id="approvalsBody">
+            <!-- Populated by JS -->
           </tbody>
         </table>
       </div>
     </div>
   </section>
 
+  <!-- ✅ Subscribe -->
+  <section class="container subscribe" data-aos="fade-up">
+    <h4>Stay Informed</h4>
+    <p>Subscribe to get weekly updates on the latest FDA approvals and pipeline trends.</p>
+    <form class="d-flex justify-content-center flex-wrap gap-2 mt-3">
+      <input type="email" placeholder="Enter your email" class="form-control" style="max-width: 250px;">
+      <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+  </section>
+
   <!-- ✅ Footer -->
   <footer>
-    <div class="container">
-      <p>© 2025 Statmint. Approval data provided for informational purposes only. Refer to official FDA sources for updates.</p>
-      <p>Questions? <a href="mailto:info@statmint.org">Contact us</a></p>
-    </div>
+    <p>© 2025 Statmint. Data for research and education. Source: FDA.gov and company releases.</p>
+    <p><a href="mailto:info@statmint.org">Contact us</a></p>
   </footer>
 
+  <!-- ✅ Scripts -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
-    AOS.init({
-      duration: 1000,
-      once: true,
-      easing: 'ease-in-out'
+    AOS.init({ duration: 1000, once: true });
+
+    // Sample data
+    const approvals = [
+      { drug: "CTX001", company: "CRISPR Therapeutics & Vertex", indication: "Sickle Cell Disease", date: "January 10, 2025", summary: "First CRISPR gene therapy.", month: "January", status: "Approved" },
+      { drug: "VX-548", company: "Vertex Pharmaceuticals", indication: "Acute Pain", date: "February 22, 2025", summary: "Non-opioid pain therapy.", month: "February", status: "Approved" },
+      { drug: "SRP-9001", company: "Sarepta Therapeutics", indication: "DMD", date: "April 5, 2025", summary: "Gene therapy for DMD.", month: "April", status: "Approved" },
+      { drug: "BEAM-101", company: "Beam Therapeutics", indication: "Sickle Cell", date: "June 18, 2025", summary: "Base editing therapy.", month: "June", status: "Approved" },
+      { drug: "IMC-F106C", company: "Immunocore Holdings", indication: "Melanoma", date: "August 2, 2025", summary: "TCR bispecific therapy.", month: "August", status: "Approved" }
+    ];
+
+    const tbody = document.getElementById('approvalsBody');
+    const monthFilter = document.getElementById('monthFilter');
+
+    function renderTable() {
+      tbody.innerHTML = "";
+      const month = monthFilter.value;
+      approvals.forEach(app => {
+        if (!month || app.month === month) {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${app.drug}</td>
+            <td>${app.company}</td>
+            <td>${app.indication}</td>
+            <td>${app.date}</td>
+            <td>${app.summary}</td>
+            <td><span class="badge bg-success">${app.status}</span></td>
+            <td><a href="https://www.fda.gov/drugs" target="_blank">FDA</a></td>
+          `;
+          tbody.appendChild(tr);
+        }
+      });
+    }
+
+    monthFilter.addEventListener('change', renderTable);
+    renderTable();
+
+    // Chart
+    const ctx = document.getElementById('approvalsChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Jan', 'Feb', 'Apr', 'Jun', 'Aug'],
+        datasets: [{
+          label: 'Approvals',
+          data: [1, 1, 1, 1, 1],
+          backgroundColor: '#0d6efd'
+        }]
+      },
+      options: {
+        plugins: { legend: { display: false } },
+        scales: {
+          y: { beginAtZero: true, stepSize: 1 }
+        }
+      }
     });
   </script>
 </body>
