@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pipeline Tracker | Statmint</title>
-  <meta name="description" content="Research-level pipeline tracker for biotech companies, with competitors, IPO dates, and key trial data.">
+  <meta name="description" content="Professional tracker for biotech companies in clinical trials with expanded data and horizontal charts.">
   <link rel="icon" href="statmint_logo.jpeg" type="image/jpeg" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
@@ -179,7 +179,7 @@
     }
 
     .container {
-      max-width: 1400px;
+      max-width: 1500px;
     }
   </style>
 </head>
@@ -199,14 +199,14 @@
 
 <section class="hero">
   <h1>Biotech Pipeline Tracker</h1>
-  <p>Detailed institutional profiles, competitors, IPO history, and clinical trial insights for select biotech companies under development.</p>
+  <p>Professional company snapshots, competitors, IPO milestones, and horizontal chart views for clean, spacious presentation.</p>
 </section>
 
 <section class="container py-5" id="stock-sections"></section>
 
 <footer>
   <div class="container">
-    <p>© 2025 Statmint. For research and educational use only. <a href="#">Privacy Policy</a>.</p>
+    <p>© 2025 Statmint. For research and informational use only. <a href="#">Privacy Policy</a>.</p>
   </div>
 </footer>
 
@@ -217,12 +217,12 @@
   const sections = [
     {
       title: "Oncology Leaders",
-      desc: "Profiles include expanded company fundamentals, direct competitors, and IPO milestones for market context.",
+      desc: "Detailed company profiles with expanded fundamentals, direct competitors, IPO timing, and horizontal price performance charts.",
       stocks: [
         {
           name: "NovaCell Therapeutics",
           symbol: "NCEL",
-          about: "NovaCell develops advanced CAR-T therapies for solid tumors with novel cell engineering to enhance tumor penetration.",
+          about: "NovaCell develops advanced CAR-T therapies for solid tumors using proprietary cell engineering.",
           headquarters: "Cambridge, MA",
           founded: 2017,
           ipoDate: "March 2022",
@@ -230,14 +230,14 @@
           leadCandidate: "NCEL-101",
           indication: "Advanced Solid Tumors",
           phase: "Phase I",
-          trialSummary: "Phase I (n=24): 35% partial response; CRS managed as per protocol.",
+          trialSummary: "Phase I (n=24): 35% partial response; manageable CRS; promising cell persistence.",
           prices: [12.5, 13, 13.5, 14, 14.8, 15.2, 16, 15.5, 16.2, 17, 17.5, 18],
           website: "https://www.novacell.com"
         },
         {
           name: "TumorX Bio",
           symbol: "TMBX",
-          about: "TumorX Bio specializes in small-molecule inhibitors for rare pediatric cancers, leveraging orphan drug benefits for regulatory acceleration.",
+          about: "TumorX Bio specializes in selective small-molecule inhibitors for pediatric cancers, with orphan status for faster approvals.",
           headquarters: "San Diego, CA",
           founded: 2015,
           ipoDate: "Private",
@@ -245,7 +245,7 @@
           leadCandidate: "TMBX-201",
           indication: "Rare Pediatric Tumors",
           phase: "Phase II",
-          trialSummary: "Phase II (n=58): Met PFS at 6 months; consistent safety profile.",
+          trialSummary: "Phase II (n=58): Met PFS at 6 months; mild adverse events only; favorable safety to date.",
           prices: [8, 8.2, 8.5, 8.8, 9.1, 9.3, 9.5, 9.7, 10, 10.5, 10.8, 11.2],
           website: "https://www.tumorxbio.com"
         }
@@ -268,7 +268,7 @@
 
     section.stocks.forEach((stock, idx) => {
       const col = document.createElement('div');
-      col.className = 'col-md-6 d-flex';
+      col.className = 'col-lg-6 d-flex';
       col.innerHTML = `
         <div class="stock-card flex-fill" data-aos="fade-up" data-aos-delay="${(idx+1)*100}">
           <h5>${stock.name} (${stock.symbol})</h5>
@@ -288,7 +288,7 @@
             </tbody>
           </table>
           <div class="chart-container">
-            <canvas id="chart-${stock.symbol}" height="120"></canvas>
+            <canvas id="chart-${stock.symbol}" height="250"></canvas>
           </div>
           <div class="card-footer">
             <a href="${stock.website}" target="_blank">Company Website</a>
@@ -306,24 +306,22 @@
     section.stocks.forEach(stock => {
       const ctx = document.getElementById(`chart-${stock.symbol}`).getContext('2d');
       new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
           labels: labels,
           datasets: [{
             label: `${stock.symbol} Closing Price`,
             data: stock.prices,
-            borderColor: '#0d6efd',
-            backgroundColor: 'rgba(13, 110, 253, 0.05)',
-            tension: 0.3,
-            fill: true
+            backgroundColor: '#0d6efd'
           }]
         },
         options: {
+          indexAxis: 'y',
           responsive: true,
           plugins: { legend: { display: false } },
           scales: {
-            x: { grid: { display: false } },
-            y: { grid: { display: true } }
+            x: { grid: { display: true } },
+            y: { grid: { display: false } }
           }
         }
       });
