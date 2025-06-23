@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recent FDA Approvals | Statmint</title>
+  <meta name="description" content="Track the most recent FDA drug approvals in healthcare and biotech. Stay informed with Statmint's clear and trusted insights.">
+  <link rel="icon" href="statmint_logo.jpeg" type="image/jpeg" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary: #0d6efd;
+      --dark-bg: #0a0a0a;
+      --light-bg: #f7f7f7;
+      --accent: #377dff;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: #f9fafb;
+      color: #212529;
+    }
+
+    header {
+      background: var(--dark-bg);
+      padding: 0.1rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      height: 180px;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url('fda-hero.jpg') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 8rem 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .hero p {
+      max-width: 800px;
+      margin: 1rem auto 0;
+      color: #dee2e6;
+      font-size: 1.15rem;
+    }
+
+    .table-section {
+      padding: 4rem 2rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+    }
+
+    th, td {
+      padding: 1rem;
+      border: 1px solid #dee2e6;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f8f9fa;
+      font-weight: 600;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #fdfdfe;
+    }
+
+    tbody tr:hover {
+      background: #e9ecef;
+    }
+
+    footer {
+      background: #0a0a0a;
+      color: #adb5bd;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ Professional Header -->
+  <header>
+    <a href="index.html"><img src="statmint_logo.jpeg" alt="Statmint Logo"></a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="stocks.html">Healthcare Stocks</a>
+      <a href="fda.html">FDA Approvals</a>
+      <a href="ipos.html">Initial Public Offerings</a>
+    </nav>
+  </header>
+
+  <!-- ✅ Hero -->
+  <section class="hero" data-aos="fade-zoom-in">
+    <h1 data-aos="fade-down" data-aos-delay="100">Recent FDA Approvals</h1>
+    <p data-aos="fade-up" data-aos-delay="200">
+      Stay up to date with the latest FDA approvals for new drugs and treatments. Trusted insights for investors, professionals, and healthcare watchers.
+    </p>
+  </section>
+
+  <!-- ✅ Approvals Table -->
+  <section class="table-section">
+    <div class="container">
+      <h2 class="mb-4" data-aos="fade-up">Latest Approved Drugs</h2>
+      <div class="table-responsive" data-aos="fade-up" data-aos-delay="100">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Drug Name</th>
+              <th>Company</th>
+              <th>Indication</th>
+              <th>Approval Date</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lecanemab (Leqembi)</td>
+              <td>Eisai & Biogen</td>
+              <td>Early Alzheimer’s Disease</td>
+              <td>July 6, 2023</td>
+              <td><a href="https://www.fda.gov/drugs" target="_blank">FDA Label</a></td>
+            </tr>
+            <tr>
+              <td>Omvoh (mirikizumab-mrkz)</td>
+              <td>Lilly</td>
+              <td>Moderate-to-severe ulcerative colitis</td>
+              <td>October 27, 2023</td>
+              <td><a href="https://www.fda.gov/drugs" target="_blank">FDA Label</a></td>
+            </tr>
+            <tr>
+              <td>Zepbound (tirzepatide)</td>
+              <td>Eli Lilly</td>
+              <td>Chronic weight management</td>
+              <td>November 8, 2023</td>
+              <td><a href="https://www.fda.gov/drugs" target="_blank">FDA Label</a></td>
+            </tr>
+            <tr>
+              <td>Adstiladrin</td>
+              <td>Ferring Pharmaceuticals</td>
+              <td>High-risk non-muscle invasive bladder cancer</td>
+              <td>December 16, 2022</td>
+              <td><a href="https://www.fda.gov/drugs" target="_blank">FDA Label</a></td>
+            </tr>
+            <tr>
+              <td>Sunlenca (lenacapavir)</td>
+              <td>Gilead Sciences</td>
+              <td>HIV-1 treatment</td>
+              <td>December 22, 2022</td>
+              <td><a href="https://www.fda.gov/drugs" target="_blank">FDA Label</a></td>
+            </tr>
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2025 Statmint. Data for research and educational use only.</p>
+      <p>Questions? <a href="mailto:info@statmint.org">Contact us</a></p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'ease-in-out'
+    });
+  </script>
+</body>
+</html>
