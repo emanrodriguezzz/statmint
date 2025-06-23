@@ -81,32 +81,41 @@
     }
 
     .stock-card h5 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
       color: #111;
     }
 
     .stock-card p {
       font-size: 0.95rem;
       line-height: 1.6;
+      margin-bottom: 0.75rem;
     }
 
-    .price-list {
+    .price-table {
+      width: 100%;
       font-size: 0.85rem;
       color: #333;
       margin: 1rem 0;
-      padding-left: 0;
     }
 
-    .price-list li {
-      list-style: none;
+    .price-table th, .price-table td {
+      padding: 0.35rem 0.5rem;
       border-bottom: 1px solid #eee;
-      padding: 0.25rem 0;
+    }
+
+    .price-table th {
+      font-weight: 600;
+      background: #f1f3f5;
+    }
+
+    .chart-container {
+      margin: 1rem 0;
     }
 
     .card-footer {
-      margin-top: 1.5rem;
+      margin-top: 1rem;
       display: flex;
       gap: 0.5rem;
     }
@@ -114,6 +123,7 @@
     .card-footer a {
       flex: 1;
       font-size: 0.85rem;
+      border-radius: 4px;
     }
 
     .btn-outline-dark {
@@ -178,7 +188,7 @@
         {
           name: "NovaCell Therapeutics",
           symbol: "NCEL",
-          about: "NovaCell Therapeutics is developing autologous CAR-T cell therapies specifically engineered to penetrate solid tumor environments, aiming to address patient populations with high relapse rates. Early-phase data demonstrates enhanced cell persistence and controlled cytokine release profiles.",
+          about: "NovaCell Therapeutics develops autologous CAR-T therapies engineered for solid tumors, aiming to address high-relapse patient populations with improved persistence and targeted delivery.",
           phase: "Phase I",
           prices: [12.5, 13, 13.5, 14, 14.8, 15.2, 16, 15.5, 16.2, 17, 17.5, 18],
           website: "https://www.novacell.com"
@@ -186,7 +196,7 @@
         {
           name: "TumorX Bio",
           symbol: "TMBX",
-          about: "TumorX Bio is advancing a pipeline of selective small-molecule inhibitors designed to target oncogenic mutations prevalent in rare pediatric malignancies. The company is pursuing orphan drug designations to expedite market entry for its lead compound currently in mid-stage trials.",
+          about: "TumorX Bio advances selective small-molecule inhibitors for rare pediatric malignancies, with orphan drug designations to facilitate accelerated regulatory pathways.",
           phase: "Phase II",
           prices: [8, 8.2, 8.5, 8.8, 9.1, 9.3, 9.5, 9.7, 10, 10.5, 10.8, 11.2],
           website: "https://www.tumorxbio.com"
@@ -216,10 +226,17 @@
           <h5>${stock.name} (${stock.symbol})</h5>
           <p>${stock.about}</p>
           <p><strong>Trial Phase:</strong> ${stock.phase}</p>
-          <ul class="price-list">
-            ${stock.prices.map((p, i) => `<li>${labels[i]}: $${p.toFixed(2)}</li>`).join("")}
-          </ul>
-          <canvas id="chart-${stock.symbol}" height="120"></canvas>
+          <table class="price-table">
+            <thead>
+              <tr><th>Month</th><th>Price</th></tr>
+            </thead>
+            <tbody>
+              ${stock.prices.map((p, i) => `<tr><td>${labels[i]}</td><td>$${p.toFixed(2)}</td></tr>`).join("")}
+            </tbody>
+          </table>
+          <div class="chart-container">
+            <canvas id="chart-${stock.symbol}" height="120"></canvas>
+          </div>
           <div class="card-footer">
             <a href="${stock.website}" target="_blank" class="btn btn-outline-dark btn-sm">Company Website</a>
             <a href="https://finance.yahoo.com/quote/${stock.symbol}" target="_blank" class="btn btn-dark btn-sm">Yahoo Finance</a>
