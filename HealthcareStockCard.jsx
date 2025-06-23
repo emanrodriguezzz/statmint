@@ -3,10 +3,10 @@ import {
   LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer
 } from 'recharts';
 
-// ✅ Replace YOUR_API_KEY with your RapidAPI key
+// ✅ Using your provided RapidAPI key
 const headers = {
   'x-rapidapi-host': 'apidojo-yahoo-finance-v1.p.rapidapi.com',
-  'x-rapidapi-key': 'YOUR_API_KEY'
+  'x-rapidapi-key': '3a1d738f20msh37d570357c5e28fp1bb20djsnfa30b534dd5f'
 };
 
 const HealthcareStockCard = ({ symbol }) => {
