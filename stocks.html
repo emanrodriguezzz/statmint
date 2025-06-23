@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Healthcare Stocks | Statmint</title>
+  <title>Healthcare Stocks Dashboard | Statmint</title>
   <link rel="icon" href="statmint_logo.jpeg" type="image/jpeg" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     :root {
       --primary: #0d6efd;
@@ -89,6 +90,10 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     }
 
+    canvas {
+      max-width: 100%;
+    }
+
     footer {
       background-color: #000;
       color: #bbb;
@@ -116,100 +121,18 @@
   </header>
 
   <section class="hero" data-aos="fade-zoom-in">
-    <h1>Healthcare Stocks</h1>
-    <p>Explore top healthcare companies organized by category. Click any company to view real-time data directly on Yahoo Finance.</p>
+    <h1>Healthcare Stocks Dashboard</h1>
+    <p>Curated categories, live trend charts, and key insights. Data sourced via Yahoo Finance API.</p>
   </section>
 
   <section class="container py-5">
-
-    <!-- Cancer Research -->
-    <div class="mb-5" data-aos="fade-up">
-      <h2 class="section-title">Cancer Research</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="stock-card text-center" data-aos="zoom-in" data-aos-delay="100">
-            <h5>Merck & Co. (MRK)</h5>
-            <a href="https://finance.yahoo.com/quote/MRK" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo Finance</a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="stock-card text-center" data-aos="zoom-in" data-aos-delay="200">
-            <h5>Bristol-Myers Squibb (BMY)</h5>
-            <a href="https://finance.yahoo.com/quote/BMY" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo Finance</a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="stock-card text-center" data-aos="zoom-in" data-aos-delay="300">
-            <h5>Regeneron Pharmaceuticals (REGN)</h5>
-            <a href="https://finance.yahoo.com/quote/REGN" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo Finance</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Weight Loss -->
-    <div class="mb-5" data-aos="fade-up">
-      <h2 class="section-title">Weight Loss & Obesity</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="stock-card text-center" data-aos="zoom-in" data-aos-delay="100">
-            <h5>Eli Lilly (LLY)</h5>
-            <a href="https://finance.yahoo.com/quote/LLY" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo Finance</a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="stock-card text-center" data-aos="zoom-in" data-aos-delay="200">
-            <h5>Novo Nordisk (NVO)</h5>
-            <a href="https://finance.yahoo.com/quote/NVO" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo Finance</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Vaccines & Infectious Disease -->
-    <div class="mb-5" data-aos="fade-up">
-      <h2 class="section-title">Vaccines & Infectious Disease</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="stock-card text-center" data-aos="zoom-in" data-aos-delay="100">
-            <h5>Pfizer (PFE)</h5>
-            <a href="https://finance.yahoo.com/quote/PFE" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo Finance</a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="stock-card text-center" data-aos="zoom-in" data-aos-delay="200">
-            <h5>Moderna (MRNA)</h5>
-            <a href="https://finance.yahoo.com/quote/MRNA" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo Finance</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Rare Diseases -->
-    <div class="mb-5" data-aos="fade-up">
-      <h2 class="section-title">Rare & Genetic Diseases</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="stock-card text-center" data-aos="zoom-in" data-aos-delay="100">
-            <h5>Vertex Pharmaceuticals (VRTX)</h5>
-            <a href="https://finance.yahoo.com/quote/VRTX" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo Finance</a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="stock-card text-center" data-aos="zoom-in" data-aos-delay="200">
-            <h5>Biogen (BIIB)</h5>
-            <a href="https://finance.yahoo.com/quote/BIIB" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo Finance</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <!-- Dynamic sections will be inserted here -->
+    <div id="stock-sections"></div>
   </section>
 
   <footer>
     <div class="container">
-      <p class="mb-1">© 2024 Statmint. All content is freely accessible for public use.</p>
-      <p>Sources: Data and live stock quotes provided via direct links to <a href="https://finance.yahoo.com/" target="_blank">Yahoo Finance</a>.</p>
+      <p class="mb-1">© 2024 Statmint. All data sourced from <a href="https://finance.yahoo.com/" target="_blank">Yahoo Finance</a>.</p>
       <p>Questions? <a href="mailto:info@statmint.org">Contact us</a></p>
     </div>
   </footer>
@@ -222,5 +145,131 @@
       easing: 'ease-in-out'
     });
   </script>
+
+  <script>
+    const API_HOST = 'apidojo-yahoo-finance-v1.p.rapidapi.com';
+    const API_KEY = 'YOUR_RAPIDAPI_KEY'; // ✅ PUT YOUR RapidAPI KEY HERE
+
+    const sections = [
+      {
+        title: "Cancer Research",
+        stocks: [
+          { symbol: "MRK", name: "Merck & Co.", fact: "Leader in immunotherapy." },
+          { symbol: "BMY", name: "Bristol-Myers Squibb", fact: "Opdivo expansion." },
+          { symbol: "REGN", name: "Regeneron", fact: "Innovative oncology pipeline." },
+          { symbol: "AMGN", name: "Amgen", fact: "Cancer biosimilars leader." },
+          { symbol: "GILD", name: "Gilead Sciences", fact: "Focus on oncology revenue growth." }
+        ]
+      },
+      {
+        title: "Weight Loss & Obesity",
+        stocks: [
+          { symbol: "LLY", name: "Eli Lilly", fact: "Mounjaro & obesity treatments." },
+          { symbol: "NVO", name: "Novo Nordisk", fact: "Ozempic blockbuster." },
+          { symbol: "PFE", name: "Pfizer", fact: "Pipeline includes obesity drug trials." },
+          { symbol: "AZN", name: "AstraZeneca", fact: "R&D focus on metabolic health." }
+        ]
+      },
+      {
+        title: "Vaccines & Infectious Disease",
+        stocks: [
+          { symbol: "PFE", name: "Pfizer", fact: "COVID-19 & RSV leadership." },
+          { symbol: "MRNA", name: "Moderna", fact: "mRNA vaccine pioneer." },
+          { symbol: "GSK", name: "GlaxoSmithKline", fact: "Strong vaccine portfolio." },
+          { symbol: "JNJ", name: "Johnson & Johnson", fact: "Broad infectious disease focus." }
+        ]
+      },
+      {
+        title: "Rare & Genetic Diseases",
+        stocks: [
+          { symbol: "VRTX", name: "Vertex", fact: "Leading cystic fibrosis therapies." },
+          { symbol: "BIIB", name: "Biogen", fact: "Focus on neurological disorders." },
+          { symbol: "REGN", name: "Regeneron", fact: "Rare disease pipeline." }
+        ]
+      },
+      {
+        title: "Medical Devices",
+        stocks: [
+          { symbol: "ISRG", name: "Intuitive Surgical", fact: "Da Vinci robotic surgery leader." },
+          { symbol: "SYK", name: "Stryker", fact: "Orthopedic innovations." },
+          { symbol: "BSX", name: "Boston Scientific", fact: "Cardiovascular device leader." },
+          { symbol: "MDT", name: "Medtronic", fact: "Broadest device portfolio." }
+        ]
+      }
+    ];
+
+    const container = document.getElementById('stock-sections');
+
+    sections.forEach(section => {
+      const sectionDiv = document.createElement('div');
+      sectionDiv.className = 'mb-5';
+      sectionDiv.innerHTML = `<h2 class="section-title" data-aos="fade-up">${section.title}</h2>
+        <div class="row g-4"></div>`;
+      const row = sectionDiv.querySelector('.row');
+
+      section.stocks.forEach((stock, idx) => {
+        const col = document.createElement('div');
+        col.className = 'col-md-4';
+        col.innerHTML = `
+          <div class="stock-card text-center" data-aos="zoom-in" data-aos-delay="${(idx+1)*100}">
+            <h5>${stock.name} (${stock.symbol})</h5>
+            <p class="small text-muted">${stock.fact}</p>
+            <canvas id="chart-${stock.symbol}" height="150"></canvas>
+            <a href="https://finance.yahoo.com/quote/${stock.symbol}" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo Finance</a>
+          </div>`;
+        row.appendChild(col);
+      });
+
+      container.appendChild(sectionDiv);
+    });
+
+    // Load prices and render charts
+    sections.forEach(section => {
+      section.stocks.forEach(stock => {
+        fetch(`https://${API_HOST}/stock/v2/get-timeseries?symbol=${stock.symbol}&region=US`, {
+          method: 'GET',
+          headers: {
+            'X-RapidAPI-Host': API_HOST,
+            'X-RapidAPI-Key': API_KEY
+          }
+        })
+        .then(response => response.json())
+        .then(data => {
+          const ts = data?.timeseries;
+          if (ts && ts.timestamp && ts.close) {
+            const labels = ts.timestamp.map(ts => new Date(ts * 1000).toLocaleDateString());
+            const closes = ts.close;
+            const ctx = document.getElementById(`chart-${stock.symbol}`).getContext('2d');
+            new Chart(ctx, {
+              type: 'line',
+              data: {
+                labels: labels.reverse(),
+                datasets: [{
+                  label: `${stock.symbol} Closing Price`,
+                  data: closes.reverse(),
+                  borderColor: 'rgba(75,192,192,1)',
+                  backgroundColor: 'rgba(75,192,192,0.1)',
+                  tension: 0.2,
+                  fill: true
+                }]
+              },
+              options: {
+                responsive: true,
+                plugins: { legend: { display: false } },
+                scales: {
+                  x: { display: false },
+                  y: { display: false }
+                }
+              }
+            });
+          } else {
+            console.warn(`No data for ${stock.symbol}`);
+          }
+        })
+        .catch(err => console.error(err));
+      });
+    });
+  </script>
+
 </body>
 </html>
