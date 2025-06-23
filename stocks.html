@@ -109,6 +109,14 @@
       font-size: 0.9rem;
     }
     footer a { color: #4dabf7; }
+
+    /* Make cards wider on larger screens */
+    @media (min-width: 992px) {
+      .col-lg-6 {
+        flex: 0 0 auto;
+        width: 50%;
+      }
+    }
   </style>
 </head>
 
@@ -172,36 +180,6 @@
           website: "https://www.onconext.com"
         }
       ]
-    },
-    {
-      title: "Neurodegenerative Disease Biotechs",
-      desc: "Biotechs tackling Alzheimer's, Parkinson's and other neurological disorders with cutting-edge research.",
-      stocks: [
-        {
-          name: "NeuroGenix",
-          symbol: "NRGX",
-          about: "NeuroGenix is engineering gene therapies to target key pathways involved in early-onset Alzheimer's, aiming for single-dose treatments with long-lasting effects.",
-          phase: "Phase II",
-          prices: [22, 22.5, 23, 23.5, 24, 24.2, 24.5, 24.8, 25, 25.2, 25.5, 26],
-          website: "https://www.neurogenix.com"
-        },
-        {
-          name: "SynaptoBio",
-          symbol: "SNAP",
-          about: "SynaptoBio is testing novel compounds that stimulate synaptic repair and neuroplasticity, offering new hope for slowing Parkinson's disease progression.",
-          phase: "Phase I",
-          prices: [15, 15.2, 15.5, 15.8, 16, 16.3, 16.5, 16.7, 17, 17.2, 17.5, 17.8],
-          website: "https://www.synaptobio.com"
-        },
-        {
-          name: "BrainCell Therapeutics",
-          symbol: "BCTL",
-          about: "BrainCell Therapeutics uses stem cell-derived exosomes to promote neuron regeneration, with applications in ALS and other motor neuron diseases.",
-          phase: "Pre-Clinical",
-          prices: [5, 5.2, 5.5, 5.7, 6, 6.1, 6.3, 6.5, 6.7, 6.9, 7, 7.2],
-          website: "https://www.braincelltx.com"
-        }
-      ]
     }
   ];
 
@@ -220,7 +198,7 @@
 
     section.stocks.forEach((stock, idx) => {
       const col = document.createElement('div');
-      col.className = 'col-md-6 col-lg-4 d-flex';
+      col.className = 'col-md-6 col-lg-6 d-flex'; // ✅ wider: 2 per row on large screens
       col.innerHTML = `
         <div class="stock-card flex-fill" data-aos="zoom-in" data-aos-delay="${(idx+1)*100}">
           <h5>${stock.name} (${stock.symbol})</h5>
