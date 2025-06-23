@@ -13,9 +13,8 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background: #f7fafc;
-      margin: 0;
-      color: #333;
+      background: #f8f9fa;
+      color: #212529;
     }
 
     header {
@@ -27,7 +26,6 @@
       position: sticky;
       top: 0;
       z-index: 999;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     header img { height: 50px; }
@@ -36,86 +34,100 @@
       color: #fff;
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.2s;
     }
-    nav a:hover { color: #4dabf7; }
+    nav a:hover { color: #1a73e8; }
 
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('homeimage.jpg') center/cover no-repeat;
+      background: #0a0a0a;
       color: #fff;
       text-align: center;
-      padding: 7rem 2rem;
+      padding: 4rem 2rem;
     }
+
     .hero h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
+      font-size: 2.8rem;
+      font-weight: 600;
     }
+
     .hero p {
       max-width: 720px;
-      margin: 1rem auto 1.5rem;
-      font-size: 1.2rem;
+      margin: 1rem auto 0;
+      font-size: 1.15rem;
+      color: #ccc;
     }
 
     .section-title {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: #111;
     }
+
     .section-desc {
       color: #555;
       margin-bottom: 2rem;
+      font-size: 1rem;
     }
 
     .stock-card {
       background: #fff;
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      transition: box-shadow 0.2s;
       height: 100%;
-      transition: all 0.2s ease;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
+
     .stock-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
+
     .stock-card h5 {
-      font-size: 1.1rem;
+      font-size: 1.25rem;
+      font-weight: 600;
       margin-bottom: 0.5rem;
     }
+
     .stock-card p {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
+
     .price-list {
       font-size: 0.85rem;
-      color: #444;
-      margin-top: 0.5rem;
+      color: #555;
+      margin: 1rem 0;
       padding-left: 0;
     }
+
     .price-list li {
       list-style: none;
     }
+
     .card-footer {
-      margin-top: 1rem;
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .card-footer a {
+      flex: 1;
     }
 
     footer {
-      background: #000;
-      color: #ccc;
+      background: #0a0a0a;
+      color: #999;
       text-align: center;
       padding: 2rem 1rem;
       font-size: 0.9rem;
     }
-    footer a { color: #4dabf7; }
 
-    /* Make cards wider on larger screens */
-    @media (min-width: 992px) {
-      .col-lg-6 {
-        flex: 0 0 auto;
-        width: 50%;
-      }
+    footer a {
+      color: #1a73e8;
     }
   </style>
 </head>
@@ -135,14 +147,14 @@
 
 <section class="hero">
   <h1>Biotech Pipeline Tracker</h1>
-  <p>Discover companies developing innovative treatments currently in clinical trials and track their progress and trends.</p>
+  <p>In-depth insights on emerging biotech companies with therapies in clinical trials — unbiased, transparent, and up-to-date.</p>
 </section>
 
 <section class="container py-5" id="stock-sections"></section>
 
 <footer>
   <div class="container">
-    <p>© 2025 Statmint. All data is for research and education only. <a href="#">Privacy Policy</a>.</p>
+    <p>© 2025 Statmint. For informational purposes only. <a href="#">Privacy Policy</a>.</p>
   </div>
 </footer>
 
@@ -152,13 +164,13 @@
 
   const sections = [
     {
-      title: "Oncology Startups",
-      desc: "Next-gen companies pioneering cancer treatment breakthroughs.",
+      title: "Oncology Research",
+      desc: "Firms focused on advancing innovative cancer therapies in early and mid-stage trials.",
       stocks: [
         {
           name: "NovaCell Therapeutics",
           symbol: "NCEL",
-          about: "NovaCell specializes in patient-specific CAR-T therapies that adapt to each individual's tumor microenvironment, aiming to drastically reduce relapse rates in solid tumors.",
+          about: "Developing tailored CAR-T cell therapies targeting solid tumors, aiming for enhanced patient-specific immune response and minimized side effects.",
           phase: "Phase I",
           prices: [12.5, 13, 13.5, 14, 14.8, 15.2, 16, 15.5, 16.2, 17, 17.5, 18],
           website: "https://www.novacell.com"
@@ -166,18 +178,10 @@
         {
           name: "TumorX Bio",
           symbol: "TMBX",
-          about: "TumorX Bio is advancing selective small molecule drugs to target resistant cancer mutations, with a pipeline focused on rare pediatric cancers.",
+          about: "Focused on next-gen small molecule inhibitors for resistant cancer mutations with a pipeline addressing rare pediatric cancers.",
           phase: "Phase II",
           prices: [8, 8.2, 8.5, 8.8, 9.1, 9.3, 9.5, 9.7, 10, 10.5, 10.8, 11.2],
           website: "https://www.tumorxbio.com"
-        },
-        {
-          name: "OncoNext",
-          symbol: "ONXT",
-          about: "OncoNext develops next-generation antibody-drug conjugates for aggressive forms of breast and lung cancers, aiming to improve specificity and reduce toxicity.",
-          phase: "Phase I",
-          prices: [10, 10.3, 10.5, 10.9, 11.2, 11.5, 11.8, 12, 12.5, 13, 13.2, 13.8],
-          website: "https://www.onconext.com"
         }
       ]
     }
@@ -198,19 +202,19 @@
 
     section.stocks.forEach((stock, idx) => {
       const col = document.createElement('div');
-      col.className = 'col-md-6 col-lg-6 d-flex'; // ✅ wider: 2 per row on large screens
+      col.className = 'col-md-6 col-lg-6 d-flex';
       col.innerHTML = `
-        <div class="stock-card flex-fill" data-aos="zoom-in" data-aos-delay="${(idx+1)*100}">
+        <div class="stock-card flex-fill" data-aos="fade-up" data-aos-delay="${(idx+1)*100}">
           <h5>${stock.name} (${stock.symbol})</h5>
           <p>${stock.about}</p>
           <p><strong>Trial Stage:</strong> ${stock.phase}</p>
           <ul class="price-list">
             ${stock.prices.map((p, i) => `<li>${labels[i]}: $${p.toFixed(2)}</li>`).join("")}
           </ul>
-          <canvas id="chart-${stock.symbol}" height="150"></canvas>
+          <canvas id="chart-${stock.symbol}" height="120"></canvas>
           <div class="card-footer">
-            <a href="${stock.website}" target="_blank" class="btn btn-primary btn-sm">Visit Website</a>
-            <a href="https://finance.yahoo.com/quote/${stock.symbol}" target="_blank" class="btn btn-outline-primary btn-sm ms-2">Yahoo Finance</a>
+            <a href="${stock.website}" target="_blank" class="btn btn-outline-dark btn-sm">Company Site</a>
+            <a href="https://finance.yahoo.com/quote/${stock.symbol}" target="_blank" class="btn btn-dark btn-sm">Yahoo Finance</a>
           </div>
         </div>
       `;
@@ -230,16 +234,19 @@
           datasets: [{
             label: `${stock.symbol} Price`,
             data: stock.prices,
-            borderColor: '#4dabf7',
-            backgroundColor: 'rgba(77, 171, 247, 0.15)',
+            borderColor: '#1a73e8',
+            backgroundColor: 'rgba(26, 115, 232, 0.1)',
             tension: 0.3,
             fill: true
           }]
         },
         options: {
           responsive: true,
-          plugins: { legend: { display: false }, tooltip: { enabled: true } },
-          scales: { x: { grid: { display: false } }, y: { grid: { display: true } } }
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { grid: { display: false } },
+            y: { grid: { display: true } }
+          }
         }
       });
     });
