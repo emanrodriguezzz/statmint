@@ -8,7 +8,7 @@ export default function Healthcare() {
       <HealthcareStockCard symbol="GSK" />
       <HealthcareStockCard symbol="PFE" />
       <HealthcareStockCard symbol="MRNA" />
-      {/* ✅ Add more tickers if you want */}
+      {/* ✅ Add more tickers here if needed */}
     </div>
   );
 }
