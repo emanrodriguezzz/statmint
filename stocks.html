@@ -255,6 +255,78 @@
 </script>
 
   <script>
+  // ✅ Labels for the charts (12 months)
+  const labels = [
+    "Jul 2023", "Aug", "Sep", "Oct", "Nov", "Dec",
+    "Jan 2024", "Feb", "Mar", "Apr", "May", "Jun"
+  ];
+
+  // ✅ Container where all the cards go
+  const container = document.getElementById('stock-sections');
+
+  // ✅ Loop through sections & stocks → build cards
+  sections.forEach(section => {
+    const sectionDiv = document.createElement('div');
+    sectionDiv.className = 'mb-5';
+    sectionDiv.innerHTML = `
+      <h2 class="section-title" data-aos="fade-up">${section.title}</h2>
+      <p class="section-desc">${section.desc}</p>
+      <div class="row g-4"></div>
+    `;
+    const row = sectionDiv.querySelector('.row');
+
+    section.stocks.forEach((stock, idx) => {
+      const col = document.createElement('div');
+      col.className = 'col-md-6 col-lg-4';
+      col.innerHTML = `
+        <div class="stock-card" data-aos="zoom-in" data-aos-delay="${(idx+1)*100}">
+          <h5>${stock.name} (${stock.symbol})</h5>
+          <p>${stock.about} <strong>Trial Stage: ${stock.phase}</strong></p>
+          <ul class="price-list">
+            ${stock.prices.map((p, i) => `<li>${labels[i]}: $${p}</li>`).join("")}
+          </ul>
+          <canvas id="chart-${stock.symbol}" height="150"></canvas>
+          <a href="https://finance.yahoo.com/quote/${stock.symbol}" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo Finance</a>
+        </div>
+      `;
+      row.appendChild(col);
+    });
+
+    container.appendChild(sectionDiv);
+  });
+
+  // ✅ Loop again → draw each Chart.js chart
+  sections.forEach(section => {
+    section.stocks.forEach(stock => {
+      const ctx = document.getElementById(`chart-${stock.symbol}`).getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: `${stock.symbol} Price`,
+            data: stock.prices,
+            borderColor: 'rgba(55, 125, 255, 1)',
+            backgroundColor: 'rgba(55, 125, 255, 0.1)',
+            tension: 0.3,
+            fill: true
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { display: false } },
+          scales: { x: { display: false }, y: { display: false } }
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
+
+
+  <script>
   const labels = [
     "Jul 2023", "Aug", "Sep", "Oct", "Nov", "Dec",
     "Jan 2024", "Feb", "Mar", "Apr", "May", "Jun"
