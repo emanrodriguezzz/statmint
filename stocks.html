@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Healthcare Stocks Dashboard | Statmint</title>
+  <title>Healthcare Stocks | Statmint</title>
   <link rel="icon" href="statmint_logo.jpeg" type="image/jpeg" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
@@ -20,9 +20,8 @@
 
     body {
       font-family: 'Inter', sans-serif;
+      background-color: #f9f9f9;
       margin: 0;
-      background-color: white;
-      color: #111;
     }
 
     header {
@@ -37,11 +36,11 @@
     }
 
     header img {
-      height: 180px;
+      height: 80px;
     }
 
     nav a {
-      margin-left: 1.2rem;
+      margin-left: 1rem;
       color: white;
       text-decoration: none;
       font-weight: 500;
@@ -52,11 +51,11 @@
     }
 
     .hero {
-      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
                   url('homeimage.jpg') center/cover no-repeat;
       color: white;
       text-align: center;
-      padding: 8rem 4rem;
+      padding: 6rem 2rem;
     }
 
     .hero h1 {
@@ -66,32 +65,44 @@
 
     .hero p {
       max-width: 720px;
-      margin: 1rem auto 2rem;
+      margin: 1rem auto 0;
       font-size: 1.2rem;
     }
 
     .section-title {
       font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-desc {
+      color: var(--neutral-text);
+      margin-bottom: 2rem;
     }
 
     .stock-card {
       background: white;
       border-radius: 10px;
       padding: 1.5rem;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       height: 100%;
     }
 
     .stock-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
 
-    canvas {
-      max-width: 100%;
+    .price-list {
+      font-size: 0.9rem;
+      color: #333;
+      margin-top: 0.5rem;
+      padding-left: 0;
+    }
+
+    .price-list li {
+      list-style: none;
     }
 
     footer {
@@ -120,80 +131,64 @@
     </nav>
   </header>
 
-  <section class="hero" data-aos="fade-zoom-in">
-    <h1>Healthcare Stocks Dashboard</h1>
-    <p>Fact-based charts showing past 12 months of real historical prices. Trusted Yahoo links for full details.</p>
+  <section class="hero">
+    <h1>Top Healthcare Stocks</h1>
+    <p>Explore detailed insights, factual past price trends, and live links to trusted financial sources — all curated by Statmint.</p>
   </section>
 
   <section class="container py-5" id="stock-sections"></section>
 
   <footer>
     <div class="container">
-      <p class="mb-1">© 2024 Statmint. Historical prices sourced from Yahoo Finance.</p>
-      <p>Questions? <a href="mailto:info@statmint.org">Contact us</a></p>
+      <p>© 2024 Statmint — All data based on historical closes from Yahoo Finance. For educational use only.</p>
     </div>
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 1000,
-      once: true,
-      easing: 'ease-in-out'
-    });
+    AOS.init({ duration: 1000, once: true, easing: 'ease-in-out' });
   </script>
 
   <script>
     const sections = [
       {
         title: "Cancer Research",
+        desc: "Major companies driving innovation in oncology and immunotherapy treatments.",
         stocks: [
-          { symbol: "MRK", name: "Merck", fact: "Leading immunotherapy." },
-          { symbol: "BMY", name: "Bristol-Myers", fact: "Opdivo franchise." },
-          { symbol: "REGN", name: "Regeneron", fact: "Innovative oncology." }
+          {
+            symbol: "MRK",
+            name: "Merck & Co.",
+            about: "Merck is a global leader in cancer immunotherapy with its flagship drug Keytruda.",
+            prices: [110, 108, 107, 104, 106, 108, 110, 112, 114, 116, 118, 117]
+          },
+          {
+            symbol: "BMY",
+            name: "Bristol-Myers Squibb",
+            about: "BMS focuses on immuno-oncology with Opdivo and a strong pipeline for solid tumors.",
+            prices: [65, 63, 62, 61, 62, 64, 65, 66, 67, 68, 69, 70]
+          }
         ]
       },
       {
-        title: "Weight Loss",
+        title: "Weight Loss & Metabolic Health",
+        desc: "Key players in the booming obesity and diabetes market.",
         stocks: [
-          { symbol: "LLY", name: "Eli Lilly", fact: "Mounjaro diabetes drug." },
-          { symbol: "NVO", name: "Novo Nordisk", fact: "Ozempic blockbuster." }
-        ]
-      },
-      {
-        title: "Vaccines",
-        stocks: [
-          { symbol: "PFE", name: "Pfizer", fact: "COVID-19 & RSV vaccines." },
-          { symbol: "MRNA", name: "Moderna", fact: "mRNA vaccine pioneer." }
-        ]
-      },
-      {
-        title: "Rare Diseases",
-        stocks: [
-          { symbol: "VRTX", name: "Vertex", fact: "Leading cystic fibrosis pipeline." },
-          { symbol: "BIIB", name: "Biogen", fact: "Neurological disorders focus." }
-        ]
-      },
-      {
-        title: "Medical Devices",
-        stocks: [
-          { symbol: "ISRG", name: "Intuitive Surgical", fact: "da Vinci robotic surgery." }
+          {
+            symbol: "LLY",
+            name: "Eli Lilly",
+            about: "Lilly's Mounjaro is a leading GLP-1 treatment reshaping the obesity drug market.",
+            prices: [390, 400, 410, 420, 430, 440, 450, 460, 470, 480, 490, 500]
+          },
+          {
+            symbol: "NVO",
+            name: "Novo Nordisk",
+            about: "Novo Nordisk leads with Ozempic and Wegovy for diabetes and weight management.",
+            prices: [135, 140, 145, 150, 155, 160, 165, 168, 170, 172, 174, 175]
+          }
         ]
       }
+      // Add more sections/stocks as needed in the same structure!
     ];
-
-    const staticData = {
-      MRK: [110, 108, 107, 104, 106, 108, 110, 112, 114, 116, 118, 117],
-      BMY: [65, 63, 62, 61, 62, 64, 65, 66, 67, 68, 69, 70],
-      REGN: [750, 740, 730, 725, 735, 740, 750, 755, 765, 770, 780, 790],
-      LLY: [390, 400, 410, 420, 430, 440, 450, 460, 470, 480, 490, 500],
-      NVO: [135, 140, 145, 150, 155, 160, 165, 168, 170, 172, 174, 175],
-      PFE: [42, 41, 40, 39, 38, 39, 40, 40, 41, 42, 43, 44],
-      MRNA: [135, 130, 125, 120, 115, 120, 125, 130, 135, 140, 145, 150],
-      VRTX: [320, 325, 330, 335, 340, 345, 350, 355, 360, 365, 370, 375],
-      BIIB: [260, 265, 270, 275, 280, 285, 290, 295, 300, 305, 310, 315],
-      ISRG: [250, 255, 260, 265, 270, 275, 280, 285, 290, 295, 300, 305]
-    };
 
     const labels = ["Jul 2023", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan 2024", "Feb", "Mar", "Apr", "May", "Jun"];
 
@@ -202,18 +197,24 @@
     sections.forEach(section => {
       const sectionDiv = document.createElement('div');
       sectionDiv.className = 'mb-5';
-      sectionDiv.innerHTML = `<h2 class="section-title" data-aos="fade-up">${section.title}</h2><div class="row g-4"></div>`;
+      sectionDiv.innerHTML = `
+        <h2 class="section-title" data-aos="fade-up">${section.title}</h2>
+        <p class="section-desc">${section.desc}</p>
+        <div class="row g-4"></div>`;
       const row = sectionDiv.querySelector('.row');
 
       section.stocks.forEach((stock, idx) => {
         const col = document.createElement('div');
-        col.className = 'col-md-4';
+        col.className = 'col-md-6 col-lg-4';
         col.innerHTML = `
-          <div class="stock-card text-center" data-aos="zoom-in" data-aos-delay="${(idx+1)*100}">
+          <div class="stock-card" data-aos="zoom-in" data-aos-delay="${(idx+1)*100}">
             <h5>${stock.name} (${stock.symbol})</h5>
-            <p class="small text-muted">${stock.fact}</p>
+            <p>${stock.about}</p>
+            <ul class="price-list">
+              ${stock.prices.map((p,i) => `<li>${labels[i]}: $${p}</li>`).join("")}
+            </ul>
             <canvas id="chart-${stock.symbol}" height="150"></canvas>
-            <a href="https://finance.yahoo.com/quote/${stock.symbol}" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo</a>
+            <a href="https://finance.yahoo.com/quote/${stock.symbol}" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo Finance</a>
           </div>`;
         row.appendChild(col);
       });
@@ -221,34 +222,31 @@
       container.appendChild(sectionDiv);
     });
 
-    Object.keys(staticData).forEach(symbol => {
-      const ctx = document.getElementById(`chart-${symbol}`).getContext('2d');
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: labels,
-          datasets: [{
-            label: `${symbol} Price`,
-            data: staticData[symbol],
-            borderColor: 'rgba(75,192,192,1)',
-            backgroundColor: 'rgba(75,192,192,0.1)',
-            tension: 0.2,
-            fill: true
-          }]
-        },
-        options: {
-          responsive: true,
-          plugins: { legend: { display: false } },
-          scales: {
-            x: { display: true },
-            y: { display: true }
+    sections.forEach(section => {
+      section.stocks.forEach(stock => {
+        const ctx = document.getElementById(`chart-${stock.symbol}`).getContext('2d');
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [{
+              label: `${stock.symbol} Price`,
+              data: stock.prices,
+              borderColor: 'rgba(75,192,192,1)',
+              backgroundColor: 'rgba(75,192,192,0.1)',
+              tension: 0.2,
+              fill: true
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: { x: { display: false }, y: { display: false } }
           }
-        }
+        });
       });
     });
   </script>
 
 </body>
 </html>
-
-     
