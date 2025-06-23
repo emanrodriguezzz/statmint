@@ -110,15 +110,6 @@
 </head>
 
 <body>
-
-  <section class="container">
-  <h2 class="mb-4">Live Healthcare Stocks</h2>
-  <div class="row" id="stocks-container"></div>
-</section> 
-
-  <script src="stocks.js"></script>
-
-  
   <header>
     <a href="index.html"><img src="StatMintLogo.png" alt="StatMint Logo"></a>
     <nav>
@@ -133,84 +124,14 @@
   <section class="hero" data-aos="fade-zoom-in">
     <h1 data-aos="fade-up">Top Healthcare Stocks</h1>
     <p data-aos="fade-up" data-aos-delay="200">
-      Discover key financial metrics for leading healthcare companies, both in the US and worldwide.
+      Live market data for the world’s leading healthcare companies, updated in real time.
     </p>
   </section>
 
-  <!-- US Healthcare Stocks -->
+  <!-- ✅ This container will be filled by stocks.js -->
   <section class="container">
-    <h2 class="mb-4">US Healthcare Leaders</h2>
-    <div class="row gy-4">
-      <div class="col-md-6 col-lg-4" data-aos="fade-up">
-        <div class="stock-card h-100">
-          <h5>Pfizer Inc. (PFE)</h5>
-          <p><strong>Price:</strong> $35.12</p>
-          <p><strong>Market Cap:</strong> $198B</p>
-          <p><strong>P/E Ratio:</strong> 12.5</p>
-          <p><strong>Dividend Yield:</strong> 4.32%</p>
-          <p><strong>YTD Change:</strong> -8.5%</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
-        <div class="stock-card h-100">
-          <h5>Moderna Inc. (MRNA)</h5>
-          <p><strong>Price:</strong> $145.78</p>
-          <p><strong>Market Cap:</strong> $55B</p>
-          <p><strong>P/E Ratio:</strong> 15.3</p>
-          <p><strong>Dividend Yield:</strong> 0%</p>
-          <p><strong>YTD Change:</strong> +12.7%</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="stock-card h-100">
-          <h5>Johnson & Johnson (JNJ)</h5>
-          <p><strong>Price:</strong> $162.11</p>
-          <p><strong>Market Cap:</strong> $420B</p>
-          <p><strong>P/E Ratio:</strong> 17.8</p>
-          <p><strong>Dividend Yield:</strong> 3.05%</p>
-          <p><strong>YTD Change:</strong> +3.4%</p>
-        </div>
-      </div>
-      <!-- Add more US stocks here -->
-    </div>
-  </section>
-
-  <!-- Global Healthcare Stocks -->
-  <section class="container">
-    <h2 class="mb-4 mt-5">Global Healthcare Leaders</h2>
-    <div class="row gy-4">
-      <div class="col-md-6 col-lg-4" data-aos="fade-up">
-        <div class="stock-card h-100">
-          <h5>Roche Holding AG (ROG.SW)</h5>
-          <p><strong>Price:</strong> CHF 259.30</p>
-          <p><strong>Market Cap:</strong> $210B</p>
-          <p><strong>P/E Ratio:</strong> 21.0</p>
-          <p><strong>Dividend Yield:</strong> 3.26%</p>
-          <p><strong>YTD Change:</strong> +2.8%</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
-        <div class="stock-card h-100">
-          <h5>Novartis AG (NVS)</h5>
-          <p><strong>Price:</strong> $101.22</p>
-          <p><strong>Market Cap:</strong> $215B</p>
-          <p><strong>P/E Ratio:</strong> 22.4</p>
-          <p><strong>Dividend Yield:</strong> 3.55%</p>
-          <p><strong>YTD Change:</strong> +4.6%</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="stock-card h-100">
-          <h5>Sanofi (SNY)</h5>
-          <p><strong>Price:</strong> $53.88</p>
-          <p><strong>Market Cap:</strong> $135B</p>
-          <p><strong>P/E Ratio:</strong> 17.2</p>
-          <p><strong>Dividend Yield:</strong> 4.0%</p>
-          <p><strong>YTD Change:</strong> +5.1%</p>
-        </div>
-      </div>
-      <!-- Add more global stocks here -->
-    </div>
+    <h2 class="mb-4">Live Healthcare Stocks</h2>
+    <div class="row" id="stocks-container"></div>
   </section>
 
   <footer>
@@ -229,5 +150,8 @@
       easing: 'ease-in-out'
     });
   </script>
+
+  <!-- ✅ Your live data script -->
+  <script src="stocks.js"></script>
 </body>
 </html>
