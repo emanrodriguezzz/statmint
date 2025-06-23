@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Healthcare | StatMint</title>
+  <title>Top Healthcare Stocks | StatMint</title>
 
   <!-- Bootstrap + AOS + Google Fonts -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
@@ -73,18 +73,21 @@
       padding: 4rem 2rem;
     }
 
-    .stat-card {
+    .stock-card {
       background: #fff;
-      color: #111;
       border-radius: 10px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.05);
       padding: 2rem;
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .stat-card:hover {
+    .stock-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    }
+
+    .stock-card h5 {
+      margin-bottom: 0.5rem;
     }
 
     footer {
@@ -111,65 +114,93 @@
     <a href="index.html"><img src="StatMintLogo.png" alt="StatMint Logo"></a>
     <nav>
       <a href="index.html">Home</a>
-      <a href="top-stats-landing.html">Top Stats Now</a>
-      <a href="finance.html">Finance</a>
-      <a href="technology.html">Technology</a>
-      <a href="healthcare.html">Healthcare</a>
-      <a href="odds.html">Odds</a>
+      <a href="healthcare.html">Healthcare Stocks</a>
+      <a href="fda.html">FDA Pipeline</a>
+      <a href="ipos.html">Biotech IPOs</a>
+      <a href="globalhealth.html">Global Health</a>
     </nav>
   </header>
 
   <section class="hero" data-aos="fade-zoom-in">
-    <h1 data-aos="fade-up">Healthcare Statistics</h1>
+    <h1 data-aos="fade-up">Top Healthcare Stocks</h1>
     <p data-aos="fade-up" data-aos-delay="200">
-      Explore the most important trends shaping global healthcare, from breakthrough drugs to major IPOs and spending forecasts.
+      Discover key financial metrics for leading healthcare companies, both in the US and worldwide.
     </p>
   </section>
 
+  <!-- US Healthcare Stocks -->
   <section class="container">
+    <h2 class="mb-4">US Healthcare Leaders</h2>
     <div class="row gy-4">
       <div class="col-md-6 col-lg-4" data-aos="fade-up">
-        <div class="stat-card h-100">
-          <h5>Global Health Spending</h5>
-          <p>Global healthcare spending is projected to exceed $10 trillion by 2025, driven by aging populations and chronic conditions.</p>
-          <p class="text-muted small">Source: WHO</p>
+        <div class="stock-card h-100">
+          <h5>Pfizer Inc. (PFE)</h5>
+          <p><strong>Price:</strong> $35.12</p>
+          <p><strong>Market Cap:</strong> $198B</p>
+          <p><strong>P/E Ratio:</strong> 12.5</p>
+          <p><strong>Dividend Yield:</strong> 4.32%</p>
+          <p><strong>YTD Change:</strong> -8.5%</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
+        <div class="stock-card h-100">
+          <h5>Moderna Inc. (MRNA)</h5>
+          <p><strong>Price:</strong> $145.78</p>
+          <p><strong>Market Cap:</strong> $55B</p>
+          <p><strong>P/E Ratio:</strong> 15.3</p>
+          <p><strong>Dividend Yield:</strong> 0%</p>
+          <p><strong>YTD Change:</strong> +12.7%</p>
         </div>
       </div>
       <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="stat-card h-100">
-          <h5>Weight-Loss Drug Market</h5>
-          <p>Over 15 million Americans now use GLP-1 weight-loss drugs like Ozempic and Mounjaro, reshaping obesity treatment costs and insurance coverage.</p>
-          <p class="text-muted small">Source: StatMint Analysis</p>
+        <div class="stock-card h-100">
+          <h5>Johnson & Johnson (JNJ)</h5>
+          <p><strong>Price:</strong> $162.11</p>
+          <p><strong>Market Cap:</strong> $420B</p>
+          <p><strong>P/E Ratio:</strong> 17.8</p>
+          <p><strong>Dividend Yield:</strong> 3.05%</p>
+          <p><strong>YTD Change:</strong> +3.4%</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="stat-card h-100">
-          <h5>CVS Health Expansion</h5>
-          <p>CVS Health launched nationwide weight-loss clinics and preventive care services, boosting pharmacy sales and customer retention.</p>
-          <p class="text-muted small">Source: CVS Financial Reports</p>
-        </div>
-      </div>
+      <!-- Add more US stocks here -->
+    </div>
+  </section>
+
+  <!-- Global Healthcare Stocks -->
+  <section class="container">
+    <h2 class="mb-4 mt-5">Global Healthcare Leaders</h2>
+    <div class="row gy-4">
       <div class="col-md-6 col-lg-4" data-aos="fade-up">
-        <div class="stat-card h-100">
-          <h5>Top Healthcare IPO</h5>
-          <p>In 2024, biotech startup XYZ Therapeutics raised $750 million in its IPO to develop next-gen cancer treatments.</p>
-          <p class="text-muted small">Source: Nasdaq</p>
+        <div class="stock-card h-100">
+          <h5>Roche Holding AG (ROG.SW)</h5>
+          <p><strong>Price:</strong> CHF 259.30</p>
+          <p><strong>Market Cap:</strong> $210B</p>
+          <p><strong>P/E Ratio:</strong> 21.0</p>
+          <p><strong>Dividend Yield:</strong> 3.26%</p>
+          <p><strong>YTD Change:</strong> +2.8%</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
+        <div class="stock-card h-100">
+          <h5>Novartis AG (NVS)</h5>
+          <p><strong>Price:</strong> $101.22</p>
+          <p><strong>Market Cap:</strong> $215B</p>
+          <p><strong>P/E Ratio:</strong> 22.4</p>
+          <p><strong>Dividend Yield:</strong> 3.55%</p>
+          <p><strong>YTD Change:</strong> +4.6%</p>
         </div>
       </div>
       <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="stat-card h-100">
-          <h5>Telehealth Usage</h5>
-          <p>US telehealth visits surged 38% in 2023, with virtual care becoming a mainstay for mental health and chronic disease management.</p>
-          <p class="text-muted small">Source: CDC</p>
+        <div class="stock-card h-100">
+          <h5>Sanofi (SNY)</h5>
+          <p><strong>Price:</strong> $53.88</p>
+          <p><strong>Market Cap:</strong> $135B</p>
+          <p><strong>P/E Ratio:</strong> 17.2</p>
+          <p><strong>Dividend Yield:</strong> 4.0%</p>
+          <p><strong>YTD Change:</strong> +5.1%</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="stat-card h-100">
-          <h5>Healthcare Employment</h5>
-          <p>Healthcare jobs now make up nearly 14% of total US employment, with nursing and home care leading growth.</p>
-          <p class="text-muted small">Source: US Bureau of Labor Statistics</p>
-        </div>
-      </div>
+      <!-- Add more global stocks here -->
     </div>
   </section>
 
