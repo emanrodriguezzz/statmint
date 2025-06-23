@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pipeline Tracker | Statmint</title>
-  <meta name="description" content="Professional tracker for biotech companies in clinical trials with expanded data and horizontal charts.">
+  <meta name="description" content="Horizontally laid out research-grade pipeline tracker for biotech companies.">
   <link rel="icon" href="statmint_logo.jpeg" type="image/jpeg" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
@@ -74,30 +74,41 @@
       font-size: 1rem;
     }
 
-    .stock-card {
+    .stock-row {
       background: #fff;
       border: 1px solid #dee2e6;
       border-radius: 8px;
       padding: 2rem;
       box-shadow: 0 1px 4px rgba(0,0,0,0.04);
       transition: box-shadow 0.2s ease;
+      margin-bottom: 2rem;
       display: flex;
-      flex-direction: column;
-      height: 100%;
+      flex-wrap: wrap;
+      gap: 2rem;
     }
 
-    .stock-card:hover {
+    .stock-row:hover {
       box-shadow: 0 4px 16px rgba(0,0,0,0.06);
     }
 
-    .stock-card h5 {
+    .stock-details {
+      flex: 1 1 50%;
+      min-width: 300px;
+    }
+
+    .stock-data {
+      flex: 1 1 40%;
+      min-width: 300px;
+    }
+
+    .stock-row h5 {
       font-family: 'Merriweather', serif;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       margin-bottom: 0.75rem;
       color: #111;
     }
 
-    .stock-card p {
+    .stock-row p {
       font-size: 0.95rem;
       margin-bottom: 0.5rem;
     }
@@ -123,7 +134,7 @@
       width: 100%;
       font-size: 0.85rem;
       border-collapse: collapse;
-      margin: 1rem 0;
+      margin-bottom: 1rem;
     }
 
     .price-table th,
@@ -144,16 +155,15 @@
     }
 
     .chart-container {
-      margin: 1rem 0;
+      margin-top: 1rem;
     }
 
     .card-footer {
-      margin-top: auto;
       border-top: 1px solid #dee2e6;
       padding-top: 0.75rem;
       display: flex;
-      justify-content: flex-start;
       gap: 1.5rem;
+      flex-wrap: wrap;
     }
 
     .card-footer a {
@@ -179,7 +189,7 @@
     }
 
     .container {
-      max-width: 1500px;
+      max-width: 1600px;
     }
   </style>
 </head>
@@ -199,7 +209,7 @@
 
 <section class="hero">
   <h1>Biotech Pipeline Tracker</h1>
-  <p>Professional company snapshots, competitors, IPO milestones, and horizontal chart views for clean, spacious presentation.</p>
+  <p>Professional fact-sheet rows with full company overview, pipeline, IPO info, competitors, and horizontal charts.</p>
 </section>
 
 <section class="container py-5" id="stock-sections"></section>
@@ -217,12 +227,12 @@
   const sections = [
     {
       title: "Oncology Leaders",
-      desc: "Detailed company profiles with expanded fundamentals, direct competitors, IPO timing, and horizontal price performance charts.",
+      desc: "Each row includes extended fundamentals, competitors, IPO date, trial summary and a horizontal bar chart.",
       stocks: [
         {
           name: "NovaCell Therapeutics",
           symbol: "NCEL",
-          about: "NovaCell develops advanced CAR-T therapies for solid tumors using proprietary cell engineering.",
+          about: "NovaCell develops next-generation CAR-T therapies for advanced solid tumors, with proprietary cell engineering.",
           headquarters: "Cambridge, MA",
           founded: 2017,
           ipoDate: "March 2022",
@@ -230,14 +240,14 @@
           leadCandidate: "NCEL-101",
           indication: "Advanced Solid Tumors",
           phase: "Phase I",
-          trialSummary: "Phase I (n=24): 35% partial response; manageable CRS; promising cell persistence.",
+          trialSummary: "Phase I (n=24): 35% partial response, manageable CRS, promising durability.",
           prices: [12.5, 13, 13.5, 14, 14.8, 15.2, 16, 15.5, 16.2, 17, 17.5, 18],
           website: "https://www.novacell.com"
         },
         {
           name: "TumorX Bio",
           symbol: "TMBX",
-          about: "TumorX Bio specializes in selective small-molecule inhibitors for pediatric cancers, with orphan status for faster approvals.",
+          about: "TumorX Bio focuses on small-molecule inhibitors for rare pediatric tumors, leveraging orphan drug incentives.",
           headquarters: "San Diego, CA",
           founded: 2015,
           ipoDate: "Private",
@@ -245,7 +255,7 @@
           leadCandidate: "TMBX-201",
           indication: "Rare Pediatric Tumors",
           phase: "Phase II",
-          trialSummary: "Phase II (n=58): Met PFS at 6 months; mild adverse events only; favorable safety to date.",
+          trialSummary: "Phase II (n=58): Met PFS at 6 months; mild AEs; no unexpected toxicity.",
           prices: [8, 8.2, 8.5, 8.8, 9.1, 9.3, 9.5, 9.7, 10, 10.5, 10.8, 11.2],
           website: "https://www.tumorxbio.com"
         }
@@ -262,15 +272,16 @@
     sectionDiv.innerHTML = `
       <h2 class="section-title" data-aos="fade-up">${section.title}</h2>
       <p class="section-desc">${section.desc}</p>
-      <div class="row g-4"></div>
     `;
-    const row = sectionDiv.querySelector('.row');
+    container.appendChild(sectionDiv);
 
     section.stocks.forEach((stock, idx) => {
-      const col = document.createElement('div');
-      col.className = 'col-lg-6 d-flex';
-      col.innerHTML = `
-        <div class="stock-card flex-fill" data-aos="fade-up" data-aos-delay="${(idx+1)*100}">
+      const row = document.createElement('div');
+      row.className = 'stock-row';
+      row.setAttribute('data-aos', 'fade-up');
+      row.setAttribute('data-aos-delay', `${(idx+1)*100}`);
+      row.innerHTML = `
+        <div class="stock-details">
           <h5>${stock.name} (${stock.symbol})</h5>
           <p>${stock.about}</p>
           <p><span class="label">Headquarters:</span> ${stock.headquarters}</p>
@@ -281,6 +292,12 @@
           <p><span class="label">Competitors:</span> ${stock.competitors.join(', ')}</p>
           <p><span class="label">Clinical Phase:</span> ${stock.phase}</p>
           <div class="trial-summary"><strong>Trial Summary:</strong> ${stock.trialSummary}</div>
+          <div class="card-footer">
+            <a href="${stock.website}" target="_blank">Company Website</a>
+            <a href="https://finance.yahoo.com/quote/${stock.symbol}" target="_blank">Yahoo Finance</a>
+          </div>
+        </div>
+        <div class="stock-data">
           <table class="price-table">
             <thead><tr><th>Month</th><th>Close ($)</th></tr></thead>
             <tbody>
@@ -288,18 +305,12 @@
             </tbody>
           </table>
           <div class="chart-container">
-            <canvas id="chart-${stock.symbol}" height="250"></canvas>
-          </div>
-          <div class="card-footer">
-            <a href="${stock.website}" target="_blank">Company Website</a>
-            <a href="https://finance.yahoo.com/quote/${stock.symbol}" target="_blank">Yahoo Finance</a>
+            <canvas id="chart-${stock.symbol}" height="300"></canvas>
           </div>
         </div>
       `;
-      row.appendChild(col);
+      container.appendChild(row);
     });
-
-    container.appendChild(sectionDiv);
   });
 
   sections.forEach(section => {
