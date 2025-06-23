@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pipeline Tracker | Statmint</title>
-  <meta name="description" content="Professional pipeline tracker for biotech companies in clinical trials with clear research-grade presentation.">
+  <meta name="description" content="Professional-level tracker of biotech companies in clinical trials with clear research-grade presentation.">
   <link rel="icon" href="statmint_logo.jpeg" type="image/jpeg" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
@@ -99,7 +99,7 @@
 
     .stock-card p {
       font-size: 0.95rem;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.6rem;
     }
 
     .label {
@@ -108,7 +108,7 @@
       font-size: 0.75rem;
       letter-spacing: 0.05em;
       color: #6c757d;
-      margin-bottom: 0.25rem;
+      margin-right: 0.3rem;
     }
 
     .trial-summary {
@@ -195,7 +195,7 @@
 
 <section class="hero">
   <h1>Biotech Pipeline Tracker</h1>
-  <p>Institutional-grade company overviews and trial data summaries for select emerging biotech firms in active clinical development.</p>
+  <p>Institutional-grade company profiles and trial data for emerging biotech leaders in active development phases.</p>
 </section>
 
 <section class="container py-5" id="stock-sections"></section>
@@ -213,23 +213,31 @@
   const sections = [
     {
       title: "Oncology Leaders",
-      desc: "Profiles of selected companies advancing novel oncology therapies with early clinical trial performance insights.",
+      desc: "Detailed profiles of companies advancing novel oncology therapeutics, with early-stage trial insights and market context.",
       stocks: [
         {
           name: "NovaCell Therapeutics",
           symbol: "NCEL",
-          about: "NovaCell specializes in next-generation CAR-T therapies for solid tumors, focusing on improved infiltration and durability.",
+          about: "NovaCell develops patient-specific CAR-T cell therapies targeting advanced solid tumors, with proprietary cell engineering techniques.",
+          headquarters: "Cambridge, MA",
+          founded: 2017,
+          leadCandidate: "NCEL-101",
+          indication: "Advanced Solid Tumors",
           phase: "Phase I",
-          trialSummary: "Interim Phase I data (n=24) indicates favorable tolerability with early signs of efficacy; partial response in 35% of evaluable cases.",
+          trialSummary: "Phase I (n=24): Well-tolerated with partial response in 35% of evaluable patients; CRS managed with standard care.",
           prices: [12.5, 13, 13.5, 14, 14.8, 15.2, 16, 15.5, 16.2, 17, 17.5, 18],
           website: "https://www.novacell.com"
         },
         {
           name: "TumorX Bio",
           symbol: "TMBX",
-          about: "TumorX Bio develops targeted small-molecule inhibitors addressing rare pediatric malignancies, with support from orphan drug incentives.",
+          about: "TumorX Bio is focused on targeted small-molecule inhibitors for pediatric malignancies, supported by orphan drug incentives for expedited pathways.",
+          headquarters: "San Diego, CA",
+          founded: 2015,
+          leadCandidate: "TMBX-201",
+          indication: "Rare Pediatric Tumors",
           phase: "Phase II",
-          trialSummary: "Phase II (n=58) achieved its primary PFS endpoint at six months; safety profile consistent with prior data; no unexpected toxicities.",
+          trialSummary: "Phase II (n=58): Met primary PFS endpoint at six months; mild adverse events consistent with prior profile.",
           prices: [8, 8.2, 8.5, 8.8, 9.1, 9.3, 9.5, 9.7, 10, 10.5, 10.8, 11.2],
           website: "https://www.tumorxbio.com"
         }
@@ -257,7 +265,11 @@
         <div class="stock-card flex-fill" data-aos="fade-up" data-aos-delay="${(idx+1)*100}">
           <h5>${stock.name} (${stock.symbol})</h5>
           <p>${stock.about}</p>
-          <p><span class="label">Clinical Phase</span> ${stock.phase}</p>
+          <p><span class="label">Headquarters:</span> ${stock.headquarters}</p>
+          <p><span class="label">Founded:</span> ${stock.founded}</p>
+          <p><span class="label">Lead Candidate:</span> ${stock.leadCandidate}</p>
+          <p><span class="label">Indication:</span> ${stock.indication}</p>
+          <p><span class="label">Clinical Phase:</span> ${stock.phase}</p>
           <div class="trial-summary"><strong>Trial Summary:</strong> ${stock.trialSummary}</div>
           <table class="price-table">
             <thead><tr><th>Month</th><th>Close ($)</th></tr></thead>
