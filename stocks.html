@@ -3,250 +3,113 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Healthcare Stocks | Statmint</title>
+  <title>Emerging Biotech Pipeline Tracker | Statmint</title>
+  <meta name="description" content="Statmint shows clear data and key facts about biotech companies with new treatments still in clinical trials and not yet FDA approved.">
   <link rel="icon" href="statmint_logo.jpeg" type="image/jpeg" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    :root {
-      --primary: #0d6efd;
-      --dark-bg: #0a0a0a;
-      --light-bg: #f7f7f7;
-      --accent: #377dff;
-      --neutral-text: #666;
-    }
-
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f9f9f9;
+      background: #f9f9f9;
       margin: 0;
     }
-
     header {
-      background-color: var(--dark-bg);
-      padding: 0.1rem 1rem;
+      background: #0a0a0a;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 999;
     }
-
-    header img {
-      height: 80px;
-    }
-
+    header img { height: 60px; }
     nav a {
       margin-left: 1rem;
-      color: white;
+      color: #fff;
       text-decoration: none;
       font-weight: 500;
     }
-
-    nav a:hover {
-      color: var(--accent);
-    }
-
+    nav a:hover { color: #377dff; }
     .hero {
-      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                  url('homeimage.jpg') center/cover no-repeat;
-      color: white;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('homeimage.jpg') center/cover no-repeat;
+      color: #fff;
       text-align: center;
       padding: 6rem 2rem;
     }
-
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: 700;
-    }
-
-    .hero p {
-      max-width: 720px;
-      margin: 1rem auto 0;
-      font-size: 1.2rem;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .section-desc {
-      color: var(--neutral-text);
-      margin-bottom: 2rem;
-    }
-
+    .hero p { max-width: 720px; margin: 1rem auto 0; font-size: 1.2rem; }
+    .section-title { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .section-desc { color: #555; margin-bottom: 2rem; }
     .stock-card {
-      background: white;
-      border-radius: 10px;
+      background: #fff;
+      border-radius: 12px;
       padding: 1.5rem;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      height: 100%;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      transition: all 0.2s ease;
     }
-
     .stock-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
-
-    .price-list {
-      font-size: 0.9rem;
-      color: #333;
-      margin-top: 0.5rem;
-      padding-left: 0;
+    .price-list { font-size: 0.9rem; color: #333; margin-top: 0.5rem; padding-left: 0; }
+    .price-list li { list-style: none; }
+    .cta {
+      background: #0a0a0a;
+      color: #fff;
+      text-align: center;
+      padding: 4rem 2rem;
     }
-
-    .price-list li {
-      list-style: none;
+    .cta input {
+      max-width: 300px;
+      display: inline-block;
+      margin: 0.5rem auto;
     }
-
     footer {
-      background-color: #000;
-      color: #bbb;
+      background: #000;
+      color: #aaa;
       text-align: center;
       padding: 2rem 1rem;
       font-size: 0.9rem;
     }
-
-    footer a {
-      color: var(--accent);
-    }
+    footer a { color: #377dff; }
   </style>
 </head>
+
 <body>
 
-  <header>
-    <a href="index.html"><img src="statmint_logo.jpeg" alt="Statmint Logo"></a>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="stocks.html">Stocks</a>
-      <a href="fda.html">FDA Pipeline</a>
-      <a href="ipos.html">Biotech IPOs</a>
-      <a href="globalhealth.html">Global Health</a>
-    </nav>
-  </header>
+<header>
+  <a href="index.html"><img src="statmint_logo.jpeg" alt="Statmint Logo"></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="stocks.html">Pipeline Tracker</a>
+    <a href="fda.html">FDA Pipeline</a>
+    <a href="ipos.html">Biotech IPOs</a>
+    <a href="globalhealth.html">Global Health</a>
+  </nav>
+</header>
 
-  <section class="hero">
-    <h1>Top Healthcare Stocks</h1>
-    <p>Explore detailed insights, factual past price trends, and live links to trusted financial sources — all curated by Statmint.</p>
-  </section>
+<section class="hero">
+  <h1>Emerging Biotech Pipeline Tracker</h1>
+  <p>Statmint shows clear data and key facts about biotech companies with new treatments still in clinical trials and not yet FDA approved.</p>
+</section>
 
-  <section class="container py-5" id="stock-sections"></section>
+<section class="container py-5" id="stock-sections"></section>
 
-  <footer>
-    <div class="container">
-      <p>© 2024 Statmint — All data based on historical closes from Yahoo Finance. For educational use only.</p>
-    </div>
-  </footer>
+<section class="cta">
+  <h2>Stay Informed</h2>
+  <p>Subscribe to get updates on emerging biotech pipelines and trial news.</p>
+  <form>
+    <input type="email" class="form-control mb-2" placeholder="Enter your email" required />
+    <br>
+    <button type="submit" class="btn btn-primary">Subscribe</button>
+  </form>
+</section>
 
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 1000, once: true, easing: 'ease-in-out' });
-  </script>
+<footer>
+  <div class="container">
+    <p>© 2024 Statmint. All data is for educational purposes only and does not constitute investment advice.</p>
+  </div>
+</footer>
 
-  <script>
-    const sections = [
-      {
-        title: "Cancer Research",
-        desc: "Major companies driving innovation in oncology and immunotherapy treatments.",
-        stocks: [
-          {
-            symbol: "MRK",
-            name: "Merck & Co.",
-            about: "Merck is a global leader in cancer immunotherapy with its flagship drug Keytruda.",
-            prices: [110, 108, 107, 104, 106, 108, 110, 112, 114, 116, 118, 117]
-          },
-          {
-            symbol: "BMY",
-            name: "Bristol-Myers Squibb",
-            about: "BMS focuses on immuno-oncology with Opdivo and a strong pipeline for solid tumors.",
-            prices: [65, 63, 62, 61, 62, 64, 65, 66, 67, 68, 69, 70]
-          }
-        ]
-      },
-      {
-        title: "Weight Loss & Metabolic Health",
-        desc: "Key players in the booming obesity and diabetes market.",
-        stocks: [
-          {
-            symbol: "LLY",
-            name: "Eli Lilly",
-            about: "Lilly's Mounjaro is a leading GLP-1 treatment reshaping the obesity drug market.",
-            prices: [390, 400, 410, 420, 430, 440, 450, 460, 470, 480, 490, 500]
-          },
-          {
-            symbol: "NVO",
-            name: "Novo Nordisk",
-            about: "Novo Nordisk leads with Ozempic and Wegovy for diabetes and weight management.",
-            prices: [135, 140, 145, 150, 155, 160, 165, 168, 170, 172, 174, 175]
-          }
-        ]
-      }
-      // Add more sections/stocks as needed in the same structure!
-    ];
-
-    const labels = ["Jul 2023", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan 2024", "Feb", "Mar", "Apr", "May", "Jun"];
-
-    const container = document.getElementById('stock-sections');
-
-    sections.forEach(section => {
-      const sectionDiv = document.createElement('div');
-      sectionDiv.className = 'mb-5';
-      sectionDiv.innerHTML = `
-        <h2 class="section-title" data-aos="fade-up">${section.title}</h2>
-        <p class="section-desc">${section.desc}</p>
-        <div class="row g-4"></div>`;
-      const row = sectionDiv.querySelector('.row');
-
-      section.stocks.forEach((stock, idx) => {
-        const col = document.createElement('div');
-        col.className = 'col-md-6 col-lg-4';
-        col.innerHTML = `
-          <div class="stock-card" data-aos="zoom-in" data-aos-delay="${(idx+1)*100}">
-            <h5>${stock.name} (${stock.symbol})</h5>
-            <p>${stock.about}</p>
-            <ul class="price-list">
-              ${stock.prices.map((p,i) => `<li>${labels[i]}: $${p}</li>`).join("")}
-            </ul>
-            <canvas id="chart-${stock.symbol}" height="150"></canvas>
-            <a href="https://finance.yahoo.com/quote/${stock.symbol}" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo Finance</a>
-          </div>`;
-        row.appendChild(col);
-      });
-
-      container.appendChild(sectionDiv);
-    });
-
-    sections.forEach(section => {
-      section.stocks.forEach(stock => {
-        const ctx = document.getElementById(`chart-${stock.symbol}`).getContext('2d');
-        new Chart(ctx, {
-          type: 'line',
-          data: {
-            labels: labels,
-            datasets: [{
-              label: `${stock.symbol} Price`,
-              data: stock.prices,
-              borderColor: 'rgba(75,192,192,1)',
-              backgroundColor: 'rgba(75,192,192,0.1)',
-              tension: 0.2,
-              fill: true
-            }]
-          },
-          options: {
-            responsive: true,
-            plugins: { legend: { display: false } },
-            scales: { x: { display: false }, y: { display: false } }
-          }
-        });
-      });
-    });
-  </script>
-
-</body>
-</html>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>AOS.init({ duration: 1000, once: true, easing: 'ease-in-out' });</script>
