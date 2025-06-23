@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pipeline Tracker | Statmint</title>
-  <meta name="description" content="Clear, verified pipeline tracker for real biotech companies with factual summaries and trial insights.">
+  <meta name="description" content="Real biotech pipeline tracker with full-width professional layout and verified company data.">
   <link rel="icon" href="statmint_logo.jpeg" type="image/jpeg" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
@@ -49,15 +49,16 @@
     }
 
     .hero p {
-      max-width: 800px;
+      max-width: 1000px;
       margin: 1rem auto 0;
       color: #adb5bd;
     }
 
-    table {
+    .full-width-table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 2rem;
+      table-layout: fixed;
     }
 
     th, td {
@@ -65,6 +66,7 @@
       border: 1px solid #dee2e6;
       text-align: left;
       vertical-align: top;
+      word-wrap: break-word;
     }
 
     th {
@@ -80,6 +82,11 @@
       background: #e9ecef;
     }
 
+    .sparkline {
+      height: 40px;
+      width: 100px;
+    }
+
     footer {
       background: #0a0a0a;
       color: #adb5bd;
@@ -91,9 +98,10 @@
       color: #0d6efd;
     }
 
-    .sparkline {
-      height: 40px;
-      width: 100px;
+    /* Make sure table container is truly fluid */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
     }
   </style>
 </head>
@@ -112,35 +120,33 @@
 
 <section class="hero">
   <h1>Emerging Biotech Pipeline Tracker</h1>
-  <p>Statmint shows verified pipeline data and clear company summaries for biotech innovators with unapproved therapies still in clinical trials.</p>
+  <p>Statmint provides factual summaries and trial data for real biotech companies — full-width view for clarity and easy comparison.</p>
 </section>
 
-<section class="container py-5">
-  <div class="table-responsive">
-    <table>
-      <thead>
-        <tr>
-          <th>Company</th>
-          <th>Summary</th>
-          <th>Ticker</th>
-          <th>Candidate</th>
-          <th>Indication</th>
-          <th>Phase</th>
-          <th>Trial Status</th>
-          <th>Competitors</th>
-          <th>IPO Date</th>
-          <th>Price Trend</th>
-          <th>Links</th>
-        </tr>
-      </thead>
-      <tbody id="pipeline-table-body"></tbody>
-    </table>
-  </div>
+<section class="table-container px-3 py-5">
+  <table class="full-width-table">
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Summary</th>
+        <th>Ticker</th>
+        <th>Candidate</th>
+        <th>Indication</th>
+        <th>Phase</th>
+        <th>Trial Status</th>
+        <th>Competitors</th>
+        <th>IPO Date</th>
+        <th>Price Trend</th>
+        <th>Links</th>
+      </tr>
+    </thead>
+    <tbody id="pipeline-table-body"></tbody>
+  </table>
 </section>
 
 <footer>
   <div class="container">
-    <p>© 2025 Statmint. For research only — verify details with official filings. <a href="#">Privacy Policy</a>.</p>
+    <p>© 2025 Statmint. For research use only. <a href="#">Privacy Policy</a>.</p>
   </div>
 </footer>
 
@@ -152,7 +158,7 @@
   const pipeline = [
     {
       name: "Moderna",
-      summary: "Moderna is a pioneering mRNA biotech company developing vaccines and therapeutics leveraging messenger RNA technology across infectious diseases, oncology, and rare diseases.",
+      summary: "Moderna is a pioneer in mRNA therapeutics, developing vaccines and treatments across infectious diseases, oncology, and rare diseases.",
       ticker: "MRNA",
       candidate: "mRNA-1345",
       indication: "RSV Vaccine (Older Adults)",
@@ -165,12 +171,12 @@
     },
     {
       name: "BioNTech",
-      summary: "BioNTech is a German biotech known for pioneering mRNA-based immunotherapies, including its COVID-19 vaccine co-developed with Pfizer, and expanding pipelines in oncology and infectious diseases.",
+      summary: "BioNTech develops mRNA-based immunotherapies for cancer and infectious diseases; co-developed the first mRNA COVID-19 vaccine with Pfizer.",
       ticker: "BNTX",
       candidate: "BNT162b2 Combo",
       indication: "COVID-19 + Influenza Combo Vaccine",
       phase: "Phase II/III",
-      trialStatus: "Enrollment ongoing; interim readout mid-2024.",
+      trialStatus: "Enrolling; interim data mid-2024.",
       competitors: ["Moderna", "CureVac"],
       ipoDate: "Oct 2019",
       prices: [100, 98, 95, 97, 99, 102, 105, 104, 107, 110, 108, 105],
@@ -178,12 +184,12 @@
     },
     {
       name: "Vertex Pharmaceuticals",
-      summary: "Vertex Pharmaceuticals specializes in transformative therapies for serious diseases, leading in cystic fibrosis treatments and advancing novel non-opioid pain and genetic disease programs.",
+      summary: "Vertex is a biotech leader in cystic fibrosis treatment and now expanding into non-opioid pain and gene editing therapies.",
       ticker: "VRTX",
       candidate: "VX-548",
       indication: "Non-opioid Pain Treatment",
       phase: "Phase III",
-      trialStatus: "Pivotal trials enrolling; NDA planned 2025.",
+      trialStatus: "Pivotal trials enrolling; NDA filing planned for 2025.",
       competitors: ["Pfizer", "Eli Lilly"],
       ipoDate: "July 1991",
       prices: [300, 310, 320, 315, 318, 325, 330, 340, 335, 345, 340, 335],
@@ -191,7 +197,7 @@
     },
     {
       name: "Alnylam Pharmaceuticals",
-      summary: "Alnylam is a leader in RNA interference therapeutics, targeting genetic diseases by silencing disease-causing genes, with approved products and an expanding late-stage pipeline.",
+      summary: "Alnylam focuses on RNAi therapeutics to silence disease-causing genes, with approved products and new late-stage candidates.",
       ticker: "ALNY",
       candidate: "Vutrisiran",
       indication: "ATTR Amyloidosis",
@@ -204,12 +210,12 @@
     },
     {
       name: "CRISPR Therapeutics",
-      summary: "CRISPR Therapeutics develops gene-editing based therapies using CRISPR/Cas9 technology, with lead programs for blood disorders like sickle cell disease and beta thalassemia.",
+      summary: "CRISPR Therapeutics develops gene-editing therapies using CRISPR/Cas9 tech, with lead programs in blood disorders.",
       ticker: "CRSP",
       candidate: "CTX001",
       indication: "Beta Thalassemia & Sickle Cell",
       phase: "Regulatory Review",
-      trialStatus: "BLA submitted; under FDA review in 2024.",
+      trialStatus: "BLA submitted; under FDA review 2024.",
       competitors: ["Bluebird Bio"],
       ipoDate: "Oct 2016",
       prices: [50, 52, 55, 57, 59, 60, 63, 65, 62, 60, 58, 57],
