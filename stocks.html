@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -13,65 +14,112 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background: #f9f9f9;
+      background: #f7fafc;
       margin: 0;
+      color: #333;
     }
+
     header {
       background: #0a0a0a;
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-    header img { height: 60px; }
+
+    header img { height: 50px; }
     nav a {
       margin-left: 1rem;
       color: #fff;
       text-decoration: none;
       font-weight: 500;
+      transition: color 0.2s;
     }
-    nav a:hover { color: #377dff; }
+    nav a:hover { color: #4dabf7; }
+
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('homeimage.jpg') center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('homeimage.jpg') center/cover no-repeat;
       color: #fff;
       text-align: center;
-      padding: 6rem 2rem;
+      padding: 7rem 2rem;
     }
-    .hero p { max-width: 720px; margin: 1rem auto 0; font-size: 1.2rem; }
-    .section-title { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .section-desc { color: #555; margin-bottom: 2rem; }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+    }
+    .hero p {
+      max-width: 720px;
+      margin: 1rem auto 1.5rem;
+      font-size: 1.25rem;
+    }
+    .hero .btn {
+      background: #4dabf7;
+      border: none;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .section-desc {
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
     .stock-card {
       background: #fff;
       border-radius: 12px;
       padding: 1.5rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      height: 100%;
       transition: all 0.2s ease;
     }
     .stock-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
     }
-    .price-list { font-size: 0.9rem; color: #333; margin-top: 0.5rem; padding-left: 0; }
-    .price-list li { list-style: none; }
+    .stock-card h5 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .stock-card p {
+      font-size: 0.95rem;
+    }
+    .price-list {
+      font-size: 0.85rem;
+      color: #444;
+      margin-top: 0.5rem;
+      padding-left: 0;
+    }
+    .price-list li {
+      list-style: none;
+    }
+
     .cta {
       background: #0a0a0a;
       color: #fff;
       text-align: center;
-      padding: 4rem 2rem;
+      padding: 5rem 2rem;
     }
     .cta input {
-      max-width: 300px;
-      display: inline-block;
+      max-width: 320px;
       margin: 0.5rem auto;
     }
+
     footer {
       background: #000;
-      color: #aaa;
+      color: #ccc;
       text-align: center;
       padding: 2rem 1rem;
       font-size: 0.9rem;
     }
-    footer a { color: #377dff; }
+    footer a { color: #4dabf7; }
+
   </style>
 </head>
 
@@ -90,14 +138,15 @@
 
 <section class="hero">
   <h1>Emerging Biotech Pipeline Tracker</h1>
-  <p>Statmint shows clear data and key facts about biotech companies with new treatments still in clinical trials and not yet FDA approved.</p>
+  <p>Track promising biotech companies with unapproved treatments in clinical trials, and gain clear insights and trends.</p>
+  <a href="#stock-sections" class="btn btn-primary">Explore Pipeline</a>
 </section>
 
 <section class="container py-5" id="stock-sections"></section>
 
 <section class="cta">
   <h2>Stay Informed</h2>
-  <p>Subscribe to get updates on emerging biotech pipelines and trial news.</p>
+  <p>Subscribe for updates on emerging pipelines, trial milestones, and biotech news.</p>
   <form>
     <input type="email" class="form-control mb-2" placeholder="Enter your email" required />
     <br>
@@ -107,46 +156,32 @@
 
 <footer>
   <div class="container">
-    <p>© 2024 Statmint. All data is for educational purposes only and does not constitute investment advice.</p>
+    <p>© 2025 Statmint. Data provided for research and educational purposes only. <a href="#">Privacy Policy</a>.</p>
   </div>
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-  AOS.init({ duration: 1000, once: true, easing: 'ease-in-out' });
+  AOS.init({ duration: 800, once: true, easing: 'ease-in-out' });
 
-  // ✅ Example data
   const sections = [
     {
       title: "Oncology Startups",
-      desc: "Companies developing novel cancer treatments in early to mid-stage clinical trials.",
+      desc: "Novel cancer treatments in early and mid-phase trials.",
       stocks: [
         {
           name: "NovaCell Therapeutics",
           symbol: "NCEL",
-          about: "Focused on CAR-T cell therapies for solid tumors.",
+          about: "Pioneering CAR-T therapies for solid tumors.",
           phase: "Phase I",
           prices: [12.5, 13, 13.5, 14, 14.8, 15.2, 16, 15.5, 16.2, 17, 17.5, 18]
         },
         {
           name: "TumorX Bio",
           symbol: "TMBX",
-          about: "Developing small molecule inhibitors targeting rare cancers.",
+          about: "Small molecule inhibitors targeting rare cancers.",
           phase: "Phase II",
           prices: [8, 8.2, 8.5, 8.8, 9.1, 9.3, 9.5, 9.7, 10, 10.5, 10.8, 11.2]
-        }
-      ]
-    },
-    {
-      title: "Neurological Disorders",
-      desc: "Biotechs working on therapies for Alzheimer's and Parkinson's disease.",
-      stocks: [
-        {
-          name: "NeuroGenix",
-          symbol: "NRGX",
-          about: "Developing gene therapies for neurodegenerative disorders.",
-          phase: "Phase II",
-          prices: [22, 22.5, 23, 23.5, 24, 24.2, 24.5, 24.8, 25, 25.2, 25.5, 26]
         }
       ]
     }
@@ -155,7 +190,6 @@
   const labels = ["Jul 2023","Aug","Sep","Oct","Nov","Dec","Jan 2024","Feb","Mar","Apr","May","Jun"];
   const container = document.getElementById('stock-sections');
 
-  // ✅ Render sections & cards
   sections.forEach(section => {
     const sectionDiv = document.createElement('div');
     sectionDiv.className = 'mb-5';
@@ -168,16 +202,16 @@
 
     section.stocks.forEach((stock, idx) => {
       const col = document.createElement('div');
-      col.className = 'col-md-6 col-lg-4';
+      col.className = 'col-md-6 col-lg-4 d-flex';
       col.innerHTML = `
-        <div class="stock-card" data-aos="zoom-in" data-aos-delay="${(idx+1)*100}">
+        <div class="stock-card flex-fill" data-aos="zoom-in" data-aos-delay="${(idx+1)*100}">
           <h5>${stock.name} (${stock.symbol})</h5>
           <p>${stock.about} <strong>Trial Stage: ${stock.phase}</strong></p>
           <ul class="price-list">
             ${stock.prices.map((p, i) => `<li>${labels[i]}: $${p.toFixed(2)}</li>`).join("")}
           </ul>
           <canvas id="chart-${stock.symbol}" height="150"></canvas>
-          <a href="https://finance.yahoo.com/quote/${stock.symbol}" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo Finance</a>
+          <a href="https://finance.yahoo.com/quote/${stock.symbol}" target="_blank" class="btn btn-outline-primary mt-3">View on Yahoo Finance</a>
         </div>
       `;
       row.appendChild(col);
@@ -186,7 +220,6 @@
     container.appendChild(sectionDiv);
   });
 
-  // ✅ Render charts
   sections.forEach(section => {
     section.stocks.forEach(stock => {
       const ctx = document.getElementById(`chart-${stock.symbol}`).getContext('2d');
@@ -197,16 +230,16 @@
           datasets: [{
             label: `${stock.symbol} Price`,
             data: stock.prices,
-            borderColor: 'rgba(55, 125, 255, 1)',
-            backgroundColor: 'rgba(55, 125, 255, 0.1)',
+            borderColor: '#4dabf7',
+            backgroundColor: 'rgba(77, 171, 247, 0.15)',
             tension: 0.3,
             fill: true
           }]
         },
         options: {
           responsive: true,
-          plugins: { legend: { display: false } },
-          scales: { x: { display: false }, y: { display: false } }
+          plugins: { legend: { display: false }, tooltip: { enabled: true } },
+          scales: { x: { grid: { display: false } }, y: { grid: { display: true } } }
         }
       });
     });
