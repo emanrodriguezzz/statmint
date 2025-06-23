@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pipeline Tracker | Statmint</title>
-  <meta name="description" content="In-depth pipeline tracker for biotech companies in clinical trials with professional-level presentation.">
+  <meta name="description" content="Professional-level pipeline tracker for biotech companies under clinical trials.">
   <link rel="icon" href="statmint_logo.jpeg" type="image/jpeg" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
@@ -14,8 +14,8 @@
     body {
       font-family: 'Inter', sans-serif;
       background: #f8f9fa;
-      color: #2a2f36;
-      line-height: 1.65;
+      color: #212529;
+      line-height: 1.7;
     }
 
     header {
@@ -62,9 +62,9 @@
 
     .section-title {
       font-family: 'Merriweather', serif;
-      font-size: 1.7rem;
+      font-size: 1.8rem;
       border-bottom: 2px solid #dee2e6;
-      padding-bottom: 0.25rem;
+      padding-bottom: 0.3rem;
       margin-bottom: 0.5rem;
     }
 
@@ -79,17 +79,22 @@
       border: 1px solid #dee2e6;
       border-radius: 6px;
       padding: 2rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      transition: box-shadow 0.2s ease;
       display: flex;
       flex-direction: column;
       height: 100%;
     }
 
+    .stock-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+    }
+
     .stock-card h5 {
       font-family: 'Merriweather', serif;
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       margin-bottom: 0.75rem;
-      color: #212529;
+      color: #111;
     }
 
     .stock-card p {
@@ -98,10 +103,12 @@
     }
 
     .label {
+      display: inline-block;
       text-transform: uppercase;
       font-size: 0.75rem;
       letter-spacing: 0.05em;
       color: #6c757d;
+      margin-bottom: 0.25rem;
     }
 
     .trial-summary {
@@ -121,8 +128,8 @@
 
     .price-table th,
     .price-table td {
-      padding: 0.4rem 0.6rem;
-      border-bottom: 1px solid #e9ecef;
+      padding: 0.45rem 0.6rem;
+      border: 1px solid #dee2e6;
       text-align: left;
     }
 
@@ -142,9 +149,11 @@
 
     .card-footer {
       margin-top: auto;
+      border-top: 1px solid #dee2e6;
+      padding-top: 0.75rem;
       display: flex;
       justify-content: flex-start;
-      gap: 1.2rem;
+      gap: 1.5rem;
     }
 
     .card-footer a {
@@ -186,14 +195,14 @@
 
 <section class="hero">
   <h1>Biotech Pipeline Tracker</h1>
-  <p>Detailed research briefs and early-stage trial insights for select emerging biotech companies.</p>
+  <p>Company snapshots and early clinical trial updates for select emerging biotech innovators.</p>
 </section>
 
 <section class="container py-5" id="stock-sections"></section>
 
 <footer>
   <div class="container">
-    <p>© 2025 Statmint. For research and informational use only. <a href="#">Privacy Policy</a>.</p>
+    <p>© 2025 Statmint. For research and information only. <a href="#">Privacy Policy</a>.</p>
   </div>
 </footer>
 
@@ -203,24 +212,24 @@
 
   const sections = [
     {
-      title: "Oncology Innovators",
-      desc: "Companies advancing novel oncology treatments with early clinical trial data and market performance overview.",
+      title: "Oncology Leaders",
+      desc: "A selection of firms advancing novel oncology therapeutics with early stage clinical results.",
       stocks: [
         {
           name: "NovaCell Therapeutics",
           symbol: "NCEL",
-          about: "NovaCell is developing next-generation CAR-T therapies for solid tumors, optimizing cell durability and targeted infiltration.",
+          about: "NovaCell is developing autologous CAR-T therapies optimized for solid tumor infiltration and sustained response.",
           phase: "Phase I",
-          trialSummary: "Interim Phase I data (n=24) shows an acceptable safety profile and initial efficacy, with partial response in 35% of patients.",
+          trialSummary: "Interim data (n=24) shows acceptable tolerability and signs of tumor size reduction in 35% of patients; CRS was manageable.",
           prices: [12.5, 13, 13.5, 14, 14.8, 15.2, 16, 15.5, 16.2, 17, 17.5, 18],
           website: "https://www.novacell.com"
         },
         {
           name: "TumorX Bio",
           symbol: "TMBX",
-          about: "TumorX Bio develops selective small-molecule inhibitors targeting pediatric tumor mutations, leveraging orphan drug incentives.",
+          about: "TumorX Bio focuses on selective small-molecule inhibitors for pediatric cancers, with orphan drug incentives supporting accelerated pathways.",
           phase: "Phase II",
-          trialSummary: "Phase II results (n=58) met the primary endpoint for progression-free survival. No severe toxicity observed beyond known profile.",
+          trialSummary: "Phase II (n=58) met progression-free survival goals at 6 months with mild AEs; no serious toxicity reported.",
           prices: [8, 8.2, 8.5, 8.8, 9.1, 9.3, 9.5, 9.7, 10, 10.5, 10.8, 11.2],
           website: "https://www.tumorxbio.com"
         }
@@ -248,7 +257,7 @@
         <div class="stock-card flex-fill" data-aos="fade-up" data-aos-delay="${(idx+1)*100}">
           <h5>${stock.name} (${stock.symbol})</h5>
           <p>${stock.about}</p>
-          <p><span class="label">Clinical Phase:</span> ${stock.phase}</p>
+          <p><span class="label">Clinical Phase</span> ${stock.phase}</p>
           <div class="trial-summary"><strong>Trial Summary:</strong> ${stock.trialSummary}</div>
           <table class="price-table">
             <thead><tr><th>Month</th><th>Close ($)</th></tr></thead>
