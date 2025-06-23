@@ -52,7 +52,7 @@
     .hero p {
       max-width: 720px;
       margin: 1rem auto 0;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       color: #ccc;
     }
 
@@ -70,41 +70,39 @@
 
     .stock-card {
       background: #fff;
-      border: 1px solid #e5e7eb;
+      border: 1px solid #ddd;
       border-radius: 8px;
       padding: 2rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.06);
-      transition: box-shadow 0.2s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
-    .stock-card:hover {
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-    }
-
     .stock-card h5 {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
+      color: #111;
     }
 
     .stock-card p {
       font-size: 0.95rem;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .price-list {
       font-size: 0.85rem;
-      color: #555;
+      color: #333;
       margin: 1rem 0;
       padding-left: 0;
     }
 
     .price-list li {
       list-style: none;
+      border-bottom: 1px solid #eee;
+      padding: 0.25rem 0;
     }
 
     .card-footer {
@@ -115,6 +113,17 @@
 
     .card-footer a {
       flex: 1;
+      font-size: 0.85rem;
+    }
+
+    .btn-outline-dark {
+      border-color: #333;
+      color: #333;
+    }
+
+    .btn-outline-dark:hover {
+      background: #333;
+      color: #fff;
     }
 
     footer {
@@ -146,14 +155,14 @@
 
 <section class="hero">
   <h1>Biotech Pipeline Tracker</h1>
-  <p>Objective insights on emerging biotech firms developing treatments not yet FDA approved. Updated quarterly.</p>
+  <p>Authoritative insights into privately held and emerging biotech companies pursuing novel therapies in active clinical development.</p>
 </section>
 
 <section class="container py-5" id="stock-sections"></section>
 
 <footer>
   <div class="container">
-    <p>© 2025 Statmint. For research & education only. <a href="#">Privacy Policy</a>.</p>
+    <p>© 2025 Statmint. Information presented is for research and educational purposes only. <a href="#">Privacy Policy</a>.</p>
   </div>
 </footer>
 
@@ -163,13 +172,13 @@
 
   const sections = [
     {
-      title: "Oncology Research",
-      desc: "Companies pioneering new cancer treatments currently in Phase I–II trials.",
+      title: "Oncology Innovators",
+      desc: "Select companies advancing next-generation oncology therapeutics, with a focus on solid tumors and targeted biologics.",
       stocks: [
         {
           name: "NovaCell Therapeutics",
           symbol: "NCEL",
-          about: "NovaCell is advancing personalized CAR-T immunotherapy specifically designed for resistant solid tumors, with a focus on precision targeting and patient-specific cell engineering.",
+          about: "NovaCell Therapeutics is developing autologous CAR-T cell therapies specifically engineered to penetrate solid tumor environments, aiming to address patient populations with high relapse rates. Early-phase data demonstrates enhanced cell persistence and controlled cytokine release profiles.",
           phase: "Phase I",
           prices: [12.5, 13, 13.5, 14, 14.8, 15.2, 16, 15.5, 16.2, 17, 17.5, 18],
           website: "https://www.novacell.com"
@@ -177,7 +186,7 @@
         {
           name: "TumorX Bio",
           symbol: "TMBX",
-          about: "TumorX Bio develops novel inhibitors targeting rare pediatric cancers with limited treatment options, seeking to expand survival rates through first-in-class compounds.",
+          about: "TumorX Bio is advancing a pipeline of selective small-molecule inhibitors designed to target oncogenic mutations prevalent in rare pediatric malignancies. The company is pursuing orphan drug designations to expedite market entry for its lead compound currently in mid-stage trials.",
           phase: "Phase II",
           prices: [8, 8.2, 8.5, 8.8, 9.1, 9.3, 9.5, 9.7, 10, 10.5, 10.8, 11.2],
           website: "https://www.tumorxbio.com"
@@ -201,12 +210,12 @@
 
     section.stocks.forEach((stock, idx) => {
       const col = document.createElement('div');
-      col.className = 'col-md-6 col-lg-6 d-flex';
+      col.className = 'col-md-6 d-flex';
       col.innerHTML = `
         <div class="stock-card flex-fill" data-aos="fade-up" data-aos-delay="${(idx+1)*100}">
           <h5>${stock.name} (${stock.symbol})</h5>
           <p>${stock.about}</p>
-          <p><strong>Trial Stage:</strong> ${stock.phase}</p>
+          <p><strong>Trial Phase:</strong> ${stock.phase}</p>
           <ul class="price-list">
             ${stock.prices.map((p, i) => `<li>${labels[i]}: $${p.toFixed(2)}</li>`).join("")}
           </ul>
@@ -231,7 +240,7 @@
         data: {
           labels: labels,
           datasets: [{
-            label: `${stock.symbol} Price`,
+            label: `${stock.symbol} Closing Price`,
             data: stock.prices,
             borderColor: '#1a73e8',
             backgroundColor: 'rgba(26, 115, 232, 0.1)',
