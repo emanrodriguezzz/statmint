@@ -115,11 +115,47 @@
 <script>
   AOS.init({ duration: 1000, once: true, easing: 'ease-in-out' });
 
-  // ✅ FULL DATA + RENDER LOGIC IN ONE GO:
-  const sections = [/* ✅ PASTE THE CLEAN JSON HERE EXACTLY */];
+  // ✅ Example data
+  const sections = [
+    {
+      title: "Oncology Startups",
+      desc: "Companies developing novel cancer treatments in early to mid-stage clinical trials.",
+      stocks: [
+        {
+          name: "NovaCell Therapeutics",
+          symbol: "NCEL",
+          about: "Focused on CAR-T cell therapies for solid tumors.",
+          phase: "Phase I",
+          prices: [12.5, 13, 13.5, 14, 14.8, 15.2, 16, 15.5, 16.2, 17, 17.5, 18]
+        },
+        {
+          name: "TumorX Bio",
+          symbol: "TMBX",
+          about: "Developing small molecule inhibitors targeting rare cancers.",
+          phase: "Phase II",
+          prices: [8, 8.2, 8.5, 8.8, 9.1, 9.3, 9.5, 9.7, 10, 10.5, 10.8, 11.2]
+        }
+      ]
+    },
+    {
+      title: "Neurological Disorders",
+      desc: "Biotechs working on therapies for Alzheimer's and Parkinson's disease.",
+      stocks: [
+        {
+          name: "NeuroGenix",
+          symbol: "NRGX",
+          about: "Developing gene therapies for neurodegenerative disorders.",
+          phase: "Phase II",
+          prices: [22, 22.5, 23, 23.5, 24, 24.2, 24.5, 24.8, 25, 25.2, 25.5, 26]
+        }
+      ]
+    }
+  ];
+
   const labels = ["Jul 2023","Aug","Sep","Oct","Nov","Dec","Jan 2024","Feb","Mar","Apr","May","Jun"];
   const container = document.getElementById('stock-sections');
 
+  // ✅ Render sections & cards
   sections.forEach(section => {
     const sectionDiv = document.createElement('div');
     sectionDiv.className = 'mb-5';
@@ -138,7 +174,7 @@
           <h5>${stock.name} (${stock.symbol})</h5>
           <p>${stock.about} <strong>Trial Stage: ${stock.phase}</strong></p>
           <ul class="price-list">
-            ${stock.prices.map((p, i) => `<li>${labels[i]}: $${p}</li>`).join("")}
+            ${stock.prices.map((p, i) => `<li>${labels[i]}: $${p.toFixed(2)}</li>`).join("")}
           </ul>
           <canvas id="chart-${stock.symbol}" height="150"></canvas>
           <a href="https://finance.yahoo.com/quote/${stock.symbol}" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo Finance</a>
@@ -150,6 +186,7 @@
     container.appendChild(sectionDiv);
   });
 
+  // ✅ Render charts
   sections.forEach(section => {
     section.stocks.forEach(stock => {
       const ctx = document.getElementById(`chart-${stock.symbol}`).getContext('2d');
