@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+    <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -126,13 +127,12 @@
   </section>
 
   <section class="container py-5">
-    <!-- Dynamic sections will be inserted here -->
     <div id="stock-sections"></div>
   </section>
 
   <footer>
     <div class="container">
-      <p class="mb-1">© 2024 Statmint. All data sourced from <a href="https://finance.yahoo.com/" target="_blank">Yahoo Finance</a>.</p>
+      <p class="mb-1">© 2024 Statmint. Data via <a href="https://finance.yahoo.com/" target="_blank">Yahoo Finance</a>.</p>
       <p>Questions? <a href="mailto:info@statmint.org">Contact us</a></p>
     </div>
   </footer>
@@ -148,52 +148,29 @@
 
   <script>
     const API_HOST = 'apidojo-yahoo-finance-v1.p.rapidapi.com';
-    const API_KEY = 'YOUR_RAPIDAPI_KEY'; // ✅ PUT YOUR RapidAPI KEY HERE
+    const API_KEY = '3a1d738f20msh37d570357c5e28fp1bb20djsnfa30b534dd5f'; // ✅ Your key is now inserted!
 
     const sections = [
       {
         title: "Cancer Research",
         stocks: [
-          { symbol: "MRK", name: "Merck & Co.", fact: "Leader in immunotherapy." },
-          { symbol: "BMY", name: "Bristol-Myers Squibb", fact: "Opdivo expansion." },
-          { symbol: "REGN", name: "Regeneron", fact: "Innovative oncology pipeline." },
-          { symbol: "AMGN", name: "Amgen", fact: "Cancer biosimilars leader." },
-          { symbol: "GILD", name: "Gilead Sciences", fact: "Focus on oncology revenue growth." }
+          { symbol: "MRK", name: "Merck", fact: "Leading immunotherapy." },
+          { symbol: "BMY", name: "Bristol-Myers", fact: "Opdivo franchise." },
+          { symbol: "REGN", name: "Regeneron", fact: "Emerging oncology." }
         ]
       },
       {
-        title: "Weight Loss & Obesity",
+        title: "Weight Loss",
         stocks: [
-          { symbol: "LLY", name: "Eli Lilly", fact: "Mounjaro & obesity treatments." },
-          { symbol: "NVO", name: "Novo Nordisk", fact: "Ozempic blockbuster." },
-          { symbol: "PFE", name: "Pfizer", fact: "Pipeline includes obesity drug trials." },
-          { symbol: "AZN", name: "AstraZeneca", fact: "R&D focus on metabolic health." }
+          { symbol: "LLY", name: "Eli Lilly", fact: "Mounjaro pipeline." },
+          { symbol: "NVO", name: "Novo Nordisk", fact: "Ozempic leader." }
         ]
       },
       {
-        title: "Vaccines & Infectious Disease",
+        title: "Vaccines",
         stocks: [
-          { symbol: "PFE", name: "Pfizer", fact: "COVID-19 & RSV leadership." },
-          { symbol: "MRNA", name: "Moderna", fact: "mRNA vaccine pioneer." },
-          { symbol: "GSK", name: "GlaxoSmithKline", fact: "Strong vaccine portfolio." },
-          { symbol: "JNJ", name: "Johnson & Johnson", fact: "Broad infectious disease focus." }
-        ]
-      },
-      {
-        title: "Rare & Genetic Diseases",
-        stocks: [
-          { symbol: "VRTX", name: "Vertex", fact: "Leading cystic fibrosis therapies." },
-          { symbol: "BIIB", name: "Biogen", fact: "Focus on neurological disorders." },
-          { symbol: "REGN", name: "Regeneron", fact: "Rare disease pipeline." }
-        ]
-      },
-      {
-        title: "Medical Devices",
-        stocks: [
-          { symbol: "ISRG", name: "Intuitive Surgical", fact: "Da Vinci robotic surgery leader." },
-          { symbol: "SYK", name: "Stryker", fact: "Orthopedic innovations." },
-          { symbol: "BSX", name: "Boston Scientific", fact: "Cardiovascular device leader." },
-          { symbol: "MDT", name: "Medtronic", fact: "Broadest device portfolio." }
+          { symbol: "PFE", name: "Pfizer", fact: "COVID & RSV." },
+          { symbol: "MRNA", name: "Moderna", fact: "mRNA vaccines." }
         ]
       }
     ];
@@ -215,7 +192,7 @@
             <h5>${stock.name} (${stock.symbol})</h5>
             <p class="small text-muted">${stock.fact}</p>
             <canvas id="chart-${stock.symbol}" height="150"></canvas>
-            <a href="https://finance.yahoo.com/quote/${stock.symbol}" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo Finance</a>
+            <a href="https://finance.yahoo.com/quote/${stock.symbol}" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo</a>
           </div>`;
         row.appendChild(col);
       });
@@ -223,10 +200,10 @@
       container.appendChild(sectionDiv);
     });
 
-    // Load prices and render charts
+    // Correct endpoint for 1-year chart
     sections.forEach(section => {
       section.stocks.forEach(stock => {
-        fetch(`https://${API_HOST}/stock/v2/get-timeseries?symbol=${stock.symbol}&region=US`, {
+        fetch(`https://${API_HOST}/stock/v3/get-chart?interval=1d&range=1y&symbol=${stock.symbol}&region=US`, {
           method: 'GET',
           headers: {
             'X-RapidAPI-Host': API_HOST,
@@ -235,18 +212,20 @@
         })
         .then(response => response.json())
         .then(data => {
-          const ts = data?.timeseries;
-          if (ts && ts.timestamp && ts.close) {
-            const labels = ts.timestamp.map(ts => new Date(ts * 1000).toLocaleDateString());
-            const closes = ts.close;
+          const result = data.chart?.result?.[0];
+          if (result) {
+            const timestamps = result.timestamp;
+            const closes = result.indicators.quote[0].close;
+            const labels = timestamps.map(ts => new Date(ts * 1000).toLocaleDateString());
+
             const ctx = document.getElementById(`chart-${stock.symbol}`).getContext('2d');
             new Chart(ctx, {
               type: 'line',
               data: {
-                labels: labels.reverse(),
+                labels: labels,
                 datasets: [{
-                  label: `${stock.symbol} Closing Price`,
-                  data: closes.reverse(),
+                  label: `${stock.symbol} Price`,
+                  data: closes,
                   borderColor: 'rgba(75,192,192,1)',
                   backgroundColor: 'rgba(75,192,192,0.1)',
                   tension: 0.2,
@@ -263,7 +242,7 @@
               }
             });
           } else {
-            console.warn(`No data for ${stock.symbol}`);
+            console.warn(`No chart data for ${stock.symbol}`);
           }
         })
         .catch(err => console.error(err));
