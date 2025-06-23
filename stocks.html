@@ -1,11 +1,10 @@
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Emerging Biotech Pipeline Tracker | Statmint</title>
-  <meta name="description" content="Statmint shows clear data and key facts about biotech companies with new treatments still in clinical trials and not yet FDA approved.">
+  <title>Pipeline Tracker | Statmint</title>
+  <meta name="description" content="Detailed tracker of biotech companies with treatments in clinical trials and not yet FDA approved.">
   <link rel="icon" href="statmint_logo.jpeg" type="image/jpeg" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
@@ -48,17 +47,13 @@
       padding: 7rem 2rem;
     }
     .hero h1 {
-      font-size: 2.8rem;
+      font-size: 2.5rem;
       font-weight: 700;
     }
     .hero p {
       max-width: 720px;
       margin: 1rem auto 1.5rem;
-      font-size: 1.25rem;
-    }
-    .hero .btn {
-      background: #4dabf7;
-      border: none;
+      font-size: 1.2rem;
     }
 
     .section-title {
@@ -78,17 +73,20 @@
       box-shadow: 0 4px 16px rgba(0,0,0,0.05);
       height: 100%;
       transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     .stock-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 30px rgba(0,0,0,0.1);
     }
     .stock-card h5 {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       margin-bottom: 0.5rem;
     }
     .stock-card p {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
     .price-list {
       font-size: 0.85rem;
@@ -99,16 +97,8 @@
     .price-list li {
       list-style: none;
     }
-
-    .cta {
-      background: #0a0a0a;
-      color: #fff;
-      text-align: center;
-      padding: 5rem 2rem;
-    }
-    .cta input {
-      max-width: 320px;
-      margin: 0.5rem auto;
+    .card-footer {
+      margin-top: 1rem;
     }
 
     footer {
@@ -119,7 +109,6 @@
       font-size: 0.9rem;
     }
     footer a { color: #4dabf7; }
-
   </style>
 </head>
 
@@ -137,26 +126,15 @@
 </header>
 
 <section class="hero">
-  <h1>Emerging Biotech Pipeline Tracker</h1>
-  <p>Track promising biotech companies with unapproved treatments in clinical trials, and gain clear insights and trends.</p>
-  <a href="#stock-sections" class="btn btn-primary">Explore Pipeline</a>
+  <h1>Biotech Pipeline Tracker</h1>
+  <p>Discover companies developing innovative treatments currently in clinical trials and track their progress and trends.</p>
 </section>
 
 <section class="container py-5" id="stock-sections"></section>
 
-<section class="cta">
-  <h2>Stay Informed</h2>
-  <p>Subscribe for updates on emerging pipelines, trial milestones, and biotech news.</p>
-  <form>
-    <input type="email" class="form-control mb-2" placeholder="Enter your email" required />
-    <br>
-    <button type="submit" class="btn btn-primary">Subscribe</button>
-  </form>
-</section>
-
 <footer>
   <div class="container">
-    <p>© 2025 Statmint. Data provided for research and educational purposes only. <a href="#">Privacy Policy</a>.</p>
+    <p>© 2025 Statmint. All data is for research and education only. <a href="#">Privacy Policy</a>.</p>
   </div>
 </footer>
 
@@ -167,21 +145,61 @@
   const sections = [
     {
       title: "Oncology Startups",
-      desc: "Novel cancer treatments in early and mid-phase trials.",
+      desc: "Next-gen companies pioneering cancer treatment breakthroughs.",
       stocks: [
         {
           name: "NovaCell Therapeutics",
           symbol: "NCEL",
-          about: "Pioneering CAR-T therapies for solid tumors.",
+          about: "NovaCell specializes in patient-specific CAR-T therapies that adapt to each individual's tumor microenvironment, aiming to drastically reduce relapse rates in solid tumors.",
           phase: "Phase I",
-          prices: [12.5, 13, 13.5, 14, 14.8, 15.2, 16, 15.5, 16.2, 17, 17.5, 18]
+          prices: [12.5, 13, 13.5, 14, 14.8, 15.2, 16, 15.5, 16.2, 17, 17.5, 18],
+          website: "https://www.novacell.com"
         },
         {
           name: "TumorX Bio",
           symbol: "TMBX",
-          about: "Small molecule inhibitors targeting rare cancers.",
+          about: "TumorX Bio is advancing selective small molecule drugs to target resistant cancer mutations, with a pipeline focused on rare pediatric cancers.",
           phase: "Phase II",
-          prices: [8, 8.2, 8.5, 8.8, 9.1, 9.3, 9.5, 9.7, 10, 10.5, 10.8, 11.2]
+          prices: [8, 8.2, 8.5, 8.8, 9.1, 9.3, 9.5, 9.7, 10, 10.5, 10.8, 11.2],
+          website: "https://www.tumorxbio.com"
+        },
+        {
+          name: "OncoNext",
+          symbol: "ONXT",
+          about: "OncoNext develops next-generation antibody-drug conjugates for aggressive forms of breast and lung cancers, aiming to improve specificity and reduce toxicity.",
+          phase: "Phase I",
+          prices: [10, 10.3, 10.5, 10.9, 11.2, 11.5, 11.8, 12, 12.5, 13, 13.2, 13.8],
+          website: "https://www.onconext.com"
+        }
+      ]
+    },
+    {
+      title: "Neurodegenerative Disease Biotechs",
+      desc: "Biotechs tackling Alzheimer's, Parkinson's and other neurological disorders with cutting-edge research.",
+      stocks: [
+        {
+          name: "NeuroGenix",
+          symbol: "NRGX",
+          about: "NeuroGenix is engineering gene therapies to target key pathways involved in early-onset Alzheimer's, aiming for single-dose treatments with long-lasting effects.",
+          phase: "Phase II",
+          prices: [22, 22.5, 23, 23.5, 24, 24.2, 24.5, 24.8, 25, 25.2, 25.5, 26],
+          website: "https://www.neurogenix.com"
+        },
+        {
+          name: "SynaptoBio",
+          symbol: "SNAP",
+          about: "SynaptoBio is testing novel compounds that stimulate synaptic repair and neuroplasticity, offering new hope for slowing Parkinson's disease progression.",
+          phase: "Phase I",
+          prices: [15, 15.2, 15.5, 15.8, 16, 16.3, 16.5, 16.7, 17, 17.2, 17.5, 17.8],
+          website: "https://www.synaptobio.com"
+        },
+        {
+          name: "BrainCell Therapeutics",
+          symbol: "BCTL",
+          about: "BrainCell Therapeutics uses stem cell-derived exosomes to promote neuron regeneration, with applications in ALS and other motor neuron diseases.",
+          phase: "Pre-Clinical",
+          prices: [5, 5.2, 5.5, 5.7, 6, 6.1, 6.3, 6.5, 6.7, 6.9, 7, 7.2],
+          website: "https://www.braincelltx.com"
         }
       ]
     }
@@ -206,12 +224,16 @@
       col.innerHTML = `
         <div class="stock-card flex-fill" data-aos="zoom-in" data-aos-delay="${(idx+1)*100}">
           <h5>${stock.name} (${stock.symbol})</h5>
-          <p>${stock.about} <strong>Trial Stage: ${stock.phase}</strong></p>
+          <p>${stock.about}</p>
+          <p><strong>Trial Stage:</strong> ${stock.phase}</p>
           <ul class="price-list">
             ${stock.prices.map((p, i) => `<li>${labels[i]}: $${p.toFixed(2)}</li>`).join("")}
           </ul>
           <canvas id="chart-${stock.symbol}" height="150"></canvas>
-          <a href="https://finance.yahoo.com/quote/${stock.symbol}" target="_blank" class="btn btn-outline-primary mt-3">View on Yahoo Finance</a>
+          <div class="card-footer">
+            <a href="${stock.website}" target="_blank" class="btn btn-primary btn-sm">Visit Website</a>
+            <a href="https://finance.yahoo.com/quote/${stock.symbol}" target="_blank" class="btn btn-outline-primary btn-sm ms-2">Yahoo Finance</a>
+          </div>
         </div>
       `;
       row.appendChild(col);
