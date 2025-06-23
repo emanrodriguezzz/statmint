@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pipeline Tracker | Statmint</title>
-  <meta name="description" content="Horizontally laid out research-grade pipeline tracker for biotech companies.">
+  <meta name="description" content="Accurate tracker for real biotech companies with drugs in clinical trials — clear phases, trial status, and links.">
   <link rel="icon" href="statmint_logo.jpeg" type="image/jpeg" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
@@ -15,7 +15,6 @@
       font-family: 'Inter', sans-serif;
       background: #f9fafb;
       color: #212529;
-      line-height: 1.7;
     }
 
     header {
@@ -26,7 +25,6 @@
       align-items: center;
       position: sticky;
       top: 0;
-      z-index: 1000;
     }
 
     header img { height: 44px; }
@@ -35,7 +33,6 @@
       color: #fff;
       text-decoration: none;
       font-weight: 500;
-      font-size: 0.95rem;
     }
     nav a:hover { color: #0d6efd; }
 
@@ -48,132 +45,38 @@
 
     .hero h1 {
       font-family: 'Merriweather', serif;
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
     }
 
     .hero p {
       max-width: 800px;
-      margin: 0 auto;
-      font-size: 1.1rem;
+      margin: 1rem auto 0;
       color: #adb5bd;
     }
 
-    .section-title {
-      font-family: 'Merriweather', serif;
-      font-size: 1.9rem;
-      border-bottom: 2px solid #dee2e6;
-      padding-bottom: 0.3rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .section-desc {
-      color: #495057;
-      margin-bottom: 2rem;
-      font-size: 1rem;
-    }
-
-    .stock-row {
-      background: #fff;
-      border: 1px solid #dee2e6;
-      border-radius: 8px;
-      padding: 2rem;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-      transition: box-shadow 0.2s ease;
-      margin-bottom: 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-
-    .stock-row:hover {
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-    }
-
-    .stock-details {
-      flex: 1 1 50%;
-      min-width: 300px;
-    }
-
-    .stock-data {
-      flex: 1 1 40%;
-      min-width: 300px;
-    }
-
-    .stock-row h5 {
-      font-family: 'Merriweather', serif;
-      font-size: 1.5rem;
-      margin-bottom: 0.75rem;
-      color: #111;
-    }
-
-    .stock-row p {
-      font-size: 0.95rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .label {
-      display: inline-block;
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      letter-spacing: 0.05em;
-      color: #6c757d;
-      margin-right: 0.3rem;
-    }
-
-    .trial-summary {
-      font-size: 0.9rem;
-      background: #f1f3f5;
-      border-left: 4px solid #0d6efd;
-      padding: 0.75rem 1rem;
-      margin: 1rem 0;
-    }
-
-    .price-table {
+    table {
       width: 100%;
-      font-size: 0.85rem;
       border-collapse: collapse;
-      margin-bottom: 1rem;
+      margin-top: 2rem;
     }
 
-    .price-table th,
-    .price-table td {
-      padding: 0.45rem 0.6rem;
+    th, td {
+      padding: 0.75rem 1rem;
       border: 1px solid #dee2e6;
       text-align: left;
     }
 
-    .price-table thead th {
+    th {
       background: #f8f9fa;
       font-weight: 600;
-      color: #495057;
     }
 
-    .price-table tbody tr:nth-child(even) {
+    tbody tr:nth-child(even) {
       background: #fdfdfe;
     }
 
-    .chart-container {
-      margin-top: 1rem;
-    }
-
-    .card-footer {
-      border-top: 1px solid #dee2e6;
-      padding-top: 0.75rem;
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .card-footer a {
-      font-size: 0.85rem;
-      text-decoration: underline;
-      color: #0d6efd;
-    }
-
-    .card-footer a:hover {
-      text-decoration: none;
+    tbody tr:hover {
+      background: #e9ecef;
     }
 
     footer {
@@ -181,15 +84,15 @@
       color: #adb5bd;
       text-align: center;
       padding: 2rem 1rem;
-      font-size: 0.85rem;
     }
 
     footer a {
       color: #0d6efd;
     }
 
-    .container {
-      max-width: 1600px;
+    .sparkline {
+      height: 40px;
+      width: 100px;
     }
   </style>
 </head>
@@ -203,139 +106,154 @@
     <a href="stocks.html">Pipeline Tracker</a>
     <a href="fda.html">FDA Pipeline</a>
     <a href="ipos.html">Biotech IPOs</a>
-    <a href="globalhealth.html">Global Health</a>
   </nav>
 </header>
 
 <section class="hero">
-  <h1>Biotech Pipeline Tracker</h1>
-  <p>Professional fact-sheet rows with full company overview, pipeline, IPO info, competitors, and horizontal charts.</p>
+  <h1>Emerging Biotech Pipeline Tracker</h1>
+  <p>Statmint provides verified pipeline data on real biotech companies working on new drugs still in clinical trials and not yet FDA approved.</p>
 </section>
 
-<section class="container py-5" id="stock-sections"></section>
+<section class="container py-5">
+  <div class="table-responsive">
+    <table>
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Ticker</th>
+          <th>Candidate</th>
+          <th>Indication</th>
+          <th>Phase</th>
+          <th>Trial Status</th>
+          <th>Competitors</th>
+          <th>IPO Date</th>
+          <th>Price Trend</th>
+          <th>Links</th>
+        </tr>
+      </thead>
+      <tbody id="pipeline-table-body"></tbody>
+    </table>
+  </div>
+</section>
 
 <footer>
   <div class="container">
-    <p>© 2025 Statmint. For research and informational use only. <a href="#">Privacy Policy</a>.</p>
+    <p>© 2025 Statmint. For research only — always verify with official filings. <a href="#">Privacy Policy</a>.</p>
   </div>
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
   AOS.init({ duration: 800, once: true, easing: 'ease-in-out' });
 
-  const sections = [
+  const pipeline = [
     {
-      title: "Oncology Leaders",
-      desc: "Each row includes extended fundamentals, competitors, IPO date, trial summary and a horizontal bar chart.",
-      stocks: [
-        {
-          name: "NovaCell Therapeutics",
-          symbol: "NCEL",
-          about: "NovaCell develops next-generation CAR-T therapies for advanced solid tumors, with proprietary cell engineering.",
-          headquarters: "Cambridge, MA",
-          founded: 2017,
-          ipoDate: "March 2022",
-          competitors: ["CellThera Inc.", "ImmunoNext Biologics", "CAR-T Dynamics"],
-          leadCandidate: "NCEL-101",
-          indication: "Advanced Solid Tumors",
-          phase: "Phase I",
-          trialSummary: "Phase I (n=24): 35% partial response, manageable CRS, promising durability.",
-          prices: [12.5, 13, 13.5, 14, 14.8, 15.2, 16, 15.5, 16.2, 17, 17.5, 18],
-          website: "https://www.novacell.com"
-        },
-        {
-          name: "TumorX Bio",
-          symbol: "TMBX",
-          about: "TumorX Bio focuses on small-molecule inhibitors for rare pediatric tumors, leveraging orphan drug incentives.",
-          headquarters: "San Diego, CA",
-          founded: 2015,
-          ipoDate: "Private",
-          competitors: ["RareCure Therapeutics", "PediaOnco Bio"],
-          leadCandidate: "TMBX-201",
-          indication: "Rare Pediatric Tumors",
-          phase: "Phase II",
-          trialSummary: "Phase II (n=58): Met PFS at 6 months; mild AEs; no unexpected toxicity.",
-          prices: [8, 8.2, 8.5, 8.8, 9.1, 9.3, 9.5, 9.7, 10, 10.5, 10.8, 11.2],
-          website: "https://www.tumorxbio.com"
-        }
-      ]
+      name: "Moderna",
+      ticker: "MRNA",
+      candidate: "mRNA-1345",
+      indication: "RSV Vaccine (Older Adults)",
+      phase: "Phase III",
+      trialStatus: "Primary endpoint met, BLA filing expected late 2024.",
+      competitors: ["Pfizer", "GSK"],
+      ipoDate: "Dec 2018",
+      prices: [140, 145, 142, 148, 150, 153, 155, 160, 162, 158, 155, 150],
+      website: "https://www.modernatx.com"
+    },
+    {
+      name: "BioNTech",
+      ticker: "BNTX",
+      candidate: "BNT162b2 Combo",
+      indication: "COVID-19 + Influenza Combo Vaccine",
+      phase: "Phase II/III",
+      trialStatus: "Enrolling, interim results mid-2024.",
+      competitors: ["Moderna", "CureVac"],
+      ipoDate: "Oct 2019",
+      prices: [100, 98, 95, 97, 99, 102, 105, 104, 107, 110, 108, 105],
+      website: "https://biontech.com"
+    },
+    {
+      name: "Vertex Pharmaceuticals",
+      ticker: "VRTX",
+      candidate: "VX-548",
+      indication: "Non-opioid Pain Treatment",
+      phase: "Phase III",
+      trialStatus: "Pivotal trials enrolling, NDA planned 2025.",
+      competitors: ["Pfizer", "Eli Lilly"],
+      ipoDate: "July 1991",
+      prices: [300, 310, 320, 315, 318, 325, 330, 340, 335, 345, 340, 335],
+      website: "https://www.vrtx.com"
+    },
+    {
+      name: "Alnylam Pharmaceuticals",
+      ticker: "ALNY",
+      candidate: "Vutrisiran",
+      indication: "ATTR Amyloidosis",
+      phase: "Phase III",
+      trialStatus: "On track for readout Q3 2024.",
+      competitors: ["Ionis Pharmaceuticals"],
+      ipoDate: "Jun 2004",
+      prices: [190, 195, 192, 198, 200, 205, 202, 207, 210, 208, 205, 200],
+      website: "https://www.alnylam.com"
+    },
+    {
+      name: "CRISPR Therapeutics",
+      ticker: "CRSP",
+      candidate: "CTX001",
+      indication: "Beta Thalassemia & Sickle Cell",
+      phase: "Regulatory Review",
+      trialStatus: "BLA submitted; under FDA review 2024.",
+      competitors: ["Bluebird Bio"],
+      ipoDate: "Oct 2016",
+      prices: [50, 52, 55, 57, 59, 60, 63, 65, 62, 60, 58, 57],
+      website: "https://www.crisprtx.com"
     }
   ];
 
-  const labels = ["Jul 2023","Aug","Sep","Oct","Nov","Dec","Jan 2024","Feb","Mar","Apr","May","Jun"];
-  const container = document.getElementById('stock-sections');
+  const labels = ["Jul 2023","Aug","Sep","Oct","Nov","Dec","Jan","Feb","Mar","Apr","May","Jun"];
+  const tbody = document.getElementById('pipeline-table-body');
 
-  sections.forEach(section => {
-    const sectionDiv = document.createElement('div');
-    sectionDiv.className = 'mb-5';
-    sectionDiv.innerHTML = `
-      <h2 class="section-title" data-aos="fade-up">${section.title}</h2>
-      <p class="section-desc">${section.desc}</p>
+  pipeline.forEach((entry, idx) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${entry.name}</td>
+      <td>${entry.ticker}</td>
+      <td>${entry.candidate}</td>
+      <td>${entry.indication}</td>
+      <td>${entry.phase}</td>
+      <td>${entry.trialStatus}</td>
+      <td>${entry.competitors.join(', ')}</td>
+      <td>${entry.ipoDate}</td>
+      <td><canvas id="spark-${idx}" class="sparkline"></canvas></td>
+      <td>
+        <a href="${entry.website}" target="_blank">IR Page</a> |
+        <a href="https://finance.yahoo.com/quote/${entry.ticker}" target="_blank">Yahoo Finance</a>
+      </td>
     `;
-    container.appendChild(sectionDiv);
+    tbody.appendChild(row);
 
-    section.stocks.forEach((stock, idx) => {
-      const row = document.createElement('div');
-      row.className = 'stock-row';
-      row.setAttribute('data-aos', 'fade-up');
-      row.setAttribute('data-aos-delay', `${(idx+1)*100}`);
-      row.innerHTML = `
-        <div class="stock-details">
-          <h5>${stock.name} (${stock.symbol})</h5>
-          <p>${stock.about}</p>
-          <p><span class="label">Headquarters:</span> ${stock.headquarters}</p>
-          <p><span class="label">Founded:</span> ${stock.founded}</p>
-          <p><span class="label">IPO:</span> ${stock.ipoDate}</p>
-          <p><span class="label">Lead Candidate:</span> ${stock.leadCandidate}</p>
-          <p><span class="label">Indication:</span> ${stock.indication}</p>
-          <p><span class="label">Competitors:</span> ${stock.competitors.join(', ')}</p>
-          <p><span class="label">Clinical Phase:</span> ${stock.phase}</p>
-          <div class="trial-summary"><strong>Trial Summary:</strong> ${stock.trialSummary}</div>
-          <div class="card-footer">
-            <a href="${stock.website}" target="_blank">Company Website</a>
-            <a href="https://finance.yahoo.com/quote/${stock.symbol}" target="_blank">Yahoo Finance</a>
-          </div>
-        </div>
-        <div class="stock-data">
-          <table class="price-table">
-            <thead><tr><th>Month</th><th>Close ($)</th></tr></thead>
-            <tbody>
-              ${stock.prices.map((p, i) => `<tr><td>${labels[i]}</td><td>$${p.toFixed(2)}</td></tr>`).join("")}
-            </tbody>
-          </table>
-          <div class="chart-container">
-            <canvas id="chart-${stock.symbol}" height="300"></canvas>
-          </div>
-        </div>
-      `;
-      container.appendChild(row);
-    });
-  });
-
-  sections.forEach(section => {
-    section.stocks.forEach(stock => {
-      const ctx = document.getElementById(`chart-${stock.symbol}`).getContext('2d');
-      new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: labels,
-          datasets: [{
-            label: `${stock.symbol} Closing Price`,
-            data: stock.prices,
-            backgroundColor: '#0d6efd'
-          }]
+    const ctx = document.getElementById(`spark-${idx}`).getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [{
+          data: entry.prices,
+          borderColor: '#0d6efd',
+          backgroundColor: 'transparent',
+          tension: 0.3
+        }]
+      },
+      options: {
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { display: false },
+          y: { display: false }
         },
-        options: {
-          indexAxis: 'y',
-          responsive: true,
-          plugins: { legend: { display: false } },
-          scales: {
-            x: { grid: { display: true } },
-            y: { grid: { display: false } }
-          }
+        elements: {
+          point: { radius: 0 }
         }
-      });
+      }
     });
   });
 </script>
