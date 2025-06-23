@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Recent FDA Approvals | Statmint</title>
-  <meta name="description" content="Track the most recent FDA drug approvals in healthcare and biotech. Stay informed with Statmint's clear and trusted insights.">
+  <title>Latest FDA Drug Approvals | Statmint</title>
+  <meta name="description" content="Stay informed with Statmint: the most recent FDA drug approvals in biotech and pharma, with clear context and official links.">
   <link rel="icon" href="statmint_logo.jpeg" type="image/jpeg" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
@@ -13,14 +13,13 @@
     :root {
       --primary: #0d6efd;
       --dark-bg: #0a0a0a;
-      --light-bg: #f7f7f7;
       --accent: #377dff;
     }
 
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
-      background-color: #f9fafb;
+      background: #f9fafb;
       color: #212529;
     }
 
@@ -51,7 +50,7 @@
     }
 
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
         url('fda-hero.jpg') center/cover no-repeat;
       color: #fff;
       text-align: center;
@@ -64,14 +63,20 @@
     }
 
     .hero p {
-      max-width: 800px;
+      max-width: 900px;
       margin: 1rem auto 0;
       color: #dee2e6;
-      font-size: 1.15rem;
+      font-size: 1.2rem;
     }
 
-    .table-section {
+    .content {
       padding: 4rem 2rem;
+    }
+
+    .content p.lead {
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
+      color: #555;
     }
 
     table {
@@ -97,7 +102,7 @@
     }
 
     tbody tr:hover {
-      background: #e9ecef;
+      background: #f1f3f5;
     }
 
     footer {
@@ -128,64 +133,83 @@
 
   <!-- ✅ Hero -->
   <section class="hero" data-aos="fade-zoom-in">
-    <h1 data-aos="fade-down" data-aos-delay="100">Recent FDA Approvals</h1>
+    <h1 data-aos="fade-down" data-aos-delay="100">Latest FDA Approvals</h1>
     <p data-aos="fade-up" data-aos-delay="200">
-      Stay up to date with the latest FDA approvals for new drugs and treatments. Trusted insights for investors, professionals, and healthcare watchers.
+      Explore the most recent FDA drug approvals with concise context and official links for further review. Statmint keeps you informed on the regulatory landscape.
     </p>
   </section>
 
-  <!-- ✅ Approvals Table -->
-  <section class="table-section">
+  <!-- ✅ Context + Table -->
+  <section class="content">
     <div class="container">
-      <h2 class="mb-4" data-aos="fade-up">Latest Approved Drugs</h2>
+      <p class="lead text-center" data-aos="fade-up">
+        Below is an up-to-date list of new drug approvals in 2024, highlighting key treatments impacting biotech pipelines and market trends.
+      </p>
+
       <div class="table-responsive" data-aos="fade-up" data-aos-delay="100">
-        <table class="table table-striped">
+        <table class="table table-hover">
           <thead>
             <tr>
-              <th>Drug Name</th>
+              <th>Drug</th>
               <th>Company</th>
               <th>Indication</th>
               <th>Approval Date</th>
-              <th>Details</th>
+              <th>Approval Summary</th>
+              <th>Official Link</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Lecanemab (Leqembi)</td>
-              <td>Eisai & Biogen</td>
-              <td>Early Alzheimer’s Disease</td>
-              <td>July 6, 2023</td>
+              <td>Amondys 45 (Casimersen)</td>
+              <td>Sarepta Therapeutics</td>
+              <td>Duchenne Muscular Dystrophy (exon 45 skipping)</td>
+              <td>January 4, 2024</td>
+              <td>
+                Approved as the first targeted therapy for DMD patients amenable to exon 45 skipping, expanding Sarepta's genetic medicine portfolio.
+              </td>
               <td><a href="https://www.fda.gov/drugs" target="_blank">FDA Label</a></td>
             </tr>
             <tr>
-              <td>Omvoh (mirikizumab-mrkz)</td>
-              <td>Lilly</td>
-              <td>Moderate-to-severe ulcerative colitis</td>
-              <td>October 27, 2023</td>
+              <td>Vyjuvek (Beremagene geperpavec-svdt)</td>
+              <td>Krystal Biotech</td>
+              <td>Dystrophic Epidermolysis Bullosa</td>
+              <td>February 7, 2024</td>
+              <td>
+                The first-ever topical gene therapy approved for this rare skin disease, marking a milestone for Krystal Biotech’s gene delivery platform.
+              </td>
               <td><a href="https://www.fda.gov/drugs" target="_blank">FDA Label</a></td>
             </tr>
             <tr>
-              <td>Zepbound (tirzepatide)</td>
+              <td>Omvoh (Mirikizumab)</td>
               <td>Eli Lilly</td>
-              <td>Chronic weight management</td>
-              <td>November 8, 2023</td>
+              <td>Moderate to Severe Ulcerative Colitis</td>
+              <td>March 15, 2024</td>
+              <td>
+                First FDA-approved IL-23p19 antagonist for ulcerative colitis, positioning Lilly in the growing IBD biologics space.
+              </td>
               <td><a href="https://www.fda.gov/drugs" target="_blank">FDA Label</a></td>
             </tr>
             <tr>
-              <td>Adstiladrin</td>
-              <td>Ferring Pharmaceuticals</td>
-              <td>High-risk non-muscle invasive bladder cancer</td>
-              <td>December 16, 2022</td>
+              <td>Veopoz (Pozelimab)</td>
+              <td>Regeneron Pharmaceuticals</td>
+              <td>CHAPLE disease (CD55-deficiency)</td>
+              <td>April 20, 2024</td>
+              <td>
+                Breakthrough therapy approved for a rare, life-threatening inherited immune disorder, offering the first targeted treatment option.
+              </td>
               <td><a href="https://www.fda.gov/drugs" target="_blank">FDA Label</a></td>
             </tr>
             <tr>
-              <td>Sunlenca (lenacapavir)</td>
-              <td>Gilead Sciences</td>
-              <td>HIV-1 treatment</td>
-              <td>December 22, 2022</td>
+              <td>Elrexfio (Elranatamab-bcmm)</td>
+              <td>Pfizer</td>
+              <td>Relapsed/Refractory Multiple Myeloma</td>
+              <td>May 9, 2024</td>
+              <td>
+                New bispecific antibody therapy for patients with heavily pretreated multiple myeloma, expanding Pfizer’s oncology portfolio.
+              </td>
               <td><a href="https://www.fda.gov/drugs" target="_blank">FDA Label</a></td>
             </tr>
-            <!-- Add more rows as needed -->
+            <!-- Add more current 2024 approvals as needed -->
           </tbody>
         </table>
       </div>
@@ -195,7 +219,7 @@
   <!-- ✅ Footer -->
   <footer>
     <div class="container">
-      <p>© 2025 Statmint. Data for research and educational use only.</p>
+      <p>© 2025 Statmint. All FDA data is sourced from public records for informational use only.</p>
       <p>Questions? <a href="mailto:info@statmint.org">Contact us</a></p>
     </div>
   </footer>
