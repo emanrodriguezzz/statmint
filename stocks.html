@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pipeline Tracker | Statmint</title>
-  <meta name="description" content="Real biotech pipeline tracker with full-width professional layout and verified company data.">
+  <meta name="description" content="Real biotech pipeline tracker with verified clinical stage data, clear summaries, and professional design.">
   <link rel="icon" href="statmint_logo.jpeg" type="image/jpeg" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
@@ -98,7 +98,6 @@
       color: #0d6efd;
     }
 
-    /* Make sure table container is truly fluid */
     .table-container {
       width: 100%;
       overflow-x: auto;
@@ -120,7 +119,7 @@
 
 <section class="hero">
   <h1>Emerging Biotech Pipeline Tracker</h1>
-  <p>Statmint provides factual summaries and trial data for real biotech companies — full-width view for clarity and easy comparison.</p>
+  <p>Statmint provides factual snapshots of real biotech companies actively developing new drugs that are still in clinical trials and not yet FDA approved.</p>
 </section>
 
 <section class="table-container px-3 py-5">
@@ -155,73 +154,7 @@
 <script>
   AOS.init({ duration: 800, once: true, easing: 'ease-in-out' });
 
-  const pipeline = [
-    {
-      name: "Moderna",
-      summary: "Moderna is a pioneer in mRNA therapeutics, developing vaccines and treatments across infectious diseases, oncology, and rare diseases.",
-      ticker: "MRNA",
-      candidate: "mRNA-1345",
-      indication: "RSV Vaccine (Older Adults)",
-      phase: "Phase III",
-      trialStatus: "Primary endpoint met; BLA filing expected late 2024.",
-      competitors: ["Pfizer", "GSK"],
-      ipoDate: "Dec 2018",
-      prices: [140, 145, 142, 148, 150, 153, 155, 160, 162, 158, 155, 150],
-      website: "https://www.modernatx.com"
-    },
-    {
-      name: "BioNTech",
-      summary: "BioNTech develops mRNA-based immunotherapies for cancer and infectious diseases; co-developed the first mRNA COVID-19 vaccine with Pfizer.",
-      ticker: "BNTX",
-      candidate: "BNT162b2 Combo",
-      indication: "COVID-19 + Influenza Combo Vaccine",
-      phase: "Phase II/III",
-      trialStatus: "Enrolling; interim data mid-2024.",
-      competitors: ["Moderna", "CureVac"],
-      ipoDate: "Oct 2019",
-      prices: [100, 98, 95, 97, 99, 102, 105, 104, 107, 110, 108, 105],
-      website: "https://biontech.com"
-    },
-    {
-      name: "Vertex Pharmaceuticals",
-      summary: "Vertex is a biotech leader in cystic fibrosis treatment and now expanding into non-opioid pain and gene editing therapies.",
-      ticker: "VRTX",
-      candidate: "VX-548",
-      indication: "Non-opioid Pain Treatment",
-      phase: "Phase III",
-      trialStatus: "Pivotal trials enrolling; NDA filing planned for 2025.",
-      competitors: ["Pfizer", "Eli Lilly"],
-      ipoDate: "July 1991",
-      prices: [300, 310, 320, 315, 318, 325, 330, 340, 335, 345, 340, 335],
-      website: "https://www.vrtx.com"
-    },
-    {
-      name: "Alnylam Pharmaceuticals",
-      summary: "Alnylam focuses on RNAi therapeutics to silence disease-causing genes, with approved products and new late-stage candidates.",
-      ticker: "ALNY",
-      candidate: "Vutrisiran",
-      indication: "ATTR Amyloidosis",
-      phase: "Phase III",
-      trialStatus: "On track for Phase III readout Q3 2024.",
-      competitors: ["Ionis Pharmaceuticals"],
-      ipoDate: "Jun 2004",
-      prices: [190, 195, 192, 198, 200, 205, 202, 207, 210, 208, 205, 200],
-      website: "https://www.alnylam.com"
-    },
-    {
-      name: "CRISPR Therapeutics",
-      summary: "CRISPR Therapeutics develops gene-editing therapies using CRISPR/Cas9 tech, with lead programs in blood disorders.",
-      ticker: "CRSP",
-      candidate: "CTX001",
-      indication: "Beta Thalassemia & Sickle Cell",
-      phase: "Regulatory Review",
-      trialStatus: "BLA submitted; under FDA review 2024.",
-      competitors: ["Bluebird Bio"],
-      ipoDate: "Oct 2016",
-      prices: [50, 52, 55, 57, 59, 60, 63, 65, 62, 60, 58, 57],
-      website: "https://www.crisprtx.com"
-    }
-  ];
+  const pipeline = [/* PASTE THE FULL JSON FROM THE PREVIOUS MESSAGE HERE EXACTLY! */];
 
   const labels = ["Jul 2023","Aug","Sep","Oct","Nov","Dec","Jan","Feb","Mar","Apr","May","Jun"];
   const tbody = document.getElementById('pipeline-table-body');
