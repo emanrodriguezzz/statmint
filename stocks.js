@@ -1,9 +1,10 @@
+// ✅ stocks.js — StatMint live stock tracker using Yahoo Finance API via RapidAPI
+
 const tickers = [
-  "PFE", "JNJ", "MRNA", "UNH", "LLY", "ABBV", "CVS", "ANTM",
-  "BIIB", "BMY", "GILD", "VRTX", "REGN", "ISRG", "ZBH", "MDT",
-  "SYK", "BSX", "NVS", "ROG.SW", "SNY", "GSK", "AZN", "TAK",
-  "BAYN.DE"
-  // Add more up to 100!
+  "PFE", "JNJ", "MRNA", "UNH", "LLY", "ABBV", "CVS", "ANTM", "BIIB", "BMY",
+  "GILD", "VRTX", "REGN", "ISRG", "ZBH", "MDT", "SYK", "BSX", "NVS", "ROG.SW",
+  "SNY", "GSK", "AZN", "TAK", "BAYN.DE"
+  // 👉 Add more up to 100 tickers here
 ];
 
 const container = document.getElementById("stocks-container");
@@ -11,7 +12,7 @@ const container = document.getElementById("stocks-container");
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "YOUR_RAPIDAPI_KEY",
+    "X-RapidAPI-Key": "3a1d738f20msh37d570357c5e28fp1bb20djsnfa30b534dd5f",
     "X-RapidAPI-Host": "yahoo-finance-real-time1.p.rapidapi.com"
   }
 };
@@ -20,8 +21,7 @@ tickers.forEach(ticker => {
   fetch(`https://yahoo-finance-real-time1.p.rapidapi.com/stock/get-detail?symbol=${ticker}`, options)
     .then(response => response.json())
     .then(data => {
-      console.log(data);
-
+      // Safely extract data
       const price = data.price?.regularMarketPrice ?? "N/A";
       const change = data.price?.regularMarketChangePercent ?? "N/A";
       const marketCap = data.summaryDetail?.marketCap ?? "N/A";
@@ -42,5 +42,7 @@ tickers.forEach(ticker => {
       `;
       container.appendChild(card);
     })
-    .catch(err => console.error(err));
+    .catch(err => {
+      console.error(`Error loading ${ticker}:`, err);
+    });
 });
