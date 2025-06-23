@@ -4,17 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pipeline Tracker | Statmint</title>
-  <meta name="description" content="Detailed tracker of biotech companies with treatments in clinical trials and not yet FDA approved.">
+  <meta name="description" content="In-depth tracker of biotech companies with active clinical trials and early results.">
   <link rel="icon" href="statmint_logo.jpeg" type="image/jpeg" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet"/>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background: #f9fafb;
+      background: #f8f9fa;
       color: #212529;
+      line-height: 1.65;
     }
 
     header {
@@ -28,12 +29,13 @@
       z-index: 999;
     }
 
-    header img { height: 50px; }
+    header img { height: 48px; }
     nav a {
-      margin-left: 1rem;
+      margin-left: 1.5rem;
       color: #fff;
       text-decoration: none;
       font-weight: 500;
+      font-size: 0.95rem;
     }
     nav a:hover { color: #1a73e8; }
 
@@ -41,24 +43,26 @@
       background: #0a0a0a;
       color: #fff;
       text-align: center;
-      padding: 5rem 2rem;
+      padding: 4rem 1rem;
     }
 
     .hero h1 {
-      font-size: 2.8rem;
-      font-weight: 600;
+      font-family: 'Merriweather', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
     }
 
     .hero p {
       max-width: 720px;
-      margin: 1rem auto 0;
-      font-size: 1.15rem;
+      margin: 0 auto;
+      font-size: 1.05rem;
       color: #ccc;
     }
 
     .section-title {
-      font-size: 1.8rem;
-      font-weight: 600;
+      font-family: 'Merriweather', serif;
+      font-size: 1.75rem;
       margin-bottom: 0.3rem;
     }
 
@@ -70,70 +74,71 @@
 
     .stock-card {
       background: #fff;
-      border: 1px solid #ddd;
+      border: 1px solid #e1e4e8;
       border-radius: 8px;
       padding: 2rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-      height: 100%;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      height: 100%;
     }
 
     .stock-card h5 {
-      font-size: 1.2rem;
-      font-weight: 700;
+      font-family: 'Merriweather', serif;
+      font-size: 1.3rem;
       margin-bottom: 0.75rem;
       color: #111;
     }
 
     .stock-card p {
       font-size: 0.95rem;
-      line-height: 1.6;
       margin-bottom: 0.75rem;
     }
 
     .price-table {
       width: 100%;
       font-size: 0.85rem;
-      color: #333;
       margin: 1rem 0;
+      border-collapse: collapse;
     }
 
-    .price-table th, .price-table td {
-      padding: 0.35rem 0.5rem;
-      border-bottom: 1px solid #eee;
+    .price-table th,
+    .price-table td {
+      padding: 0.4rem 0.5rem;
+      border-bottom: 1px solid #e9ecef;
     }
 
-    .price-table th {
-      font-weight: 600;
-      background: #f1f3f5;
+    .price-table tbody tr:nth-child(odd) {
+      background: #f8f9fa;
     }
 
     .chart-container {
       margin: 1rem 0;
     }
 
+    .trial-summary {
+      font-size: 0.9rem;
+      padding: 0.75rem;
+      background: #f1f3f5;
+      border-left: 4px solid #1a73e8;
+      margin: 1rem 0;
+    }
+
     .card-footer {
-      margin-top: 1rem;
+      margin-top: auto;
       display: flex;
-      gap: 0.5rem;
+      justify-content: flex-start;
+      gap: 1rem;
     }
 
     .card-footer a {
-      flex: 1;
       font-size: 0.85rem;
-      border-radius: 4px;
+      text-decoration: none;
+      color: #1a73e8;
     }
 
-    .btn-outline-dark {
-      border-color: #333;
-      color: #333;
-    }
-
-    .btn-outline-dark:hover {
-      background: #333;
-      color: #fff;
+    .card-footer a:hover {
+      text-decoration: underline;
     }
 
     footer {
@@ -141,7 +146,7 @@
       color: #999;
       text-align: center;
       padding: 2rem 1rem;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
 
     footer a {
@@ -165,14 +170,14 @@
 
 <section class="hero">
   <h1>Biotech Pipeline Tracker</h1>
-  <p>Authoritative insights into privately held and emerging biotech companies pursuing novel therapies in active clinical development.</p>
+  <p>Objective company briefs and early-stage clinical trial insights for emerging biotech innovators.</p>
 </section>
 
 <section class="container py-5" id="stock-sections"></section>
 
 <footer>
   <div class="container">
-    <p>© 2025 Statmint. Information presented is for research and educational purposes only. <a href="#">Privacy Policy</a>.</p>
+    <p>© 2025 Statmint. For research and educational purposes only. <a href="#">Privacy Policy</a>.</p>
   </div>
 </footer>
 
@@ -182,22 +187,24 @@
 
   const sections = [
     {
-      title: "Oncology Innovators",
-      desc: "Select companies advancing next-generation oncology therapeutics, with a focus on solid tumors and targeted biologics.",
+      title: "Oncology Research Leaders",
+      desc: "Profiles of select oncology firms pursuing novel therapies with initial trial data available.",
       stocks: [
         {
           name: "NovaCell Therapeutics",
           symbol: "NCEL",
-          about: "NovaCell Therapeutics develops autologous CAR-T therapies engineered for solid tumors, aiming to address high-relapse patient populations with improved persistence and targeted delivery.",
+          about: "NovaCell develops patient-specific CAR-T therapies for solid tumors. Its lead program focuses on enhancing tumor penetration and persistence.",
           phase: "Phase I",
+          trialSummary: "Interim Phase I results (n=24) show an acceptable safety profile with manageable cytokine release syndrome. Early signals indicate tumor size reduction in 35% of evaluable patients.",
           prices: [12.5, 13, 13.5, 14, 14.8, 15.2, 16, 15.5, 16.2, 17, 17.5, 18],
           website: "https://www.novacell.com"
         },
         {
           name: "TumorX Bio",
           symbol: "TMBX",
-          about: "TumorX Bio advances selective small-molecule inhibitors for rare pediatric malignancies, with orphan drug designations to facilitate accelerated regulatory pathways.",
+          about: "TumorX Bio targets rare pediatric cancers with a novel small-molecule inhibitor pipeline, leveraging orphan drug incentives for regulatory acceleration.",
           phase: "Phase II",
+          trialSummary: "Phase II trial (n=58) met its primary endpoint for progression-free survival at 6 months. Mild to moderate adverse events were observed, consistent with prior studies.",
           prices: [8, 8.2, 8.5, 8.8, 9.1, 9.3, 9.5, 9.7, 10, 10.5, 10.8, 11.2],
           website: "https://www.tumorxbio.com"
         }
@@ -225,11 +232,10 @@
         <div class="stock-card flex-fill" data-aos="fade-up" data-aos-delay="${(idx+1)*100}">
           <h5>${stock.name} (${stock.symbol})</h5>
           <p>${stock.about}</p>
-          <p><strong>Trial Phase:</strong> ${stock.phase}</p>
+          <p><strong>Clinical Phase:</strong> ${stock.phase}</p>
+          <div class="trial-summary"><strong>Trial Summary:</strong> ${stock.trialSummary}</div>
           <table class="price-table">
-            <thead>
-              <tr><th>Month</th><th>Price</th></tr>
-            </thead>
+            <thead><tr><th>Month</th><th>Close ($)</th></tr></thead>
             <tbody>
               ${stock.prices.map((p, i) => `<tr><td>${labels[i]}</td><td>$${p.toFixed(2)}</td></tr>`).join("")}
             </tbody>
@@ -238,8 +244,8 @@
             <canvas id="chart-${stock.symbol}" height="120"></canvas>
           </div>
           <div class="card-footer">
-            <a href="${stock.website}" target="_blank" class="btn btn-outline-dark btn-sm">Company Website</a>
-            <a href="https://finance.yahoo.com/quote/${stock.symbol}" target="_blank" class="btn btn-dark btn-sm">Yahoo Finance</a>
+            <a href="${stock.website}" target="_blank">Visit Website</a>
+            <a href="https://finance.yahoo.com/quote/${stock.symbol}" target="_blank">Yahoo Finance</a>
           </div>
         </div>
       `;
@@ -260,7 +266,7 @@
             label: `${stock.symbol} Closing Price`,
             data: stock.prices,
             borderColor: '#1a73e8',
-            backgroundColor: 'rgba(26, 115, 232, 0.1)',
+            backgroundColor: 'rgba(26, 115, 232, 0.05)',
             tension: 0.3,
             fill: true
           }]
