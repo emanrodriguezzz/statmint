@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pipeline Tracker | Statmint</title>
-  <meta name="description" content="Real biotech pipeline tracker with verified clinical stage data, clear summaries, and professional design.">
+  <meta name="description" content="Real biotech pipeline tracker with live search, phase filter, CSV export, and verified pipeline data.">
   <link rel="icon" href="statmint_logo.jpeg" type="image/jpeg" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
@@ -16,7 +16,6 @@
       background: #f9fafb;
       color: #212529;
     }
-
     header {
       background: #0a0a0a;
       padding: 1rem 2rem;
@@ -26,7 +25,6 @@
       position: sticky;
       top: 0;
     }
-
     header img { height: 44px; }
     nav a {
       margin-left: 1.5rem;
@@ -35,32 +33,33 @@
       font-weight: 500;
     }
     nav a:hover { color: #0d6efd; }
-
     .hero {
       background: #0a0a0a;
       color: #fff;
       text-align: center;
       padding: 4rem 1rem;
     }
-
     .hero h1 {
       font-family: 'Merriweather', serif;
       font-size: 2.5rem;
     }
-
     .hero p {
       max-width: 1000px;
       margin: 1rem auto 0;
       color: #adb5bd;
     }
-
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
     .full-width-table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 2rem;
+      margin-top: 1rem;
       table-layout: fixed;
     }
-
     th, td {
       padding: 0.75rem 1rem;
       border: 1px solid #dee2e6;
@@ -68,36 +67,29 @@
       vertical-align: top;
       word-wrap: break-word;
     }
-
     th {
       background: #f8f9fa;
       font-weight: 600;
     }
-
     tbody tr:nth-child(even) {
       background: #fdfdfe;
     }
-
     tbody tr:hover {
       background: #e9ecef;
     }
-
     .sparkline {
       height: 40px;
       width: 100px;
     }
-
     footer {
       background: #0a0a0a;
       color: #adb5bd;
       text-align: center;
       padding: 2rem 1rem;
     }
-
     footer a {
       color: #0d6efd;
     }
-
     .table-container {
       width: 100%;
       overflow-x: auto;
@@ -119,28 +111,42 @@
 
 <section class="hero">
   <h1>Emerging Biotech Pipeline Tracker</h1>
-  <p>Statmint provides factual snapshots of real biotech companies actively developing new drugs that are still in clinical trials and not yet FDA approved.</p>
+  <p>Track real biotech companies working on new drugs still in clinical trials, with clear data, search, filter, and easy CSV export.</p>
 </section>
 
-<section class="table-container px-3 py-5">
-  <table class="full-width-table">
-    <thead>
-      <tr>
-        <th>Company</th>
-        <th>Summary</th>
-        <th>Ticker</th>
-        <th>Candidate</th>
-        <th>Indication</th>
-        <th>Phase</th>
-        <th>Trial Status</th>
-        <th>Competitors</th>
-        <th>IPO Date</th>
-        <th>Price Trend</th>
-        <th>Links</th>
-      </tr>
-    </thead>
-    <tbody id="pipeline-table-body"></tbody>
-  </table>
+<section class="container px-3 py-5">
+  <div class="controls">
+    <input type="text" id="searchBox" class="form-control" placeholder="Search company, candidate, or indication">
+    <select id="phaseFilter" class="form-select" style="max-width:200px;">
+      <option value="">All Phases</option>
+      <option value="Phase I">Phase I</option>
+      <option value="Phase II">Phase II</option>
+      <option value="Phase III">Phase III</option>
+      <option value="Regulatory Review">Regulatory Review</option>
+    </select>
+    <button id="downloadCSV" class="btn btn-primary">Download CSV</button>
+  </div>
+
+  <div class="table-container">
+    <table class="full-width-table">
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Summary</th>
+          <th>Ticker</th>
+          <th>Candidate</th>
+          <th>Indication</th>
+          <th>Phase</th>
+          <th>Trial Status</th>
+          <th>Competitors</th>
+          <th>IPO Date</th>
+          <th>Price Trend</th>
+          <th>Links</th>
+        </tr>
+      </thead>
+      <tbody id="pipeline-table-body"></tbody>
+    </table>
+  </div>
 </section>
 
 <footer>
@@ -154,55 +160,90 @@
 <script>
   AOS.init({ duration: 800, once: true, easing: 'ease-in-out' });
 
-  const pipeline = [/* PASTE THE FULL JSON FROM THE PREVIOUS MESSAGE HERE EXACTLY! */];
+  const pipeline = [/* PASTE THE FULL JSON I GAVE EARLIER HERE (10 real companies) */];
 
   const labels = ["Jul 2023","Aug","Sep","Oct","Nov","Dec","Jan","Feb","Mar","Apr","May","Jun"];
   const tbody = document.getElementById('pipeline-table-body');
+  const searchBox = document.getElementById('searchBox');
+  const phaseFilter = document.getElementById('phaseFilter');
+  const downloadCSV = document.getElementById('downloadCSV');
 
-  pipeline.forEach((entry, idx) => {
-    const row = document.createElement('tr');
-    row.innerHTML = `
-      <td>${entry.name}</td>
-      <td>${entry.summary}</td>
-      <td>${entry.ticker}</td>
-      <td>${entry.candidate}</td>
-      <td>${entry.indication}</td>
-      <td>${entry.phase}</td>
-      <td>${entry.trialStatus}</td>
-      <td>${entry.competitors.join(', ')}</td>
-      <td>${entry.ipoDate}</td>
-      <td><canvas id="spark-${idx}" class="sparkline"></canvas></td>
-      <td>
-        <a href="${entry.website}" target="_blank">IR Page</a> |
-        <a href="https://finance.yahoo.com/quote/${entry.ticker}" target="_blank">Yahoo Finance</a>
-      </td>
-    `;
-    tbody.appendChild(row);
-
-    const ctx = document.getElementById(`spark-${idx}`).getContext('2d');
-    new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: labels,
-        datasets: [{
-          data: entry.prices,
-          borderColor: '#0d6efd',
-          backgroundColor: 'transparent',
-          tension: 0.3
-        }]
-      },
-      options: {
-        plugins: { legend: { display: false } },
-        scales: {
-          x: { display: false },
-          y: { display: false }
-        },
-        elements: {
-          point: { radius: 0 }
-        }
+  function renderTable() {
+    tbody.innerHTML = "";
+    const search = searchBox.value.toLowerCase();
+    const phase = phaseFilter.value;
+    let rowIdx = 0;
+    pipeline.forEach((entry) => {
+      const matchSearch = [entry.name, entry.candidate, entry.indication].some(field =>
+        field.toLowerCase().includes(search)
+      );
+      const matchPhase = !phase || entry.phase === phase;
+      if (matchSearch && matchPhase) {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${entry.name}</td>
+          <td>${entry.summary}</td>
+          <td>${entry.ticker}</td>
+          <td>${entry.candidate}</td>
+          <td>${entry.indication}</td>
+          <td>${entry.phase}</td>
+          <td>${entry.trialStatus}</td>
+          <td>${entry.competitors.join(', ')}</td>
+          <td>${entry.ipoDate}</td>
+          <td><canvas id="spark-${rowIdx}" class="sparkline"></canvas></td>
+          <td>
+            <a href="${entry.website}" target="_blank">IR Page</a> |
+            <a href="https://finance.yahoo.com/quote/${entry.ticker}" target="_blank">Yahoo Finance</a>
+          </td>
+        `;
+        tbody.appendChild(row);
+        const ctx = document.getElementById(`spark-${rowIdx}`).getContext('2d');
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [{
+              data: entry.prices,
+              borderColor: '#0d6efd',
+              backgroundColor: 'transparent',
+              tension: 0.3
+            }]
+          },
+          options: {
+            plugins: { legend: { display: false } },
+            scales: { x: { display: false }, y: { display: false } },
+            elements: { point: { radius: 0 } }
+          }
+        });
+        rowIdx++;
       }
     });
+  }
+
+  searchBox.addEventListener('input', renderTable);
+  phaseFilter.addEventListener('change', renderTable);
+
+  downloadCSV.addEventListener('click', () => {
+    let csv = 'Company,Summary,Ticker,Candidate,Indication,Phase,Trial Status,Competitors,IPO Date\n';
+    const search = searchBox.value.toLowerCase();
+    const phase = phaseFilter.value;
+    pipeline.forEach(entry => {
+      const matchSearch = [entry.name, entry.candidate, entry.indication].some(field =>
+        field.toLowerCase().includes(search)
+      );
+      const matchPhase = !phase || entry.phase === phase;
+      if (matchSearch && matchPhase) {
+        csv += `"${entry.name}","${entry.summary}","${entry.ticker}","${entry.candidate}","${entry.indication}","${entry.phase}","${entry.trialStatus}","${entry.competitors.join('; ')}","${entry.ipoDate}"\n`;
+      }
+    });
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'Statmint_Pipeline.csv';
+    link.click();
   });
+
+  renderTable();
 </script>
 
 </body>
