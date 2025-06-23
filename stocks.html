@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Healthcare Stocks | Statmint</title>
+  <link rel="icon" href="statmint_logo.jpeg" type="image/jpeg" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary: #0d6efd;
+      --dark-bg: #0a0a0a;
+      --light-bg: #f7f7f7;
+      --accent: #377dff;
+      --neutral-text: #666;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: white;
+      color: #111;
+    }
+
+    header {
+      background-color: var(--dark-bg);
+      padding: 0.1rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    header img {
+      height: 180px;
+    }
+
+    nav a {
+      margin-left: 1.2rem;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                  url('homeimage.jpg') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 8rem 4rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 1rem auto 2rem;
+      font-size: 1.2rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .stock-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+    }
+
+    .stock-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+      background-color: #000;
+      color: #bbb;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html"><img src="statmint_logo.jpeg" alt="Statmint Logo"></a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="stocks.html">Stocks</a>
+      <a href="fda.html">FDA Pipeline</a>
+      <a href="ipos.html">Biotech IPOs</a>
+      <a href="globalhealth.html">Global Health</a>
+    </nav>
+  </header>
+
+  <section class="hero" data-aos="fade-zoom-in">
+    <h1>Healthcare Stocks</h1>
+    <p>Explore top healthcare companies organized by category. Click any company to view real-time data directly on Yahoo Finance.</p>
+  </section>
+
+  <section class="container py-5">
+
+    <!-- Cancer Research -->
+    <div class="mb-5" data-aos="fade-up">
+      <h2 class="section-title">Cancer Research</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="stock-card text-center" data-aos="zoom-in" data-aos-delay="100">
+            <h5>Merck & Co. (MRK)</h5>
+            <a href="https://finance.yahoo.com/quote/MRK" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo Finance</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="stock-card text-center" data-aos="zoom-in" data-aos-delay="200">
+            <h5>Bristol-Myers Squibb (BMY)</h5>
+            <a href="https://finance.yahoo.com/quote/BMY" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo Finance</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="stock-card text-center" data-aos="zoom-in" data-aos-delay="300">
+            <h5>Regeneron Pharmaceuticals (REGN)</h5>
+            <a href="https://finance.yahoo.com/quote/REGN" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo Finance</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Weight Loss -->
+    <div class="mb-5" data-aos="fade-up">
+      <h2 class="section-title">Weight Loss & Obesity</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="stock-card text-center" data-aos="zoom-in" data-aos-delay="100">
+            <h5>Eli Lilly (LLY)</h5>
+            <a href="https://finance.yahoo.com/quote/LLY" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo Finance</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="stock-card text-center" data-aos="zoom-in" data-aos-delay="200">
+            <h5>Novo Nordisk (NVO)</h5>
+            <a href="https://finance.yahoo.com/quote/NVO" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo Finance</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vaccines & Infectious Disease -->
+    <div class="mb-5" data-aos="fade-up">
+      <h2 class="section-title">Vaccines & Infectious Disease</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="stock-card text-center" data-aos="zoom-in" data-aos-delay="100">
+            <h5>Pfizer (PFE)</h5>
+            <a href="https://finance.yahoo.com/quote/PFE" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo Finance</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="stock-card text-center" data-aos="zoom-in" data-aos-delay="200">
+            <h5>Moderna (MRNA)</h5>
+            <a href="https://finance.yahoo.com/quote/MRNA" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo Finance</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rare Diseases -->
+    <div class="mb-5" data-aos="fade-up">
+      <h2 class="section-title">Rare & Genetic Diseases</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="stock-card text-center" data-aos="zoom-in" data-aos-delay="100">
+            <h5>Vertex Pharmaceuticals (VRTX)</h5>
+            <a href="https://finance.yahoo.com/quote/VRTX" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo Finance</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="stock-card text-center" data-aos="zoom-in" data-aos-delay="200">
+            <h5>Biogen (BIIB)</h5>
+            <a href="https://finance.yahoo.com/quote/BIIB" target="_blank" class="btn btn-outline-primary mt-2">View on Yahoo Finance</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    <div class="container">
+      <p class="mb-1">© 2024 Statmint. All content is freely accessible for public use.</p>
+      <p>Sources: Data and live stock quotes provided via direct links to <a href="https://finance.yahoo.com/" target="_blank">Yahoo Finance</a>.</p>
+      <p>Questions? <a href="mailto:info@statmint.org">Contact us</a></p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'ease-in-out'
+    });
+  </script>
+</body>
+</html>
