@@ -3,540 +3,145 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Healthcare Stocks | Statmint</title>
+  <title>Statmint | Healthcare Stocks</title>
+  <meta name="description" content="Follow the latest biotech and healthcare stock movements.">
   <link rel="icon" href="statmint_logo.jpeg" type="image/jpeg" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background: #f9fafb;
-      color: #212529;
+      background-color: #f8f9fa;
       margin: 0;
+      color: #111;
     }
 
     header {
-      background: #0a0a0a;
-      padding: 1rem 2rem;
+      background-color: #0a0a0a;
+      padding: 1rem;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
     }
 
     header img {
-      height: 180px;
+      height: 80px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
 
     nav a {
-      margin-left: 1rem;
       color: white;
       text-decoration: none;
       font-weight: 500;
     }
 
     nav a:hover {
-      color: #1a73e8;
+      color: #377dff;
     }
 
-    .hero {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                  url('topstats-cover.jpg') center/cover no-repeat;
-      color: white;
+    .page-title {
       text-align: center;
-      padding: 6rem 2rem;
-    }
-
-    .hero h1 {
-      font-size: 2.8rem;
-      font-weight: 600;
-    }
-
-    .hero p {
-      max-width: 720px;
-      margin: 1rem auto 0;
-      font-size: 1.15rem;
-      color: #ddd;
+      padding: 3rem 1rem 1rem;
     }
 
     .stock-card {
-      background: white;
-      border: 1px solid #dee2e6;
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      padding: 1.5rem;
+      transition: 0.2s ease-in-out;
       height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
     }
 
-    .stock-card h5 {
-      font-size: 1.2rem;
+    .stock-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    }
+
+    .stock-name {
       font-weight: 600;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
     }
 
-    .stock-card p {
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    .price-list {
-      padding-left: 0;
-      font-size: 0.85rem;
-    }
-
-    .price-list li {
-      list-style: none;
-      border-bottom: 1px solid #eee;
-      padding: 0.25rem 0;
-    }
-
-    .card-footer {
-      display: flex;
-      gap: 0.5rem;
-      margin-top: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .btn-sm {
-      font-size: 0.8rem;
-      padding: 0.4rem 0.75rem;
+    .stock-sector {
+      font-size: 0.9rem;
+      color: #555;
     }
 
     footer {
-      background: #0a0a0a;
+      background-color: #000;
       color: #bbb;
       text-align: center;
       padding: 2rem 1rem;
+      font-size: 0.9rem;
+      margin-top: 3rem;
     }
 
-    footer a {
-      color: #1a73e8;
-    }
-
-    @media (max-width: 768px) {
-      .stock-card {
-        padding: 1.25rem;
-      }
-
-      .stock-card h5 {
-        font-size: 1.05rem;
-      }
-
-      canvas {
-        width: 100% !important;
-        height: auto !important;
-      }
-
-      .card-footer {
-        flex-direction: column;
+    @media (max-width: 576px) {
+      header img {
+        height: 60px;
       }
     }
   </style>
 </head>
 <body>
 
-<header>
+<header class="container-fluid">
   <a href="index.html"><img src="statmint_logo.jpeg" alt="Statmint Logo"></a>
   <nav>
     <a href="index.html">Home</a>
-    <a href="stocks.html">Healthcare Stocks</a>
+    <a href="stocks.html" class="text-primary">Healthcare Stocks</a>
     <a href="fda.html">FDA Approvals</a>
     <a href="ipos.html">Initial Public Offerings</a>
   </nav>
 </header>
 
-<section class="hero" data-aos="fade-zoom-in">
-  <h1>Healthcare Stocks</h1>
-  <p>Track companies with active clinical pipelines, FDA review status, and recent IPOs.</p>
+<section class="page-title">
+  <h1>Healthcare & Biotech Stocks to Watch</h1>
+  <p class="text-muted">Curated list of recent and high-potential companies in the healthcare space.</p>
 </section>
 
-<section class="container-fluid py-5" id="stock-sections"></section>
+<div class="container py-4">
+  <div class="row g-4">
+
+    <!-- Stock Cards -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Moderna (MRNA)</div><div class="stock-sector">mRNA therapeutics</div></div></div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Pfizer (PFE)</div><div class="stock-sector">Vaccines & Oncology</div></div></div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Regeneron (REGN)</div><div class="stock-sector">Immunology & Rare Diseases</div></div></div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">CRISPR Therapeutics (CRSP)</div><div class="stock-sector">Gene Editing</div></div></div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Vertex Pharmaceuticals (VRTX)</div><div class="stock-sector">Cystic Fibrosis & Gene Therapy</div></div></div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Gilead Sciences (GILD)</div><div class="stock-sector">Virology & Oncology</div></div></div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Amgen (AMGN)</div><div class="stock-sector">Biosimilars & Oncology</div></div></div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Sarepta Therapeutics (SRPT)</div><div class="stock-sector">Gene Therapy for DMD</div></div></div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Intellia Therapeutics (NTLA)</div><div class="stock-sector">CRISPR Editing Platform</div></div></div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Beam Therapeutics (BEAM)</div><div class="stock-sector">Base Editing Biotech</div></div></div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Exelixis (EXEL)</div><div class="stock-sector">Oncology Small Molecules</div></div></div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Biogen (BIIB)</div><div class="stock-sector">Neuroscience & Alzheimer's</div></div></div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Novavax (NVAX)</div><div class="stock-sector">Protein-based Vaccines</div></div></div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Incyte (INCY)</div><div class="stock-sector">Cancer Immunotherapy</div></div></div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Bluebird Bio (BLUE)</div><div class="stock-sector">Gene Therapy – Hemoglobinopathies</div></div></div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Alnylam Pharmaceuticals (ALNY)</div><div class="stock-sector">RNA Interference (RNAi)</div></div></div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">ImmunityBio (IBRX)</div><div class="stock-sector">Cancer Vaccine Platform</div></div></div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Karuna Therapeutics (KRTX)</div><div class="stock-sector">Schizophrenia Treatment</div></div></div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Vir Biotechnology (VIR)</div><div class="stock-sector">Infectious Diseases</div></div></div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Avidity Biosciences (RNA)</div><div class="stock-sector">RNA-targeted Muscle Disorders</div></div></div>
+
+  </div>
+</div>
 
 <footer>
   <div class="container">
-    <p>© 2025 Statmint. Data is for research purposes only and does not constitute financial advice.</p>
+    <p class="mb-1">© 2025 Statmint. All content is freely accessible for public use.</p>
+    <p>Questions? <a href="mailto:info@statmint.org">Contact us</a></p>
   </div>
 </footer>
-
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init({ duration: 1000, once: true, easing: 'ease-in-out' });
-
-  const labels = ["Jul 2023","Aug","Sep","Oct","Nov","Dec","Jan 2024","Feb","Mar","Apr","May","Jun"];
-
-  const pipeline = [
-  {
-    name: "Moderna",
-    summary: "mRNA vaccines and therapeutics for infectious diseases and rare conditions.",
-    ticker: "MRNA",
-    candidate: "mRNA-1345",
-    indication: "RSV Vaccine (Older Adults)",
-    phase: "Phase III",
-    trialStatus: "Primary endpoint met; BLA filing expected late 2024.",
-    competitors: ["Pfizer", "GSK"],
-    ipoDate: "Dec 2018",
-    prices: [140, 145, 142, 148, 150, 153, 155, 160, 162, 158, 155, 150],
-    website: "https://www.modernatx.com"
-  },
-  {
-    name: "BioNTech",
-    summary: "mRNA immunotherapies for oncology and infectious diseases.",
-    ticker: "BNTX",
-    candidate: "BNT162b2 Combo",
-    indication: "COVID-19 + Influenza Combo Vaccine",
-    phase: "Phase II/III",
-    trialStatus: "Enrolling; interim data mid-2024.",
-    competitors: ["Moderna", "CureVac"],
-    ipoDate: "Oct 2019",
-    prices: [100, 98, 95, 97, 99, 102, 105, 104, 107, 110, 108, 105],
-    website: "https://biontech.com"
-  },
-  {
-    name: "Vertex Pharmaceuticals",
-    summary: "Leader in cystic fibrosis and novel pain therapeutics.",
-    ticker: "VRTX",
-    candidate: "VX-548",
-    indication: "Non-opioid Pain Treatment",
-    phase: "Phase III",
-    trialStatus: "Pivotal trials enrolling; NDA expected 2025.",
-    competitors: ["Pfizer", "Eli Lilly"],
-    ipoDate: "Jul 1991",
-    prices: [300, 310, 320, 315, 318, 325, 330, 340, 335, 345, 340, 335],
-    website: "https://www.vrtx.com"
-  },
-  {
-    name: "Alnylam Pharmaceuticals",
-    summary: "RNA interference therapies for rare genetic diseases.",
-    ticker: "ALNY",
-    candidate: "Vutrisiran",
-    indication: "ATTR Amyloidosis",
-    phase: "Phase III",
-    trialStatus: "Phase III readout expected Q3 2024.",
-    competitors: ["Ionis Pharmaceuticals"],
-    ipoDate: "Jun 2004",
-    prices: [190, 195, 192, 198, 200, 205, 202, 207, 210, 208, 205, 200],
-    website: "https://www.alnylam.com"
-  },
-  {
-    name: "CRISPR Therapeutics",
-    summary: "CRISPR-based gene editing for blood disorders and cancer.",
-    ticker: "CRSP",
-    candidate: "CTX001",
-    indication: "Beta Thalassemia & Sickle Cell",
-    phase: "Regulatory Review",
-    trialStatus: "BLA submitted; FDA review ongoing 2024.",
-    competitors: ["Bluebird Bio"],
-    ipoDate: "Oct 2016",
-    prices: [50, 52, 55, 57, 59, 60, 63, 65, 62, 60, 58, 57],
-    website: "https://www.crisprtx.com"
-  },
-  {
-    name: "Regeneron Pharmaceuticals",
-    summary: "Antibody therapies for serious diseases and oncology.",
-    ticker: "REGN",
-    candidate: "Odronextamab",
-    indication: "Relapsed/Refractory Lymphoma",
-    phase: "Phase II/III",
-    trialStatus: "Pivotal study enrolling, data expected late 2024.",
-    competitors: ["Roche", "AbbVie"],
-    ipoDate: "Apr 1991",
-    prices: [800, 820, 810, 830, 835, 840, 850, 845, 855, 860, 855, 850],
-    website: "https://www.regeneron.com"
-  },
-  {
-    name: "Beam Therapeutics",
-    summary: "Base-editing therapies for genetic blood disorders.",
-    ticker: "BEAM",
-    candidate: "BEAM-101",
-    indication: "Sickle Cell Disease",
-    phase: "Phase I/II",
-    trialStatus: "First patients dosed; early readout expected Q1 2025.",
-    competitors: ["CRISPR Therapeutics", "Bluebird Bio"],
-    ipoDate: "Feb 2020",
-    prices: [40, 42, 43, 44, 46, 47, 48, 49, 50, 52, 51, 50],
-    website: "https://www.beamtx.com"
-  },
-  {
-    name: "Intellia Therapeutics",
-    summary: "In vivo and ex vivo CRISPR gene-editing for rare diseases.",
-    ticker: "NTLA",
-    candidate: "NTLA-2002",
-    indication: "Hereditary Angioedema",
-    phase: "Phase I/II",
-    trialStatus: "Dose escalation ongoing; interim data late 2024.",
-    competitors: ["Ionis", "Takeda"],
-    ipoDate: "May 2016",
-    prices: [35, 37, 38, 36, 39, 40, 42, 41, 43, 45, 44, 42],
-    website: "https://www.intelliatx.com"
-  },
-  {
-    name: "Sarepta Therapeutics",
-    summary: "Precision medicine for neuromuscular disorders.",
-    ticker: "SRPT",
-    candidate: "SRP-9001",
-    indication: "Duchenne Muscular Dystrophy",
-    phase: "Regulatory Review",
-    trialStatus: "BLA submitted; FDA decision expected 2024.",
-    competitors: ["Pfizer", "Solid Biosciences"],
-    ipoDate: "Jun 1997",
-    prices: [120, 123, 125, 127, 130, 128, 126, 129, 131, 130, 128, 126],
-    website: "https://www.sarepta.com"
-  },
-  {
-    name: "Immunocore Holdings",
-    summary: "TCR therapeutics for cancer and viral infections.",
-    ticker: "IMCR",
-    candidate: "IMC-F106C",
-    indication: "Cutaneous Melanoma",
-    phase: "Phase I/II",
-    trialStatus: "Phase II expansion ongoing; data update Q4 2024.",
-    competitors: ["Bristol Myers Squibb", "Merck"],
-    ipoDate: "Feb 2021",
-    prices: [55, 58, 57, 60, 62, 63, 64, 66, 65, 67, 66, 65],
-    website: "https://www.immunocore.com"
-  },
-  {
-    name: "Relay Therapeutics",
-    summary: "Small molecule precision therapies for cancer and rare diseases.",
-    ticker: "RLAY",
-    candidate: "RLY-4008",
-    indication: "Cholangiocarcinoma",
-    phase: "Phase II",
-    trialStatus: "Phase II expansion study underway.",
-    competitors: ["Blueprint Medicines"],
-    ipoDate: "Jul 2020",
-    prices: [12, 14, 13, 15, 16, 17, 18, 17, 16, 15, 16, 17],
-    website: "https://www.relaytx.com"
-  },
-  {
-    name: "Verve Therapeutics",
-    summary: "Gene editing to permanently lower LDL cholesterol.",
-    ticker: "VERV",
-    candidate: "VERVE-101",
-    indication: "Familial Hypercholesterolemia",
-    phase: "Phase I",
-    trialStatus: "Dose escalation ongoing; initial data mid-2024.",
-    competitors: ["Alnylam", "Ionis"],
-    ipoDate: "Jun 2021",
-    prices: [20, 22, 21, 23, 24, 25, 26, 27, 26, 25, 24, 23],
-    website: "https://www.vervetx.com"
-  },
-  {
-    name: "Editas Medicine",
-    summary: "CRISPR gene editing for inherited eye disorders and rare diseases.",
-    ticker: "EDIT",
-    candidate: "EDIT-101",
-    indication: "Leber Congenital Amaurosis",
-    phase: "Phase I/II",
-    trialStatus: "Dose escalation ongoing; Phase II data mid-2024.",
-    competitors: ["CRISPR Therapeutics"],
-    ipoDate: "Feb 2016",
-    prices: [8, 9, 8.5, 9.5, 10, 10.5, 11, 11.5, 11, 10.5, 10, 9.5],
-    website: "https://www.editasmedicine.com"
-  },
-  {
-    name: "Sana Biotechnology",
-    summary: "Cell-based therapies for genetic diseases and tissue regeneration.",
-    ticker: "SANA",
-    candidate: "SG295",
-    indication: "Liver Regeneration",
-    phase: "Phase I",
-    trialStatus: "First patients treated; safety data expected 2024.",
-    competitors: ["Beam Therapeutics"],
-    ipoDate: "Feb 2021",
-    prices: [5, 5.5, 5.8, 6, 6.5, 6.8, 7, 7.2, 7, 6.8, 6.5, 6.2],
-    website: "https://www.sanabiotech.com"
-  },
-    
-  {
-    name: "Recursion Pharmaceuticals",
-    summary: "AI-driven drug discovery across oncology, rare diseases, and inflammation.",
-    ticker: "RXRX",
-    candidate: "REC-994",
-    indication: "Cerebral Cavernous Malformation",
-    phase: "Phase II",
-    trialStatus: "Phase II data expected Q4 2025.",
-    competitors: ["Schrödinger", "Insitro"],
-    ipoDate: "Apr 2021",
-    prices: [10.2, 10.8, 11.5, 11.9, 12.3, 12.5, 13, 12.8, 13.1, 13.4, 13, 12.7],
-    website: "https://www.recursion.com"
-  },
-  {
-    name: "Roivant Sciences",
-    summary: "Platform biotech focused on inflammation and autoimmune diseases.",
-    ticker: "ROIV",
-    candidate: "IMVT-1402",
-    indication: "Thyroid Eye Disease",
-    phase: "Phase I/II",
-    trialStatus: "Initial dosing complete; expansion in 2025.",
-    competitors: ["Horizon Therapeutics", "Amgen"],
-    ipoDate: "Oct 2021",
-    prices: [7.5, 7.8, 8, 8.2, 8.4, 8.7, 9, 9.2, 9.5, 9.7, 9.6, 9.3],
-    website: "https://www.roivant.com"
-  },
-  {
-    name: "Apellis Pharmaceuticals",
-    summary: "Leader in complement immunotherapy for rare and eye diseases.",
-    ticker: "APLS",
-    candidate: "Pegcetacoplan",
-    indication: "Geographic Atrophy (Eye Disease)",
-    phase: "Approved in EU, Phase III in US",
-    trialStatus: "Real-world data analysis ongoing.",
-    competitors: ["Iveric Bio", "Regeneron"],
-    ipoDate: "Nov 2017",
-    prices: [45, 47, 48, 49, 50, 52, 53, 52, 51, 50, 49, 48],
-    website: "https://apellis.com"
-  },
-  {
-    name: "Omega Therapeutics",
-    summary: "Epigenomic controllers to regulate gene expression in oncology.",
-    ticker: "OMGA",
-    candidate: "OTX-2002",
-    indication: "Hepatocellular Carcinoma",
-    phase: "Phase I/II",
-    trialStatus: "Dose escalation enrolling Q2 2025.",
-    competitors: ["Epizyme", "Syros"],
-    ipoDate: "Jul 2021",
-    prices: [6, 6.3, 6.6, 6.9, 7.1, 7.4, 7.6, 7.8, 7.5, 7.2, 7, 6.8],
-    website: "https://omegatx.com"
-  },
-  {
-    name: "Arcutis Biotherapeutics",
-    summary: "Develops topical immuno-dermatology drugs.",
-    ticker: "ARQT",
-    candidate: "Roflumilast Cream",
-    indication: "Seborrheic Dermatitis",
-    phase: "Approved 2024; expansion into pediatric use.",
-    trialStatus: "Ongoing post-approval studies.",
-    competitors: ["Dermavant", "Pfizer"],
-    ipoDate: "Jan 2020",
-    prices: [10, 10.5, 11, 11.5, 11.8, 12, 12.2, 12.5, 12.7, 12.3, 12, 11.8],
-    website: "https://www.arcutis.com"
-  },
-  {
-    name: "Entrada Therapeutics",
-    summary: "Developing intracellular biologics using proprietary peptide delivery.",
-    ticker: "TRDA",
-    candidate: "ENTR-601-44",
-    indication: "Duchenne Muscular Dystrophy (Exon 44)",
-    phase: "Phase I",
-    trialStatus: "First-in-human study initiated Q1 2025.",
-    competitors: ["Sarepta", "Wave Life Sciences"],
-    ipoDate: "Oct 2021",
-    prices: [16, 16.5, 17, 17.2, 17.6, 18, 18.3, 18.5, 18.7, 18.3, 18, 17.8],
-    website: "https://www.entradatx.com"
-  },
-  {
-    name: "Vaxcyte",
-    summary: "Next-gen conjugate vaccines for pneumonia and strep infections.",
-    ticker: "PCVX",
-    candidate: "VAX-24",
-    indication: "Pneumococcal Disease",
-    phase: "Phase III",
-    trialStatus: "Pivotal trials enrolling globally in 2025.",
-    competitors: ["Pfizer", "Merck"],
-    ipoDate: "Jun 2020",
-    prices: [45, 46, 47, 48, 49, 50, 52, 51, 50, 49, 48, 47],
-    website: "https://vaxcyte.com"
-  },
-  {
-    name: "Tenaya Therapeutics",
-    summary: "Gene therapies targeting inherited heart disease.",
-    ticker: "TNYA",
-    candidate: "TN-201",
-    indication: "Hypertrophic Cardiomyopathy",
-    phase: "Phase I",
-    trialStatus: "Patient dosing underway; initial data late 2025.",
-    competitors: ["Rocket Pharma", "Cytokinetics"],
-    ipoDate: "Jul 2021",
-    prices: [12, 12.3, 12.5, 12.7, 13, 13.3, 13.5, 13.8, 14, 13.5, 13.2, 13],
-    website: "https://www.tenayatherapeutics.com"
-  },
-  {
-    name: "Karuna Therapeutics",
-    summary: "Developing neuropsychiatric treatments including for schizophrenia.",
-    ticker: "KRTX",
-    candidate: "KarXT",
-    indication: "Schizophrenia",
-    phase: "NDA filed; FDA decision expected Q3 2025.",
-    trialStatus: "Registration pending review.",
-    competitors: ["Acadia", "Lundbeck"],
-    ipoDate: "Nov 2019",
-    prices: [200, 202, 205, 207, 210, 215, 218, 220, 222, 218, 216, 213],
-    website: "https://karunatx.com"
-  },
-  {
-    name: "Chinook Therapeutics",
-    summary: "Precision therapies for kidney diseases.",
-    ticker: "KDNY",
-    candidate: "Atrasentan",
-    indication: "IgA Nephropathy",
-    phase: "Phase III",
-    trialStatus: "Final data due Q4 2025.",
-    competitors: ["Calliditas", "Novartis"],
-    ipoDate: "Jun 2020",
-    prices: [18, 18.3, 18.5, 18.7, 19, 19.5, 19.8, 20, 20.2, 19.9, 19.5, 19.2],
-    website: "https://www.chinooktx.com"
-  }
-
-];
-
-
-  const container = document.getElementById('stock-sections');
-
-  pipeline.forEach((stock, idx) => {
-    const col = document.createElement('div');
-    col.className = 'col-12 col-md-6 col-lg-4 d-flex mb-4 px-3';
-
-    col.innerHTML = `
-      <div class="stock-card w-100" data-aos="fade-up" data-aos-delay="${(idx + 1) * 100}">
-        <h5>${stock.name} (${stock.ticker})</h5>
-        <p><strong>Summary:</strong> ${stock.summary}</p>
-        <p><strong>Candidate:</strong> ${stock.candidate}<br>
-           <strong>Indication:</strong> ${stock.indication}<br>
-           <strong>Trial Phase:</strong> ${stock.phase}<br>
-           <strong>Status:</strong> ${stock.trialStatus}</p>
-        <p><strong>Competitors:</strong> ${stock.competitors.join(', ')}</p>
-        <p><strong>IPO:</strong> ${stock.ipoDate}</p>
-        <ul class="price-list">
-          ${stock.prices.map((p, i) => `<li>${labels[i]}: $${p.toFixed(2)}</li>`).join("")}
-        </ul>
-        <canvas id="chart-${stock.ticker}" height="120"></canvas>
-        <div class="card-footer">
-          <a href="${stock.website}" target="_blank" class="btn btn-outline-primary btn-sm">Website</a>
-          <a href="https://finance.yahoo.com/quote/${stock.ticker}" target="_blank" class="btn btn-primary btn-sm">Yahoo Finance</a>
-        </div>
-      </div>
-    `;
-    container.appendChild(col);
-  });
-
-  pipeline.forEach(stock => {
-    const ctx = document.getElementById(`chart-${stock.ticker}`).getContext('2d');
-    new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: labels,
-        datasets: [{
-          label: `${stock.ticker} Stock`,
-          data: stock.prices,
-          borderColor: '#1a73e8',
-          backgroundColor: 'rgba(26, 115, 232, 0.1)',
-          tension: 0.3,
-          fill: true
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: { legend: { display: false } },
-        scales: { x: { display: false }, y: { display: false } }
-      }
-    });
-  });
-</script>
 
 </body>
 </html>
