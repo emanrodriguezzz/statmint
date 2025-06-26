@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Healthcare Stock Tracker | Statmint</title>
-  <meta name="description" content="Track biotech companies developing new treatments still in clinical trials, follow trial phases and trends.">
+  <title>Healthcare Stocks | Statmint</title>
   <link rel="icon" href="statmint_logo.jpeg" type="image/jpeg" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
@@ -17,449 +16,211 @@
       color: #212529;
       margin: 0;
     }
+
     header {
       background: #0a0a0a;
-      padding: 0.1rem 1rem;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
     }
+
     header img {
-      height: 180px; /* ✅ Match home page logo size */
+      height: 180px;
     }
+
     nav a {
-      margin-left: 1.5rem;
-      color: #fff;
+      margin-left: 1rem;
+      color: white;
       text-decoration: none;
       font-weight: 500;
     }
+
     nav a:hover {
-      color: #0d6efd;
+      color: #1a73e8;
     }
 
     .hero {
       background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        url('topstats-cover.jpg') center/cover no-repeat;
-      color: #fff;
+                  url('topstats-cover.jpg') center/cover no-repeat;
+      color: white;
       text-align: center;
       padding: 6rem 2rem;
     }
+
     .hero h1 {
-      font-size: 3rem;
-      font-weight: 700;
-    }
-    .hero p {
-      max-width: 800px;
-      margin: 1rem auto 0;
-      color: #dee2e6;
-      font-size: 1.15rem;
-    }
-
-    .controls {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin: 2rem 2rem;
-    }
-
-    .table-wrapper {
-      width: 100%;
-      overflow-x: auto;
-      padding: 0 2rem 4rem 2rem;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 1200px;
-    }
-
-    th, td {
-      padding: 0.75rem 1rem;
-      border: 1px solid #dee2e6;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    th {
-      background: #f8f9fa;
+      font-size: 2.8rem;
       font-weight: 600;
-      white-space: nowrap;
     }
 
-    tbody tr:nth-child(even) {
-      background: #fdfdfe;
+    .hero p {
+      max-width: 720px;
+      margin: 1rem auto 0;
+      font-size: 1.15rem;
+      color: #ddd;
     }
 
-    tbody tr:hover {
-      background: #e9ecef;
+    .stock-card {
+      background: white;
+      border: 1px solid #dee2e6;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    .sparkline {
-      height: 40px;
-      width: 100px;
+    .stock-card h5 {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .stock-card p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .price-list {
+      padding-left: 0;
+      font-size: 0.85rem;
+    }
+
+    .price-list li {
+      list-style: none;
+      border-bottom: 1px solid #eee;
+      padding: 0.25rem 0;
+    }
+
+    .card-footer {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-sm {
+      font-size: 0.8rem;
+      padding: 0.4rem 0.75rem;
     }
 
     footer {
       background: #0a0a0a;
-      color: #adb5bd;
+      color: #bbb;
       text-align: center;
       padding: 2rem 1rem;
-      font-size: 0.9rem;
     }
 
     footer a {
-      color: #0d6efd;
+      color: #1a73e8;
+    }
+
+    @media (max-width: 768px) {
+      .stock-card {
+        padding: 1.25rem;
+      }
+
+      .stock-card h5 {
+        font-size: 1.05rem;
+      }
+
+      canvas {
+        width: 100% !important;
+        height: auto !important;
+      }
+
+      .card-footer {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- ✅ Updated Header with matching nav & logo size -->
-  <header>
-    <a href="index.html"><img src="statmint_logo.jpeg" alt="Statmint Logo"></a>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="stocks.html">Healthcare Stocks</a>
-      <a href="fda.html">FDA Approvals</a>
-      <a href="ipos.html">Initial Public Offerings</a>
-    </nav>
-  </header>
+<header>
+  <a href="index.html"><img src="statmint_logo.jpeg" alt="Statmint Logo"></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="stocks.html">Healthcare Stocks</a>
+    <a href="fda.html">FDA Approvals</a>
+    <a href="ipos.html">Initial Public Offerings</a>
+  </nav>
+</header>
 
-  <section class="hero" data-aos="fade-zoom-in">
-    <h1 data-aos="fade-down" data-aos-delay="100">Healthcare Stocks</h1>
-    <p data-aos="fade-up" data-aos-delay="200">
-      Track biotech companies working on new treatments still in clinical trials and not yet approved by the FDA. Clear data, simple insights.
-    </p>
-  </section>
+<section class="hero" data-aos="fade-zoom-in">
+  <h1>Healthcare Stocks</h1>
+  <p>Track companies with active clinical pipelines, FDA review status, and recent IPOs.</p>
+</section>
 
-  <section class="controls" data-aos="fade-up" data-aos-delay="300">
-    <input type="text" id="searchBox" class="form-control" placeholder="Search company, candidate, or indication">
-    <select id="phaseFilter" class="form-select" style="max-width:200px;">
-      <option value="">All Phases</option>
-      <option value="Phase I">Phase I</option>
-      <option value="Phase II">Phase II</option>
-      <option value="Phase III">Phase III</option>
-      <option value="Regulatory Review">Regulatory Review</option>
-    </select>
-    <button id="downloadCSV" class="btn btn-primary">Download CSV</button>
-  </section>
+<section class="container-fluid py-5" id="stock-sections"></section>
 
-  <section class="table-wrapper">
-    <table>
-      <thead>
-        <tr>
-          <th>Company</th>
-          <th>Summary</th>
-          <th>Ticker</th>
-          <th>Candidate</th>
-          <th>Indication</th>
-          <th>Phase</th>
-          <th>Trial Status</th>
-          <th>Competitors</th>
-          <th>IPO Date</th>
-          <th>Price Trend</th>
-          <th>Links</th>
-        </tr>
-      </thead>
-      <tbody id="pipeline-table-body"></tbody>
-    </table>
-  </section>
+<footer>
+  <div class="container">
+    <p>© 2025 Statmint. Data is for research purposes only and does not constitute financial advice.</p>
+  </div>
+</footer>
 
-  <footer>
-    <p>© 2025 Statmint. All data is for research use only.</p>
-  </footer>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000, once: true, easing: 'ease-in-out' });
 
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script>
-    AOS.init({ duration: 800, once: true, easing: 'ease-in-out' });
+  const labels = ["Jul 2023","Aug","Sep","Oct","Nov","Dec","Jan 2024","Feb","Mar","Apr","May","Jun"];
 
-    const pipeline = [
-  {
-    "name": "Moderna",
-    "summary": "Develops mRNA vaccines for infectious diseases and cancer.",
-    "ticker": "MRNA",
-    "candidate": "mRNA-1345",
-    "indication": "RSV Vaccine (Older Adults)",
-    "phase": "Phase III",
-    "trialStatus": "Primary endpoint met; BLA filing expected late 2024.",
-    "competitors": ["Pfizer", "GSK"],
-    "ipoDate": "Dec 2018",
-    "prices": [140, 145, 142, 148, 150, 153, 155, 160, 162, 158, 155, 150],
-    "website": "https://www.modernatx.com"
-  },
-  {
-    "name": "BioNTech",
-    "summary": "Creates mRNA-based vaccines and cancer therapies.",
-    "ticker": "BNTX",
-    "candidate": "BNT162b2 Combo",
-    "indication": "COVID-19 + Flu Combo Vaccine",
-    "phase": "Phase II/III",
-    "trialStatus": "Enrolling; interim data mid-2024.",
-    "competitors": ["Moderna", "CureVac"],
-    "ipoDate": "Oct 2019",
-    "prices": [100, 98, 95, 97, 99, 102, 105, 104, 107, 110, 108, 105],
-    "website": "https://biontech.com"
-  },
-  {
-    "name": "Vertex Pharmaceuticals",
-    "summary": "Leader in cystic fibrosis drugs; expanding into pain and gene therapy.",
-    "ticker": "VRTX",
-    "candidate": "VX-548",
-    "indication": "Non-opioid Pain Treatment",
-    "phase": "Phase III",
-    "trialStatus": "Pivotal trials enrolling; NDA expected 2025.",
-    "competitors": ["Pfizer", "Eli Lilly"],
-    "ipoDate": "Jul 1991",
-    "prices": [300, 310, 320, 315, 318, 325, 330, 340, 335, 345, 340, 335],
-    "website": "https://www.vrtx.com"
-  },
-  {
-    "name": "Alnylam Pharmaceuticals",
-    "summary": "Makes RNA-based drugs for rare genetic conditions.",
-    "ticker": "ALNY",
-    "candidate": "Vutrisiran",
-    "indication": "ATTR Amyloidosis",
-    "phase": "Phase III",
-    "trialStatus": "Phase III readout expected Q3 2024.",
-    "competitors": ["Ionis Pharmaceuticals"],
-    "ipoDate": "Jun 2004",
-    "prices": [190, 195, 192, 198, 200, 205, 202, 207, 210, 208, 205, 200],
-    "website": "https://www.alnylam.com"
-  },
-  {
-    "name": "CRISPR Therapeutics",
-    "summary": "Uses CRISPR gene editing to treat blood disorders and cancer.",
-    "ticker": "CRSP",
-    "candidate": "CTX001",
-    "indication": "Beta Thalassemia & Sickle Cell",
-    "phase": "Regulatory Review",
-    "trialStatus": "BLA submitted; FDA review ongoing 2024.",
-    "competitors": ["Bluebird Bio"],
-    "ipoDate": "Oct 2016",
-    "prices": [50, 52, 55, 57, 59, 60, 63, 65, 62, 60, 58, 57],
-    "website": "https://www.crisprtx.com"
-  },
-  {
-    "name": "Regeneron Pharmaceuticals",
-    "summary": "Develops antibody treatments for serious diseases and cancer.",
-    "ticker": "REGN",
-    "candidate": "Odronextamab",
-    "indication": "Relapsed/Refractory Lymphoma",
-    "phase": "Phase II/III",
-    "trialStatus": "Pivotal study enrolling, data expected late 2024.",
-    "competitors": ["Roche", "AbbVie"],
-    "ipoDate": "Apr 1991",
-    "prices": [800, 820, 810, 830, 835, 840, 850, 845, 855, 860, 855, 850],
-    "website": "https://www.regeneron.com"
-  },
-  {
-    "name": "Beam Therapeutics",
-    "summary": "Develops precision gene-editing therapies for blood disorders.",
-    "ticker": "BEAM",
-    "candidate": "BEAM-101",
-    "indication": "Sickle Cell Disease",
-    "phase": "Phase I/II",
-    "trialStatus": "First patients dosed; early readout expected Q1 2025.",
-    "competitors": ["CRISPR Therapeutics", "Bluebird Bio"],
-    "ipoDate": "Feb 2020",
-    "prices": [40, 42, 43, 44, 46, 47, 48, 49, 50, 52, 51, 50],
-    "website": "https://www.beamtx.com"
-  },
-  {
-    "name": "Intellia Therapeutics",
-    "summary": "Focuses on CRISPR-based treatments for rare diseases and cancer.",
-    "ticker": "NTLA",
-    "candidate": "NTLA-2002",
-    "indication": "Hereditary Angioedema",
-    "phase": "Phase I/II",
-    "trialStatus": "Dose escalation ongoing; interim data late 2024.",
-    "competitors": ["Ionis", "Takeda"],
-    "ipoDate": "May 2016",
-    "prices": [35, 37, 38, 36, 39, 40, 42, 41, 43, 45, 44, 42],
-    "website": "https://www.intelliatx.com"
-  },
-  {
-    "name": "Sarepta Therapeutics",
-    "summary": "Develops genetic medicines for muscle diseases like DMD.",
-    "ticker": "SRPT",
-    "candidate": "SRP-9001",
-    "indication": "Duchenne Muscular Dystrophy",
-    "phase": "Regulatory Review",
-    "trialStatus": "BLA submitted; FDA decision expected 2024.",
-    "competitors": ["Pfizer", "Solid Biosciences"],
-    "ipoDate": "Jun 1997",
-    "prices": [120, 123, 125, 127, 130, 128, 126, 129, 131, 130, 128, 126],
-    "website": "https://www.sarepta.com"
-  },
-  {
-    "name": "Immunocore Holdings",
-    "summary": "Develops T cell receptor therapies for cancer.",
-    "ticker": "IMCR",
-    "candidate": "IMC-F106C",
-    "indication": "Cutaneous Melanoma",
-    "phase": "Phase I/II",
-    "trialStatus": "Phase II expansion ongoing; data update Q4 2024.",
-    "competitors": ["Bristol Myers Squibb", "Merck"],
-    "ipoDate": "Feb 2021",
-    "prices": [55, 58, 57, 60, 62, 63, 64, 66, 65, 67, 66, 65],
-    "website": "https://www.immunocore.com"
-  },
-  {
-    "name": "Relay Therapeutics",
-    "summary": "Designs precision drugs for cancer and genetic diseases.",
-    "ticker": "RLAY",
-    "candidate": "RLY-4008",
-    "indication": "Cholangiocarcinoma",
-    "phase": "Phase II",
-    "trialStatus": "Phase II expansion study underway.",
-    "competitors": ["Blueprint Medicines"],
-    "ipoDate": "Jul 2020",
-    "prices": [12, 14, 13, 15, 16, 17, 18, 17, 16, 15, 16, 17],
-    "website": "https://www.relaytx.com"
-  },
-  {
-    "name": "Verve Therapeutics",
-    "summary": "Working on gene editing to lower high cholesterol.",
-    "ticker": "VERV",
-    "candidate": "VERVE-101",
-    "indication": "Familial Hypercholesterolemia",
-    "phase": "Phase I",
-    "trialStatus": "Dose escalation ongoing; initial data mid-2024.",
-    "competitors": ["Alnylam", "Ionis"],
-    "ipoDate": "Jun 2021",
-    "prices": [20, 22, 21, 23, 24, 25, 26, 27, 26, 25, 24, 23],
-    "website": "https://www.vervetx.com"
-  },
-  {
-    "name": "Editas Medicine",
-    "summary": "Uses CRISPR to treat genetic eye diseases.",
-    "ticker": "EDIT",
-    "candidate": "EDIT-101",
-    "indication": "Leber Congenital Amaurosis",
-    "phase": "Phase I/II",
-    "trialStatus": "Dose escalation ongoing; Phase II data mid-2024.",
-    "competitors": ["CRISPR Therapeutics"],
-    "ipoDate": "Feb 2016",
-    "prices": [8, 9, 8.5, 9.5, 10, 10.5, 11, 11.5, 11, 10.5, 10, 9.5],
-    "website": "https://www.editasmedicine.com"
-  },
-  {
-    "name": "Sana Biotechnology",
-    "summary": "Engineers cells for tissue repair and cancer treatment.",
-    "ticker": "SANA",
-    "candidate": "SG295",
-    "indication": "Liver Regeneration",
-    "phase": "Phase I",
-    "trialStatus": "First patients treated; safety data expected 2024.",
-    "competitors": ["Beam Therapeutics"],
-    "ipoDate": "Feb 2021",
-    "prices": [5, 5.5, 5.8, 6, 6.5, 6.8, 7, 7.2, 7, 6.8, 6.5, 6.2],
-    "website": "https://www.sanabiotech.com"
-  },
-  {
-    "name": "Arcus Biosciences",
-    "summary": "Develops cancer immunotherapies for lung and other tumors.",
-    "ticker": "RCUS",
-    "candidate": "Domvanalimab",
-    "indication": "Non-small Cell Lung Cancer",
-    "phase": "Phase III",
-    "trialStatus": "Pivotal trial enrolling; interim data 2025.",
-    "competitors": ["Merck", "Bristol Myers Squibb"],
-    "ipoDate": "Mar 2018",
-    "prices": [20, 21, 21.5, 22, 22.5, 23, 23.5, 24, 23.8, 23.5, 23, 22.5],
-    "website": "https://www.arcusbio.com"
-  }
+  const pipeline = [/* ← Insert your 15-company JSON data here */];
 
-/* ✅ Paste your full 15-company JSON here */];
-    const labels = ["Jul 2023","Aug","Sep","Oct","Nov","Dec","Jan","Feb","Mar","Apr","May","Jun"];
-    const tbody = document.getElementById('pipeline-table-body');
-    const searchBox = document.getElementById('searchBox');
-    const phaseFilter = document.getElementById('phaseFilter');
-    const downloadCSV = document.getElementById('downloadCSV');
+  const container = document.getElementById('stock-sections');
 
-    function renderTable() {
-      tbody.innerHTML = "";
-      const search = searchBox.value.toLowerCase();
-      const phase = phaseFilter.value;
-      let rowIdx = 0;
-      pipeline.forEach(entry => {
-        const matchSearch = [entry.name, entry.candidate, entry.indication].some(field =>
-          field.toLowerCase().includes(search)
-        );
-        const matchPhase = !phase || entry.phase === phase;
-        if (matchSearch && matchPhase) {
-          const row = document.createElement('tr');
-          row.setAttribute('data-aos', 'fade-up');
-          row.setAttribute('data-aos-delay', `${100 + rowIdx * 50}`);
-          row.innerHTML = `
-            <td>${entry.name}</td>
-            <td>${entry.summary}</td>
-            <td>${entry.ticker}</td>
-            <td>${entry.candidate}</td>
-            <td>${entry.indication}</td>
-            <td>${entry.phase}</td>
-            <td>${entry.trialStatus}</td>
-            <td>${entry.competitors.join(', ')}</td>
-            <td>${entry.ipoDate}</td>
-            <td><canvas id="spark-${rowIdx}" class="sparkline"></canvas></td>
-            <td>
-              <a href="${entry.website}" target="_blank">IR Page</a> |
-              <a href="https://finance.yahoo.com/quote/${entry.ticker}" target="_blank">Yahoo Finance</a>
-            </td>
-          `;
-          tbody.appendChild(row);
-          const ctx = document.getElementById(`spark-${rowIdx}`).getContext('2d');
-          new Chart(ctx, {
-            type: 'line',
-            data: {
-              labels: labels,
-              datasets: [{
-                data: entry.prices,
-                borderColor: '#0d6efd',
-                backgroundColor: 'transparent',
-                tension: 0.3
-              }]
-            },
-            options: {
-              plugins: { legend: { display: false } },
-              scales: { x: { display: false }, y: { display: false } },
-              elements: { point: { radius: 0 } }
-            }
-          });
-          rowIdx++;
-        }
-      });
-    }
+  pipeline.forEach((stock, idx) => {
+    const col = document.createElement('div');
+    col.className = 'col-12 col-md-6 col-lg-4 d-flex mb-4 px-3';
 
-    searchBox.addEventListener('input', renderTable);
-    phaseFilter.addEventListener('change', renderTable);
-    downloadCSV.addEventListener('click', () => {
-      let csv = 'Company,Summary,Ticker,Candidate,Indication,Phase,Trial Status,Competitors,IPO Date\n';
-      const search = searchBox.value.toLowerCase();
-      const phase = phaseFilter.value;
-      pipeline.forEach(entry => {
-        const matchSearch = [entry.name, entry.candidate, entry.indication].some(field =>
-          field.toLowerCase().includes(search)
-        );
-        const matchPhase = !phase || entry.phase === phase;
-        if (matchSearch && matchPhase) {
-          csv += `"${entry.name}","${entry.summary}","${entry.ticker}","${entry.candidate}","${entry.indication}","${entry.phase}","${entry.trialStatus}","${entry.competitors.join('; ')}","${entry.ipoDate}"\n`;
-        }
-      });
-      const blob = new Blob([csv], { type: 'text/csv' });
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = 'Statmint_Healthcare_Stocks.csv';
-      link.click();
+    col.innerHTML = `
+      <div class="stock-card w-100" data-aos="fade-up" data-aos-delay="${(idx + 1) * 100}">
+        <h5>${stock.name} (${stock.ticker})</h5>
+        <p><strong>Summary:</strong> ${stock.summary}</p>
+        <p><strong>Candidate:</strong> ${stock.candidate}<br>
+           <strong>Indication:</strong> ${stock.indication}<br>
+           <strong>Trial Phase:</strong> ${stock.phase}<br>
+           <strong>Status:</strong> ${stock.trialStatus}</p>
+        <p><strong>Competitors:</strong> ${stock.competitors.join(', ')}</p>
+        <p><strong>IPO:</strong> ${stock.ipoDate}</p>
+        <ul class="price-list">
+          ${stock.prices.map((p, i) => `<li>${labels[i]}: $${p.toFixed(2)}</li>`).join("")}
+        </ul>
+        <canvas id="chart-${stock.ticker}" height="120"></canvas>
+        <div class="card-footer">
+          <a href="${stock.website}" target="_blank" class="btn btn-outline-primary btn-sm">Website</a>
+          <a href="https://finance.yahoo.com/quote/${stock.ticker}" target="_blank" class="btn btn-primary btn-sm">Yahoo Finance</a>
+        </div>
+      </div>
+    `;
+    container.appendChild(col);
+  });
+
+  pipeline.forEach(stock => {
+    const ctx = document.getElementById(`chart-${stock.ticker}`).getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: `${stock.ticker} Stock`,
+          data: stock.prices,
+          borderColor: '#1a73e8',
+          backgroundColor: 'rgba(26, 115, 232, 0.1)',
+          tension: 0.3,
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { x: { display: false }, y: { display: false } }
+      }
     });
-
-    renderTable();
-  </script>
+  });
+</script>
 
 </body>
 </html>
