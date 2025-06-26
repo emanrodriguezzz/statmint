@@ -3,145 +3,293 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Statmint | Healthcare Stocks</title>
-  <meta name="description" content="Follow the latest biotech and healthcare stock movements.">
+  <title>Healthcare Stocks | Statmint</title>
   <link rel="icon" href="statmint_logo.jpeg" type="image/jpeg" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f8f9fa;
+      background: #f9fafb;
+      color: #212529;
       margin: 0;
-      color: #111;
     }
 
     header {
-      background-color: #0a0a0a;
-      padding: 1rem;
+      background: #0a0a0a;
+      padding: 1rem 2rem;
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     header img {
-      height: 80px;
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
+      height: 100px;
     }
 
     nav a {
+      margin-left: 1rem;
       color: white;
       text-decoration: none;
       font-weight: 500;
     }
 
     nav a:hover {
-      color: #377dff;
+      color: #1a73e8;
     }
 
-    .page-title {
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                  url('topstats-cover.jpg') center/cover no-repeat;
+      color: white;
       text-align: center;
-      padding: 3rem 1rem 1rem;
+      padding: 5rem 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+    }
+
+    .controls {
+      text-align: center;
+      margin: 2rem auto 1rem;
+      padding: 0 1rem;
+    }
+
+    .controls input, .controls button {
+      margin: 0.25rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
     }
 
     .stock-card {
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      background: white;
+      border: 1px solid #dee2e6;
+      border-radius: 12px;
       padding: 1.5rem;
-      transition: 0.2s ease-in-out;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
       height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    .stock-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-    }
-
-    .stock-name {
-      font-weight: 600;
+    .stock-card h5 {
       font-size: 1.2rem;
-      margin-bottom: 0.5rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .stock-sector {
-      font-size: 0.9rem;
-      color: #555;
+    .stock-card img.logo {
+      height: 24px;
+      width: 24px;
+      object-fit: contain;
+    }
+
+    .price-list {
+      padding-left: 0;
+      font-size: 0.85rem;
+    }
+
+    .price-list li {
+      list-style: none;
+      border-bottom: 1px solid #eee;
+      padding: 0.25rem 0;
+    }
+
+    .card-footer {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
     }
 
     footer {
-      background-color: #000;
+      background: #0a0a0a;
       color: #bbb;
       text-align: center;
       padding: 2rem 1rem;
-      font-size: 0.9rem;
-      margin-top: 3rem;
     }
 
-    @media (max-width: 576px) {
-      header img {
-        height: 60px;
+    @media (max-width: 768px) {
+      .stock-card {
+        padding: 1rem;
+      }
+
+      .stock-card h5 {
+        font-size: 1rem;
+      }
+
+      .card-footer {
+        flex-direction: column;
+      }
+
+      canvas {
+        width: 100% !important;
+        height: auto !important;
       }
     }
   </style>
 </head>
 <body>
 
-<header class="container-fluid">
+<header>
   <a href="index.html"><img src="statmint_logo.jpeg" alt="Statmint Logo"></a>
   <nav>
     <a href="index.html">Home</a>
-    <a href="stocks.html" class="text-primary">Healthcare Stocks</a>
+    <a href="stocks.html">Healthcare Stocks</a>
     <a href="fda.html">FDA Approvals</a>
     <a href="ipos.html">Initial Public Offerings</a>
   </nav>
 </header>
 
-<section class="page-title">
-  <h1>Healthcare & Biotech Stocks to Watch</h1>
-  <p class="text-muted">Curated list of recent and high-potential companies in the healthcare space.</p>
+<section class="hero" data-aos="fade-zoom-in">
+  <h1>Healthcare Stocks</h1>
+  <p>Track companies with active clinical pipelines, FDA review status, and recent IPOs.</p>
 </section>
 
-<div class="container py-4">
-  <div class="row g-4">
-
-    <!-- Stock Cards -->
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Moderna (MRNA)</div><div class="stock-sector">mRNA therapeutics</div></div></div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Pfizer (PFE)</div><div class="stock-sector">Vaccines & Oncology</div></div></div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Regeneron (REGN)</div><div class="stock-sector">Immunology & Rare Diseases</div></div></div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">CRISPR Therapeutics (CRSP)</div><div class="stock-sector">Gene Editing</div></div></div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Vertex Pharmaceuticals (VRTX)</div><div class="stock-sector">Cystic Fibrosis & Gene Therapy</div></div></div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Gilead Sciences (GILD)</div><div class="stock-sector">Virology & Oncology</div></div></div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Amgen (AMGN)</div><div class="stock-sector">Biosimilars & Oncology</div></div></div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Sarepta Therapeutics (SRPT)</div><div class="stock-sector">Gene Therapy for DMD</div></div></div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Intellia Therapeutics (NTLA)</div><div class="stock-sector">CRISPR Editing Platform</div></div></div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Beam Therapeutics (BEAM)</div><div class="stock-sector">Base Editing Biotech</div></div></div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Exelixis (EXEL)</div><div class="stock-sector">Oncology Small Molecules</div></div></div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Biogen (BIIB)</div><div class="stock-sector">Neuroscience & Alzheimer's</div></div></div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Novavax (NVAX)</div><div class="stock-sector">Protein-based Vaccines</div></div></div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Incyte (INCY)</div><div class="stock-sector">Cancer Immunotherapy</div></div></div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Bluebird Bio (BLUE)</div><div class="stock-sector">Gene Therapy – Hemoglobinopathies</div></div></div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Alnylam Pharmaceuticals (ALNY)</div><div class="stock-sector">RNA Interference (RNAi)</div></div></div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">ImmunityBio (IBRX)</div><div class="stock-sector">Cancer Vaccine Platform</div></div></div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Karuna Therapeutics (KRTX)</div><div class="stock-sector">Schizophrenia Treatment</div></div></div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Vir Biotechnology (VIR)</div><div class="stock-sector">Infectious Diseases</div></div></div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3"><div class="stock-card"><div class="stock-name">Avidity Biosciences (RNA)</div><div class="stock-sector">RNA-targeted Muscle Disorders</div></div></div>
-
-  </div>
+<div class="controls">
+  <input type="text" id="search" placeholder="Search by name or ticker" class="form-control" style="max-width:300px;display:inline-block;">
+  <button onclick="sortStocks(true)" class="btn btn-outline-primary">Sort A–Z</button>
+  <button onclick="sortStocks(false)" class="btn btn-outline-primary">Sort Z–A</button>
 </div>
+
+<section class="container-fluid py-5">
+  <div class="row" id="stock-sections"></div>
+</section>
 
 <footer>
   <div class="container">
-    <p class="mb-1">© 2025 Statmint. All content is freely accessible for public use.</p>
-    <p>Questions? <a href="mailto:info@statmint.org">Contact us</a></p>
+    <p>© 2025 Statmint. Data is for research purposes only and does not constitute financial advice.</p>
   </div>
 </footer>
 
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000, once: true, easing: 'ease-in-out' });
+</script>
+
+<script>
+  const labels = ["Jul 2023","Aug","Sep","Oct","Nov","Dec","Jan 2024","Feb","Mar","Apr","May","Jun"];
+  const pipeline = [
+    {
+      name: "Moderna",
+      summary: "mRNA vaccines and therapeutics.",
+      ticker: "MRNA",
+      candidate: "mRNA-1345",
+      indication: "RSV Vaccine",
+      phase: "Phase III",
+      trialStatus: "BLA filing expected late 2024.",
+      competitors: ["Pfizer", "GSK"],
+      ipoDate: "Dec 2018",
+      prices: [140, 145, 142, 148, 150, 153, 155, 160, 162, 158, 155, 150],
+      website: "https://www.modernatx.com"
+    },
+    {
+      name: "BioNTech",
+      summary: "mRNA immunotherapies.",
+      ticker: "BNTX",
+      candidate: "BNT162b2 Combo",
+      indication: "COVID+Flu Vaccine",
+      phase: "Phase II/III",
+      trialStatus: "Enrolling; data mid-2024.",
+      competitors: ["Moderna", "CureVac"],
+      ipoDate: "Oct 2019",
+      prices: [100, 98, 95, 97, 99, 102, 105, 104, 107, 110, 108, 105],
+      website: "https://biontech.com"
+    },
+    {
+      name: "Vertex Pharmaceuticals",
+      summary: "Cystic fibrosis and pain therapeutics.",
+      ticker: "VRTX",
+      candidate: "VX-548",
+      indication: "Pain Relief",
+      phase: "Phase III",
+      trialStatus: "NDA expected 2025.",
+      competitors: ["Pfizer", "Eli Lilly"],
+      ipoDate: "Jul 1991",
+      prices: [300, 310, 320, 315, 318, 325, 330, 340, 335, 345, 340, 335],
+      website: "https://www.vrtx.com"
+    },
+    // Additional companies omitted for brevity
+  ];
+
+  const container = document.getElementById('stock-sections');
+
+  function createCard(stock, idx) {
+    const col = document.createElement('div');
+    col.className = 'col-12 col-md-6 col-lg-4 d-flex mb-4 px-3';
+
+    const logo = `https://logo.clearbit.com/${new URL(stock.website).hostname}`;
+
+    col.innerHTML = `
+      <div class="stock-card w-100" data-aos="fade-up" data-aos-delay="${(idx + 1) * 50}">
+        <h5><img src="${logo}" class="logo" alt=""> ${stock.name} (${stock.ticker})</h5>
+        <p><strong>Summary:</strong> ${stock.summary}</p>
+        <p><strong>Candidate:</strong> ${stock.candidate}<br>
+           <strong>Indication:</strong> ${stock.indication}<br>
+           <strong>Phase:</strong> ${stock.phase}<br>
+           <strong>Status:</strong> ${stock.trialStatus}</p>
+        <p><strong>IPO:</strong> ${stock.ipoDate}</p>
+        <canvas id="chart-${stock.ticker}" height="100"></canvas>
+        <div class="card-footer">
+          <a href="${stock.website}" target="_blank" class="btn btn-outline-primary btn-sm">Company Site</a>
+          <a href="https://finance.yahoo.com/quote/${stock.ticker}" target="_blank" class="btn btn-primary btn-sm">Yahoo Finance</a>
+        </div>
+      </div>
+    `;
+    return col;
+  }
+
+  function renderStocks(filtered = pipeline) {
+    container.innerHTML = '';
+    filtered.forEach((stock, i) => {
+      container.appendChild(createCard(stock, i));
+    });
+    filtered.forEach((stock) => {
+      const ctx = document.getElementById(`chart-${stock.ticker}`).getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            data: stock.prices,
+            label: `${stock.ticker} Price`,
+            borderColor: '#1a73e8',
+            backgroundColor: 'rgba(26, 115, 232, 0.1)',
+            fill: true,
+            tension: 0.3
+          }]
+        },
+        options: {
+          plugins: { legend: { display: false } },
+          scales: { x: { display: false }, y: { display: false } },
+          responsive: true
+        }
+      });
+    });
+  }
+
+  function sortStocks(asc = true) {
+    const sorted = [...pipeline].sort((a, b) => asc ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name));
+    renderStocks(sorted);
+  }
+
+  document.getElementById('search').addEventListener('input', function () {
+    const query = this.value.toLowerCase();
+    const filtered = pipeline.filter(s =>
+      s.name.toLowerCase().includes(query) || s.ticker.toLowerCase().includes(query)
+    );
+    renderStocks(filtered);
+  });
+
+  renderStocks();
+</script>
 </body>
 </html>
