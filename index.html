@@ -4,116 +4,141 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>New Wave Capital | UMich Hedge Fund Club</title>
-  <meta name="description" content="New Wave Capital is the University of Michigan's premier student-run hedge fund club, fostering innovative investment strategies and elite financial education.">
+
+  <!-- SEO Metadata -->
+  <meta name="description" content="New Wave Capital is the University of Michigan’s premier hedge fund club, focused on innovative investing and elite financial education.">
+  <meta name="keywords" content="University of Michigan, hedge fund club, student investing, New Wave Capital, Ross finance, quant, private equity">
+  <meta name="author" content="New Wave Capital Club">
+  <link rel="canonical" href="https://newwavecapitalumich.org/" />
+  <meta property="og:title" content="New Wave Capital | UMich Hedge Fund Club">
+  <meta property="og:description" content="A student-run hedge fund club at the University of Michigan simulating real investing through bold, modern strategies.">
+  <meta property="og:image" content="logo.png">
+  <meta property="og:url" content="https://newwavecapitalumich.org/">
+  <meta name="theme-color" content="#6e00ff" />
+
+  <!-- Favicon & Fonts -->
   <link rel="icon" href="logo.png" type="image/png" />
   <link href="styles.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 </head>
+
 <body>
 
-<header>
-  <div class="container header-container">
-    <img src="logo.png" alt="NWC Logo" class="logo" />
-    <nav>
-      <ul>
-        <li><a href="#mission">About</a></li>
-        <li><a href="#desks">Desks</a></li>
-        <li><a href="#workflow">What We Do</a></li>
-        <li><a href="#join">Join</a></li>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <img src="logo.png" alt="New Wave Capital Logo" class="logo" />
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#desks">Desks</a></li>
+          <li><a href="#semester">Semester</a></li>
+          <li><a href="#join">Join</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container" data-aos="fade-up">
+      <h1>New Wave Capital</h1>
+      <p>The Student Hedge Fund Club at the University of Michigan</p>
+      <a href="#join" class="btn-primary">Join the Fund</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container two-col" data-aos="fade-up">
+      <div>
+        <h2>Who We Are</h2>
+        <p>
+          New Wave Capital is a student-run hedge fund at the University of Michigan. Founded by students with experience at top firms including Morgan Stanley, BlackRock, and the Global Investments Committee, the club offers hands-on exposure to professional-grade investing.
+        </p>
+      </div>
+      <div>
+        <h2>Our Philosophy</h2>
+        <p>
+          We encourage ambitious thinkers to explore all sectors and strategies—from traditional long/short equity to AI quant models, polymarket arbitrage, and macroeconomic catalysts. The fund simulates real hedge fund research, portfolio construction, and risk-adjusted returns.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Desks -->
+  <section class="section-alt" id="desks">
+    <div class="container" data-aos="fade-up">
+      <h2 class="section-title">Investment Strategy Desks</h2>
+      <p class="section-description">
+        Members are divided across distinct research desks, each tasked with exploring a specific approach to alpha generation.
+      </p>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Long/Short Equity</h3>
+          <p>Public equities, with technical and fundamental thesis formation and risk hedging.</p>
+        </div>
+        <div class="card">
+          <h3>Quantitative</h3>
+          <p>Model-driven strategies using statistical analysis, backtesting, and algorithmic systems.</p>
+        </div>
+        <div class="card">
+          <h3>Macro & Policy</h3>
+          <p>Geopolitical and economic trend forecasting. Interest rates, policy shifts, and global risk.</p>
+        </div>
+        <div class="card">
+          <h3>Private Equity</h3>
+          <p>Valuation modeling, industry mapping, and investment analysis in private markets.</p>
+        </div>
+        <div class="card">
+          <h3>Arbitrage</h3>
+          <p>Short-term pricing inefficiencies across markets, platforms, and instruments.</p>
+        </div>
+        <div class="card">
+          <h3>Wildcard</h3>
+          <p>Experimental strategies that fall outside of traditional verticals — built to innovate.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Semester Format -->
+  <section class="section" id="semester">
+    <div class="container" data-aos="fade-up">
+      <h2 class="section-title">Structure of a Semester</h2>
+      <ul class="workflow-list">
+        <li><strong>Desk Pitches:</strong> Each desk delivers one formal pitch per semester with core idea and hedge.</li>
+        <li><strong>New Member Project:</strong> All new members complete an original pitch — any strategy, any asset class.</li>
+        <li><strong>Education:</strong> Weekly training covering valuation, modeling, markets, and hedge fund case studies.</li>
+        <li><strong>Career Development:</strong> Resume refinement, interview preparation, and mentorship from experienced members.</li>
+        <li><strong>Semester Dinner:</strong> A formal dinner celebrating pitches and individual contributions.</li>
+        <li><strong>Club Culture:</strong> Internal socials to build a strong, collaborative, and enduring network.</li>
       </ul>
-    </nav>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="container">
-    <h1>New Wave Capital Investments</h1>
-    <p>A Hedge Fund Club at the University of Michigan</p>
-    <a href="#join" class="btn-primary">Join the Fund</a>
-  </div>
-</section>
-
-<section id="mission" class="section">
-  <div class="container two-col">
-    <div>
-      <h2>Who Are We?</h2>
-      <p>
-        New Wave Capital is a student-run hedge fund based at the University of Michigan, driven by members with experience at top firms and clubs like BlackRock, Morgan Stanley, and the Global Investments Committee.
-        We welcome both Ross and Non-Ross students, uniting ambitious individuals from business, engineering, and public policy backgrounds.
-      </p>
     </div>
-    <div>
-      <h2>Our Vision</h2>
-      <p>
-        We believe in thinking outside the box. Members gain exposure to unconventional investment strategies—from polymarket arbitrage to AI-driven quantitative models—mimicking real hedge fund environments and fostering real financial insight.
-      </p>
+  </section>
+
+  <!-- Join CTA -->
+  <section class="section-alt text-center" id="join">
+    <div class="container" data-aos="zoom-in">
+      <h2>Join New Wave Capital</h2>
+      <p class="section-description">We recruit each semester. All backgrounds welcome. Excellence expected.</p>
+      <a href="mailto:join@newwaveumich.org" class="btn-secondary">Apply Now</a>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="desks" class="section-alt">
-  <div class="container">
-    <h2 class="section-title">Investment Strategy Desks</h2>
-    <p class="section-description">
-      Members are grouped into specialized desks, each focusing on unique approaches to alpha generation.
-    </p>
-    <div class="grid-3">
-      <div class="card">
-        <h3>Long/Short Equity</h3>
-        <p>Traditional public market investing, with technical + fundamental analysis.</p>
-      </div>
-      <div class="card">
-        <h3>Quantitative</h3>
-        <p>AI/ML models, backtesting strategies, alternative data — for STEM-savvy traders.</p>
-      </div>
-      <div class="card">
-        <h3>Arbitrage</h3>
-        <p>Polymarket, price inefficiencies, and hedged mispricing across asset classes.</p>
-      </div>
-      <div class="card">
-        <h3>Macro & Policy</h3>
-        <p>Top-down research on macro trends, monetary policy, and global catalysts.</p>
-      </div>
-      <div class="card">
-        <h3>Private Equity</h3>
-        <p>Company valuation, leveraged buyouts, and off-market deal exploration.</p>
-      </div>
-      <div class="card">
-        <h3>Wildcard</h3>
-        <p>Experimental strategies and bold thesis-driven pitches unconstrained by tradition.</p>
-      </div>
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-container">
+      <p>&copy; 2025 New Wave Capital – University of Michigan</p>
+      <p>Designed by the NWC Tech & Media Team</p>
     </div>
-  </div>
-</section>
+  </footer>
 
-<section id="workflow" class="section">
-  <div class="container">
-    <h2 class="section-title">A Semester in New Wave</h2>
-    <ul class="workflow-list">
-      <li>📊 <strong>Desk Pitches:</strong> Each desk presents a core strategy + hedge once per semester.</li>
-      <li>📁 <strong>New Member Project:</strong> Complete an individualized pitch on any asset class.</li>
-      <li>📚 <strong>Education Sessions:</strong> Weekly workshops on modeling, valuation, and hedge fund strategies.</li>
-      <li>🎯 <strong>Career Prep:</strong> Resume reviews, interview bootcamps, and alumni networking.</li>
-      <li>🍽️ <strong>Semester Dinner:</strong> Celebrate pitch success and bond with fellow members.</li>
-      <li>🎉 <strong>Club Social:</strong> Finance is serious — but fun matters too. End the term with a blowout.</li>
-    </ul>
-  </div>
-</section>
-
-<section id="join" class="section-alt">
-  <div class="container text-center">
-    <h2>Join New Wave Capital</h2>
-    <p class="section-description">We're looking for bold thinkers, contrarian minds, and the next leaders in investing.</p>
-    <a href="mailto:join@newwaveumich.org" class="btn-secondary">Apply Now</a>
-  </div>
-</section>
-
-<footer>
-  <div class="container footer-container">
-    <p>© 2025 New Wave Capital | Designed for the University of Michigan</p>
-    <p>Contact us at <a href="mailto:join@newwaveumich.org">join@newwaveumich.org</a></p>
-  </div>
-</footer>
-
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 900, once: true });
+  </script>
 </body>
 </html>
