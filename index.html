@@ -3,246 +3,117 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Statmint | Healthcare Markets Made Clear</title>
-  <meta name="description" content="Track biotech stocks, FDA approvals, and IPOs in one streamlined platform.">
-  <link rel="icon" href="statmint_logo.jpeg" type="image/jpeg" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --primary: #0d6efd;
-      --dark-bg: #0a0a0a;
-      --accent: #377dff;
-      --light-bg: #f8f9fa;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      background-color: white;
-      color: #111;
-    }
-
-    header {
-      background-color: var(--dark-bg);
-      padding: 0.5rem 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    header img {
-      height: 100px;
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-      margin-top: 0.5rem;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: var(--accent);
-    }
-
-    .hero {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        url('topstats-cover.jpg') center/cover no-repeat;
-      color: white;
-      text-align: center;
-      padding: 6rem 1.5rem;
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 720px;
-      margin: 1rem auto 2rem;
-      color: #e2e2e2;
-    }
-
-    .section-title {
-      font-size: 1.8rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-
-    .highlight-box {
-      background-color: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-      height: 100%;
-      transition: 0.2s ease;
-    }
-
-    .highlight-box:hover {
-      transform: translateY(-4px);
-    }
-
-    .alt-section {
-      background-color: var(--light-bg);
-    }
-
-    footer {
-      background-color: #000;
-      color: #bbb;
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-    }
-
-    footer a {
-      color: var(--accent);
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-      .hero p {
-        font-size: 1rem;
-      }
-      header img {
-        height: 70px;
-      }
-    }
-
-    @media (max-width: 576px) {
-      .hero {
-        padding: 4rem 1rem;
-      }
-      nav {
-        justify-content: center;
-        margin-top: 0.5rem;
-      }
-    }
-  </style>
-
-  <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/d2d250c802bfd483cacae4979/8b79fecc3676197e648a8e871.js");</script>
+  <title>New Wave Capital | UMich Hedge Fund Club</title>
+  <meta name="description" content="New Wave Capital is the University of Michigan's premier student-run hedge fund club, fostering innovative investment strategies and elite financial education.">
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link href="styles.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
 <header>
-  <a href="index.html"><img src="statmint_logo.jpeg" alt="Statmint Logo"></a>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="stocks.html">Healthcare Stocks</a>
-    <a href="fda.html">FDA Approvals</a>
-    <a href="ipos.html">Initial Public Offerings</a>
-  </nav>
+  <div class="container header-container">
+    <img src="logo.png" alt="NWC Logo" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="#mission">About</a></li>
+        <li><a href="#desks">Desks</a></li>
+        <li><a href="#workflow">What We Do</a></li>
+        <li><a href="#join">Join</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
-<section class="hero" data-aos="fade-zoom-in">
-  <h1 data-aos="fade-down">Healthcare Markets Made Clear</h1>
-  <p data-aos="fade-up">Track biotech stocks in clinical trials, FDA approvals, IPOs, and market shifts — in one place.</p>
-  <a href="stocks.html" class="btn btn-primary btn-lg" data-aos="zoom-in">Start Tracking</a>
+<section class="hero">
+  <div class="container">
+    <h1>New Wave Capital Investments</h1>
+    <p>A Hedge Fund Club at the University of Michigan</p>
+    <a href="#join" class="btn-primary">Join the Fund</a>
+  </div>
 </section>
 
-<section class="text-center py-5" data-aos="fade-up">
+<section id="mission" class="section">
+  <div class="container two-col">
+    <div>
+      <h2>Who Are We?</h2>
+      <p>
+        New Wave Capital is a student-run hedge fund based at the University of Michigan, driven by members with experience at top firms and clubs like BlackRock, Morgan Stanley, and the Global Investments Committee.
+        We welcome both Ross and Non-Ross students, uniting ambitious individuals from business, engineering, and public policy backgrounds.
+      </p>
+    </div>
+    <div>
+      <h2>Our Vision</h2>
+      <p>
+        We believe in thinking outside the box. Members gain exposure to unconventional investment strategies—from polymarket arbitrage to AI-driven quantitative models—mimicking real hedge fund environments and fostering real financial insight.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="desks" class="section-alt">
   <div class="container">
-    <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">What is Statmint</h2>
-    <p class="mx-auto" style="max-width: 720px;" data-aos="fade-up" data-aos-delay="200">
-      Statmint is a data-forward healthcare intelligence platform. It consolidates biotech stock insights, IPOs, and drug development milestones into one research-grade source.
+    <h2 class="section-title">Investment Strategy Desks</h2>
+    <p class="section-description">
+      Members are grouped into specialized desks, each focusing on unique approaches to alpha generation.
     </p>
-  </div>
-</section>
-
-<section class="alt-section text-center py-5" data-aos="fade-up">
-  <div class="container">
-    <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Explore Focus Areas</h2>
-    <div class="row justify-content-center mt-4 g-3">
-      <div class="col-6 col-md-2" data-aos="zoom-in" data-aos-delay="200">
-        <a href="stocks.html" class="btn btn-outline-primary w-100">Healthcare Stocks</a>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Long/Short Equity</h3>
+        <p>Traditional public market investing, with technical + fundamental analysis.</p>
       </div>
-      <div class="col-6 col-md-2" data-aos="zoom-in" data-aos-delay="300">
-        <a href="fda.html" class="btn btn-outline-primary w-100">FDA Approvals</a>
+      <div class="card">
+        <h3>Quantitative</h3>
+        <p>AI/ML models, backtesting strategies, alternative data — for STEM-savvy traders.</p>
       </div>
-      <div class="col-6 col-md-2" data-aos="zoom-in" data-aos-delay="400">
-        <a href="ipos.html" class="btn btn-outline-primary w-100">IPOs</a>
+      <div class="card">
+        <h3>Arbitrage</h3>
+        <p>Polymarket, price inefficiencies, and hedged mispricing across asset classes.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="py-5">
-  <div class="container">
-    <h2 class="section-title text-center" data-aos="fade-up">Why Investors Use Statmint</h2>
-    <div class="row mt-4">
-      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="highlight-box text-center">
-          <h5>Healthcare-Only Focus</h5>
-          <p>Our content is tailored to biotech and pharma — from preclinical pipelines to post-market IPO moves.</p>
-        </div>
+      <div class="card">
+        <h3>Macro & Policy</h3>
+        <p>Top-down research on macro trends, monetary policy, and global catalysts.</p>
       </div>
-      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="highlight-box text-center">
-          <h5>Investor-Grade Design</h5>
-          <p>We simplify clinical complexity into readable insights and make trends visible through clear visualizations.</p>
-        </div>
+      <div class="card">
+        <h3>Private Equity</h3>
+        <p>Company valuation, leveraged buyouts, and off-market deal exploration.</p>
       </div>
-      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-        <div class="highlight-box text-center">
-          <h5>Always Free</h5>
-          <p>Statmint is built to be accessible for students, analysts, and public market professionals alike.</p>
-        </div>
+      <div class="card">
+        <h3>Wildcard</h3>
+        <p>Experimental strategies and bold thesis-driven pitches unconstrained by tradition.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- About the Creator Section -->
-<section class="alt-section py-5">
+<section id="workflow" class="section">
+  <div class="container">
+    <h2 class="section-title">A Semester in New Wave</h2>
+    <ul class="workflow-list">
+      <li>📊 <strong>Desk Pitches:</strong> Each desk presents a core strategy + hedge once per semester.</li>
+      <li>📁 <strong>New Member Project:</strong> Complete an individualized pitch on any asset class.</li>
+      <li>📚 <strong>Education Sessions:</strong> Weekly workshops on modeling, valuation, and hedge fund strategies.</li>
+      <li>🎯 <strong>Career Prep:</strong> Resume reviews, interview bootcamps, and alumni networking.</li>
+      <li>🍽️ <strong>Semester Dinner:</strong> Celebrate pitch success and bond with fellow members.</li>
+      <li>🎉 <strong>Club Social:</strong> Finance is serious — but fun matters too. End the term with a blowout.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="join" class="section-alt">
   <div class="container text-center">
-    <h2 class="section-title" data-aos="fade-up">About the Creator</h2>
-    <div class="row justify-content-center align-items-center mt-4">
-      <div class="col-md-3 mb-3" data-aos="zoom-in">
-        <img src="your-image.jpg" alt="Statmint Creator" class="img-fluid rounded-circle shadow" style="max-width: 180px;">
-      </div>
-      <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
-        <p class="lead mb-2">
-          I'm a sophomore at the University of Michigan with a strong interest in the intersection of finance and healthcare. As an Evans Scholar, I launched Statmint to simplify biotech markets for analysts, students, and investors who value clarity in complexity.
-        </p>
-        <p>
-          <a href="mailto:emanrod@umich.edu" class="btn btn-outline-dark btn-sm me-2">emanrod@umich.edu</a>
-          <a href="https://www.linkedin.com/in/emanuel-rodriguez-7a93a2318/" target="_blank" class="btn btn-outline-primary btn-sm">LinkedIn</a>
-        </p>
-      </div>
-    </div>
+    <h2>Join New Wave Capital</h2>
+    <p class="section-description">We're looking for bold thinkers, contrarian minds, and the next leaders in investing.</p>
+    <a href="mailto:join@newwaveumich.org" class="btn-secondary">Apply Now</a>
   </div>
 </section>
 
 <footer>
-  <div class="container">
-    <p class="mb-1">© 2025 Statmint. All content is freely accessible for public use.</p>
-    <p>Questions? <a href="mailto:info@statmint.org">Contact us</a></p>
+  <div class="container footer-container">
+    <p>© 2025 New Wave Capital | Designed for the University of Michigan</p>
+    <p>Contact us at <a href="mailto:join@newwaveumich.org">join@newwaveumich.org</a></p>
   </div>
 </footer>
 
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 1000,
-    once: true,
-    easing: 'ease-in-out'
-  });
-</script>
 </body>
 </html>
