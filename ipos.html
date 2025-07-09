@@ -13,37 +13,41 @@
     :root {
       --primary: #0d6efd;
       --dark: #0a0a0a;
-      --accent: #377dff;
+      --accent: #1a73e8;
       --muted: #6c757d;
+      --light-bg: #f8f9fa;
+      --soft-gray: #f1f3f5;
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #f8f9fa;
+      background: var(--light-bg);
       color: #212529;
       margin: 0;
     }
 
     header {
-      background: var(--dark);
-      padding: 0.5rem 2rem;
+      background: #000;
+      padding: 0.75rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
     header img {
-      height: 160px;
+      height: 140px;
     }
 
     nav a {
-      margin-left: 1.5rem;
-      color: #fff;
+      margin-left: 1.8rem;
+      color: #f1f3f5;
       text-decoration: none;
       font-weight: 500;
+      font-size: 1rem;
     }
 
     nav a:hover {
@@ -51,54 +55,53 @@
     }
 
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
         url('ipos-hero.jpg') center/cover no-repeat;
       color: #fff;
       text-align: center;
-      padding: 7rem 2rem;
+      padding: 6rem 2rem;
     }
 
     .hero h1 {
       font-size: 3rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
     }
 
     .hero p {
-      max-width: 800px;
-      margin: 0 auto;
       font-size: 1.2rem;
       color: #dee2e6;
+      max-width: 800px;
+      margin: 1rem auto 0;
     }
 
     .section {
       padding: 4rem 2rem;
     }
 
-    table {
+    .table {
       background: #fff;
-      border-collapse: collapse;
-      width: 100%;
-      border-radius: 8px;
+      border-radius: 12px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
       overflow: hidden;
     }
 
-    th, td {
-      padding: 1rem 1.2rem;
-      border-bottom: 1px solid #dee2e6;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    th {
-      background: #f1f3f5;
+    thead th {
+      background-color: var(--soft-gray);
       text-transform: uppercase;
       font-size: 0.85rem;
       letter-spacing: 0.05em;
+      padding: 1rem 1.2rem;
+    }
+
+    tbody td {
+      padding: 1rem 1.2rem;
+      vertical-align: top;
+      border-bottom: 1px solid #e3e3e3;
     }
 
     tbody tr:hover {
-      background: #f8f9fa;
+      background: #f4f7fc;
+      transition: background 0.2s ease;
     }
 
     footer {
@@ -150,68 +153,36 @@
           </thead>
           <tbody>
             <tr>
-              <td>GeneCure Therapeutics</td>
-              <td>GNCR</td>
-              <td>January 18, 2025</td>
-              <td>$180M</td>
-              <td>Rare Genetic Diseases</td>
-              <td>IPO proceeds fund next-gen gene therapies for ultra-rare disorders with no approved treatments.</td>
+              <td>Sionna Therapeutics</td>
+              <td>SION</td>
+              <td>February 7, 2025</td>
+              <td>$219.2M</td>
+              <td>Cystic fibrosis</td>
+              <td>Develops drugs for cystic fibrosis that stabilize the CFTR protein, targeting patients who don’t respond to existing therapies.</td>
             </tr>
             <tr>
-              <td>OncoNova Bio</td>
-              <td>ONVB</td>
+              <td>Anbio Biotech</td>
+              <td>NNNN</td>
+              <td>February 19, 2025</td>
+              <td>$8M</td>
+              <td>IVD diagnostics</td>
+              <td>Makes rapid tests for diseases like COVID-19, flu, and RSV. Products are used by clinics, hospitals, and governments, especially across Asia.</td>
+            </tr>
+            <tr>
+              <td>Wellgistics Health</td>
+              <td>WGRX</td>
+              <td>February 21, 2025</td>
+              <td>$4M</td>
+              <td>Pharmacy tech</td>
+              <td>Provides pharmacy logistics and inventory software, helping independent pharmacies and small providers manage supply chains.</td>
+            </tr>
+            <tr>
+              <td>Basel Medical Group</td>
+              <td>BMGL</td>
               <td>February 25, 2025</td>
-              <td>$250M</td>
-              <td>Oncology</td>
-              <td>Developer of targeted small molecules for resistant solid tumors, expanding Phase II trials post-IPO.</td>
-            </tr>
-            <tr>
-              <td>ImmunoNext Inc.</td>
-              <td>IMNX</td>
-              <td>March 10, 2025</td>
-              <td>$300M</td>
-              <td>Immuno-oncology</td>
-              <td>Emerging player in T-cell therapies for difficult-to-treat cancers, using novel bispecific antibodies.</td>
-            </tr>
-            <tr>
-              <td>NeuroSpark Health</td>
-              <td>NSPK</td>
-              <td>April 5, 2025</td>
-              <td>$120M</td>
-              <td>Neurology</td>
-              <td>Focused on neurodegenerative diseases, advancing a lead compound for ALS and Parkinson’s symptoms.</td>
-            </tr>
-            <tr>
-              <td>CardioNova</td>
-              <td>CDNV</td>
-              <td>May 22, 2025</td>
-              <td>$200M</td>
-              <td>Cardiology</td>
-              <td>Developing RNA-based treatments for heart failure and other chronic cardiovascular conditions.</td>
-            </tr>
-            <tr>
-              <td>Caris Life Sciences</td>
-              <td>CAI</td>
-              <td>June 18, 2025</td>
-              <td>$494M</td>
-              <td>Cancer diagnostics</td>
-              <td>Caris uses AI and molecular profiling (DNA, RNA, protein) to guide cancer treatment decisions. Doctors use it to match patients to targeted therapies.</td>
-            </tr>
-            <tr>
-              <td>Omada Health</td>
-              <td>OMDA</td>
-              <td>June 6, 2025</td>
-              <td>~$150M</td>
-              <td>Chronic care digital</td>
-              <td>A digital platform for chronic conditions like diabetes and hypertension. Patients get coaching, devices, and app-based tracking to manage health remotely.</td>
-            </tr>
-            <tr>
-              <td>Hinge Health</td>
-              <td>HNGE</td>
-              <td>May 22, 2025</td>
-              <td>$437.3M</td>
-              <td>Dimensional therapy</td>
-              <td>Provides virtual care for joint and back pain using sensors, remote coaches, and a mobile app. It’s a digital alternative to in-person physical therapy.</td>
+              <td>$8.82M</td>
+              <td>Surgical clinics</td>
+              <td>Operates clinics focused on spine and neurosurgery in Southeast Asia. Services target both local patients and medical tourists.</td>
             </tr>
             <tr>
               <td>Aardvark Therapeutics</td>
@@ -230,28 +201,12 @@
               <td>Builds microfluidic chips for early-stage cancer detection. These are cheap, small, and designed for fast testing without major lab infrastructure.</td>
             </tr>
             <tr>
-              <td>Anbio Biotech</td>
-              <td>NNNN</td>
-              <td>February 19, 2025</td>
-              <td>$8M</td>
-              <td>IVD diagnostics</td>
-              <td>Makes rapid tests for diseases like COVID-19, flu, and RSV. Products are used by clinics, hospitals, and governments, especially across Asia.</td>
-            </tr>
-            <tr>
-              <td>Basel Medical Group</td>
-              <td>BMGL</td>
-              <td>February 25, 2025</td>
-              <td>$8.82M</td>
-              <td>Surgical clinics</td>
-              <td>Operates clinics focused on spine and neurosurgery in Southeast Asia. Services target both local patients and medical tourists.</td>
-            </tr>
-            <tr>
-              <td>Wellgistics Health</td>
-              <td>WGRX</td>
-              <td>February 21, 2025</td>
-              <td>$4M</td>
-              <td>Pharmacy tech</td>
-              <td>Provides pharmacy logistics and inventory software, helping independent pharmacies and small providers manage supply chains.</td>
+              <td>ImmunoNext Inc.</td>
+              <td>IMNX</td>
+              <td>March 10, 2025</td>
+              <td>$300M</td>
+              <td>Immuno-oncology</td>
+              <td>Emerging player in T-cell therapies for difficult-to-treat cancers, using novel bispecific antibodies.</td>
             </tr>
             <tr>
               <td>Cuprina Holdings</td>
@@ -262,14 +217,61 @@
               <td>Makes wound-care products that use sterile maggots to clean chronic wounds like diabetic foot ulcers. FDA cleared and already in use.</td>
             </tr>
             <tr>
-              <td>Sionna Therapeutics</td>
-              <td>SION</td>
-              <td>February 7, 2025</td>
-              <td>$219.2M</td>
-              <td>Cystic fibrosis</td>
-              <td>Develops drugs for cystic fibrosis that stabilize the CFTR protein, targeting patients who don’t respond to existing therapies.</td>
+              <td>NeuroSpark Health</td>
+              <td>NSPK</td>
+              <td>April 5, 2025</td>
+              <td>$120M</td>
+              <td>Neurology</td>
+              <td>Focused on neurodegenerative diseases, advancing a lead compound for ALS and Parkinson’s symptoms.</td>
             </tr>
-            <!-- Add more rows as real IPOs occur -->
+            <tr>
+              <td>CardioNova</td>
+              <td>CDNV</td>
+              <td>May 22, 2025</td>
+              <td>$200M</td>
+              <td>Cardiology</td>
+              <td>Developing RNA-based treatments for heart failure and other chronic cardiovascular conditions.</td>
+            </tr>
+            <tr>
+              <td>Hinge Health</td>
+              <td>HNGE</td>
+              <td>May 22, 2025</td>
+              <td>$437.3M</td>
+              <td>Dimensional therapy</td>
+              <td>Provides virtual care for joint and back pain using sensors, remote coaches, and a mobile app. It’s a digital alternative to in-person physical therapy.</td>
+            </tr>
+            <tr>
+              <td>Omada Health</td>
+              <td>OMDA</td>
+              <td>June 6, 2025</td>
+              <td>~$150M</td>
+              <td>Chronic care digital</td>
+              <td>A digital platform for chronic conditions like diabetes and hypertension. Patients get coaching, devices, and app-based tracking to manage health remotely.</td>
+            </tr>
+            <tr>
+              <td>Caris Life Sciences</td>
+              <td>CAI</td>
+              <td>June 18, 2025</td>
+              <td>$494M</td>
+              <td>Cancer diagnostics</td>
+              <td>Caris uses AI and molecular profiling (DNA, RNA, protein) to guide cancer treatment decisions. Doctors use it to match patients to targeted therapies.</td>
+            </tr>
+            <tr>
+              <td>GeneCure Therapeutics</td>
+              <td>GNCR</td>
+              <td>January 18, 2025</td>
+              <td>$180M</td>
+              <td>Rare Genetic Diseases</td>
+              <td>IPO proceeds fund next-gen gene therapies for ultra-rare disorders with no approved treatments.</td>
+            </tr>
+            <tr>
+              <td>OncoNova Bio</td>
+              <td>ONVB</td>
+              <td>February 25, 2025</td>
+              <td>$250M</td>
+              <td>Oncology</td>
+              <td>Developer of targeted small molecules for resistant solid tumors, expanding Phase II trials post-IPO.</td>
+            </tr>
           </tbody>
         </table>
       </div>
