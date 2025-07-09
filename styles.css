@@ -1,0 +1,80 @@
+/* styles.css */
+
+:root {
+  --primary: #0d6efd;
+  --dark: #0a0a0a;
+  --accent: #1a73e8;
+  --muted: #6c757d;
+  --light-bg: #f8f9fa;
+  --soft-gray: #f1f3f5;
+  --row-hover: #eaf1fb;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--light-bg);
+  color: #212529;
+  margin: 0;
+}
+
+header {
+  background: #000;
+  padding: 0.75rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header img {
+  height: 140px;
+}
+
+nav a {
+  margin-left: 1.8rem;
+  color: #f1f3f5;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.2s ease-in-out;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+    url('ipos-hero.jpg') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 6rem 2rem;
+}
+
+.hero h1 {
+  font-size: 3.25rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: #dee2e6;
+  max-width: 800px;
+  margin: 1rem auto 0;
+}
+
+footer {
+  background: var(--dark);
+  color: #adb5bd;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: var(--accent);
+}
