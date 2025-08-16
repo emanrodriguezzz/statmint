@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -21,10 +21,11 @@
       background-color: #0d0d0d;
       color: #f1f1f1;
       font-family: 'Inter', sans-serif;
+      line-height: 1.6;
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 900px;
     }
 
     h1 {
@@ -33,33 +34,27 @@
       text-shadow: 0 0 8px rgba(0, 201, 255, 0.3);
     }
 
-    .pub-card {
+    h2 {
+      color: #00c9ff;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .publication {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 3rem;
       box-shadow: 0 0 10px rgba(0, 201, 255, 0.05);
-      padding: 1.5rem;
       transition: all 0.3s ease;
-      height: 100%;
     }
 
-    .pub-card:hover {
-      transform: translateY(-5px);
+    .publication:hover {
       box-shadow: 0 0 20px rgba(0, 201, 255, 0.15);
     }
 
-    .btn-outline-primary {
-      border-color: #00c9ff;
-      color: #00c9ff;
-    }
-
-    .btn-outline-primary:hover {
-      background-color: #00c9ff;
-      color: #000;
-      box-shadow: 0 0 10px #00c9ff;
-    }
-
-    header, footer {
+    footer {
       background-color: #111;
       padding: 1.5rem 1rem;
       text-align: center;
@@ -69,42 +64,91 @@
       color: #999;
       font-size: 0.9rem;
     }
-
-    a {
-      text-decoration: none;
-    }
   </style>
 </head>
 
 <body>
 
-<header>
+<header class="text-center py-4 bg-black">
   <h1>📘 Statmint Publications</h1>
   <p class="text-muted">Weekly healthcare insights published every Sunday</p>
 </header>
 
 <main class="container py-5">
-  <div class="row g-4">
 
-    <!-- August 18 Weekly Issue -->
-    <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-      <div class="pub-card h-100">
-        <h5 class="text-info mb-2">Statmint Weekly — August 18, 2025</h5>
-        <p class="small text-muted mb-3">Alzheimer’s trial catalysts, FDA approvals, biotech IPO activity and more.</p>
-        <a href="publications/week-aug18.html" class="btn btn-outline-primary btn-sm w-100">Read Issue</a>
-      </div>
-    </div>
+  <!-- August 18, 2025 Issue -->
+  <div class="publication" data-aos="fade-up">
+    <h2>Statmint Weekly — August 18, 2025</h2>
+    <p class="text-muted">Published Sunday, August 18, 2025</p>
 
-    <!-- August 17 Weekly Issue -->
-    <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-      <div class="pub-card h-100">
-        <h5 class="text-info mb-2">Statmint Weekly — August 17, 2025</h5>
-        <p class="small text-muted mb-3">FDA fast tracks, IPO surges, and key trial milestones.</p>
-        <a href="publications/week-aug17.html" class="btn btn-outline-primary btn-sm w-100">Read Issue</a>
-      </div>
-    </div>
+    <h3>🧪 FDA Approval Highlights</h3>
+    <ul>
+      <li><strong>Veradine’s VX-105</strong> received accelerated approval for treatment-resistant lung cancer.</li>
+      <li><strong>Emergex Biotech</strong> granted EUA for mosquito-borne virus vaccine in South America.</li>
+    </ul>
 
+    <h3>📈 IPO Watch</h3>
+    <ul>
+      <li><strong>Oncova Therapeutics (ONCV)</strong> raised $112M, closing +9% on first day.</li>
+      <li><strong>Biogenix (BGNX)</strong> filed IPO targeting $150M for rare liver disease platform.</li>
+    </ul>
+
+    <h3>🔬 Stocks to Watch</h3>
+    <ul>
+      <li><strong>Neurovia (NRVA)</strong> — Phase 3 Alzheimer’s trial readout expected Thursday.</li>
+      <li><strong>Genexia (GEX)</strong> — Up 18% on strong preclinical data.</li>
+    </ul>
+
+    <h3>📰 Healthcare Market News</h3>
+    <ul>
+      <li>Senate drug pricing hearing set for Aug 22.</li>
+      <li>Moderna announces European vaccine partnership.</li>
+      <li>Biotech ETF (XBI) rose 2.6% this week on small-cap recovery.</li>
+    </ul>
+
+    <blockquote class="blockquote text-info">
+      "14 biotech IPOs have launched since July 1, raising a combined $1.4B — the strongest 6-week stretch since early 2022."
+    </blockquote>
+
+    <p><strong>Insight:</strong> Investor sentiment is returning to CNS and oncology biotech, with IPOs regaining momentum.</p>
   </div>
+
+  <!-- August 17, 2025 Issue -->
+  <div class="publication" data-aos="fade-up">
+    <h2>Statmint Weekly — August 17, 2025</h2>
+    <p class="text-muted">Published Sunday, August 17, 2025</p>
+
+    <h3>🧪 FDA Approval Highlights</h3>
+    <ul>
+      <li><strong>BioNova’s BLV-301</strong> approved for rare leukemia — $600M peak sales expected.</li>
+      <li><strong>NeuroCura NC-12</strong> granted Fast Track for Alzheimer’s treatment.</li>
+    </ul>
+
+    <h3>📈 IPO Tracker</h3>
+    <ul>
+      <li><strong>Genovex (GNVX)</strong> raised $88M, opening +14% over listing.</li>
+      <li><strong>HelixBio</strong> filed confidentially for Q4 IPO.</li>
+    </ul>
+
+    <h3>🔬 Clinical Trials to Watch</h3>
+    <ul>
+      <li>Cardiomax’s <strong>CMX-101</strong> Phase 3 heart failure results expected Friday.</li>
+      <li><strong>Dermovita DV-09</strong> trial paused over safety concerns.</li>
+    </ul>
+
+    <h3>📊 Market Movers</h3>
+    <ul>
+      <li><strong>Argenix</strong> +18% after positive ARX-12 combo data.</li>
+      <li><strong>TravaGen</strong> -11% after weak Q2 earnings.</li>
+    </ul>
+
+    <blockquote class="blockquote text-info">
+      "8 of the last 10 FDA approvals have targeted rare or orphan conditions."
+    </blockquote>
+
+    <p><strong>Insight:</strong> IPO activity is rebounding, with Genovex’s debut signaling renewed interest in early oncology assets.</p>
+  </div>
+
 </main>
 
 <footer>
